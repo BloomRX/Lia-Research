@@ -1,0 +1,54 @@
+Lia-Research — Licensing Status
+
+Copyright (c) 2026 BloomRX. All rights reserved.
+
+This repository is PRIVATE and is an internal knowledge base of the Lia ecosystem.
+It is NOT an open-source distribution. This file is NOT a grant of license.
+
+Status of this file
+-------------------
+The order of service that created this repository (2026-11-17) explicitly forbids
+assigning a license to Lia-authored Skills and research material without an
+owner decision. Therefore this file deliberately does NOT declare MIT, Apache-2.0
+or any other license for Lia content.
+
+Consequences, stated plainly:
+- No permission is granted to copy, redistribute, sublicense or publish any
+  content of this repository.
+- Public visibility of any other BloomRX repository does not imply any license
+  for the material consolidated here.
+- Research "recommendations" in this repository are not legal advice and are not
+  a distribution decision.
+
+Third-party material
+--------------------
+This repository consolidates research ABOUT third-party projects. When a document
+quotes, summarizes or references third-party material, the original license and
+copyright remain with the original author. Every research report must record:
+
+- upstream repository URL;
+- upstream license identifier as read from the upstream LICENSE file;
+- the commit analyzed;
+- whether the content was copied, summarized or transformed.
+
+Where third-party license texts are reproduced for compliance purposes, they are
+stored under the path named in the corresponding report and are not relicensed by
+this file. See governance/LICENSE-AND-PROVENANCE-POLICY.md and
+governance/SOURCE-PRESERVATION-POLICY.md.
+
+Lia Skills ("lia-*")
+--------------------
+The author of the Lia ecosystem states that Lia Skills were created by the owner
+or by AI at the owner's request. That statement establishes authorship intent; it
+does NOT establish a distribution license. As of 2026-11-17 no license has been
+applied to Lia Skills. This is an open decision, tracked in
+decisions/PENDING/DR-0001-LIA-SKILLS-LICENSING.md.
+
+Pending owner decision
+----------------------
+DECISION REQUIRED: choose the license (or the absence of a license) for
+Lia-authored content, and for each external capability the ecosystem reproduces or
+adapts. Until that decision exists, treat every document here as
+"internal use, no redistribution".
+
+Reference: governance/LICENSE-AND-PROVENANCE-POLICY.md
