@@ -11,7 +11,7 @@
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
 | Status | Fundação entregue (fases 0–3); fase 4 de medição `NOT RUN` |
-| Arquivos Markdown | 131 (contagem de 2026-11-17, `find -name '*.md'`), validados por `tools/validate.py` |
+| Arquivos Markdown | 132 (contagem de 2026-11-17, `find -name '*.md'`), validados por `tools/validate.py` |
 | Relatórios externos | 16 objetos auditados, 20 documentos |
 | Decisões | 13 abertas · 3 rejeições · 2 referência · 2 pastas vazias por desenho |
 
@@ -187,6 +187,7 @@ e por quê: `LIA-RESEARCH-FOUNDATION-REPORT.md`.
 | `LIA-RESEARCH-CONSOLIDATION-REPORT.md` | duplicatas, conflitos e o que a consolidação resolveu |
 | `LIA-RESEARCH-ACCESS-AND-AGENT-WORKFLOW.md` | como um agente consulta sem virar dependência |
 | `LIA-RESEARCH-ROADMAP.md` | as 4 fases do próximo ano, com critério de parada |
+| `LIA-RESEARCH-PHASE-CLOSURE-REPORT.md` | encerramento da fase Research, com pendências por responsável |
 
 ## 11. Manutenção
 
