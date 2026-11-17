@@ -1,0 +1,57 @@
+# Fonte: BloomRX/Lia-Project@005a324 (branch arena/7fa837f0-lia-project)
+# Coleta: 2026-11-17 · método: leitura de airi/packages/stage-ui/src/libs/providers/providers/<id>/index.ts
+provider_dir	declared_id	declared_tasks	declared_capabilities
+302-ai	302-ai	chat	
+aihubmix	aihubmix	chat	
+aliyun-nls	aliyun-nls-transcription	speech-to-text,automatic-speech-recognition,asr,stt,streaming-transcription	transcription
+amazon-bedrock	amazon-bedrock	chat	
+anthropic	anthropic	chat	
+apple-speech	?	speech-to-text,automatic-speech-recognition,asr,stt,streaming-transcription	transcription
+atlascloud	atlascloud	chat	
+azure-ai-foundry	azure-ai-foundry	chat	
+azure-openai	azure-openai	chat	
+browser-web-speech-api	browser-web-speech-api	speech-to-text,automatic-speech-recognition,asr,stt,streaming-transcription	transcription
+byteplus-coding-plan	byteplus-coding-plan	?	
+byteplus	byteplus	?	
+cerebras-ai	cerebras-ai	chat	
+cloudflare-workers-ai	cloudflare-workers-ai	chat	
+comet-api	comet-api	chat	transcription
+custom-local-voice	?	text-to-speech	
+deepseek	deepseek	chat	
+elevenlabs	elevenlabs	text-to-speech	
+featherless-ai	featherless-ai	chat	
+fireworks-ai	fireworks-ai	chat	
+google-gemini-audio-speech	google-gemini-audio-speech	text-to-speech,tts	
+google-generative-ai	google-generative-ai	chat	
+groq	groq	chat	
+index-tts-vllm	index-tts-vllm	text-to-speech	
+kokoro-local	kokoro-local	text-to-speech	
+lm-studio	lm-studio	chat	
+local-audio	app-local-audio-speech	text-to-speech,tts	transcription,transcription
+mimo-audio	mimo-audio-speech	text-to-speech	transcription
+mimo	mimo	chat	
+minimax-speech	minimax-speech	text-to-speech	
+minimax	minimax	chat	
+mistral-ai	mistral-ai	chat	
+modelscope	modelscope	chat	
+moonshot-ai	moonshot-ai	chat	
+n1n	n1n	chat	
+novita-ai	novita-ai	chat	
+nvidia	nvidia	chat	
+official	?	text-generation	speech,transcription
+ollama	ollama	chat	
+openai-audio	openai-audio-speech	text-to-speech	transcription,transcription
+openai-compatible	openai-compatible	chat	
+openai	openai	chat	
+openpaths	openpaths	chat	
+openrouter-ai	openrouter-ai	chat	
+openrouter-audio-speech	openrouter-audio-speech	text-to-speech	
+perplexity-ai	perplexity-ai	chat	
+player2-speech	player2-speech	text-to-speech	
+speech-noop	speech-noop	text-to-speech,tts	
+together-ai	together-ai	chat	
+unspeech	deepgram-tts	text-to-speech	
+voicevox	voicevox	?	
+volcengine-coding-plan	volcengine-coding-plan	?	
+xai	xai	chat	
+zai	zai	chat	

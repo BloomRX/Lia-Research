@@ -141,8 +141,10 @@ Bloqueio não é fim de pesquisa; é um resultado. Procedimento:
 5. Se a ausência inviabiliza a conclusão, a recomendação é `PENDENTE`, não `REJEITAR`.
 
 Exemplo real da fundação: a alteração de visibilidade do repositório para privado
-retornou HTTP 403 ("Resource not accessible by integration"). A fundação foi
-declarada com uma pendência explícita em vez de assumir que estava privado.
+retornou HTTP 403 ("Resource not accessible by integration"). A fundação foi declarada
+com uma pendência explícita em vez de assumir que estava privado — e, quando o
+proprietário decidiu manter o repositório público, a pendência virou decisão registrada
+(`decisions/ACCEPTED/DR-0006-REPOSITORY-PUBLIC.md`) em vez de desaparecer.
 
 ---
 

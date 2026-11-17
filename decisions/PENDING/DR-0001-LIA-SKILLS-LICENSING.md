@@ -13,11 +13,14 @@
 47 Skills autorais/adaptadas; **0 com licença no payload**. Declaração de autoria do
 proprietário existe; licença de distribuição não existe.
 
+Atualização de 2026-11-17: `lia-eventa-ipc` declara `license: MIT` no frontmatter — é a
+**única** das 21 Skills do repositório. A inconsistência está registrada em `LR-LIC-003` §7.4.
+
 ## O que precisa ser decidido
 1. Licença das Skills Lia (ou ausência explícita de licença).
 2. Se adaptações de terceiros (MIT) mantêm MIT apenas no trecho adaptado.
 3. Se Skills são distribuídas como payload exportável ou apenas usadas internamente.
-4. Se `alethe` (vendorizada, com patches) e as 29 AIRI entram no catálogo.
+4. Se `alethe` (vendorizada, com patches) e as 28 Skills AIRI entram no catálogo — auditoria em `LR-LIC-003`.
 
 ## Opções
 | Opção | Efeito |

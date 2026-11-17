@@ -42,7 +42,7 @@
 
 | # | Gate | Status | Evidência |
 |---|---|---|---|
-| 16 | Repositório privado | **FAIL (BLOCKED)** | `403 Resource not accessible by integration`; `DR-0006` |
+| 16 | Visibilidade do repositório | **PASS (reauditado)** | proprietário declarou público por decisão (`c9e6e97`); registrado em `decisions/ACCEPTED/DR-0006`; exposição revisada em `governance/PUBLIC-EXPOSURE-REVIEW-2026-11-17.md` |
 | 17 | Estrutura completa (§3) | PASS | todas as pastas com conteúdo, exceto 3 declaradas em `README.md` §8 |
 | 18 | 9 templates | PASS | `ls templates/` → 9 arquivos |
 | 19 | Governança (§9) | PASS | 8 documentos |
@@ -54,11 +54,19 @@
 
 ## 4. Os dois FAIL, explicados
 
-### 4.1 Repositório privado (item 16)
-Não é falha de execução: é permissão ausente no token da integração. Tentado por duas
-rotas (`gh repo edit`, `PATCH` direto), ambas 403. A consequência foi gerenciada:
-**nada sensível foi commitado** e a varredura de segredos passa com 0 ocorrências.
-Aberto em `DR-0006` com a ação exata que o proprietário precisa fazer.
+### 4.1 Visibilidade (item 16) — reauditado e resolvido
+Originalmente `FAIL / BLOCKED`: a tentativa de tornar privado retornou `403` por duas
+rotas, porque o token da integração não tem permissão de administração.
+
+**Resolução (2026-11-17):** o proprietário publicou, na `main`
+(`c9e6e97`), o README que declara o repositório público **por decisão** e define o modo
+de consumo read-only para agentes de projeto. A pendência deixa de ser bloqueio e passa
+a ser decisão registrada em `decisions/ACCEPTED/DR-0006-REPOSITORY-PUBLIC.md`.
+
+O gate correspondente mudou de pergunta: não é mais "está privado?", e sim **"a
+exposição pública foi revisada?"** — resposta em
+`governance/PUBLIC-EXPOSURE-REVIEW-2026-11-17.md`: 3 achados, 2 tratados, 0 pendentes
+na base.
 
 ### 4.2 Revisão humana (item 15)
 A fundação foi produzida por um agente. O protocolo exige revisor independente para
@@ -79,7 +87,7 @@ tem os hashes de conteúdo; o SHA completo pode ser resolvido quando necessário
 |---|---|
 | Correção técnica das análises | exige revisor humano com domínio |
 | Desempenho de qualquer tecnologia | nada foi executado |
-| Licença de 29 skills AIRI e `alethe` | `UNVERIFIED` declarado (`L-4`) |
+| Licença das 28 skills AIRI e `alethe` | **auditado** em `LR-LIC-003` (2ª rodada) |
 | Qualidade dos documentos de origem | não é papel desta base |
 
 ## 7. Conclusão

@@ -1,0 +1,54 @@
+# Fonte: BloomRX/Lia-Project@005a324 · coleta 2026-11-17
+# método: leitura de SKILL.md (frontmatter) + árvore; ver AIRI-AND-ALETHE-PROVENANCE.md
+grupo	skill	author_metadata	source_metadata	license_metadata	skill_md_bytes
+root	airi-upstream-integration	—	—	—	4673
+root	alethe	—	—	—	21460
+root	lia-agent-evaluation	—	—	—	4973
+root	lia-agent-orchestration	—	—	—	3104
+root	lia-ai-sdk-integration	—	—	—	1389
+root	lia-browser-automation	—	—	—	1746
+root	lia-electron-cdp-debugging	—	—	—	1239
+root	lia-eventa-ipc	—	—	MIT	1030
+root	lia-pnpm-workspaces	—	—	—	930
+root	lia-regression-investigation	—	—	—	4631
+root	lia-release-gate	—	—	—	4722
+root	lia-safe-change	—	—	—	2758
+root	lia-security-review	—	—	—	2472
+root	lia-test-discipline	—	—	—	2799
+root	lia-ui-quality-review	—	—	—	1487
+root	lia-unocss-ui	—	—	—	745
+root	lia-visual-evidence	—	—	—	1646
+root	lia-voice-diagnostics	—	—	—	2934
+root	lia-vue-development	—	—	—	1543
+root	lia-vue-testing	—	—	—	1360
+root	lia-windows-electron-validation	—	—	—	1755
+root	stage-runtime-debugging	—	—	—	4592
+root	airi/skills	—	—	—	127
+airi/agent-browser	—	—	—	3363
+airi/agent-browser-electron	—	—	—	10468
+airi/create-pr	—	—	—	3883
+airi/enforce-rules-for-unocss	—	—	—	2064
+airi/enforce-rules-for-vitest	—	—	—	3099
+airi/eventa	moeru-ai	—	MIT	9434
+airi/pinia	Anthony Fu	Generated from https://github.com/vuejs/pinia, scripts located at https://github.com/antfu/skills	—	2718
+airi/pnpm	Anthony Fu	Generated from https://github.com/pnpm/pnpm, scripts located at https://github.com/antfu/skills	—	4081
+airi/release-note-writer	—	—	—	9140
+airi/simple-english	—	—	MIT	18476
+airi/stage-tamagotchi-godot-csharp	—	—	—	2449
+airi/tsdown	—	—	—	12934
+airi/unocss	Anthony Fu	Generated from https://github.com/unocss/unocss, scripts located at https://github.com/antfu/skills	—	4234
+airi/upload-github-attachment	—	—	—	1991
+airi/use-agent-browser-for-airi	—	—	—	4522
+airi/use-agent-browser-with-input-file	—	—	—	2554
+airi/use-vishot	—	—	—	3466
+airi/use-vishot-for-airi	—	—	—	2265
+airi/use-vishot-with-capacitor	—	—	—	4129
+airi/use-vishot-with-electron	—	—	—	6845
+airi/use-vishot-with-input-file	—	—	—	2113
+airi/use-vishot-with-web	—	—	—	4829
+airi/vue	Anthony Fu	Generated from https://github.com/vuejs/docs, scripts at https://github.com/antfu/skills	—	2447
+airi/vue-best-practices	github.com/vuejs-ai	—	MIT	8802
+airi/vue-testing-best-practices	github.com/vuejs-ai	—	MIT	2128
+airi/vueuse-functions	SerKo <https://github.com/serkodev>	—	MIT	37285
+airi/web-design-guidelines	vercel	—	—	1230
+airi/xsai	—	—	—	5091

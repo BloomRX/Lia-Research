@@ -77,7 +77,7 @@ Qualquer elo quebrado invalida a decisão para auditoria.
 | `DR-0003` | adoção ou não do HA-MCP como adaptador | exige protótipo isolado + aceite de risco R2/R3 |
 | `DR-0004` | destino dos 9,9 MB de ZIP de terceiros no Lia-Studio | proveniência e licença de terceiro |
 | `DR-0005` | critério de "modelo validado" no catálogo de capacidades | exige bancada de medição no hardware real |
-| `DR-0006` | visibilidade do Lia-Research | ação bloqueada por permissão (403) |
+| ~~`DR-0006`~~ | visibilidade do Lia-Research | **resolvido**: proprietário decidiu público — ver `decisions/ACCEPTED/` |
 
 ## 7. Revisão de status
 

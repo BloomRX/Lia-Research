@@ -80,7 +80,7 @@ proíbe implementar durante a pesquisa.
 | Estabilidade de 86 tools do HA-MCP em uso real | `UNVERIFIED` | só documentação |
 | Qualidade de saída de `ai-design-skills` | `UNVERIFIED` | 9 arquivos, sem uso |
 | Retenção/ToS do RouterHub | `BLOCKED` | não publicado |
-| Licença das 29 skills AIRI | `UNVERIFIED` | auditoria pendente (`L-4`) |
+| Licença das 28 skills AIRI | **resolvido em 2026-11-17** | `LR-LIC-003`: 4 `USE_AS_IS`, 5 `ADAPT_ALLOWED`, 19 `RESEARCH_ONLY` |
 
 ## 6. Recomendação
 

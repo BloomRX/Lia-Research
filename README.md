@@ -1,17 +1,17 @@
 # Lia-Research
 
 **Base de conhecimento técnico central do ecossistema Lia.**
-Repositório privado. Não é aplicativo, não é dependência de runtime, não é pacote.
+**Público por decisão do proprietário.** Não é aplicativo, não é dependência de runtime, não é pacote.
 
 | Campo | Valor |
 |---|---|
 | Repositório | `BloomRX/Lia-Research` |
-| Visibilidade pretendida | PRIVADA |
+| Visibilidade | **PÚBLICA** — decisão do proprietário (`DR-0006`), consumo read-only para agentes de projeto |
 | Branch padrão | `main` |
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
 | Status | Fundação entregue (fases 0–3); fase 4 de medição `NOT RUN` |
-| Arquivos Markdown | 118, validados por `tools/validate.py` (0 erros) |
+| Arquivos Markdown | 131 (contagem de 2026-11-17, `find -name '*.md'`), validados por `tools/validate.py` |
 | Relatórios externos | 16 objetos auditados, 20 documentos |
 | Decisões | 13 abertas · 3 rejeições · 2 referência · 2 pastas vazias por desenho |
 
@@ -161,7 +161,7 @@ A regra aplicada: **nenhum diretório vazio** e nenhuma pasta criada para "compl
 | Verificação | Resultado |
 |---|---|
 | Repositório existe e está acessível | PASS |
-| Repositório privado | **FAIL / BLOCKED** — `403` na API; ver `DR-0006` |
+| Visibilidade pública revisada (substitui o gate "repositório privado") | **PASS** — `governance/PUBLIC-EXPOSURE-REVIEW-2026-11-17.md`: 3 achados no snapshot, 2 tratados, 0 pendentes |
 | Estrutura criada | PASS |
 | Governança e templates | PASS |
 | Inventário dos 5 projetos | PASS (58.478 arquivos, 1.620 docs, 645 Lia) |

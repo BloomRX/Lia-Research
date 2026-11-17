@@ -84,10 +84,15 @@ Se um segredo for commitado acidentalmente neste repositório:
 3. Registrar em `RESEARCH-CHANGELOG.md` que houve remoção de segredo e rotação.
 4. Se o repositório estava público no momento, tratar como comprometido.
 
-> Contexto real: este repositório foi criado em 2026-11-17 com visibilidade
-> **pública** e a alteração para privada retornou HTTP 403 (token sem permissão de
-> administração). Até a correção pelo proprietário, **nada sensível pode ser
-> commitado**. Ver `LIA-RESEARCH-FOUNDATION-REPORT.md` §2.
+> **Contexto (atualizado em 2026-11-17):** este repositório é **público por decisão do
+> proprietário** (`BloomRX/Lia-Research@c9e6e97`, README da `main`). Não há correção de
+> visibilidade pendente: a fundação havia registrado a tentativa como bloqueio
+> (`DR-0006`), e o proprietário resolveu a questão decidindo manter público.
+>
+> Consequência: a política de conteúdo é **permanente**, não transitória. Nada sensível
+> entra, em nenhuma hipótese, e toda coleta passa por revisão de exposição pública antes
+> de ser versionada — procedimento em
+> `governance/PUBLIC-EXPOSURE-REVIEW-2026-11-17.md`.
 
 ## 7. Segurança de terceiros citados
 

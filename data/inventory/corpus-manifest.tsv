@@ -1,3 +1,5 @@
+# Sanitizado em 2026-11-17: 1 arquivo excluído (LIA-AGENT-CONSUMPTION-AUDIT.local.md) e 3 e-mails redigidos.
+# Ver governance/PUBLIC-EXPOSURE-REVIEW-2026-11-17.md. Contagem: 235 arquivos.
 project	path	bytes	sha256_16
 Lia-AgentHub	README.md	7176	5fe4a07fa8c8e370
 Lia-AgentHub	docs/DECISION-REGISTER.md	35916	48bffbe1671a53eb
@@ -41,7 +43,7 @@ Lia-Forge	docs/CHARACTER-HAIR-MOTION-BACKENDS-AUDIT-3D.md	59983	77e2eaa031877b5b
 Lia-Forge	docs/COLIBRI-TECHNICAL-RESEARCH.md	16087	b4f4c9b6610acc75
 Lia-Forge	docs/DECISIONS-AND-OPEN-QUESTIONS.md	19579	ac07f9a740b27ffc
 Lia-Forge	docs/DOMAIN-CONTRACTS-AUDIT.md	24545	761dc769f8453cec
-Lia-Forge	docs/ECOSYSTEM-RESEARCH-BLENDER-ADDONS.md	45315	a9c210ed39fb7905
+Lia-Forge	docs/ECOSYSTEM-RESEARCH-BLENDER-ADDONS.md	45373	5f274a630c00db63
 Lia-Forge	docs/EXTERNAL-REPOSITORY-RESEARCH.md	120416	acb7e38bef44cf05
 Lia-Forge	docs/IMPLEMENTATION-AUDIT.md	35437	cf066cd312e3fdec
 Lia-Forge	docs/INDEPENDENT-ARCHITECTURE-REVIEW.md	79076	a197c325b981705d
@@ -102,7 +104,6 @@ Lia-Project	docs/architecture/AIRI-INDEPENDENCE-2026-10-28.md	15660	c88f02251b63
 Lia-Project	docs/architecture/AIRI-UPDATE-REVIEW-2026-10-28.md	15619	f053228fcbcd3a94
 Lia-Project	docs/architecture/ALETHE-HARDENING-2026-10-28.md	5910	4f978ed6cd4dc598
 Lia-Project	docs/architecture/ALETHE-VALIDATION-2026-10-28.md	8204	287abb8068404ba8
-Lia-Project	docs/architecture/LIA-AGENT-CONSUMPTION-AUDIT.local.md	27812	7829788715d6ac96
 Lia-Project	docs/architecture/LIA-AGENT-CONSUMPTION-AUDIT.md	22589	d774b616750154f7
 Lia-Project	docs/architecture/LIA-ARCHITECTURE.md	26321	1ad506cd0cc9fca3
 Lia-Project	docs/architecture/LIA-BETA-CREDENTIAL-AUDIT-2026-11-08.md	26097	44ed836959348f8a

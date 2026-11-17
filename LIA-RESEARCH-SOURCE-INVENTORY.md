@@ -88,7 +88,7 @@ que foi efetivamente lido (`rescript`, `rescript-lang.org`).
 | Dados de conta, telemetria, screenshots de sessão | política de segurança |
 | Termos de serviço do RouterHub | `BLOCKED` — não publicados |
 | Benchmarks próprios | exige execução (fase 4) |
-| Licença de 29 skills AIRI e do `alethe` | pendente (`L-4`) — `UNVERIFIED` declarado |
+| Licença das 28 skills AIRI e do `alethe` | **coletado** em 2026-11-17 (`LR-LIC-003`); origem individual de 19 delas segue `UNVERIFIED` |
 
 ## 7. Rastreabilidade
 

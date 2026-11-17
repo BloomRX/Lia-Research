@@ -8,6 +8,52 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-17 — 2ª rodada: fechamento das lacunas prioritárias
+
+### Pesquisa nova (ADD)
+- `LR-MODEL-005` **matriz capability × provider** (`cross-project/model-routing/CAPABILITY-PROVIDER-MATRIX.md`):
+  54 definições de provider lidas em `Lia-Project@005a324`; 33 `chat`, 13 `text-to-speech`,
+  3 `speech-to-text`, **0 `embed`** declarados. Dados brutos em `data/inventory/provider-tasks.tsv`.
+- `LR-LIC-003` **auditoria das 28 Skills AIRI + Alethe**
+  (`projects/lia-agent-hub/skills/AIRI-AND-ALETHE-PROVENANCE.md`): 50 `SKILL.md` lidos,
+  5 licenças, parecer por Skill — 4 `USE_AS_IS`, 5 `ADAPT_ALLOWED`, **19 `RESEARCH_ONLY`**.
+  Dados brutos em `data/inventory/skills-provenance.tsv`.
+- `LR-AGENT-009` **manifesto de workflow** e `LR-SEC-005` **permissões por execução** e
+  `LR-LIC-004` **registro de proveniência de asset** e `LR-UI-005` **ADR de interface** —
+  todos marcados **PROPOSTA/PROCEDIMENTO**: nenhum implementado.
+
+### Achados novos (ADD)
+- Embedding implementado em `lm-studio` e **invisível** no catálogo de capabilities.
+- Anthropic declarada OpenAI-shaped: única das 10 onde "suportado" pode ser falso em runtime.
+- 8 Skills AIRI declaram autor, **nenhuma** declara licença; só 5 têm `LICENSE` no payload.
+- `lia-eventa-ipc` é a **única** Skill Lia com licença (`MIT`) — as outras 20 não têm.
+
+### Decisão do proprietário (DECISION)
+- `DR-0006` movido de `PENDING` para `ACCEPTED`: repositório permanece **público**,
+  consumo read-only para agentes de projeto (`Lia-Research@c9e6e97`). Documentos que diziam
+  "privado" foram corrigidos: `README`, `SECURITY-AND-PRIVACY-POLICY` §6,
+  `RESEARCH-METHODOLOGY`, `QUALITY-AUDIT`, `RESEARCH-STATUS-AND-DECISIONS`.
+
+### Segurança pública (ADD + FIX)
+- `governance/PUBLIC-EXPOSURE-REVIEW-2026-11-17.md`: 11 classes varridas em 131 Markdown,
+  4 TSV e no snapshot. 3 achados, 2 tratados, 0 pendentes.
+- **Snapshot sanitizado**: `LIA-AGENT-CONSUMPTION-AUDIT.local.md` excluído (caminho de
+  usuário, IDs de sessão, contagem de tokens) e 3 e-mails de autores de add-ons redigidos.
+  236 → 235 arquivos; manifesto regerado com cabeçalho de sanitização.
+
+### Correções de registro (FIX)
+- "29 skills AIRI" → **28 AIRI + 1 Alethe** (a contagem anterior agregava o `alethe`).
+- "13 decisões abertas" → **12 abertas + 1 aceita**.
+- "118/124 arquivos Markdown" → **131** (contagem de 2026-11-17).
+- `ECOSYSTEM-MAP.md` §5: 228 → **349** commits de atraso da `main` do Lia-Project.
+- Trilha R do roadmap: R-1 `NOT RUN` (fonte parcial), R-2/R-3/R-4 `SKIP` com motivo,
+  R-5 `NOT RUN`. Nenhum diretório vazio criado.
+
+### Observado (não registrado como decisão)
+6 das 12 branches `arena/*` do Lia-Project foram podadas entre 2026-11-17 15:00 e 22:00 —
+o snapshot de `data/` deixou de ser conveniência e passou a ser a única cópia de 236
+documentos. Nenhum documento desta base dependia das branches removidas.
+
 ## 2026-11-17 — Fundação inicial (fase 0–3)
 
 ### Governança e método (ADD)

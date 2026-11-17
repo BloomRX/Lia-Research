@@ -2,12 +2,13 @@
 
 | Campo | Valor |
 |---|---|
-| Versão | 1.0 |
+| Versão | 1.1 (2ª rodada) |
 | Data | 2026-11-17 |
 | Repositório | `BloomRX/Lia-Research` — branch `arena/7cf9c65e-lia-research` |
 | Autor | Research Orchestrator (agente), sob ordem de serviço do proprietário |
 | Escopo | fases 0–3 da ordem de serviço (§14) |
-| Status global | **PASS com 1 bloqueio** (visibilidade privada) e 6 lacunas declaradas |
+| Status global | **PASS** (fases 0–3) · 6 lacunas declaradas · fase 4 `NOT RUN` (hardware)
+| Revisão | 2026-11-17, 2ª rodada: visibilidade esclarecida pelo proprietário; lacunas prioritárias fechadas (§10) |
 
 ---
 
@@ -45,7 +46,7 @@ Duas afirmações que qualquer catálogo faria automaticamente e que, hoje, seri
 | Ferramentas | `tools/validate.py` + 3 scripts de coleta | 4 |
 | GitHub | PR template + 3 issue templates | 4 |
 
-Total: **113 arquivos Markdown** verificados por `tools/validate.py`, 0 erros.
+Total: **131 arquivos Markdown** (contagem de 2026-11-17, 2ª rodada) verificados por `tools/validate.py`, 0 erros.
 
 ## 3. Método em uma página
 
@@ -74,7 +75,7 @@ Total: **113 arquivos Markdown** verificados por `tools/validate.py`, 0 erros.
 | 3 | Consolidação transversal | **PASS** | 21 digests, 4 comparações, 3 decisões tomadas |
 | 4 | Medição e validação | **NOT RUN** | exige execução na máquina do usuário |
 | 5 | Revisão e entrega | **PASS parcial** | falta revisão humana (`agents/REVIEW-PROTOCOL.md`) |
-| — | Visibilidade privada | **BLOCKED** | `403` na API; ver `DR-0006` |
+| — | Visibilidade pública | **PASS** | decisão do proprietário (`c9e6e97`); exposição revisada — `governance/PUBLIC-EXPOSURE-REVIEW-2026-11-17.md` |
 
 `NOT RUN` e `BLOCKED` **não** são PASS. A fase 4 é a razão pela qual nenhuma
 recomendação desta base passa de `ADAPTAR`/`REFERÊNCIA`.
@@ -110,7 +111,7 @@ O ecossistema tem autoridade duplicada sobre "qual modelo". Não é contradiçã
 | Implementar qualquer tecnologia pesquisada | proibido pela ordem de serviço | `governance/RESEARCH-GOVERNANCE.md` |
 | Medir desempenho | exige a máquina do usuário | fases 4, `RESEARCH-ROADMAP.md` H-1 |
 | Conceder licença às Skills | exige titular | `DR-0001` |
-| Tornar o repositório privado | bloqueado por permissão (403) | `DR-0006` |
+| Tornar o repositório privado | **superado**: o proprietário decidiu mantê-lo público | `DR-0006` (ACCEPTED) |
 | Consolidar versões divergentes de docs de projeto | decisão e trabalho do projeto | `projects/lia-model-lab/README.md` §5 |
 | Pesquisar visão/multimodal como tema | sem fonte e sem espaço para pesquisa real | `RESEARCH-ROADMAP.md` R-4 |
 | Copiar código de terceiro | proibido; só ponteiro + SHA | `governance/SOURCE-PRESERVATION-POLICY.md` |
@@ -119,7 +120,7 @@ O ecossistema tem autoridade duplicada sobre "qual modelo". Não é contradiçã
 
 | Risco | Severidade | Mitigação |
 |---|---|---|
-| Repositório público com conteúdo que se pretendia privado | **alta** | nada sensível foi commitado; validado por `tools/validate.py`; `DR-0006` aberto |
+| Exposição pública de material de projeto no snapshot | **média** | revisão dedicada: 3 achados, 2 tratados (1 arquivo excluído, 3 e-mails redigidos), 0 pendentes |
 | Base desatualiza e passa a mentir com confiança | alta | campo `Próxima revisão` por documento; `RESEARCH-CHANGELOG.md` |
 | Vira dependência de runtime dos projetos | média | regra de independência em `ecosystem/PROJECT-OWNERSHIP.md` |
 | Digest virar fonte e divergir do original | média | cada digest aponta origem + commit; original é canônico |
@@ -141,3 +142,45 @@ todo o resto.
 | Nenhuma conclusão apresentada como medida | sim — 0 medições no repositório |
 | Nenhum veredito de adoção | sim — 0 `ACCEPTED`, 0 `ADAPTED` |
 | `python3 tools/validate.py` | 0 erros, 0 avisos |
+
+## 10. Segunda rodada — fechamento das lacunas prioritárias (mesma data)
+
+| Trabalho | Entrega | Status | Evidência principal |
+|---|---|---|---|
+| **M-3** matriz capability × provider | `LR-MODEL-005` | **PASS** | 54 definições de provider lidas em `Lia-Project@005a324`; tabela bruta em `data/inventory/provider-tasks.tsv` |
+| **L-4** Skills AIRI + Alethe | `LR-LIC-003` | **PASS** | 50 `SKILL.md` lidos; 5 licenças; 4 `USE_AS_IS`, 5 `ADAPT_ALLOWED`, 19 `RESEARCH_ONLY` |
+| **A-3** manifesto de workflow | `LR-AGENT-009` | **PASS (proposta)** | padrão de `workflows/*.yaml` + 49 capacidades do Forge |
+| **L-2** proveniência de asset | `LR-LIC-004` | **PASS (proposta)** | schema v2 real do Forge (`CONFIRMED`) + extensão para IA e cadeia de transformação |
+| **A-4** permissões por execução | `LR-SEC-005` | **PASS (proposta)** | Grant/Lease/AuditRecord; F1–F6 não executados |
+| **U-3** ADR de interface | `LR-UI-005` | **PASS (procedimento)** | slot já existente no Hub (`DESIGN-DECISIONS.md`) |
+
+Três achados novos desta rodada:
+
+1. **Embedding existe no código e não existe no catálogo** — `lm-studio` monta provider de
+   embedding, mas nenhum dos 54 declara `tasks: ['embed']` (`LR-MODEL-005` §6.1).
+2. **A atribuição viaja, a licença não** — 8 das 28 Skills AIRI declaram autor no
+   frontmatter, nenhuma declara licença; só 5 têm `LICENSE` (`LR-LIC-003` §7.1).
+3. **Uma Skill Lia já concede MIT** (`lia-eventa-ipc`), as outras 20 não (`LR-LIC-003` §7.4).
+
+Correções de registro desta rodada (com motivo, conforme a ordem de serviço):
+
+| Registro anterior | Correção | Motivo |
+|---|---|---|
+| "29 skills AIRI" | **28 AIRI + 1 Alethe** | a contagem anterior agregava o `alethe` ao vendor AIRI |
+| "repositório deve ser privado; bloqueado" | **público por decisão do proprietário** | `Lia-Research@c9e6e97` |
+| "13 decisões abertas" | **12 abertas + 1 aceita** | `DR-0006` encerrado por decisão |
+| snapshot com 236 documentos | **235 sanitizados** | 1 arquivo de sessão privada excluído, 3 e-mails redigidos |
+
+Contagens históricas preservadas: inventário de 2026-11-17 (58.478 arquivos, 1.620
+documentos, 511 fora de `main`, 975 vendorizados, 645 Lia) segue válido para a data de
+coleta; o método está em `data/README.md` §4.
+
+## 11. Situação da revisão de segurança pública
+
+Revisão dedicada em `governance/PUBLIC-EXPOSURE-REVIEW-2026-11-17.md`: 11 classes de
+padrão varridas em 131 Markdown, 4 TSV e no snapshot. **3 achados, todos em documentos de
+projeto dentro do snapshot; 2 tratados, 1 aceito com justificativa. 0 pendentes na base.**
+
+Risco residual: baixo. O item de maior gravidade (`C:/Users/<nome>/` + IDs de sessão)
+saiu do snapshot; o arquivo de origem continua público em `BloomRX/Lia-Project`, o que é
+decisão do proprietário, não desta base.

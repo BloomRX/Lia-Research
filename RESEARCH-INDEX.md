@@ -5,7 +5,7 @@ veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID apa
 outro documento e não aqui, o outro documento está errado.
 
 - **Data de referência:** 2026-11-17
-- **Itens:** 16 relatórios externos + 5 dossiês internos + 17 digests transversais + 13 decisões
+- **Itens:** 16 relatórios externos + 5 dossiês internos + 26 digests/propostas transversais + 12 decisões abertas + 1 aceita
 - **Nenhum item foi executado.** Todos os vereditos são sobre o *valor de pesquisa*.
 
 ## Legenda
@@ -61,6 +61,7 @@ outro documento e não aqui, o outro documento está errado.
 | `LR-MODEL-002` | arquitetura neutra de provider | `cross-project/model-routing/PROVIDER-ARCHITECTURE-DIGEST.md` |
 | `LR-MODEL-003` | LFM3 (duas avaliações) | `cross-project/ai-models/LFM3-EVALUATION.md` |
 | `LR-MODEL-004` | catálogo de capacidades (44/131/0) | `cross-project/ai-models/CAPABILITY-CATALOG-DIGEST.md` |
+| `LR-MODEL-005` | **matriz capability × provider** (54 providers lidos) | `cross-project/model-routing/CAPABILITY-PROVIDER-MATRIX.md` |
 | `LR-VOICE-001` | stack de voz PT-BR | `cross-project/voice/VOICE-STACK-DIGEST.md` |
 | `LR-SEC-001` | credenciais e fronteira de confiança | `cross-project/security/CREDENTIAL-AUDIT-DIGEST.md` |
 | `LR-SEC-002` | segurança de runtime de agente | `cross-project/agents/AGENT-RUNTIME-SECURITY.md` |
@@ -70,6 +71,10 @@ outro documento e não aqui, o outro documento está errado.
 | `LR-AGENT-006` | Skills e MCP vistos pelo Studio | `cross-project/agents/SKILLS-MCP-LANDSCAPE.md` |
 | `LR-AGENT-007` | memória | `cross-project/memory/MEMORY-LANDSCAPE.md` |
 | `LR-AGENT-008` | fronteiras de automação | `cross-project/automation/AUTOMATION-BOUNDARIES.md` |
+| `LR-AGENT-009` | **manifesto de workflow para Skills** (proposta) | `cross-project/agents/SKILL-WORKFLOW-MANIFEST.md` |
+| `LR-SEC-005` | **permissões por execução** (proposta) | `cross-project/security/PER-EXECUTION-PERMISSIONS.md` |
+| `LR-UI-005` | **ADR de interface** (procedimento) | `cross-project/interfaces/UI-DECISION-ADR.md` |
+| `LR-LIC-004` | **registro de proveniência de asset** (proposta) | `cross-project/licensing/ASSET-PROVENANCE-REGISTRY.md` |
 | `LR-MCP-002` | panorama MCP no ecossistema | `cross-project/mcp/MCP-LANDSCAPE.md` |
 | `LR-MCP-003` | automação residencial consolidada | `cross-project/smart-home/SMART-HOME-PROPOSAL.md` |
 | `LR-FORGE-005` | Blender e MCP | `cross-project/agents/BLENDER-MCP-DIGEST.md` |
@@ -78,7 +83,7 @@ outro documento e não aqui, o outro documento está errado.
 | `LR-LIC-002` | proveniência de assets | `cross-project/licensing/ASSET-PROVENANCE.md` |
 | `LR-BENCH-001` | disciplina de benchmark reproduzível | `repositories/sculptforge/REPORT.md`, `repositories/manimgx/REPORT.md` |
 | `LR-SEC-003` | auditoria de segurança de STT | `cross-project/voice/VOICE-STACK-DIGEST.md` §2 |
-| `LR-LIC-003` | auditoria das 29 skills AIRI + `alethe` | **não escrita** — `RESEARCH-ROADMAP.md` L-4 |
+| `LR-LIC-003` | **auditoria das 28 skills AIRI + `alethe`** (parecer por Skill) | `projects/lia-agent-hub/skills/AIRI-AND-ALETHE-PROVENANCE.md` |
 
 ## 3-bis. Comparações
 
@@ -92,11 +97,25 @@ outro documento e não aqui, o outro documento está errado.
 
 | Estado | IDs | Pasta |
 |---|---|---|
-| PENDING (13) | DR-0001…DR-0004, DR-0006…DR-0014 | `decisions/PENDING/` |
+| ACCEPTED (1) | DR-0006 (repositório público) | `decisions/ACCEPTED/` |
+| PENDING (12) | DR-0001…DR-0004, DR-0007…DR-0014 | `decisions/PENDING/` |
 | REJECTED (3) | DR-0005, DR-0015, DR-0016 | `decisions/REJECTED/` |
 | REFERENCE-ONLY (2) | DR-0017, DR-0018 | `decisions/REFERENCE-ONLY/` |
-| ACCEPTED (0) | — | `decisions/ACCEPTED/` |
 | ADAPTED (0) | — | `decisions/ADAPTED/` |
+
+## 4-bis. Decisões propostas nas pesquisas de 2026-11-17 (2ª rodada)
+
+Ainda **não** abriram arquivo em `decisions/`: são propostas de pesquisa que só viram DR
+quando um projeto decide levá-las adiante. Citadas com o número `(proposto)` nos
+documentos, para não perder a referência.
+
+| ID proposto | Decisão | Descrita em | Dono |
+|---|---|---|---|
+| `DR-0019` | matriz capability × provider como gate de CI | `LR-MODEL-005` §11 | Lia-Project |
+| `DR-0020` | adotar manifesto de workflow de Skill | `LR-AGENT-009` §11 | Hub |
+| `DR-0021` | adotar `schemaVersion: 3` de proveniência de asset | `LR-LIC-004` §10 | Forge |
+| `DR-0022` | aceitar vocabulário Grant/Lease/AuditRecord | `LR-SEC-005` §14 | Hub + Project |
+| `DR-0023` | escrever os 3 ADRs de UI piloto | `LR-UI-005` §13 | cada projeto |
 
 ## 5. Fontes externas pinadas
 

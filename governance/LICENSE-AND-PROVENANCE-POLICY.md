@@ -95,7 +95,7 @@ Registro: `decisions/PENDING/DR-0001-LIA-SKILLS-LICENSING.md`.
 | `Donchitos/Claude-Code-Game-Studios` | MIT | 7 skills adaptadas no Studio | `ADAPT_ALLOWED` | aviso dentro do pacote |
 | `witnesstodark/mr-mak-workspace` | MIT (+ `img2threejs` Apache-2.0) | 5 skills adaptadas + ZIP guardado | `ADAPT_ALLOWED` / `RESEARCH_ONLY` | ler licença do subprojeto; decidir se ZIP de 9,9 MB continua versionado |
 | `Kc1t/alethe-orchestrate-skill` | verificar na origem | skill vendorizada no Lia-Project | `FORK_CANDIDATE` (com patches) | registrar patches e aviso |
-| AIRI (`moeru-ai/airi`) | verificar versão vendorizada | 890 arquivos de doc + 29 skills dentro do Lia-Project | `RESEARCH_ONLY` até auditoria | separar o que é Lia do que é upstream |
+| AIRI (`moeru-ai/airi`) | MIT (Neko Ayaka) `CONFIRMED` | 890 arquivos de doc + **28 Skills** vendorizadas no Lia-Project | 4 `USE_AS_IS` · 5 `ADAPT_ALLOWED` · 19 `RESEARCH_ONLY` (`LR-LIC-003`) | separar o que é Lia do que é upstream |
 
 Nenhuma linha desta tabela constitui licença nova nem autorização de distribuição.
 

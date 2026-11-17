@@ -97,7 +97,7 @@ distribui material sem a obrigação que a licença exige.
 
 | Pendência | Dono | Registro |
 |---|---|---|
-| Auditar 29 skills AIRI + `alethe` | proprietário | `RESEARCH-ROADMAP.md` L-4 |
+| ~~Auditar 28 skills AIRI + `alethe`~~ | **feito** em `LR-LIC-003` | 19 de 28 ficaram `RESEARCH_ONLY` |
 | Consolidar 5 documentos com versões divergentes | Model-Lab | `projects/lia-model-lab/INDEX.md` §3 |
 | Eleger catálogo canônico de modelo | Project + Model-Lab | `M-1` |
 | Unificar 4 documentos de arquitetura do Project | Project | `projects/lia-project/INDEX.md` |
