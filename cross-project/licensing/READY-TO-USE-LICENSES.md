@@ -40,6 +40,7 @@ Se o repositório **não tem arquivo de licença**, a resposta a (1) e (2) é **
 | `LR-FORGE-003` | ManimGX | código MIT | sim | NOTICE por componente |
 | `LR-SEC-006` | Claude-BugHunter | só referência | sim | TASL (CC BY 4.0) |
 | `LR-STUDIO-004` | ArtCraft | padrões (Rust não portável) | sim | NOTICE + Apache |
+| `LR-STUDIO-005` | BRUTAL (C#/Vulkan) | só referência | sim | créditos + **logo na abertura** + `NOTICE.txt` |
 | `LR-AGENT-001` | OpenJarvis | padrões | sim | NOTICE + Apache |
 | `LR-STUDIO-001` | OpenIDEA | padrões | sim | NOTICE + Apache |
 | `LR-FORGE-001` | Mister Download Manager | **processo separado** (GPL) | vira GPL | fonte + avisos |
@@ -88,6 +89,29 @@ Formato TASL — **T**ítulo, **A**utor, **S**ource, **L**icense:
 
 CC BY **exige atribuição e link mesmo em uso comercial**, e permite obra derivada.
 Se o produto não pode mostrar crédito visível, o conteúdo não pode ser embutido.
+
+### 3.5 Licença com atribuição gráfica (BRUTAL License v1.0)
+
+Existe uma quarta família que não é MIT nem copyleft: **permissiva com obrigação de
+exibir logo**. `LR-STUDIO-005` é o exemplo lido.
+
+```text
+Produto que usa BRUTAL deve:
+  1. incluir o copyright na tela de créditos;
+  2. exibir o logo BRUTAL antes do gameplay/função principal, não menos proeminente
+     que outros logos (dispensa: permissão escrita, projeto sem fins lucrativos,
+     ou quando exibir o logo prejudica o propósito do produto);
+  3. distribuir NOTICE.txt junto do produto.
+```
+
+Consequência para a Lia: **é decisão de produto, não de engenharia.** Se um app Lia
+adotar uma dependência assim, o logo de terceiro entra na abertura do app. Antes de
+adotar, responder: "aceitamos um logo de terceiro na abertura?" Se não, a alternativa é
+licença comercial (o BRUTAL oferece) ou não usar.
+
+Regra de leitura: **"open source" no README não é tipo de licença.** O BRUTAL é
+permissivo, permite uso comercial, e ainda assim **não é OSI** — o próprio README diz
+que não foi submetido. Sempre ler o `LICENSE`.
 
 ### 3.4 GPL-3.0 / LGPL (Mister Download Manager, SculptForge, ReScript `compiler/`)
 
@@ -151,6 +175,11 @@ reimplementada de forma independente.
 
 **`LR-PROV-001` RouterHub — bloqueado.** MIT só nos repositórios de marketing; o serviço
 e os modelos modificados não têm licença verificável.
+
+**`LR-STUDIO-005` BRUTAL — licença própria (base MIT + atribuição gráfica).** Se um dia
+for usado, exige créditos, **logo antes da função principal** e `NOTICE.txt`. Não é OSI.
+O padrão a copiar dele é estrutural: `LICENSES/` **dentro de cada pacote** que redistribui
+terceiros, e um `NOTICE.txt` de três linhas.
 
 ## 5. O caso Lia: cinco repositórios públicos sem `LICENSE`
 

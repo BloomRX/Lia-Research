@@ -11,8 +11,8 @@
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
 | Status | Fundação entregue (fases 0–3); fase 4 de medição `NOT RUN` |
-| Arquivos Markdown | 137 (contagem de 2026-11-17, `find -name '*.md'`), validados por `tools/validate.py` |
-| Relatórios externos | 18 objetos auditados, 22 documentos |
+| Arquivos Markdown | 138 (contagem de 2026-11-17, `find -name '*.md'`), validados por `tools/validate.py` |
+| Relatórios externos | 19 objetos auditados, 23 documentos |
 | Decisões | 13 abertas · 3 rejeições · 2 referência · 2 pastas vazias por desenho |
 
 > **Aviso de escopo.** Este repositório registra *pesquisa*, não *implementação*.
@@ -37,7 +37,7 @@ fundação (2026-11-17):
   OpenJarvis, Vercel UI, Mister Download Manager, OpenIDEA, Claude Trading Skills,
   RouterHub) e sobre os 9 alvos adicionais depois.
 
-Depois desta fundação: **18 objetos externos auditados** (16 repositórios + 2
+Depois desta fundação: **19 objetos externos auditados** (17 repositórios + 2
 organizações), **5 dossiês internos**, **23 digests transversais**, **4 comparações** e
 **3 decisões de não adoção** registradas com condição de reabertura.
 

@@ -59,6 +59,7 @@ Regra: item só sai daqui quando existe documento com evidência, não quando "j
 | A-5 | Teste de injeção de prompt via conteúdo de ferramenta | A-4 | NOT RUN |
 | A-6 | Pacote de Skills de edição (ArtCraft) — 8 Skills propostas | `LR-STUDIO-004` | **PASS (proposta)** — `LR-AGENT-010` |
 | A-7 | Executar V6 do pacote (editar foto real via MCP) | A-6 + app instalado | `NOT RUN` |
+| A-8 | **Política de contribuição assistida por IA** (declarar, testar, explicar) | `LR-STUDIO-005` B1 | `NOT RUN` — texto-modelo existe |
 
 ## Trilha UI — Interface
 

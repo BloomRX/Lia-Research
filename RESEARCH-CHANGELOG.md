@@ -8,6 +8,31 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-17 — novo objeto externo: BRUTAL (framework C#/Vulkan)
+
+### Pesquisa nova (ADD)
+- `LR-STUDIO-005` `ahwootech/BRUTAL@c4c62f55` — framework de jogo em C#/.NET 10 sobre
+  Vulkan, base do motor *Waylith* (RimWorld) e da Kitten Space Agency. ★2.527.
+  Veredito **REFERÊNCIA**: sem caminho técnico para a stack Lia; três práticas a adaptar.
+
+### Achados (ADD)
+- **Licença própria** `BRUTAL License v1.0`: base MIT **+ créditos + logo obrigatório
+  antes do gameplay + `NOTICE.txt`**, e **não é OSI** (o README admite). "Open source" no
+  README não é tipo de licença.
+- **Política de contribuição assistida por IA** (B1): pode usar agente, mas responde por
+  cada linha, declara no PR, e PR grande/não testado/inexplicado é fechado — cláusula que
+  faltava em `agents/`.
+- **`LICENSES/` por pacote publicado** (B2): o aviso viaja com o que redistribui.
+- **Código não compila no repo**: 0 `.csproj`, 0 `.sln`; 5.070 de 5.644 `.cs` são gerados;
+  1 único workflow (bot de boas-vindas).
+- **Hardware:** exige Vulkan 1.3; suporte na RX 580 fica `UNVERIFIED` até rodar
+  `vulkaninfo` (`LR-HW-001`).
+
+### Integrações (CONSOLIDATE)
+- `LR-LIC-005` §3.5: nova família de licença (permissiva com atribuição gráfica) + ficha.
+- `data/inventory/license-matrix.tsv`: 19ª linha.
+- `RESEARCH-ROADMAP.md`: A-8 (política de IA em contribuição).
+
 ## 2026-11-17 — licenças prontas para uso (o projeto não reabre a pesquisa)
 
 ### Pesquisa nova (ADD)
