@@ -226,6 +226,12 @@ resolve por "latest"** sem faixa explícita. É a lição de todos os relatório
 V1–V5 são estáticas e podem rodar em CI. V6 é a única que exige máquina — e é a que
 separa "declarado" de "funciona". Nenhuma Skill do ecossistema tem V6 hoje.
 
+**Precedente real (2026-11-17):** o bundle `claude-bughunter` implementa tanto o V6
+quanto o gate estático — `eval/run_eval.py` roda a mesma tarefa com e sem as Skills
+(ablação) e publica o delta **mesmo quando é zero**; `scripts/lint_skills.py` +
+`engine/skill_map.py` falham o CI quando uma Skill não está roteada. Ver `LR-SEC-006`
+R1 (eval) e R4 (lint + roteamento).
+
 ## 10. Como cada projeto usa sem depender do outro
 
 | Projeto | Papel | Lê | Escreve |

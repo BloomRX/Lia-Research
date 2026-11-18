@@ -43,6 +43,8 @@ Regra: item só sai daqui quando existe documento com evidência, não quando "j
 | L-2 | Registro de proveniência de asset executável | `LR-LIC-002` | **PASS (proposta)** — `LR-LIC-004` |
 | L-3 | Política de retenção/exclusão de dados do usuário | produto | PENDING |
 | L-4 | Auditar as 28 skills AIRI e o `alethe` | nenhum | **PASS** — `LR-LIC-003` (19 de 28 seguem `RESEARCH_ONLY`) |
+| L-4b | Origem individual das 19 Skills `RESEARCH_ONLY` | `LR-LIC-003` §5 | `NOT RUN` |
+| L-5 | Pipeline de citação com teste de identidade (hoje: citação manual) | `LR-SEC-006` R7 | `NOT RUN` — desenho existe em repo externo |
 
 ## Trilha A — Agente e automação
 

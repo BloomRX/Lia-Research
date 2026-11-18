@@ -8,6 +8,29 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-17 — novo objeto externo: Claude-BugHunter
+
+### Pesquisa nova (ADD)
+- `LR-SEC-006` `elementalsouls/Claude-BugHunter@b63ae349` — 83 Skills, 15 comandos,
+  341 arquivos, ★11.020, **licença dupla MIT + CC BY 4.0**. Veredito **REFERÊNCIA**:
+  o conteúdo ofensivo não serve ao produto; seis mecanismos de engenharia servem a todos
+  os projetos (R1 eval com ablação · R2 denylist hasheada fail-closed · R3 doc-count-check
+  · R4 skill-lint + roteamento · R5 licença por classe de arquivo · R6 manifesto de plugin).
+
+### Achados (ADD)
+- O repo publica **baseline negativo honesto**: skills ligadas × desligadas = **delta +0%**,
+  custo +US$ 0,076, com "ceiling effect" declarado — raro e educativo.
+- Duas inconsistências de licença internas: `NOTICE` × `credits.md` sobre redistribuição, e
+  `plugin.json` declarando só `MIT` para conteúdo que é CC BY 4.0.
+- `plugin.json` declara credencial com `sensitive: true` e servidor MCP com `env` — precedente
+  real para `LR-AGENT-009` e `LR-MCP-002`.
+
+### Integrações (CONSOLIDATE)
+- `LR-AGENT-009` §9: V6 ganhou precedente implementado (eval + lint/roteamento).
+- `governance/PUBLIC-EXPOSURE-REVIEW-2026-11-17.md` §7-bis: melhoria da varredura (R2).
+- `governance/LICENSE-AND-PROVENANCE-POLICY.md` §2: modelo de licença por classe de arquivo.
+- `RESEARCH-ROADMAP.md`: novas linhas L-4b e L-5.
+
 ## 2026-11-17 — 2ª rodada: fechamento das lacunas prioritárias
 
 ### Pesquisa nova (ADD)

@@ -18,6 +18,15 @@ separadamente. Um repositório MIT pode conter assets com outra licença (caso r
    Exemplo medido: `theclaymethod/unslop` (★1.132, 2026-11-17) não tem arquivo de
    licença. Uso: `RESEARCH_ONLY`. Nenhuma cópia.
 2. **Repositório público não é autorização.** Visibilidade ≠ licença.
+
+   **Modelo recomendado para conteúdo misto (evidência externa `LR-SEC-006`):** licença
+   única por **classe de arquivo**, declarada no cabeçalho da política e no manifesto do
+   pacote — código sob uma licença, conteúdo (`*.md`, wordlists, catálogos, rubricas) sob
+   outra, com `NOTICE` + arquivo de créditos listando origem e contagem por categoria.
+   O repo auditado usa MIT para código e CC BY 4.0 para conteúdo, com a fronteira escrita
+   em uma frase ("`*.py`/`*.sh` são MIT; `*.md`/wordlists/rubricas são CC BY 4.0").
+   Duas falhas do mesmo repo servem de aviso: `plugin.json` declarava só `MIT`, e o
+   `NOTICE` contradizia o arquivo de créditos sobre redistribuição de terceiros.
 3. **Estrelas não são licença.** Popularidade não cria permissão.
 4. **O selo do GitHub não é a licença.** Ler o arquivo. `NOASSERTION` e `null`
    exigem leitura manual.

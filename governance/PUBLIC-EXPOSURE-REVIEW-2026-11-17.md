@@ -109,6 +109,20 @@ dado pessoal ou dump de sessão está versionado nela depois da sanitização.
 
 Risco residual: baixo, e concentrado em repositórios de produto — não nesta base.
 
+## 7-bis. Melhoria recomendada na varredura (vinda de `LR-SEC-006`)
+
+A varredura atual usa regex sobre texto claro: encontra token e caminho de usuário, mas
+não encontra **identificador que a base não deve nem conhecer** (nome de cliente, alias de
+engajamento, ID de sessão).
+
+O bundle auditado em `LR-SEC-006` resolve isso com **denylist hasheada**: cada shingle de
+1–2 palavras de cada arquivo é hasheado e comparado a uma lista de hashes versionada —
+o texto proibido **nunca** entra no repositório — e a checagem **falha fechada** (`exit 2`)
+se a denylist estiver ausente, além de ter self-test do próprio scanner e modo `--staged`.
+
+Vale para esta base **e** para os cinco repositórios públicos da Lia. Registrado como
+`LR-SEC-006` R2, sem implementação autorizada nesta rodada.
+
 ## 8. Revisão periódica
 
 | Gatilho | Ação |
