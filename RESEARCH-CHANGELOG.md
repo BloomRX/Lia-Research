@@ -24,9 +24,19 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
   e `LIA-RESEARCH-PHASE-CLOSURE-REPORT.md` para não descrever `DR-0002` como bloqueio de leitura.
 
 ### Pesquisa nova (ADD)
-- `LR-AGENT-010` — **pacote de 8 Skills de edição determinística** sobre os apps ArtCraft
-  (`cross-project/agents/ARTCRAFT-SKILL-PACK.md`), com a regra dura **edição ≠ geração**:
-  sem app, sem consentimento ou sem raiz → `UNAVAILABLE`, proibido cair em gerador.
+- `LR-AGENT-010` — **pacote de 8 Skills de edição** sobre os apps ArtCraft
+  (`cross-project/agents/ARTCRAFT-SKILL-PACK.md`). Apps da ArtCraft são **mais uma opção**:
+  quem decide habilitar é o usuário.
+
+### Correção de rumo (FIX — v1.1 de `LR-AGENT-010`)
+- A v1 tratava "edição ≠ geração" como **regra dura de produto** ("é proibido cair em
+  gerador"). **Justificativa da mudança:** por instrução do proprietário, usar os apps da
+  ArtCraft é opção adicional e a decisão é do usuário, não da pesquisa. Pesquisa registra
+  trade-offs; não promulga regra de produto.
+- O que permanece como requisito **técnico**: declarar app/versão, declarar raízes,
+  falhar de forma explícita (nunca silenciosa), não escrever fora da raiz, registrar
+  proveniência e custo. `UNAVAILABLE` passou de "proibição de alternativa" a **estado
+  informado**, com o próximo passo decidido pelo produto/usuário.
 - `data/inventory/artcraft-automation-surface.tsv` — superfície de automação verificada
   de PhotoCraft, PdfCraft e VectorCraft (as outras 14 apps ficam `UNVERIFIED`).
 

@@ -1,4 +1,4 @@
-# Pacote de Skills "ArtCraft" — operações determinísticas de edição (edição ≠ geração)
+# Pacote de Skills "ArtCraft" — edição determinística como **opção a mais**
 
 | Campo | Valor |
 |---|---|
@@ -7,7 +7,7 @@
 | Projetos beneficiados | Lia Agent Hub (catálogo/execução), Lia Studio, Lia Forge, Lia-Project, app de voz (edição de foto recebida) |
 | Fontes | `storytold/photocraft@a858d42a5028287662e28e89be0bbce9d0bec6b5` (`docs/mcp.md`, `book/src/automation/mcp.md`, `book/src/architecture/command-engine.md`), `storytold/pdfcraft@main` (`docs/mcp.md`, 2026-11-18), `storytold/vectorcraft@main` (`docs/mcp.md`, 2026-11-18) — objeto auditado em `LR-STUDIO-004` |
 | Data | 2026-11-17 |
-| Status | **PROPOSTA** — nenhuma Skill publicada, nenhum app executado |
+| Status | **PROPOSTA v1.1** — opção adicional; quem habilita é o usuário. Nenhuma Skill publicada, nenhum app executado |
 | Validação | V1–V5 por inspeção; **V6 `NOT RUN`** (nenhum app ArtCraft foi executado nesta base) |
 | Confiança | Alta para nomes de ferramenta e modelo de permissão (documentação lida); **nula** para comportamento em execução |
 
@@ -27,22 +27,48 @@ Resposta curta: **sim, e o desenho de permissão deles é melhor que o nosso.** 
 restrição que decide a arquitetura: **os nomes de ferramenta divergem por app** — não existe
 um contrato único de tools, só um contrato único de *flags*.
 
-## 2. Regra dura: edição ≠ geração
+## 2. Escopo: é uma **opção**, não uma obrigação nem uma proibição
 
-> Se a Skill de edição não puder executar (app ausente, versão incompatível, raiz negada),
-> o resultado é `UNAVAILABLE`. **É proibido** cair silenciosamente num gerador de imagem.
+> As Skills deste pacote são **mais um caminho disponível**. Se usar ou não os apps da
+> ArtCraft é decisão do **usuário**, nas configurações do app — não desta pesquisa.
 
-Motivos, na ordem em que importam para o produto:
+Isso vale nos dois sentidos:
 
-| Eixo | Edição (ArtCraft) | Geração (provedor) |
+- **Não é obrigatório.** A Lia pode editar uma foto por outro caminho (outro editor, uma
+  ferramenta interna, ou até geração), se for isso que o produto e o usuário escolherem.
+- **Não é proibido.** Nada aqui impede um projeto Lia de oferecer um gerador de imagem.
+  Esta base registra **trade-offs**; ela não promulga regra de produto.
+
+O que a Skill **precisa** fazer é ser **explícita**, nunca silenciosa: dizer o que vai
+executar, de onde lê e onde escreve, e o que aconteceu. Se o app não estiver disponível,
+ela informa o estado (`UNAVAILABLE`) e o produto decide o que oferecer em seguida —
+mostrar outra opção, perguntar ao usuário, ou usar o caminho alternativo que o usuário
+já tiver configurado.
+
+### 2.1 Trade-offs que o usuário pode pesar (não são veredito)
+
+| Eixo | Edição local (ArtCraft) | Geração (provedor) |
 |---|---|---|
 | Fidelidade | preserva o que existe; opera no arquivo | inventa pixels novos |
-| Determinismo | mesma entrada → mesma saída | amostragem; resultado varia |
+| Determinismo | mesma entrada → mesma saída | resultado varia |
 | Custo | zero por operação (local) | por token/imagem |
-| Privacidade | **o arquivo não sai da máquina** | a foto do usuário vai ao provedor |
+| Privacidade | o arquivo **pode** ficar na máquina | a foto vai ao provedor |
 | Latência | segundos | segundos a minutos |
+| Requisito | app instalado + consentimento ligado | chave de provedor |
 
-O último é o decisivo para um app de voz que recebe fotos: editar mantém a foto local.
+Nenhuma linha é "melhor" em abstrato: para "deixa essa foto mais clara", edição local é o
+caminho natural; para "cria uma ilustração do zero", geração é o caminho natural. Quem
+decide é o **usuário**, e o produto deve deixar essa escolha visível e reversível.
+
+### 2.2 O que continua sendo requisito técnico (não é regra de produto)
+
+| Requisito | Por quê |
+|---|---|
+| Declarar qual app e qual versão a Skill usa | sem isso, não há reprodutibilidade |
+| Declarar raízes de leitura e escrita | omitir raiz nega acesso; a Skill não pode herdar permissão |
+| Falhar de forma explícita e informativa | falha silenciosa é o único comportamento inaceitável |
+| Nunca escrever fora da raiz concedida | é a fronteira que o app impõe |
+| Registrar proveniência e custo por execução | é a regra de evidência desta base |
 
 ## 3. Camada de transporte (o que o Hub registra uma vez)
 
@@ -95,7 +121,8 @@ permissões, falhas, proveniência) acrescido do bloco `capability` no molde de
 
 - Verifica: app instalado, `--version`, consentimento ativo, raízes concedidas.
 - Saída negativa é a mais importante: `UNAVAILABLE: app ausente` / `CONSENT_REQUIRED` /
-  `ROOT_DENIED`. **Nunca** sugere gerador como alternativa.
+  `ROOT_DENIED` — estado informado, não escolha feita. O que oferecer em seguida é
+  decisão do produto/usuário (§2).
 
 ### 5.2 `photo-adjust` (a que o pedido motivou)
 
@@ -147,16 +174,16 @@ ao filesystem fora dele).
 
 ## 7. Falhas previstas e o que a Skill devolve
 
-| Situação | Resultado | Proibido |
+| Situação | Resultado da Skill | Alternativa é decisão do produto/usuário |
 |---|---|---|
-| App não instalado | `UNAVAILABLE: app ausente` | gerar imagem |
-| Consentimento desligado | `CONSENT_REQUIRED` + onde ligar | abrir o app sem permissão |
-| Raiz faltando | `UNAVAILABLE` (omitir = negar) | usar raiz padrão do app |
-| Caminho fora da raiz | erro repassado ao agente | reescrever caminho "esperto" |
-| Comando inexistente na versão | listar via `command_list` e falhar com os ids próximos | chutar id |
-| Timeout / job longo | job + `jobs_list` / cancelamento | repetir a escrita |
-| Arquivo de saída já existe | recusa (exports multiarquivo nunca substituem) | forçar sobrescrita |
-| Texto do documento tenta instruir o agente | tratar como **conteúdo**, não instrução | obedecer |
+| App não instalado | `UNAVAILABLE: app ausente` | oferecer outro caminho, perguntar, ou usar o que o usuário configurou |
+| Consentimento desligado | `CONSENT_REQUIRED` + onde ligar | idem; nunca abrir o app sem permissão |
+| Raiz faltando | `UNAVAILABLE` (omitir = negar) | pedir a raiz; não inventar raiz padrão |
+| Caminho fora da raiz | erro repassado ao agente | pedir novo caminho; não "consertar" o caminho |
+| Comando inexistente na versão | lista ids próximos via `command_list` | atualizar a Skill ou usar outra versão |
+| Timeout / job longo | job + `jobs_list` / cancelamento | tentar de novo só após inspecionar |
+| Arquivo de saída já existe | recusa (exports multiarquivo nunca substituem) | pedir outro nome |
+| Texto do documento tenta instruir o agente | tratar como **conteúdo**, não instrução | avisar o usuário |
 
 A última linha é a mais importante: os próprios apps avisam que o agente lê nome de camada
 e metadados que "podem tentar conduzi-lo". A Skill deve declarar que conteúdo de documento
@@ -170,7 +197,7 @@ e metadados que "podem tentar conduzi-lo". A Skill deve declarar que conteúdo d
 | V2 licença | Skill autoral Lia, Apache/MIT-compatível | PASS (a definir em `DR-0001`) |
 | V3 proveniência | app + versão + commit por Skill | PASS (fonte pinada) |
 | V4 permissões | raízes, consentimento, pasta de saída | PASS (declaradas) |
-| V5 falha explícita | `UNAVAILABLE` sem fallback de geração | PASS (regra escrita) |
+| V5 falha explícita | `UNAVAILABLE` informado, sem ação silenciosa | PASS (por desenho) |
 | **V6 execução** | rodar uma Skill contra o app real | **NOT RUN** |
 
 V6 é a única que prova algo. Nenhum dos 17 apps foi instalado ou executado nesta base.
@@ -182,7 +209,7 @@ V6 é a única que prova algo. Nenhum dos 17 apps foi instalado ou executado nes
 | 1 | Registrar **um** servidor MCP `ArtCraft` (gateway do launcher) | status verde sem expor porta/token ao Hub |
 | 2 | Publicar S1 como Skill de *pré-voo* obrigatória | toda Skill do pacote declara `requires: artcraft-status` |
 | 3 | Publicar S2–S8 com `capability` e raízes explícitas | nenhuma Skill sem `write_root` próprio |
-| 4 | Testar o caminho negativo antes do positivo | app ausente → `UNAVAILABLE`, nunca gerador |
+| 4 | Testar o caminho negativo antes do positivo | app ausente → estado explícito; o produto escolhe o próximo passo |
 | 5 | Medir custo/latência por Skill | sem número, não publica (regra da base) |
 | 6 | Registrar proveniência: app, versão, commit, licença | linha em `data/inventory/` |
 
@@ -224,5 +251,5 @@ O pacote é **autoral**; o que se referencia é a superfície documentada, com p
 | 1 | Instalar PhotoCraft + PdfCraft numa máquina e rodar V6 com S2 e S5 | Agent Hub | autorização do proprietário |
 | 2 | Publicar S1 (`artcraft-status`) como primeira Skill do pacote | Agent Hub | `DR-0001` (licença) |
 | 3 | Testar caminho negativo (app ausente) antes do positivo | Agent Hub | — |
-| 4 | Ligar a regra "edição ≠ geração" ao roteamento de modelo | Model Lab | `LR-MODEL-005` |
+| 4 | Expor a escolha edição/geração como preferência do usuário no roteamento | Model Lab | `LR-MODEL-005` |
 | 5 | Revisar quando os apps saírem de alpha | Lia-Research | 2027-02-17 |

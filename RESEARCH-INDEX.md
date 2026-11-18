@@ -74,7 +74,7 @@ outro documento e não aqui, o outro documento está errado.
 | `LR-AGENT-007` | memória | `cross-project/memory/MEMORY-LANDSCAPE.md` |
 | `LR-AGENT-008` | fronteiras de automação | `cross-project/automation/AUTOMATION-BOUNDARIES.md` |
 | `LR-AGENT-009` | **manifesto de workflow para Skills** (proposta) | `cross-project/agents/SKILL-WORKFLOW-MANIFEST.md` |
-| `LR-AGENT-010` | **pacote de Skills de edição determinística** (ArtCraft; edição ≠ geração) | `cross-project/agents/ARTCRAFT-SKILL-PACK.md` |
+| `LR-AGENT-010` | **pacote de Skills de edição** (ArtCraft como opção do usuário) | `cross-project/agents/ARTCRAFT-SKILL-PACK.md` |
 | `LR-SEC-005` | **permissões por execução** (proposta) | `cross-project/security/PER-EXECUTION-PERMISSIONS.md` |
 | `LR-UI-005` | **ADR de interface** (procedimento) | `cross-project/interfaces/UI-DECISION-ADR.md` |
 | `LR-LIC-004` | **registro de proveniência de asset** (proposta) | `cross-project/licensing/ASSET-PROVENANCE-REGISTRY.md` |
