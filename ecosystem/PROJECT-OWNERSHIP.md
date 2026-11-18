@@ -35,7 +35,7 @@ Nenhum projeto pode **exigir** outro para funcionar. Consequências práticas:
 | Licença de conteúdo Lia | proprietário BloomRX | `DR-0001` |
 | Distribuição de Skill a usuário final | proprietário + auditoria de licença | `DR-0001` + `LR-LIC-*` |
 | Integração de automação residencial (R2/R3) | proprietário, com matriz de risco aceita | `DR-0003` |
-| Acesso de agentes ao Lia-Research | proprietário | `DR-0002` |
+| Publicação/revisão no Lia-Research (leitura é **pública**, `DR-0006`) | proprietário | `DR-0002` |
 | Visibilidade do repositório | proprietário (ação bloqueada para o agente: 403) | `DR-0006` |
 | Mudança de governança | proprietário | PR com label `governance` |
 

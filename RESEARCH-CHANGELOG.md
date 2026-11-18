@@ -8,6 +8,41 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-17 — acesso público explicitado + pacote de Skills ArtCraft
+
+### Correção (FIX)
+- **A base já era pública; os documentos ainda deixavam dúvida.** `DR-0002` dizia
+  "não autoriza tornar o repositório público" — vencido por `DR-0006` (ACCEPTED).
+  Reescrito: leitura **aberta e sem token**; restam abertas só publicação, revisão,
+  cópia local e logs. Opções de deploy key/GitHub App retiradas do caminho de leitura.
+- `LIA-RESEARCH-ACCESS-AND-AGENT-WORKFLOW.md`: cabeçalho corrigido (visibilidade
+  `DR-0006`; publicação `DR-0002`) e nova §3-bis com **acesso sem token** — URLs raw,
+  API não autenticada, clone de leitura, e a distinção entre esta base (pública) e os
+  cinco repositórios de produto (privados, exigem `gh`).
+- Ajustados `README.md` §6, `governance/RESEARCH-STATUS-AND-DECISIONS.md`,
+  `ecosystem/PROJECT-OWNERSHIP.md`, `LIA-RESEARCH-ROADMAP.md`, `decisions/PENDING/README.md`
+  e `LIA-RESEARCH-PHASE-CLOSURE-REPORT.md` para não descrever `DR-0002` como bloqueio de leitura.
+
+### Pesquisa nova (ADD)
+- `LR-AGENT-010` — **pacote de 8 Skills de edição determinística** sobre os apps ArtCraft
+  (`cross-project/agents/ARTCRAFT-SKILL-PACK.md`), com a regra dura **edição ≠ geração**:
+  sem app, sem consentimento ou sem raiz → `UNAVAILABLE`, proibido cair em gerador.
+- `data/inventory/artcraft-automation-surface.tsv` — superfície de automação verificada
+  de PhotoCraft, PdfCraft e VectorCraft (as outras 14 apps ficam `UNVERIFIED`).
+
+### Achados (ADD)
+- A suíte usa **as mesmas flags** de raiz em todos os apps, mas **nomes de ferramenta
+  divergem** (`doc_open` × `open_file`, `command_run` × `run_command` × `invoke_menu`) →
+  uma Skill por app, nunca um "contrato único" de tools.
+- O launcher expõe **uma** entrada MCP (`ArtCraft`) para todos os apps instalados, com
+  consentimento global desligado por padrão.
+- `command_batch` não é transação e `edit.undo` não desfaz escrita em disco — a Skill
+  precisa separar editar de salvar.
+
+### Validação (ADD)
+- V1–V5 por desenho; **V6 `NOT RUN`** — nenhum app ArtCraft foi instalado ou executado.
+- `tools/validate.py`: 135 arquivos, 0 erros, 0 avisos.
+
 ## 2026-11-17 — novo objeto externo: ArtCraft (17 apps criativos)
 
 ### Pesquisa nova (ADD)

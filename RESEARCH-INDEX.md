@@ -5,7 +5,7 @@ veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID apa
 outro documento e não aqui, o outro documento está errado.
 
 - **Data de referência:** 2026-11-17
-- **Itens:** 18 relatórios externos + 5 dossiês internos + 26 digests/propostas transversais + 12 decisões abertas + 1 aceita
+- **Itens:** 18 relatórios externos + 5 dossiês internos + 27 digests/propostas transversais + 12 decisões abertas + 1 aceita
 - **Nenhum item foi executado.** Todos os vereditos são sobre o *valor de pesquisa*.
 
 ## Legenda
@@ -74,6 +74,7 @@ outro documento e não aqui, o outro documento está errado.
 | `LR-AGENT-007` | memória | `cross-project/memory/MEMORY-LANDSCAPE.md` |
 | `LR-AGENT-008` | fronteiras de automação | `cross-project/automation/AUTOMATION-BOUNDARIES.md` |
 | `LR-AGENT-009` | **manifesto de workflow para Skills** (proposta) | `cross-project/agents/SKILL-WORKFLOW-MANIFEST.md` |
+| `LR-AGENT-010` | **pacote de Skills de edição determinística** (ArtCraft; edição ≠ geração) | `cross-project/agents/ARTCRAFT-SKILL-PACK.md` |
 | `LR-SEC-005` | **permissões por execução** (proposta) | `cross-project/security/PER-EXECUTION-PERMISSIONS.md` |
 | `LR-UI-005` | **ADR de interface** (procedimento) | `cross-project/interfaces/UI-DECISION-ADR.md` |
 | `LR-LIC-004` | **registro de proveniência de asset** (proposta) | `cross-project/licensing/ASSET-PROVENANCE-REGISTRY.md` |

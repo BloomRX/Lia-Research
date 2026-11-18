@@ -131,7 +131,7 @@ pendente de hardware*.
 | ID | Decisão | Destrava |
 |---|---|---|
 | `DR-0001` | licença das Skills `lia-*` (+ resolver `lia-eventa-ipc`) | exportação de Skill, `LR-AGENT-009` |
-| `DR-0002` | acesso de agentes à base | uso pelos cinco projetos |
+| `DR-0002` | publicação/revisão na base (leitura é pública) | escrita na base |
 | `DR-0004` | destino do ZIP de 9,9 MB no Studio | proveniência limpa |
 | `DR-0007` | consolidação de Skills duplicadas | catálogo sem sobreposição |
 | `DR-0008` | aceitar matriz de risco R0–R3 | `DR-0003`, `LR-SEC-005` |

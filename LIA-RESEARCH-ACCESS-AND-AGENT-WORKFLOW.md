@@ -4,7 +4,8 @@
 |---|---|
 | Data | 2026-11-17 |
 | Modelo | leitura por ponteiro, sem submodule, sem dependência de runtime |
-| Decisão de acesso | aberta em `DR-0002` (proprietário) |
+| Visibilidade | **PÚBLICA** — `DR-0006` (ACCEPTED): leitura sem token |
+| Modelo de publicação | `DR-0002` (PENDING, parcial) — só escrita/revisão seguem abertas |
 | Estado | proposta operacional; **não** é requisito de nenhum projeto |
 
 ---
@@ -27,6 +28,36 @@ camada 3 — evidência    repositories/*/REPORT.md     (o que foi verificado, c
 ```
 
 Um agente nunca começa pela camada 3. Começa pela 1: é o que evita pesquisa duplicada.
+
+## 3-bis. Acesso sem token (leitura pública)
+
+Esta base é **pública**. Uma sessão nova não precisa de `gh`, token, deploy key nem
+permissão no repositório para consultá-la:
+
+```bash
+# arquivo direto, sem autenticação
+https://raw.githubusercontent.com/BloomRX/Lia-Research/<branch>/RESEARCH-INDEX.md
+
+# API não autenticada (metadados, listagem, árvore)
+https://api.github.com/repos/BloomRX/Lia-Research/contents/<dir>?ref=<branch>
+https://api.github.com/repos/BloomRX/Lia-Research/git/trees/<branch>?recursive=1
+
+# clone de leitura (sem credencial)
+git clone --depth 1 https://github.com/BloomRX/Lia-Research.git
+```
+
+Regras:
+
+1. **Cite a branch.** O conteúdo muda entre `main` e as branches de sessão; sem branch,
+   um leitor novo pode concluir que o item "não existe".
+2. **Não confunda os dois mundos:** esta base é pública; os **cinco repositórios de
+   produto** (Lia-Project, Lia Forge, Lia Studio, Lia Agent Hub, Lia Model Lab) são
+   privados e exigem `gh` autenticado. Foi por isso que o §4 usa `gh api` — para eles,
+   não para cá.
+3. **Leitura pública ≠ permissão de escrita.** Publicar segue `DR-0002` e
+   `agents/PUBLISHING-PROTOCOL.md`.
+4. **Nada de segredo no caminho público:** qualquer arquivo aqui é legível por qualquer
+   pessoa. Antes de publicar, ver `governance/PUBLIC-EXPOSURE-REVIEW-2026-11-17.md`.
 
 ## 3. Fluxo de trabalho do agente (7 passos)
 

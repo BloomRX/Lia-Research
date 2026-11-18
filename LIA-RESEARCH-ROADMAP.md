@@ -28,7 +28,7 @@ Tudo que não avança nessa cadeia é vaidade bibliográfica.
 | Privacidade do repositório | `"private": true` | proprietário | BLOCKED (403) |
 | `DR-0001` licença das Skills | arquivo de licença por Skill | titular | PENDING |
 | `DR-0008` matriz de risco | política aceita | proprietário | PENDING |
-| `DR-0002` acesso de agentes | política de leitura/escrita | proprietário | PENDING |
+| `DR-0002` acesso de agentes | política de **publicação/revisão** — leitura já é pública (`DR-0006`) | proprietário | PENDING (parcial) |
 | `M-3` matriz capability × provider | documento novo | nenhum | **pronto** |
 | `L-4` auditoria das 29 skills AIRI + `alethe` | relatório `LR-LIC-003` | nenhum | **pronto** |
 | `A-3` spec de manifesto de workflow | draft de spec | `DR-0001` | pronto para escrever |

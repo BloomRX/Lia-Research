@@ -3,7 +3,7 @@
 | ID | Assunto | Bloqueia |
 |---|---|---|
 | DR-0001 | licença das Skills `lia-*` | distribuição de Skill |
-| DR-0002 | acesso de agentes ao Lia-Research | uso da base pelos projetos |
+| DR-0002 | publicação/revisão no Lia-Research (leitura pública por `DR-0006`) | escrita na base |
 | DR-0003 | adotar adaptador residencial (HA-MCP) | plano de implementação |
 | DR-0004 | destino do ZIP de terceiros no Studio | limpeza de proveniência |
 | DR-0007 | consolidação de Skills duplicadas | catálogo |

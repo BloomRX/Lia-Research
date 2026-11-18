@@ -55,6 +55,8 @@ Regra: item só sai daqui quando existe documento com evidência, não quando "j
 | A-3 | Manifesto de workflow para Skills | `DR-0001` | **PASS (proposta)** — `LR-AGENT-009` |
 | A-4 | Permissão com escopo por execução | `LR-AGENT-003` | **PASS (proposta)** — `LR-SEC-005` |
 | A-5 | Teste de injeção de prompt via conteúdo de ferramenta | A-4 | NOT RUN |
+| A-6 | Pacote de Skills de edição (ArtCraft) — 8 Skills propostas | `LR-STUDIO-004` | **PASS (proposta)** — `LR-AGENT-010` |
+| A-7 | Executar V6 do pacote (editar foto real via MCP) | A-6 + app instalado | `NOT RUN` |
 
 ## Trilha UI — Interface
 

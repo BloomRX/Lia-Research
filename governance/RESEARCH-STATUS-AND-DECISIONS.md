@@ -73,7 +73,7 @@ Qualquer elo quebrado invalida a decisão para auditoria.
 | ID | Assunto | Por que não foi decidido pelo agente |
 |---|---|---|
 | `DR-0001` | licenciamento das Skills `lia-*` | exige titular; agente não pode conceder licença |
-| `DR-0002` | distribuição do Lia-Research a agentes dos projetos | exige política de acesso/permissões |
+| `DR-0002` | **publicação/revisão** na base (leitura é pública por `DR-0006`) | exige política de escrita, não de leitura |
 | `DR-0003` | adoção ou não do HA-MCP como adaptador | exige protótipo isolado + aceite de risco R2/R3 |
 | `DR-0004` | destino dos 9,9 MB de ZIP de terceiros no Lia-Studio | proveniência e licença de terceiro |
 | `DR-0005` | critério de "modelo validado" no catálogo de capacidades | exige bancada de medição no hardware real |

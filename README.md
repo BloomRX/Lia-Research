@@ -11,7 +11,7 @@
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
 | Status | Fundação entregue (fases 0–3); fase 4 de medição `NOT RUN` |
-| Arquivos Markdown | 134 (contagem de 2026-11-17, `find -name '*.md'`), validados por `tools/validate.py` |
+| Arquivos Markdown | 135 (contagem de 2026-11-17, `find -name '*.md'`), validados por `tools/validate.py` |
 | Relatórios externos | 18 objetos auditados, 22 documentos |
 | Decisões | 13 abertas · 3 rejeições · 2 referência · 2 pastas vazias por desenho |
 
@@ -38,7 +38,7 @@ fundação (2026-11-17):
   RouterHub) e sobre os 9 alvos adicionais depois.
 
 Depois desta fundação: **18 objetos externos auditados** (16 repositórios + 2
-organizações), **5 dossiês internos**, **21 digests transversais**, **4 comparações** e
+organizações), **5 dossiês internos**, **22 digests transversais**, **4 comparações** e
 **3 decisões de não adoção** registradas com condição de reabertura.
 
 O Lia-Research existe para que esses números deixem de ser redescobertos a cada
@@ -127,8 +127,14 @@ rótulos acima. Benchmark de terceiro não é resultado no hardware do usuário.
 4. Se o status for `SUPERSEDED`/`CONFLICTING`, siga o ponteiro para o substituto.
 5. Cite o ID (`LR-...`) na sua própria documentação, não o caminho do arquivo.
 
+**Leitura não exige autenticação.** O repositório é público: qualquer sessão lê por
+`https://raw.githubusercontent.com/BloomRX/Lia-Research/<branch>/<caminho>`, sem token,
+deploy key ou GitHub App. `gh` só é necessário para os **cinco repositórios de produto**,
+que são privados. Sempre cite a **branch** junto do ID — o conteúdo difere de `main` para
+as branches de sessão.
+
 Detalhes de acesso, permissões e sincronização de leitura:
-`LIA-RESEARCH-ACCESS-AND-AGENT-WORKFLOW.md`.
+`LIA-RESEARCH-ACCESS-AND-AGENT-WORKFLOW.md` §3-bis.
 
 ## 7. Como publicar uma pesquisa
 
