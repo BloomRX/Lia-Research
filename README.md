@@ -11,7 +11,7 @@
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
 | Status | Fundação entregue (fases 0–3); fase 4 de medição `NOT RUN` |
-| Arquivos Markdown | 136 (contagem de 2026-11-17, `find -name '*.md'`), validados por `tools/validate.py` |
+| Arquivos Markdown | 137 (contagem de 2026-11-17, `find -name '*.md'`), validados por `tools/validate.py` |
 | Relatórios externos | 18 objetos auditados, 22 documentos |
 | Decisões | 13 abertas · 3 rejeições · 2 referência · 2 pastas vazias por desenho |
 
@@ -38,7 +38,7 @@ fundação (2026-11-17):
   RouterHub) e sobre os 9 alvos adicionais depois.
 
 Depois desta fundação: **18 objetos externos auditados** (16 repositórios + 2
-organizações), **5 dossiês internos**, **22 digests transversais**, **4 comparações** e
+organizações), **5 dossiês internos**, **23 digests transversais**, **4 comparações** e
 **3 decisões de não adoção** registradas com condição de reabertura.
 
 **Cobertura declarada:** esta base é uma **camada de ponteiro**, não um espelho. São

@@ -13,6 +13,7 @@
 | `LR-LIC-002` | Proveniência de asset (E3) | `cross-project/licensing/ASSET-PROVENANCE.md` | `docs/T11-E3-ASSET-PROVENANCE-AND-CONTENT-VALIDATION.md` |
 | `LR-AGENT-005` | Orquestração de agentes de produção de assets | `cross-project/agents/ASSET-AGENT-ORCHESTRATION-DIGEST.md` | `docs/T14-AGENT-ORCHESTRATION-ARCHITECTURE.md` |
 | `LR-FORGE-005` | Ecossistema Blender / MCP | `cross-project/agents/BLENDER-MCP-DIGEST.md` | `docs/BLENDER-MCP-RESEARCH.md`, `docs/ECOSYSTEM-RESEARCH-BLENDER-ADDONS.md` |
+| `LR-LIC-005` | Licenças prontas: NOTICE por componente, GPL como processo separado, CC-BY-SA fora do código | `cross-project/licensing/READY-TO-USE-LICENSES.md` | derivado de 18 relatórios |
 | `LR-STUDIO-004` | Composição/geração 2D·3D e crates de formato (leitura hostil, `craft-docpath`) | `repositories/artcraft/REPORT.md` | pesquisa externa (novo) |
 | `LR-AGENT-010` | Edição determinística como alternativa a geração (custo, fidelidade, privacidade) | `cross-project/agents/ARTCRAFT-SKILL-PACK.md` | derivado de `LR-STUDIO-004` |
 

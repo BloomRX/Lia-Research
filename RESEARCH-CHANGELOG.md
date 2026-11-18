@@ -8,6 +8,26 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-17 — licenças prontas para uso (o projeto não reabre a pesquisa)
+
+### Pesquisa nova (ADD)
+- `LR-LIC-005` `cross-project/licensing/READY-TO-USE-LICENSES.md`: os 18 objetos com
+  **obrigação traduzida em ação** — pode usar / pode fork / o que colar. Quatro modelos
+  de `NOTICE` prontos (MIT, Apache-2.0, CC BY 4.0 TASL, GPL como processo separado) e
+  ficha de leitura rápida por objeto.
+- `data/inventory/license-matrix.tsv`: 18 linhas × 15 colunas, consumível por script.
+
+### Decisão preparada (ADD)
+- `DR-0001` ganhou três opções com consequência explícita (MIT / Apache-2.0 / manter sem
+  licença), para o proprietário **só escolher**. Recomendação registrada como `INFERRED`:
+  Apache para código, MIT para conteúdo curto, e `license:` dentro de cada Skill.
+
+### Achados (ADD)
+- Os **cinco repositórios dos apps são públicos e sem `LICENSE`** → hoje "todos os
+  direitos reservados": 48 Skills legíveis por qualquer pessoa, sem permissão formal.
+- Fronteiras que exigem leitura: GPL × programa separado, CC-BY-SA no ManimGX, fontes
+  fora da MIT no pixelfx, Vercel Beta Terms.
+
 ## 2026-11-17 — revisão de base (o que temos aqui × o que já existe nos apps)
 
 ### Revisão (REVIEW)

@@ -9,6 +9,7 @@ quando o relatório vive em `repositories/` ou `cross-project/`, o ponteiro est�
 
 | ID | Tema | Relatório principal | Origem no projeto |
 |---|---|---|---|
+| `LR-LIC-005` | Licenças prontas para cada dependência de terceiro (sem reabrir relatório) | `cross-project/licensing/READY-TO-USE-LICENSES.md` | derivado de 18 relatórios |
 | `LR-MODEL-001` | Catálogo de modelos, providers e runtimes | `cross-project/model-routing/MODEL-CATALOG-DIGEST.md` | `docs/research/LIA-MODEL-PROVIDER-CATALOG.md` |
 | `LR-MODEL-002` | Arquitetura neutra de providers | `cross-project/model-routing/PROVIDER-ARCHITECTURE-DIGEST.md` | `docs/research/LIA-MODEL-PROVIDER-ARCHITECTURE.md` |
 | `LR-HW-001` | Windows 11 + AMD RX 580 | `cross-project/hardware/WINDOWS-AMD-COMPATIBILITY.md` | `docs/research/LIA-WINDOWS-AMD-MODEL-COMPATIBILITY.md` |

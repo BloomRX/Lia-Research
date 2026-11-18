@@ -1,0 +1,19 @@
+id	objeto	spdx	lido_em	usar_como	fork	modificar	comercial	redistribuir	atribuicao	copyleft	patente	notice_obrigatorio	classe	evidencia
+LR-MCP-001	homeassistant-ai/ha-mcp	MIT	LICENSE	servidor externo	sim	sim	sim	sim	sim	nao	nao	copyright + texto da licenca	USE_AS_IS	repositories/ha-mcp/REPORT.md §9
+LR-AGENT-001	open-jarvis/OpenJarvis	Apache-2.0	LICENSE	padroes (codigo nao)	sim	sim	sim	sim	sim	nao	sim	NOTICE + copyright + indicar alteracoes	INDEPENDENT_REIMPLEMENTATION	repositories/openjarvis/REPORT.md §9
+LR-UI-001	vercel-labs/ui	Apache-2.0 + Vercel Beta Terms	LICENSE	padroes + codigo (beta)	sim	sim	sim	sim	sim	nao	sim	NOTICE + indicar alteracoes; ler Beta Terms	ADAPT_ALLOWED	repositories/vercel-ui/REPORT.md §9
+LR-FORGE-001	anefzaoui/misterdownloadmanager	GPL-3.0	LICENSE	processo separado (nao linkar)	sim (vira GPL)	sim (vira GPL)	sim	sim	sim	sim (forte)	nao	fonte + avisos ao redistribuir	REFERENCE_ONLY	repositories/misterdownloadmanager/REPORT.md §9
+LR-AGENT-002	tradermonty/claude-trading-skills	MIT	LICENSE	padrao de manifesto	sim	sim	sim	sim	sim	nao	nao	copyright + texto	ADAPT_ALLOWED (padrao)	repositories/claude-trading-skills/REPORT.md §9
+LR-STUDIO-001	l0ng-ai/openidea	Apache-2.0	LICENSE	padroes	sim	sim	sim	sim	sim	nao	sim	NOTICE + indicar alteracoes	INDEPENDENT_REIMPLEMENTATION	repositories/openidea/REPORT.md §9
+LR-PROV-001	routerhubSI	MIT (marketing) / servico sem termos	README	nao usar	nao	nao	nao	nao	sim	nao	nao	—	BLOCKED	repositories/routerhub/REPORT.md §9
+LR-FORGE-002	islandmed/SculptForge	GPL-3.0-or-later	LICENSE	app externo	sim (vira GPL)	sim (vira GPL)	sim	sim	sim	sim (forte)	nao	fonte + avisos	REFERENCE_ONLY	repositories/sculptforge/REPORT.md §9
+LR-STUDIO-002	Donchitos/Claude-Code-Game-Studios	MIT	LICENSE	adaptar com correcao de empacotamento	sim	sim	sim	sim	sim	nao	nao	copyright + texto JUNTO do payload	ADAPT_ALLOWED	repositories/claude-code-game-studios/REPORT.md §9
+LR-FORGE-003	academa-labs/manimgx	MIT + Apache-2.0 + CC-BY-SA-4.0 + ISC + LLVM + OFL	LICENSES/	codigo MIT; conteudo nao copiar	sim	sim	sim	sim	sim	parcial (CC-BY-SA no conteudo)	sim (Apache)	NOTICE por componente; CC-BY-SA exige share-alike	ADAPT_ALLOWED (codigo)	repositories/manimgx/REPORT.md §9
+LR-AGENT-003	Ryder-Sun/Meldwork	Apache-2.0 + COMMERCIAL_USE.md	LICENSE	adaptar codigo	sim	sim	sim	sim	sim	nao	sim	NOTICE + indicar alteracoes	ADAPT_ALLOWED	repositories/meldwork/REPORT.md §9
+LR-UI-002	backnotprop/plannotator	Apache-2.0	LICENSE	adaptar codigo	sim	sim	sim	sim	sim	nao	sim	NOTICE + indicar alteracoes	ADAPT_ALLOWED	repositories/plannotator/REPORT.md §9
+LR-FORGE-004	patch-gg/pixelfx	MIT + NOTICE.md (por efeito)	LICENSE + NOTICE.md	adaptar com NOTICE viajando	sim	sim	sim	sim	sim	nao	nao	NOTICE.md junto dos efeitos; fontes NAO cobertas	ADAPT_ALLOWED (condicionada)	repositories/pixelfx/REPORT.md §9
+LR-AGENT-004	theclaymethod/unslop	nenhuma	ausente	nao usar (so idea)	nao	nao	nao	nao	nao	nao	nao	—	BLOCKED	repositories/unslop/REPORT.md §9
+LR-STUDIO-003	rescript-lang	LGPL-3.0-or-later (compiler/) + MIT (demais)	LICENSE por diretorio	ferramenta externa	nao (rejeitado)	modificacao do compiler exige LGPL	sim	sim	sim	parcial (LGPL no compiler)	nao	ao importar: avisos LGPL + MIT	RESEARCH_ONLY	repositories/rescript-lang/REPORT.md §9
+LR-UI-003	elayadesign/ai-design-skills	MIT	LICENSE	adaptar	sim	sim	sim	sim	sim	nao	nao	copyright + texto	ADAPT_ALLOWED	repositories/ai-design-skills/REPORT.md §9
+LR-SEC-006	elementalsouls/Claude-BugHunter	MIT (codigo) + CC-BY-4.0 (conteudo)	LICENSE + LICENSE-CONTENT	referencia; conteudo exige TASL	sim	sim	sim	sim	sim	nao (CC BY)	nao	TASL: titulo, autor, fonte, licenca + link	REFERENCE	repositories/claude-bughunter/REPORT.md §9
+LR-STUDIO-004	storytold/ArtCraft (17 apps)	MIT OR Apache-2.0	LICENSE-MIT + LICENSE-APACHE	padroes; codigo Rust nao portavel	sim	sim	sim	sim	sim	nao	sim (escolher Apache)	NOTICE + indicar alteracoes	ADAPTAR (desenho)	repositories/artcraft/REPORT.md §9

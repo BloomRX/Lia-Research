@@ -5,7 +5,7 @@ veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID apa
 outro documento e não aqui, o outro documento está errado.
 
 - **Data de referência:** 2026-11-17
-- **Itens:** 18 relatórios externos + 5 dossiês internos + 27 digests/propostas transversais + 12 decisões abertas + 1 aceita
+- **Itens:** 18 relatórios externos + 5 dossiês internos + 28 digests/propostas transversais + 12 decisões abertas + 1 aceita
 - **Nenhum item foi executado.** Todos os vereditos são sobre o *valor de pesquisa*.
 
 ## Legenda
@@ -53,7 +53,7 @@ outro documento e não aqui, o outro documento está errado.
 | `LR-PROJ-004` | Lia-AgentHub | 57 | biblioteca (48 no ecossistema) | `projects/lia-agent-hub/INDEX.md` |
 | `LR-PROJ-005` | Lia-Model-Lab | 90 | 9 (únicos em `main`) | `projects/lia-model-lab/INDEX.md` |
 
-## 3. Digests transversais (30)
+## 3. Digests transversais (31)
 
 | ID | Tema | Documento |
 |---|---|---|
@@ -87,6 +87,7 @@ outro documento e não aqui, o outro documento está errado.
 | `LR-BENCH-001` | disciplina de benchmark reproduzível | `repositories/sculptforge/REPORT.md`, `repositories/manimgx/REPORT.md` |
 | `LR-SEC-003` | auditoria de segurança de STT | `cross-project/voice/VOICE-STACK-DIGEST.md` §2 |
 | `LR-LIC-003` | **auditoria das 28 skills AIRI + `alethe`** (parecer por Skill) | `projects/lia-agent-hub/skills/AIRI-AND-ALETHE-PROVENANCE.md` |
+| `LR-LIC-005` | **licenças prontas para uso** (18 objetos, obrigação em ação) | `cross-project/licensing/READY-TO-USE-LICENSES.md` |
 
 ## 3-bis. Comparações
 

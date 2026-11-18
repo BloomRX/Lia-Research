@@ -9,6 +9,7 @@
 | `LR-STUDIO-001` | IDE Rust/Tauri como referência | `repositories/openidea/REPORT.md` | pesquisa externa (novo) |
 | `LR-STUDIO-002` | 49 agentes / 75 skills de gamedev, escada de design | `repositories/claude-code-game-studios/REPORT.md` | pesquisa externa (novo) |
 | `LR-STUDIO-003` | ReScript (avaliação de stack) | `repositories/rescript-lang/REPORT.md` | pesquisa externa (novo) |
+| `LR-LIC-005` | Licenças prontas: aviso MIT dentro do payload de Skill, marca de terceiros | `cross-project/licensing/READY-TO-USE-LICENSES.md` | derivado de 18 relatórios |
 | `LR-STUDIO-004` | 17 apps criativos em Rust: barramento único de comandos e superfície de agente | `repositories/artcraft/REPORT.md` | pesquisa externa (novo) |
 | `LR-AGENT-010` | Skills de edição de foto/PDF sem gerador de imagem | `cross-project/agents/ARTCRAFT-SKILL-PACK.md` | derivado de `LR-STUDIO-004` |
 | `LR-FORGE-004` | VFX 2D / animação pixel art | `repositories/pixelfx/REPORT.md` | pesquisa externa (novo) |

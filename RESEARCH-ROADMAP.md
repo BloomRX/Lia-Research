@@ -45,6 +45,8 @@ Regra: item só sai daqui quando existe documento com evidência, não quando "j
 | L-4 | Auditar as 28 skills AIRI e o `alethe` | nenhum | **PASS** — `LR-LIC-003` (19 de 28 seguem `RESEARCH_ONLY`) |
 | L-4b | Origem individual das 19 Skills `RESEARCH_ONLY` | `LR-LIC-003` §5 | `NOT RUN` |
 | L-5 | Pipeline de citação com teste de identidade (hoje: citação manual) | `LR-SEC-006` R7 | `NOT RUN` — desenho existe em repo externo |
+| L-6 | **Licenças prontas por objeto** (o projeto não precisa reabrir o relatório) | `LR-LIC-005` | **PASS** — matriz + fichas + 4 modelos de NOTICE |
+| L-7 | Rodar o passo 3 do §6 em cada projeto (NOTICE no payload + registro em `docs/licenses/`) | L-6 | `NOT RUN` — depende dos projetos |
 
 ## Trilha A — Agente e automação
 
