@@ -15,6 +15,7 @@
 | `LR-FORGE-001` | Gerenciador de downloads com MCP | `repositories/misterdownloadmanager/REPORT.md` | externo (novo) |
 | `LR-UI-002` | Contrato de revisão humana | `repositories/plannotator/REPORT.md` | externo (novo) |
 | `LR-AGENT-006` | Catálogo de Skills/MCP (pesquisa do Studio) | `cross-project/agents/SKILLS-MCP-LANDSCAPE.md` | `ARENA-SKILLS-MCP-AGENT-TOOLS-RESEARCH.md` |
+| `LR-STUDIO-004` | Superfície de agente por app: roots, token, consentimento, MCP stdio (precedente real) | `repositories/artcraft/REPORT.md` | pesquisa externa (novo) |
 
 ## 2. Documentos do Hub que permanecem na origem (fonte canônica)
 

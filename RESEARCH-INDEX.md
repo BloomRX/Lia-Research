@@ -5,7 +5,7 @@ veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID apa
 outro documento e não aqui, o outro documento está errado.
 
 - **Data de referência:** 2026-11-17
-- **Itens:** 17 relatórios externos + 5 dossiês internos + 26 digests/propostas transversais + 12 decisões abertas + 1 aceita
+- **Itens:** 18 relatórios externos + 5 dossiês internos + 26 digests/propostas transversais + 12 decisões abertas + 1 aceita
 - **Nenhum item foi executado.** Todos os vereditos são sobre o *valor de pesquisa*.
 
 ## Legenda
@@ -16,7 +16,7 @@ outro documento e não aqui, o outro documento está errado.
 
 ---
 
-## 1. Tecnologia externa — auditoria (17)
+## 1. Tecnologia externa — auditoria (18)
 
 | ID | Objeto | Licença | Veredito | Confiança | Documento |
 |---|---|---|---|---|---|
@@ -41,6 +41,7 @@ outro documento e não aqui, o outro documento está errado.
 | `LR-STUDIO-003` | `rescript-lang` (org, 39 repos) | LGPL no `compiler/` | **REJEITAR** | Alta | `repositories/rescript-lang/REPORT.md` |
 | `LR-UI-003` | `elayadesign/ai-design-skills` | MIT | **ADAPTAR** | Média | `repositories/ai-design-skills/REPORT.md` |
 | `LR-SEC-006` | `elementalsouls/Claude-BugHunter` | MIT + CC BY 4.0 | **REFERÊNCIA** | Alta | `repositories/claude-bughunter/REPORT.md` |
+| `LR-STUDIO-004` | `storytold` (ArtCraft, 17 apps + 186 crates) | MIT OR Apache-2.0 | **ADAPTAR** | Alta | `repositories/artcraft/REPORT.md` |
 
 ## 2. Projetos do ecossistema — dossiês internos (5)
 

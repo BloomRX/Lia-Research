@@ -63,6 +63,8 @@ Regra: item só sai daqui quando existe documento com evidência, não quando "j
 | U-1 | Protótipo de 1 tela com Vercel UI SDK (foco/popup/DnD) | leitura dos beta terms | PENDING |
 | U-2 | Comparar com a implementação atual (bundle, acessibilidade) | U-1 | PENDING |
 | U-3 | Hábito de ADR de UI | nenhum | **PASS (procedimento)** — `LR-UI-005` |
+| U-4 | Piloto de **barramento único de comandos** (UI/CLI/IPC/MCP) no Studio | `LR-STUDIO-004` A1 | `NOT RUN` |
+| U-5 | Roots de leitura/escrita por sessão de agente + consentimento global | `LR-STUDIO-004` A2/A3 | `NOT RUN` |
 
 ## Trilha R — Avaliação das lacunas declaradas (2026-11-17)
 

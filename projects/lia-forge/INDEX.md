@@ -13,6 +13,7 @@
 | `LR-LIC-002` | Proveniência de asset (E3) | `cross-project/licensing/ASSET-PROVENANCE.md` | `docs/T11-E3-ASSET-PROVENANCE-AND-CONTENT-VALIDATION.md` |
 | `LR-AGENT-005` | Orquestração de agentes de produção de assets | `cross-project/agents/ASSET-AGENT-ORCHESTRATION-DIGEST.md` | `docs/T14-AGENT-ORCHESTRATION-ARCHITECTURE.md` |
 | `LR-FORGE-005` | Ecossistema Blender / MCP | `cross-project/agents/BLENDER-MCP-DIGEST.md` | `docs/BLENDER-MCP-RESEARCH.md`, `docs/ECOSYSTEM-RESEARCH-BLENDER-ADDONS.md` |
+| `LR-STUDIO-004` | Composição/geração 2D·3D e crates de formato (leitura hostil, `craft-docpath`) | `repositories/artcraft/REPORT.md` | pesquisa externa (novo) |
 
 ## 2. Pesquisa existente mantida na origem
 

@@ -8,6 +8,28 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-17 — novo objeto externo: ArtCraft (17 apps criativos)
+
+### Pesquisa nova (ADD)
+- `LR-STUDIO-004` `storytold` / ArtCraft — 17 apps criativos nativos em Rust, **186 crates**
+  compartilhados, launcher próprio, MCP embutido por app. Veredito **ADAPTAR** (desenho, não código).
+
+### Achados (ADD)
+- **Barramento único de comandos**: UI, CLI, protocolo JSON e MCP despacham no mesmo registro.
+- **Autoridade de agente por lançamento**: read/write roots explícitos, bearer token em
+  arquivo privado, loopback, switch de consentimento **desligado por padrão** — e a frase
+  "tool schemas are not authorization boundaries".
+- **Lacuna admitida no próprio repo**: sem capability por comando; endurecimento proposto, não implementado.
+- **Contrato de IA tipado** (`Role`/`Capability`/`InputRole`) com “falhar explícito, nunca
+  substituir o motor silenciosamente”, consentimento, jobs e segredos fora do JSON compartilhado.
+- `craft-docpath`: caminho guardado em documento só abre local ou no próprio share.
+- Dual `MIT OR Apache-2.0`, mas metadado do GitHub declara só Apache (mesma classe de erro de `LR-SEC-006`).
+- Vizinhos medidos: Graphite ★27.981 Apache-2.0 · Penpot ★62.523 MPL-2.0 · ComfyUI ★147.500 **GPL-3.0**.
+
+### Integrações (CONSOLIDATE)
+- `RESEARCH-ROADMAP.md`: novas linhas U-4 (comando único) e U-5 (roots/consentimento).
+- Índices de Studio, Forge, Agent Hub e Model Lab apontam para `LR-STUDIO-004`.
+
 ## 2026-11-17 — novo objeto externo: Claude-BugHunter
 
 ### Pesquisa nova (ADD)

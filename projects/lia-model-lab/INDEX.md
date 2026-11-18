@@ -14,6 +14,7 @@
 | `LR-AGENT-001` | Métricas de energia/FLOPs e contrato de engine | `repositories/openjarvis/REPORT.md` | externo (novo) |
 | `LR-PROV-001` | RouterHub (provider rejeitado) | `repositories/routerhub/REPORT.md` | externo (novo) |
 | `LR-FORGE-001` | Download de pesos com retomada (GPL) | `repositories/misterdownloadmanager/REPORT.md` | externo (novo) |
+| `LR-STUDIO-004` | Contrato tipado de capability (`Role`/`Capability`/`InputRole`) e proibição de fallback silencioso | `repositories/artcraft/REPORT.md` | pesquisa externa (novo) |
 | `LR-BENCH-001` | Disciplina de benchmark reproduzível | `repositories/sculptforge/REPORT.md`, `repositories/manimgx/REPORT.md` | externo (novo) |
 
 ## 2. ADRs do projeto (fonte canônica: o próprio projeto)
