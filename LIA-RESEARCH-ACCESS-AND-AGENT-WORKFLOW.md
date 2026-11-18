@@ -50,10 +50,12 @@ Regras:
 
 1. **Cite a branch.** O conteúdo muda entre `main` e as branches de sessão; sem branch,
    um leitor novo pode concluir que o item "não existe".
-2. **Não confunda os dois mundos:** esta base é pública; os **cinco repositórios de
-   produto** (Lia-Project, Lia Forge, Lia Studio, Lia Agent Hub, Lia Model Lab) são
-   privados e exigem `gh` autenticado. Foi por isso que o §4 usa `gh api` — para eles,
-   não para cá.
+2. **Os cinco repositórios de produto também são públicos** — verificado em 2026-11-17
+   (`gh api repos/BloomRX/Lia-Project --jq .visibility` → `public`, idem Forge, Studio,
+   AgentHub e Model Lab). Logo, `gh` no §4 serve para **consultar branches e arquivos com
+   precisão**, não para destravar acesso. Consequência que não pode ser esquecida:
+   **tudo o que está nos cinco também é legível por qualquer pessoa** — inclusive pesquisa
+   e Skills sem licença (`LIA-RESEARCH-BASELINE-REVIEW-2026-11-17.md` §6, D1).
 3. **Leitura pública ≠ permissão de escrita.** Publicar segue `DR-0002` e
    `agents/PUBLISHING-PROTOCOL.md`.
 4. **Nada de segredo no caminho público:** qualquer arquivo aqui é legível por qualquer

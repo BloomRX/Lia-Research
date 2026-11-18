@@ -11,7 +11,7 @@
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
 | Status | Fundação entregue (fases 0–3); fase 4 de medição `NOT RUN` |
-| Arquivos Markdown | 135 (contagem de 2026-11-17, `find -name '*.md'`), validados por `tools/validate.py` |
+| Arquivos Markdown | 136 (contagem de 2026-11-17, `find -name '*.md'`), validados por `tools/validate.py` |
 | Relatórios externos | 18 objetos auditados, 22 documentos |
 | Decisões | 13 abertas · 3 rejeições · 2 referência · 2 pastas vazias por desenho |
 
@@ -40,6 +40,11 @@ fundação (2026-11-17):
 Depois desta fundação: **18 objetos externos auditados** (16 repositórios + 2
 organizações), **5 dossiês internos**, **22 digests transversais**, **4 comparações** e
 **3 decisões de não adoção** registradas com condição de reabertura.
+
+**Cobertura declarada:** esta base é uma **camada de ponteiro**, não um espelho. São
+136 documentos aqui para **1.148 Markdown em `main`** nos cinco apps (medido em 2026-11-17),
+ou seja ~1:8. O critério é seletivo: entra o que muda decisão, não o que já vive no projeto.
+Revisão crítica do estado da base: `LIA-RESEARCH-BASELINE-REVIEW-2026-11-17.md`.
 
 O Lia-Research existe para que esses números deixem de ser redescobertos a cada
 sessão. Ele oferece: um índice único, um padrão de relatório, um vocabulário de

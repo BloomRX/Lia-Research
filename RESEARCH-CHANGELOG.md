@@ -8,6 +8,30 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-17 — revisão de base (o que temos aqui × o que já existe nos apps)
+
+### Revisão (REVIEW)
+- `LIA-RESEARCH-BASELINE-REVIEW-2026-11-17.md`: re-leitura crítica com números **medidos
+  hoje**, não herdados. Estado: 136 docs · 18 objetos (7 ADAPTAR · 8 REFERÊNCIA ·
+  3 REJEITAR · **0 ADOTAR**) · 30 digests · 18 DRs · 14 repos públicos · 43 branches ·
+  **1.148** Markdown em `main` nos cinco apps (cobertura ~1:8, agora declarada no README).
+
+### Correções (FIX — achados da própria revisão)
+- **D1:** o ACCESS doc afirmava que os cinco repositórios de produto eram privados.
+  São **públicos** (`visibility: public` verificado nos cinco). Texto corrigido, com a
+  consequência registrada: a exposição pública não é só desta base.
+- **D2:** `RESEARCH-INDEX.md` §3 anunciava "(17)" com 30 linhas.
+- **D3:** `RESEARCH-INDEX.md` §4 anunciava "(13 abertas)" com 12.
+- **D4:** cobertura 1:8 (136 ↔ 1.148) declarada no `README.md` §1.
+- **Regressão registrada:** D1 foi erro introduzido nesta sessão; o
+  `ecosystem/ECOSYSTEM-MAP.md` já dizia "todos os 14 repositórios são públicos".
+
+### Conclusão da revisão (ADD)
+- Autocrítica F1/F2: **0 ADOTAR em 18 objetos** e **5 propostas sem nenhuma execução** —
+  a base é hoje mais opinião documentada que medição.
+- Maior risco apontado: **48 Skills sem licença em cinco repositórios públicos**
+  (`DR-0001` aberto).
+
 ## 2026-11-17 — acesso público explicitado + pacote de Skills ArtCraft
 
 ### Correção (FIX)

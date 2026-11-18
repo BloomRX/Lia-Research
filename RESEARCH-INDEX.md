@@ -53,7 +53,7 @@ outro documento e não aqui, o outro documento está errado.
 | `LR-PROJ-004` | Lia-AgentHub | 57 | biblioteca (48 no ecossistema) | `projects/lia-agent-hub/INDEX.md` |
 | `LR-PROJ-005` | Lia-Model-Lab | 90 | 9 (únicos em `main`) | `projects/lia-model-lab/INDEX.md` |
 
-## 3. Digests transversais (17)
+## 3. Digests transversais (30)
 
 | ID | Tema | Documento |
 |---|---|---|
@@ -96,7 +96,7 @@ outro documento e não aqui, o outro documento está errado.
 | `LR-CMP-002` | qual servidor MCP de casa usar, se algum | `comparisons/MCP-SERVER-COMPARISON.md` |
 | `LR-CMP-003` | como medir modelo/hardware sem virar fé | `comparisons/BENCHMARK-APPROACH-COMPARISON.md` |
 
-## 4. Decisões (13 abertas + 5 tomadas)
+## 4. Decisões (12 abertas + 5 tomadas)
 
 | Estado | IDs | Pasta |
 |---|---|---|
