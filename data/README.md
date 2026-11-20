@@ -32,8 +32,9 @@ menos.
 2. Material de terceiros **não** é incluído: só manifestos com SHA, caminho e commit.
    A cópia de terceiros fica na origem; aqui só o ponteiro.
 3. Todo arquivo aqui precisa de um lugar que o cite. Dado órfão é dado morto.
-4. Reprodução: `tools/enum2.py` (árvore/documentos), `tools/fetch3.py` (corpus),
-   `tools/collect.py` (metadados externos). Rodar de novo em outro dia dá números
+4. Reprodução: `archive/scripts/enum2.py` (árvore/documentos),
+   `archive/scripts/fetch3.py` (corpus), `archive/scripts/collect.py` (metadados externos)
+   — scripts de sessão, arquivados com a explicação em `archive/scripts/README.md`. Rodar de novo em outro dia dá números
    diferentes — é o esperado.
 
 ## 4. Data de coleta

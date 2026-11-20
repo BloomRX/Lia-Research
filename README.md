@@ -11,7 +11,7 @@
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
 | Status | Base reorganizada em 2026-11-20 (missão, catálogo, validador). Medição em hardware: `NOT RUN`; testes de software registrados: **0** |
-| Arquivos Markdown | 158 (contagem de 2026-11-20, `find -name '*.md'`), validados por `tools/validate.py` |
+| Arquivos Markdown | 159 (contagem de 2026-11-20, `find -name '*.md'`), validados por `tools/validate.py` |
 | Relatórios externos | 22 objetos, 1 relatório cada (`repositories/*/REPORT.md`) |
 | Catálogo | `catalog/catalog.tsv` — 22 linhas, gerado de `tools/build_catalog.py` |
 | Decisões (governança) | 1 aceita · 12 pendentes · 3 rejeitadas · 2 referência · 2 pastas vazias por desenho |
