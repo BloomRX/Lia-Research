@@ -7,6 +7,7 @@
 | Projetos | Lia Forge 2.0 |
 | Fontes | `CHARACTER-GENERATION-MODEL-CATALOG.md` (licenças e hardware), READMEs oficiais, CharNeRF (arXiv 2402.17115), Pix3D (CVPR 2018) para métricas, glTF 2.0 (Khronos) para formato |
 | Data | 2026-11-20 |
+| Revisão | 2026-11-21 (rodada 7.1: correções de licença, hardware, vídeo e contagens) |
 | Status | CURRENT |
 | Confiança | Média — comparativo documental; nenhum pipeline foi executado ponta a ponta |
 | Natureza | pesquisa e documentação; não autoriza implementação |
@@ -29,10 +30,10 @@ existe para evitar.
 
 | Abordagem | Como funciona | Força | Fraqueza estrutural | RX 580 |
 |---|---|---|---|---|
-| Image-to-3D (single image) | LRM/difusão gera geometria a partir de 1 imagem | rápido, barato | inventa o que não vê (costas) | só CPU (TripoSR, não validado) |
+| Image-to-3D (single image) | LRM/difusão gera geometria a partir de 1 imagem | rápido, barato | inventa o que não vê (costas) | todos os demais exigem CUDA; exceção declarada: CPU via TripoSR (`UNVALIDATED`) |
 | Multi-view reconstruction | 3–5 vistas → geometria | coerente com o sheet | depende de sheet consistente | nuvem/CUDA |
 | Text-to-3D | texto → geometria | zero insumo | controle baixo, difícil de dirigir | nuvem/CUDA |
-| Gaussian Splatting | otimiza nuvem de gaussianas | visual excelente | **não é malha**; sem rig; retopo depois | CUDA |
+| Gaussian Splatting | otimiza nuvem de gaussianas | visual excelente | **não é malha**; sem rig; retopo depois | implementações usuais em CUDA (`UNVALIDATED` para alternativas) |
 | Modelagem assistida por IA | IA sugere/remenda dentro do DCC | mantém controle e topologia | exige artista; ferramenta menos madura | local viável |
 | Blockout manual | primitivas + proporção | controle total, topologia limpa desde o início | tempo humano | local, custo zero de GPU |
 | Híbrido | IA para conceito/base, humano para estrutura | melhor relação qualidade/custo real | disciplina de processo | misto |
@@ -86,12 +87,12 @@ Brief → 20 silhuetas (Vulkan/CPU) → revisão humana → concept em 1 vista
 | Fidelidade visual | alta em forma, baixa em textura |
 | Custo | **R$ 0** de software; tempo humano é o custo |
 | Tempo | maior de todos |
-| Hardware | RX 580 para imagem (Vulkan, não validado) + Blender |
+| Hardware | RX 580 para imagem (Vulkan via `stable-diffusion.cpp`; **`UNVALIDATED`**) + Blender |
 | Dependências externas | nenhuma conta |
 | Direitos de uso | limpos se usar SDXL (OpenRAIL++) e Blender |
 | Maturidade | alta (ferramentas antigas e estáveis) |
 
-### 4.2. Pipeline 2 — Híbrido (recomendado para uso regular)
+### 4.2. Pipeline 2 — Híbrido (**candidato prioritário para avaliação prática**, não padrão aprovado)
 
 ```
 Brief → silhuetas locais → aprovação → concept (Qwen-Image-Edit via GPU alugada ou nuvem)
@@ -105,9 +106,9 @@ Brief → silhuetas locais → aprovação → concept (Qwen-Image-Edit via GPU 
 | Fidelidade visual | alta (edição preserva o aprovado) |
 | Custo | assinatura US$ 20–100/mês + eventual GPU/hora |
 | Tempo | fração do pipeline 1 |
-| Hardware | o local continua sendo o gargalo de silhueta |
+| Hardware | o local continua sendo o gargalo de silhueta; o passo de concept/sheet exige GPU alugada ou nuvem (RX 580/gfx803 sem caminho oficial) |
 | Dependências externas | fornecedor de 3D + eventual GPU |
-| Direitos de uso | depende do plano (free do Meshy = CC BY 4.0; free do Tripo = não comercial) |
+| Direitos de uso | depende do plano, e o gratuito é mais restritivo do que "grátis": **Tripo Free** = output **público por padrão** com renúncia de direitos autorais e licença pública que permite exploração comercial por terceiros (termos de 2026-11-13, §5.2.1 — `https://www.tripo3d.ai/terms`, lidos em 2026-11-20); **Meshy Free** = **CC BY 4.0**, uso comercial **com atribuição**. Plano pago: Tripo Pro US$ 20/mês (3.000 créditos), Meshy Pro US$ 20/mês (1.000 créditos). Detalhe em `CHARACTER-GENERATION-MODEL-CATALOG.md` §6.1–6.2; `REQUIRES_LEGAL_REVIEW` para o uso de output gratuito do Tripo em produto comercial |
 | Maturidade | média (serviços mudam rápido) |
 
 ### 4.3. Pipeline 3 — Alta qualidade
@@ -160,8 +161,10 @@ script — e é aí que o Forge ganha confiabilidade sem depender de IA.
 
 ## 7. Recomendação
 
-1. **Pipeline 2 como padrão de produção**, Pipeline 1 como modo de soberania/offline, Pipeline
-   3 como exceção orçada.
+1. **Pipeline 2 é o candidato prioritário para avaliação prática — não um padrão de produção
+   aprovado.** Ele depende de fornecedor externo, de plano pago e de termos que o proprietário
+   precisa aceitar; aprová-lo é decisão dele, não desta pesquisa. Pipeline 1 como modo de
+   soberania/offline, Pipeline 3 como exceção orçada. Nenhum dos três está aprovado.
 2. **Image-to-3D entra como gerador de base, nunca como entrega.** A saída é insumo de retopo.
 3. **O gate de qualidade é técnico, não estético**: manifold, UV, rig, pesos, GLB.
 4. **Não adotar splatting** no caminho de personagem de jogo enquanto não houver conversão
