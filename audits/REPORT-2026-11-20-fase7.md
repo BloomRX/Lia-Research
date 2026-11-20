@@ -4,7 +4,7 @@
 |---|---|
 | Pedido | correções, validação e reauditoria técnica real (7 fases) |
 | Branch | `arena/7cf9c65e-lia-research` |
-| Commits desta rodada | `5a9eead` (ferramentas) · `dc9973b` (pesquisa) · este commit (relatório) |
+| Commits desta rodada | `5a9eead` (ferramentas) · `dc9973b` (pesquisa) · `327392b` (este relatório) · `8e37b4e` (correção do total de commits) |
 | Estado final do validador | **0 erros · 0 avisos · 7 notas** (`python3 tools/validate.py`) |
 | Testes do validador | **76 · OK** (`python3 -B -m unittest tools.test_validate`) |
 
@@ -18,7 +18,7 @@
 | 4. Reauditoria **técnica** + testes | seção `Reauditoria 2026-11-20` nos 23 relatórios, `audits/TECHNICAL-REAUDIT-2026-11-20.md` | **feito, com lacunas declaradas** |
 | 5. Reconciliação | índice, 5 índices de projeto, matriz de licenças, digest de licenças, esquema do catálogo, protocolo de teste, roadmap | **feito** |
 | 6. Fila | `RESEARCH-BACKLOG.md` §7 — decisão escrita para 17 triados + 6 candidatos | **feito** |
-| 7. Fechamento | validador verde, 3 commits, push nesta branch | **feito** |
+| 7. Fechamento | validador verde, 4 commits, push nesta branch | **feito** |
 
 ## 2. Números verificáveis
 
