@@ -7,7 +7,7 @@
 | Projetos | Lia Forge 2.0 (consumidor), Lia Studio |
 | Fontes | 51 registros na matriz de evidências (46 originais + 3 da rodada 7.1 + 2 da 7.2) (repositórios, páginas oficiais e serviços; ver `CHARACTER-CREATION-EVIDENCE-MATRIX.tsv`), página pública do vídeo com transcrição parcial, e a pesquisa interna listada em §2 |
 | Data | 2026-11-20 |
-| Revisão | 2026-11-21 (rodada 7.1: correções de licença, hardware, vídeo e contagens) |
+| Revisão | 2026-11-20 (UTC) — 7.1: licença, hardware, vídeo e contagens; 7.3: conciliação Tripo/Meshy/Flow/ROCm |
 | Status | CURRENT |
 | Confiança | Média — catálogo de ferramentas verificado em fonte primária; **nenhum modelo foi executado** no hardware de referência |
 | Natureza | pesquisa e documentação; **não autoriza implementação** no Forge |
@@ -100,6 +100,12 @@ método, licença e arquitetura já registrados; só o conteúdo técnico é nov
 
 ## 3. O que foi verificado, e como
 
+**Convenção de datas:** todas as datas desta série são **UTC**. Os commits do repositório são
+carimbados em UTC e o horário local de referência é São Paulo (**UTC−3**); um commit de
+`2026-11-20T20:04Z` corresponde a `2026-11-20 17:04` em São Paulo. Datas sem hora indicam o dia
+em UTC — foi o que corrigiu a divergência entre "revisão em 2026-11-21" nos documentos e o
+carimbo `2026-11-20` do commit.
+
 | Nível de evidência | O que usei nesta rodada |
 |---|---|
 | **Documentação oficial / metadados primários** | `gh api` para licença, atividade, releases e README de 44 projetos; API de modelos do Hugging Face para licença de **pesos**, SHA do repo de pesos, gate e contagem de parâmetros |
@@ -136,9 +142,11 @@ Hardware de referência: Windows · **Radeon RX 580 8 GB (Polaris, gfx803)** · 
 
 | Afirmação | Situação corrigida | Evidência |
 |---|---|---|
-| "PyTorch com ROCm só existe no Linux" | **Generalização excessiva.** O seletor oficial do PyTorch oferece ROCm para Linux; em Windows o caminho oficial é CUDA/CPU. Existe suporte **restrito** a certas APUs Ryzen AI no Windows, fora do caminho gfx803 — e eu **não encontrei wheel oficial ROCm/Windows para GPU discreta** no seletor | `OFFICIAL_DOCUMENTATION` (pytorch.org) + `UNVALIDATED` para o caso Ryzen AI |
+| "PyTorch com ROCm só existe no Linux" | **Errado como afirmação geral, e corrigido.** A AMD publica, em documentação própria, **PyTorch 2.9.1 + ROCm 7.2.1 + Python 3.12 para Windows 11** em APUs **Ryzen AI** de arquitetura **gfx1150/gfx1151** (Ryzen AI Max+ 395, Max 390, Max 385, AI 9 HX 375/370/365, HX 475/470/465), com wheels em `repo.radeon.com` e driver 26.2.2. Fora desse recorte, o seletor do PyTorch continua oferecendo ROCm só para Linux | `OFFICIAL_DOCUMENTATION` |
+| Suporte Ryzen AI no Windows | **suporte oficial para SKUs listados** — não é "todo Ryzen", não é "toda Radeon". A própria AMD anota que "the entire ROCm stack is not yet supported on Windows" | `OFFICIAL_DOCUMENTATION` |
 | "A RX 580 não é suportada pelo HIP SDK no Windows" | **continua válido**: a lista oficial de GPUs suportadas no Windows não inclui a RX 580 e marca até RDNA2 (gfx1030) como não suportada | `OFFICIAL_DOCUMENTATION` (rocm.docs.amd.com, HIP SDK 7.2) |
-| "ROCm não cobre gfx803" | **continua válido**: a matriz do ROCm 10.2 lista Radeon de gfx1030 para cima | `OFFICIAL_DOCUMENTATION` |
+| "ROCm não cobre gfx803" | **continua válido**: a matriz do ROCm 10.2 lista Radeon de gfx1030 para cima, e a matriz Windows/Ryzen AI só traz gfx1150/gfx1151 | `OFFICIAL_DOCUMENTATION` |
+| Ryzen 5 5500 + RX 580 (referência) | **não contemplado** por nenhuma matriz oficial: o Ryzen 5 5500 não é APU Ryzen AI e a RX 580 é gfx803 | `OFFICIAL_DOCUMENTATION` (por ausência nas listas) |
 | "gfx803 não aparece em nenhum lugar" | correto para as páginas lidas; não afirmei suporte comunitário | `UNVALIDATED` para builds comunitários |
 
 Resumo utilizável: **não existe caminho oficial de GPU AMD para esta placa, nem no Linux
@@ -193,6 +201,11 @@ sem medição.
 Conclusão honesta: **não há evidência de image-to-3D utilizável nesta GPU**, e o único caminho
 não-CUDA declarado é CPU (TripoSR), sem número de tempo.
 
+Nota de precisão acrescentada na rodada de conciliação: o fato de a AMD ter suporte oficial a
+ROCm/PyTorch no Windows **para APUs Ryzen AI gfx1150/gfx1151** não alcança a RX 580 (gfx803)
+nem o Ryzen 5 5500. São recortes de hardware diferentes; tratar um como o outro seria o mesmo
+erro que esta série vem corrigindo.
+
 ## 6. Conclusão da frente 3D (resumo)
 
 Os modelos de image-to-3D de 2024–2026 produzem **objeto**, não **personagem de jogo**.
@@ -210,7 +223,7 @@ assumir que a maior parte do trabalho está depois do modelo de IA, não antes.*
 | Pipeline | Ideia | Onde faz sentido | Custo dominante |
 |---|---|---|---|
 | 1 — Local e econômico | `stable-diffusion.cpp` (Vulkan) para conceito e vistas; corte e avaliação determinísticos; blockout manual no Blender; IA apenas como referência | hardware de referência, sem conta em serviço | **tempo humano** e qualidade limitada de vista múltipla |
-| 2 — Híbrido | conceito local + image-to-3D em nuvem (Tripo/Meshy) + retopo/rig no Blender | uso regular, previsível | assinatura mensal + revisão humana |
+| 2 — Híbrido | conceito local + image-to-3D em nuvem (Tripo pago ou Meshy) + retopo/rig no Blender | uso regular, previsível | assinatura mensal + revisão humana |
 | 3 — Alta qualidade | conceito em modelo de fronteira (Qwen-Image-Edit/FLUX Kontext), vistas com adapter multi-view, reconstrução em GPU alugada, produção manual | personagem de vitrine | GPU/hora + artista |
 
 Nenhuma delas é "a escolha". A comparação item a item está em `CHARACTER-2D-TO-3D-PIPELINES.md` §4.
@@ -245,7 +258,7 @@ Nenhuma delas é "a escolha". A comparação item a item está em `CHARACTER-2D-
 | ControlNet original (lllyasviel) | parado desde 2024-02; era SD1.5 — hoje é legado |
 | Instant Meshes como dependência de produto | última atividade em 2022-01; usar como ferramenta pontual, não como biblioteca |
 | ZLUDA / ComfyUI-Zluda | camada não oficial, sem suporte do fornecedor; serve para experimento, não para produto |
-| Plano **gratuito** do Tripo para personagem de jogo | o output nasce público e o usuário renuncia a direitos autorais, inclusive para exploração comercial por terceiros sem atribuição |
+| Plano **gratuito** do Tripo para personagem de jogo | `CONFLICTING`: a página de preços diz "Non-Commercial Use" e o termo (§5.2.1) diz que qualquer terceiro pode explorar comercialmente o output, com renúncia de direitos do usuário. Enquanto não for esclarecido, não serve para asset proprietário |
 | Plano **gratuito** do Meshy como entrega final | CC BY 4.0: comercial, mas com atribuição obrigatória — decisão de produto, não técnica |
 | Live2D como caminho de personagem **3D** | a tecnologia é 2D por construção: não gera malha, não exporta GLB |
 | AetherAI para **3D, rig ou GLB** | o serviço não faz nada disso; a animação é por sprites |
@@ -303,7 +316,7 @@ mascotes legítimos.
 | Conteúdo do vídeo de referência | obtida apenas a página pública com transcrição parcial; **o vídeo não foi assistido** e o restante do conteúdo é `BLOCKED` |
 | Direitos e preços de Reallusion, OpenAI e Google Flow | páginas de produto lidas; EULA/termos **não** lidos |
 | `microsoft/torch-directml` (DirectML) | 404 na API nesta sessão: `BLOCKED` |
-| Suporte ROCm/Windows para APUs Ryzen AI | não consta no seletor oficial do PyTorch; relato de suporte restrito `UNVALIDATED` |
+| Suporte ROCm/Windows para APUs Ryzen AI | **resolvido nesta rodada**: documentação oficial da AMD cobre Windows 11 + gfx1150/gfx1151 com PyTorch 2.9.1/ROCm 7.2.1. Fora desses SKUs, nada muda |
 
 ## 10. Decisões que dependem do proprietário
 
@@ -317,9 +330,9 @@ mascotes legítimos.
    ser assistido.
 5. **Onde o Style Lock mora**: no Forge (produto) ou no Research (referência)? A resposta
    muda o contrato.
-6. **Plano pago de serviço 3D**: com os termos lidos, o gratuito do Tripo é público com
-   renúncia de direitos e o do Meshy exige atribuição. Se o Forge produzir asset de jogo, o
-   piso é plano pago (US$ 20–100/mês) ou caminho local.
+6. **Plano pago de serviço 3D**: o gratuito do Tripo é `CONFLICTING` (página diz não comercial;
+   termo permite exploração comercial por terceiros) e o do Meshy exige atribuição (CC BY 4.0).
+   Se o Forge produzir asset de jogo, o piso é plano pago (US$ 20–100/mês) ou caminho local.
 
 ## 11. Documentos deste conjunto
 
