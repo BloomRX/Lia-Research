@@ -5,8 +5,9 @@
 | ID | `LR-STUDIO-007` |
 | Categoria | studio / forge |
 | Projetos | Lia Forge 2.0 (consumidor), Lia Studio |
-| Fontes | 46 linhas na matriz de evidências (repositórios, páginas oficiais e serviços; ver `CHARACTER-CREATION-EVIDENCE-MATRIX.tsv`), mais a pesquisa interna listada em §2 |
+| Fontes | 49 registros na matriz de evidências (46 originais + 3 candidatos) (repositórios, páginas oficiais e serviços; ver `CHARACTER-CREATION-EVIDENCE-MATRIX.tsv`), página pública do vídeo com transcrição parcial, e a pesquisa interna listada em §2 |
 | Data | 2026-11-20 |
+| Revisão | 2026-11-21 (rodada 7.1: correções de licença, hardware, vídeo e contagens) |
 | Status | CURRENT |
 | Confiança | Média — catálogo de ferramentas verificado em fonte primária; **nenhum modelo foi executado** no hardware de referência |
 | Natureza | pesquisa e documentação; **não autoriza implementação** no Forge |
@@ -16,13 +17,30 @@
 ## 1. A pergunta desta pesquisa
 
 O pedido do Forge 2.0 define um princípio: **a identidade visual e a silhueta do personagem
-têm de ser resolvidas antes de começar a construção definitiva em 3D.** O vídeo citado no
-pedido (`youtube.com/watch?v=lKDVvJcSB14`) é referência de processo, não fonte técnica.
+têm de ser resolvidas antes de começar a construção definitiva em 3D.**
 
-**Não assisti ao vídeo.** Não há transcrição nem acesso a conteúdo audiovisual nesta sessão;
-portanto ele aparece aqui apenas como o processo que o solicitante descreveu (exploração →
-ficha → 3D → jogo), e **nenhuma afirmação deste conjunto de documentos depende dele**. Se o
-vídeo contiver técnica específica, ela não está coberta por esta pesquisa.
+### 1.1. O vídeo de referência (`youtube.com/watch?v=lKDVvJcSB14`) — corrigido
+
+A rodada anterior dizia que não tinha conseguido assistir ao vídeo e, ao mesmo tempo, um dos
+documentos atribuía a ele a sequência "exploração → ficha → 3D → jogo". **As duas coisas não
+podiam estar certas.** Na rodada 7.1 obtive a página pública do vídeo com transcrição parcial.
+
+| Campo | Valor |
+|---|---|
+| Título | "GPT 6.2 ASTRA é Realmente TUDO ISSO que Estão Falando?" |
+| Canal | MagmaDev |
+| Publicação | 2026-11-19 · duração 45:58 · 4.496 visualizações (na leitura) |
+| Natureza | **teste comparativo de modelos de linguagem para desenvolvimento de jogos** (GPT 6.2 Astra/Sol vs. alternativas), com foco em custo e resultado |
+| O que a parte acessível mostra | criação de um jogo de fazenda/ovelhas a partir de game design; personagem (bruxa) gerada e **refeita 3–4 vezes com técnicas e ferramentas diferentes** para comparar custo/qualidade; uso de um framework próprio de modelagem 3D ("Asset Forge 3D", Python) para gerar assets sem manipular o Blender |
+| Classificação da evidência | `COMMUNITY_REPORTED` (relato de terceiro; transcrição parcial lida) |
+| O que **não** encontrei no trecho acessível | qualquer método de "silhueta primeiro", ficha/turnaround canônico, vistas ortográficas ou critérios de avaliação de silhueta |
+
+**Consequência:** o vídeo deixa de ser fonte de processo nesta série. A sequência de dez
+etapas vem **da ordem de pesquisa recebida do proprietário** (e é tratada como hipótese em
+`CHARACTER-CREATION-ARCHITECTURE-RECOMMENDATIONS.md`), não do conteúdo audiovisual. O vídeo
+permanece útil como **relato sobre custo de modelos de fronteira** — outro assunto.
+`BLOCKED` para qualquer outra afirmação: só a primeira parte da transcrição estava acessível,
+e não assisti ao vídeo.
 
 Esta rodada responde a cinco perguntas, nesta ordem de importância:
 
@@ -110,20 +128,70 @@ julgamento humano — o estudo Pix3D mediu Spearman de 0,32 (IoU), 0,43 (EMD) e 
 (Chamfer) contra nota humana. Um pipeline que use IoU como "aprovação" está medindo a
 coisa errada com confiança alta.
 
-## 5. Conclusão da frente de hardware (a mais dura)
+## 5. Conclusão da frente de hardware (revisada)
 
-O hardware de referência é Windows + **RX 580 8 GB** (gfx803, Polaris) + Ryzen 5 5500 + 16 GB.
+Hardware de referência: Windows · **Radeon RX 580 8 GB (Polaris, gfx803)** · Ryzen 5 5500 · 16 GB RAM.
 
-| Fato verificado | Fonte | Consequência |
+### 5.1. O que é fato, e o que era generalização minha
+
+| Afirmação | Situação corrigida | Evidência |
 |---|---|---|
-| A matriz do ROCm 10.2 lista GPUs Radeon de gfx1030 para cima; **gfx803 não aparece** | `rocm.docs.amd.com` — matriz de compatibilidade | ROCm não é caminho para a RX 580, em nenhum sistema |
-| O HIP SDK para Windows 7.2 não lista a RX 580 e marca até RDNA2 (gfx1030) como **não suportado** | `rocm.docs.amd.com/projects/install-on-windows` — requisitos de sistema | "instalar ROCm no Windows" não resolve |
-| O PyTorch oficial oferece ROCm apenas para Linux; Windows vem com CUDA ou CPU | `pytorch.org/get-started/locally` | `diffusers` + GPU AMD no Windows não é caminho oficial |
-| `stable-diffusion.cpp` (MIT) tem backend **Vulkan**, build para Windows, e suporta SDXL, FLUX, Qwen-Image e modelos de edição | README do projeto | **é o único caminho local plausível em Vulkan** — e é CPU/GPU via ggml, não PyTorch |
-| Todos os image-to-3D relevantes exigem CUDA: TRELLIS (16 GB, CUDA toolkit), TRELLIS.2 (24 GB), Hunyuan3D-2.1 (29 GB total), TripoSG (8 GB CUDA), InstantMesh (CUDA ≥ 12.1), SF3D (CUDA ou MPS; no Windows exige VS 2022) | READMEs oficiais de cada um | **2D→3D local na RX 580: inviável como caminho principal**; resta CPU (não validado) ou nuvem |
+| "PyTorch com ROCm só existe no Linux" | **Generalização excessiva.** O seletor oficial do PyTorch oferece ROCm para Linux; em Windows o caminho oficial é CUDA/CPU. Existe suporte **restrito** a certas APUs Ryzen AI no Windows, fora do caminho gfx803 — e eu **não encontrei wheel oficial ROCm/Windows para GPU discreta** no seletor | `OFFICIAL_DOCUMENTATION` (pytorch.org) + `UNVALIDATED` para o caso Ryzen AI |
+| "A RX 580 não é suportada pelo HIP SDK no Windows" | **continua válido**: a lista oficial de GPUs suportadas no Windows não inclui a RX 580 e marca até RDNA2 (gfx1030) como não suportada | `OFFICIAL_DOCUMENTATION` (rocm.docs.amd.com, HIP SDK 7.2) |
+| "ROCm não cobre gfx803" | **continua válido**: a matriz do ROCm 10.2 lista Radeon de gfx1030 para cima | `OFFICIAL_DOCUMENTATION` |
+| "gfx803 não aparece em nenhum lugar" | correto para as páginas lidas; não afirmei suporte comunitário | `UNVALIDATED` para builds comunitários |
 
-Isto não é opinião: são quatro documentos de fabricante. O que é opinião — e está marcado
-como tal — é o **quanto** isso custa em tempo.
+Resumo utilizável: **não existe caminho oficial de GPU AMD para esta placa, nem no Linux
+(por arquitetura) nem no Windows (por lista de suporte)**. Isso não diz nada sobre builds
+comunitários, que não avaliei.
+
+### 5.2. `stable-diffusion.cpp`: o que está provado e o que não está
+
+| Pergunta | Resposta | Classe |
+|---|---|---|
+| Modelos declarados | SDXL, FLUX.1/2, Qwen-Image e Qwen-Image-Edit, SD3.5, Z-Image, Chroma, PixArt, entre outros | `OFFICIAL_DOCUMENTATION` |
+| Backends | **CUDA, Vulkan, Metal**. OpenCL e DirectML **não constam** na documentação do projeto | `OFFICIAL_DOCUMENTATION` |
+| Windows | suportado (builds e comandos PowerShell no README) | `OFFICIAL_DOCUMENTATION` |
+| Combinações testadas | **não há matriz publicada** de modelo × backend × placa | ausência de evidência |
+| Na RX 580 | um relato comunitário: SD 1.5 512²/20 passos ≈ **72 s**; FLUX.1-schnell 1024² em CPU+GPU ≈ **14 min** | `COMMUNITY_REPORTED` |
+
+**Portanto:** aparecer na mesma lista de modelos suportados **não** torna SDXL, FLUX ou
+Qwen-Image "compatíveis com a RX 580". O que se pode dizer é: existe um caminho (Vulkan) e um
+relato de que ele funciona em SD1.5, com FLUX na casa de dezenas de minutos. SDXL e Qwen-Image
+na RX 580: `UNVALIDATED`.
+
+### 5.3. Memória: por que "cabe" é uma afirmação enganosa
+
+Pesos não são consumo. O total inclui VAE, text encoders (o SDXL tem dois), ativações,
+resolução de saída, buffers do backend e overhead do driver. Com 8 GB de VRAM e 16 GB de RAM:
+
+| Modelo | Pesos (fp16, aritmética) | O que é preciso para caber | Situação |
+|---|---|---|---|
+| SDXL (2,57 B) | ≈ 5,1 GB | sobra para VAE/encoders **se** ativações couberem | candidato de menor porte; `UNVALIDATED` |
+| FLUX.1-schnell (11,9 B) | ≈ 23,8 GB | quantização agressiva + offload/tiling | `UNVALIDATED` |
+| Qwen-Image / Edit (20,4 B) | ≈ 40,8 GB | quantização + offload pesado | `UNVALIDATED` |
+
+O runtime oferece `--params-backend disk` e `--max-vram`, ou seja, **mecanismos** de offload.
+Mecanismo não é desempenho: com 16 GB de RAM, mover pesos para RAM/SSD significa
+processamento em CPU em boa parte do tempo. Não chamo nenhum desses casos de "utilizável"
+sem medição.
+
+### 5.4. Image-to-3D no hardware de referência
+
+| Modelo | Requisito documentado | Veredito |
+|---|---|---|
+| TRELLIS | NVIDIA ≥ 16 GB + CUDA toolkit + renderer CUDA | `UNVALIDATED` para RX 580; requisito oficial incompatível |
+| TRELLIS.2 | NVIDIA ≥ 24 GB + CUDA 12.4 | idem |
+| Hunyuan3D-2 | 6 GB (forma) / 16 GB (total), CUDA | idem |
+| Hunyuan3D-2.1 | 10 / 21 / 29 GB, CUDA | idem |
+| Hunyuan3D-Omni | **requisito não lido** | **sem veredito** — antes eu havia classificado como `NÃO`; corrigido para `UNVALIDATED` |
+| TripoSG | CUDA ≥ 8 GB | idem |
+| InstantMesh | CUDA ≥ 12.1 | idem |
+| SF3D | CUDA ou MPS; Windows exige CUDA + VS 2022 | idem |
+| **TripoSR** | ≈ 6 GB; **menciona fallback CPU** (`torchmcubes` sem CUDA) | **exceção**: caminho CPU declarado, desempenho `UNVALIDATED` |
+
+Conclusão honesta: **não há evidência de image-to-3D utilizável nesta GPU**, e o único caminho
+não-CUDA declarado é CPU (TripoSR), sem número de tempo.
 
 ## 6. Conclusão da frente 3D (resumo)
 
@@ -153,14 +221,15 @@ Nenhuma delas é "a escolha". A comparação item a item está em `CHARACTER-2D-
 
 | Ferramenta | Por quê | Licença (código / pesos) |
 |---|---|---|
-| `stable-diffusion.cpp` | único runtime de difusão com Vulkan e build Windows; cobre SDXL, FLUX, Qwen-Image e edição | MIT / depende do modelo carregado |
-| SDXL base 1.0 | base aberta, ecossistema de ControlNet/IP-Adapter mais maduro, 2,57 B parâmetros | MIT (código) / OpenRAIL++ |
+| `stable-diffusion.cpp` | único runtime de difusão com Vulkan e build Windows entre os que verifiquei; declara SDXL, FLUX, Qwen-Image e edição — **declarar não é rodar na RX 580** | MIT / depende do modelo carregado |
+| SDXL base 1.0 | base aberta, ecossistema de ControlNet/IP-Adapter mais maduro, 2,57 B parâmetros — **candidato de menor porte**, não "cabe confortavelmente" | MIT (código) / OpenRAIL++ |
 | Qwen-Image e Qwen-Image-Edit-2509 | Apache-2.0 nos pesos, edição com múltiplas imagens de referência | Apache-2.0 / Apache-2.0 |
 | ControlNet (SDXL) + IP-Adapter | controle de pose/silhueta e referência de personagem, ambos abertos | Apache-2.0 / Apache-2.0 |
 | MV-Adapter | adapter multi-view em SDXL: ataca diretamente o problema de turnaround | Apache-2.0 / Apache-2.0 |
 | Blender | mais completo, GPL-2.0+, automação por processo externo | GPL-2.0-or-later |
 | Instant Meshes / xatlas | retopologia e UV determinísticos, sem nuvem | BSD-3 / MIT |
-| TripoSR (CPU, a validar) | único image-to-3D com menção explícita a fallback CPU | MIT / MIT |
+| TripoSR (CPU, a validar) | único image-to-3D com menção explícita a fallback CPU — exceção declarada, tempo `UNVALIDATED` | MIT / MIT |
+| Blender + CC Wrap (Reallusion) como referência de "IA → topologia de personagem" | mostra o elo que falta nos modelos abertos; CC5.2 exige GPU ≥ RX 5500 XT (a RX 580 não é citada) e 200 GB de cache | GPL-2.0-or-later / proprietário |
 
 **Não recomendadas (com motivo):**
 
@@ -174,6 +243,8 @@ Nenhuma delas é "a escolha". A comparação item a item está em `CHARACTER-2D-
 | ControlNet original (lllyasviel) | parado desde 2024-02; era SD1.5 — hoje é legado |
 | Instant Meshes como dependência de produto | última atividade em 2022-01; usar como ferramenta pontual, não como biblioteca |
 | ZLUDA / ComfyUI-Zluda | camada não oficial, sem suporte do fornecedor; serve para experimento, não para produto |
+| Plano **gratuito** do Tripo para personagem de jogo | o output nasce público e o usuário renuncia a direitos autorais, inclusive para exploração comercial por terceiros sem atribuição |
+| Plano **gratuito** do Meshy como entrega final | CC BY 4.0: comercial, mas com atribuição obrigatória — decisão de produto, não técnica |
 
 ## 8-bis. Revisão cruzada deste conjunto
 
@@ -190,18 +261,44 @@ O que permanece **inferido**, e não medido: a ordem de eficácia das técnicas 
 (`LR-STUDIO-009` §4.1), as notas 1–5 dos 12 critérios (`LR-FORGE-007` §3) e a própria
 arquitetura (`LR-FORGE-010`).
 
+## 8-ter. Revisão cruzada da rodada 7.1 — contradições encontradas e corrigidas
+
+Releitura dos 8 documentos contra as fontes obtidas em 2026-11-20/21. Sete contradições,
+todas corrigidas na fonte, não "harmonizadas" no texto:
+
+| # | Contradição | Onde estava | Correção |
+|---|---|---|---|
+| 1 | "não assisti ao vídeo" no hub vs. "o vídeo descreve esta ordem" na silhueta | §1 do hub, §1 de `LR-STUDIO-008` | vídeo identificado como teste de LLM para jogos; atribuição removida; sequência reatribuída ao pedido |
+| 2 | Tripo Free descrito como "não comercial" | matriz (coluna de licença), §4.2 dos pipelines | Free = output **público** + renúncia de direitos + licença pública com uso comercial por terceiros (§6.1 do catálogo) |
+| 3 | "100 créditos = 10 modelos" no Meshy | matriz, nota do catálogo | custo por modalidade: 20 / 30 / 35 créditos; 100 créditos = 3–5 modelos típicos ou 20 no modo lite |
+| 4 | "ROCm/PyTorch só Linux" generalizado | §5 do hub, §5 do catálogo | separado em: ROCm Linux, oficial Windows CUDA/CPU, APU Ryzen AI (restrito, `UNVALIDATED`), gfx803 sem suporte em nenhum dos dois |
+| 5 | "todos os image-to-3D exigem CUDA" com Hunyuan3D-Omni marcado como `NÃO` | §5.4, matriz | Omni sem requisito lido → `UNVALIDATED`; TripoSR (CPU) mantido como exceção |
+| 6 | "SDXL cabe confortavelmente em 8 GB" | §2.1 do catálogo, tabela do hub | "candidato de menor porte", com a lista do que consome memória além dos pesos |
+| 7 | `blender --background --python` tratado como "processo externo" | §2.1 de `LR-FORGE-008` | o script roda **dentro** do processo do Blender (`bpy`); distinção refeita, com `REQUIRES_LEGAL_REVIEW` |
+
+Mais duas correções de método: a matriz passou a usar o vocabulário de evidência de 8 rótulos
+(substituindo `CONFIRMED`, que sugeria mais certeza do que havia) e a regra de "componente
+conexo único" virou regra **por arquétipo** — a versão anterior reprovaria robôs, criaturas e
+mascotes legítimos.
+
 ## 9. Itens não validados (declarados, não escondidos)
 
 | Item | Por que não validei |
 |---|---|
-| Desempenho de qualquer modelo na RX 580 | sem GPU AMD nesta sessão; nenhum peso baixado |
-| Se `stable-diffusion.cpp` + Vulkan roda SDXL em 8 GB com qualidade aceitável | exige execução; documentação não promete |
+| Desempenho de qualquer modelo na RX 580 | sem GPU AMD nesta sessão; nenhum peso baixado. O único dado é `COMMUNITY_REPORTED` (SD1.5 ≈ 72 s; FLUX ≈ 14 min em CPU+GPU) |
+| Se `stable-diffusion.cpp` + Vulkan roda SDXL ou Qwen-Image em 8 GB | exige execução; a documentação declara suporte de modelo, não de placa |
+| DirectML como caminho | repositório `microsoft/torch-directml` deu 404 na API; `BLOCKED` |
+| Termos de Reallusion, OpenAI e Google Flow | não lidos nesta rodada |
+| Requisito de hardware do Hunyuan3D-Omni | README não lido para esse fim |
 | Qualidade visual comparada de Tripo/Meshy/Rodin | exigiria conta paga e julgamento humano; preços lidos, qualidade não |
 | Se TripoSR roda em CPU em tempo utilizável | README menciona fallback CPU, não dá tempo |
 | Licença dos pesos de FLUX.2 e de CharacterGen | não lidas nesta rodada |
 | Conteúdo dos documentos do Forge sobre personagem/cabelo | repositório inacessível (404) |
 | Automação Blender headless no Windows do usuário | já era `NOT RUN` em `LR-FORGE-005`; continua |
-| Conteúdo do vídeo de referência | não há acesso a vídeo nesta sessão |
+| Conteúdo do vídeo de referência | obtida apenas a página pública com transcrição parcial; **o vídeo não foi assistido** e o restante do conteúdo é `BLOCKED` |
+| Direitos e preços de Reallusion, OpenAI e Google Flow | páginas de produto lidas; EULA/termos **não** lidos |
+| `microsoft/torch-directml` (DirectML) | 404 na API nesta sessão: `BLOCKED` |
+| Suporte ROCm/Windows para APUs Ryzen AI | não consta no seletor oficial do PyTorch; relato de suporte restrito `UNVALIDATED` |
 
 ## 10. Decisões que dependem do proprietário
 
@@ -215,6 +312,9 @@ arquitetura (`LR-FORGE-010`).
    ser assistido.
 5. **Onde o Style Lock mora**: no Forge (produto) ou no Research (referência)? A resposta
    muda o contrato.
+6. **Plano pago de serviço 3D**: com os termos lidos, o gratuito do Tripo é público com
+   renúncia de direitos e o do Meshy exige atribuição. Se o Forge produzir asset de jogo, o
+   piso é plano pago (US$ 20–100/mês) ou caminho local.
 
 ## 11. Documentos deste conjunto
 
@@ -227,6 +327,10 @@ arquitetura (`LR-FORGE-010`).
 | `CHARACTER-PRODUCTION-TOOLS-ASSESSMENT.md` | blockout a exportação, automação por IA × ferramenta tradicional |
 | `CHARACTER-CREATION-ARCHITECTURE-RECOMMENDATIONS.md` | encaixe no Forge 2.0, aprovações, retornos |
 | `CHARACTER-CREATION-SKILLS-ANALYSIS.md` | 7 competências candidatas, entradas/saídas/critérios |
-| `CHARACTER-CREATION-EVIDENCE-MATRIX.tsv` | 44 linhas: licença, hardware, nível de evidência |
+| `CHARACTER-CREATION-EVIDENCE-MATRIX.tsv` | **49 registros** (50 linhas com o cabeçalho: 46 da rodada 7.0 + 3 candidatos da 7.1): licença de código × pesos, hardware, nível de evidência |
+
+Contagem do conjunto: **8 IDs, 8 documentos Markdown e 1 matriz com 49 registros** (46 da rodada 7.0 + 3 candidatos acrescentados na correção 7.1).
+Não existe `LR-FORGE-009`; o número ficou livre de propósito, para não inventar documento
+só para fechar sequência.
 
 Voltar: `README.md` · `projects/lia-forge/INDEX.md` · `RESEARCH-INDEX.md`
