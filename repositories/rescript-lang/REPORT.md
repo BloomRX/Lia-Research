@@ -10,11 +10,14 @@
 | Categoria | studio (linguagem/stack) |
 | Projetos beneficiados | (nenhum diretamente — avaliação de stack) |
 | Fontes | `api.github.com/orgs/rescript-lang/repos` (39 repos, 2026-11-17); `rescript-lang/rescript` (`LICENSE` com texto por diretório) |
+| SHA completo | — não determinado (ver motivo) |
+| Proveniência do SHA | **INCOMPLETA_ORGANIZACAO** — organização, não um repositório: não existe commit único analisado |
+| HEAD atual | — (organização: sem HEAD único; ver §Fontes) |
 | Versão/commit | não fixado — análise de **organização**; o compilador é `rescript-lang/rescript` (★7.486) |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `rescript-lang/rescript` · HEAD `b2df86941d6e` · sem SHA analisado registrado |
-| Próxima revisão | 2027-11-17 (tema estável) |
+| Próxima revisão | 2027-11-20 |
 | Recomendação | **REJECT** (adoção de stack) / **REFERENCE_ONLY** (interop e compilação) |
 | Licença | **múltipla**: `compiler/` **LGPL-3.0-or-later**; `compiler/syntax/`, `runtime/`, `belt/`, `rewatch/` **MIT** |
 | Confiança | Alta para licença e organização; Média para ecossistema |
@@ -196,3 +199,18 @@ linguagem de aplicação.
 | 1 | Registrar `REJECTED` com motivo e condição de reabertura (aparecimento de bindings Vue maduros + ganho medido) | Research | `DR` registrado |
 | 2 | Adotar o padrão "LICENSE com mapa por diretório" no Lia-Research | Research | arquivo atualizado |
 | 3 | Revisar em 12 meses (tema estável) | Research | — |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``—` (organização, 39 repositórios; sem commit único)` |
+| Versão novamente examinada | ``—` (organização; HEAD do compilador registrado separadamente)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | Nenhuma mudança estrutural detectada na organização. Proveniência permanece **incompleta por natureza**: não existe SHA único de uma análise de organização. |
+| Evidências novas | O relatório já declarava 'não fixado'. Esta rodada confirma a declaração em vez de inventar precisão. |
+| Testes próprios | **Bloqueado**: compilador ReScript não está instalado; avaliar a linguagem exigiria toolchain OCaml. |
+| Testes independentes | CI no HEAD: não observado. |
+| Conclusão | Recomendação **reavaliada e mantida em `REJECT`** para adoção de stack, com `REFERENCE_ONLY` para interop — mesma conclusão, agora com a proveniência explicitamente marcada como incompleta. |
+| Próxima revisão | 365 dias (tema estável). |
+

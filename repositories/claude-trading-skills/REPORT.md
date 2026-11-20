@@ -4,17 +4,20 @@
 |---|---|
 | ID | `LR-AGENT-002` |
 | Tipo | repositorio |
-| Estado da pesquisa | DOCUMENTED |
-| Resultado de execução | STATIC_REVIEW_ONLY |
+| Estado da pesquisa | PARTIALLY_TESTED |
+| Resultado de execução | PARTIAL |
 | Decisão de adoção | — (nenhuma registrada) |
 | Categoria | agents |
 | Projetos beneficiados | Lia Agent Hub |
 | Fontes | `tradermonty/claude-trading-skills@a627d17dd1d8fde1c8fa73b3cc69ffe83b33cb71:README.md`, tree (`skills/`, `workflows/`, `skillsets/`), `LICENSE` |
+| SHA completo | `a627d17dd1d8fde1c8fa73b3cc69ffe83b33cb71` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `f95e770591b56fd83b9917175f5a7e8fe9ac47dc` (conferido em 2026-11-20) |
 | Versão/commit | `a627d17` (2026-11-17) — sem releases/tags |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `tradermonty/claude-trading-skills` · HEAD `f95e770591b5` · mudou desde a análise (conteúdo novo não lido) |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2027-02-18 |
 | Recomendação | **ADAPT** (apenas padrões de organização) |
 | Licença | MIT (`CONFIRMED`, © 2026 TraderMonty) |
 | Confiança | Alta para estrutura e licença; Média para qualidade interna das Skills |
@@ -206,3 +209,18 @@ o catálogo do Hub sem decisão.
 | 2 | Amostrar 5 Skills do repositório para avaliar profundidade | Research | nota de qualidade |
 | 3 | Testar manifesto em uma Skill Lia real (`lia-release-gate`) | Agent Hub | prova de conceito |
 | 4 | Decidir se manifesto vira requisito de catálogo | proprietário | `DR` registrado |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``a627d17dd1d8` (2026-11-17)` |
+| Versão novamente examinada | ``f95e770` (+15 commits)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | 15 commits, 47 arquivos: `skills/` (21), `docs/` (12), `scripts/` (5), `skill-packages/` (4), 3 workflows. Commits materiais: contagem de *retries* 429 no screener, dimensionamento ATR no stop reportado (correção de bug de risco), datas de NY congeladas em teste de price-gap. |
+| Evidências novas | As correções são em lógica de risco/tamanho de posição — justamente a parte que o relatório apontou como sensível. `LICENSE` inalterado. |
+| Testes próprios | **Executado parcialmente** (`pytest`): 24 passaram/8 pulados no exemplo `daily-market-dashboard`; em `scripts/tests`, **3506 passaram, 88 falharam, 73 erro de coleta** — as falhas vêm de subprocessos que importam dependências não instaladas no ambiente isolado, não de asserção de domínio. |
+| Testes independentes | CI no HEAD: 29 *success*, 1 *skipped*. |
+| Conclusão | Recomendação **reavaliada e mantida em `ADAPT`** (apenas padrões de organização). O resultado `PARTIAL` está no log e não vira `TESTED`: suíte com 161 itens não concluídos não é suíte verde. |
+| Próxima revisão | 90 dias. |
+

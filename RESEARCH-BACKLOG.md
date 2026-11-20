@@ -94,3 +94,64 @@ existe relatório e não existe ID — dizer "avaliado" aqui seria mentira.
 - `lousa-ia.vercel.app` não foi inspecionado a fundo.
 - A lista `github.com/topics/ai-qa` é uma **fonte**, e o que dela saiu está no §3 por
   metadados, não por leitura.
+
+## 7. Decisões da fila — 2026-11-20
+
+Resultado da rodada de triagem pós-reauditoria. Cada item recebe **uma** decisão, com motivo.
+Prioridade aqui é ordem de execução, não valor intrínseco.
+
+### 7.1. Os 17 triados
+
+| # | Item | Decisão | Motivo | Ordem |
+|---:|---|---|---|---|
+| 01 | `bitbonsai/mcpvault` (MCP de vault Obsidian) | **investigar** | fecha duas lacunas de uma vez: memória/notes de agente e servidor MCP com dado pessoal. Superfície de leitura de arquivo sensível é o que `LR-MCP-002` não cobre | 3 |
+| 02 | `docs.astral.sh/uv` | **investigar (curto)** | tooling de Python de todos os scripts desta base e dos 5 projetos; já aparece como duplicata em 3 lugares, então a investigação é de consolidação | 4 |
+| 03 | `pypi`/`mcp` servers restantes | **aguardar evidência** | lista de servidores sem caso de uso concreto pedido por projeto; sem demanda, seria catálogo por catálogo | — |
+| 04 | `sentry.io` | **comparar** com `langfuse` | mesma pergunta (observabilidade de erro × observabilidade de LLM); comparar antes de investigar separado | 5 |
+| 05 | `obsidian.md` | **permanecer como referência** | objeto de produtividade do proprietário, não de engenharia Lia; serve ao item 01 como contexto | — |
+| 06 | `lousa-ia.vercel.app` | **rejeitar** | app de terceiro sem código público, sem licença verificável, sem função que a Lia não tenha | — |
+| 07 | `graphify.com` | **investigar (segurança primeiro)** | SaaS com MCP que recebe código do repositório; a pergunta não é utilidade, é o que sai da máquina. Trilha: §8 | 6 |
+| 08 | `canirunai.kc1t.com` | **rejeitar como fonte de validação** | estima, não mede. Útil como pré-filtro; usado como prova viraria exatamente o erro que `LR-MODEL-004` denuncia | — |
+| 09 | `akitaonrails/ai-memory` | **feito** | `LR-AGENT-011` publicado | — |
+| 10 | `cloudflare/security-audit-skill` | **feito** | `LR-SEC-007` publicado | — |
+| 11 | `tashfeenahmed/freellmapi` | **feito** | `LR-MODEL-006` publicado | — |
+| 12 | `promptfoo/promptfoo` | **investigar — prioridade 1** | é a resposta mais direta à lacuna mais antiga da base: "0 Skills medidas". Testa prompt, agente e RAG; permite medir Skill com entrada sintética (Nível 1) | **1** |
+| 13 | `confident-ai/deepeval` | **comparar** com `promptfoo` | mesma família (avaliação de LLM); investigar os dois em paralelo e comparar, não em sequência | 2 |
+| 14 | `langfuse/langfuse` | **investigar (self-host)** | preenche `R-2` (observabilidade). Licença `NOASSERTION` na API: ler o arquivo antes de qualquer conclusão | 7 |
+| 15 | `BerriAI/litellm` | **investigar como upstream** | `DR-0005` rejeitou o **fork**; avaliar o original é pergunta diferente e continua aberta | 8 |
+| 16 | `modelcontextprotocol/servers` | **permanecer como referência** | coleção de servidores de exemplo; útil como lista, não como objeto único de relatório | — |
+| 17 | `astral-sh/uv` | **não duplicar** | é o item 02 desta lista. Uma entrada só, com nota de deduplicação | — |
+
+### 7.2. Os 6 candidatos adicionais da triagem original
+
+| Item | Decisão | Motivo |
+|---|---|---|
+| `promptfoo` | **investigar (1)** | ver 7.1 #12 — resolve lacuna de teste, não só catálogo |
+| `deepeval` | **comparar (2)** | par natural de `promptfoo`; comparar evita dois relatórios que dizem o mesmo |
+| `langfuse` | **investigar (7)** | observabilidade; licença a confirmar no arquivo |
+| `litellm` | **investigar como upstream (8)** | origem do gateway rejeitado no fork |
+| `modelcontextprotocol/servers` | **referência** | coleção, não objeto |
+| `astral-sh/uv` | **deduplicado** | já é o item 02; não vira linha própria |
+
+Nenhum item recebeu prioridade "C" como desculpa: os três que saem da fila (`lousa-ia`,
+`canirunai` como fonte, `sentry` isolado) saem por motivo escrito — licença ausente, método
+que não mede, e pergunta já coberta por comparação.
+
+### 7.3. Por que esta ordem
+
+1. **`promptfoo`, 2. `deepeval`** — a base tem 23 relatórios e 14 linhas de teste, das quais
+   apenas 5 são execução real. A lacuna não é "saber mais tecnologias", é **provar** o que
+   já está catalogado. Ferramenta de avaliação ataca isso.
+2. **`mcpvault`, 4. `uv`** — MCP é a superfície que mais cresce no ecossistema; `uv` é
+   infraestrutura de todo script Python desta base.
+3. **`sentry` × `langfuse`, 7. `graphify`** — observabilidade e o caso "SaaS que lê o
+   repositório", que é o risco mais concreto de vazamento em 2026.
+4. **`litellm` (upstream)** — só depois de saber se observabilidade e avaliação mudam a
+   conclusão de `DR-0005`.
+
+### 7.4. Regra que vale para esta fila
+
+Item entra em investigação quando tem **pergunta respondível**, não quando é interessante.
+A pergunta vai escrita no cabeçalho do relatório; se não couber em uma frase, o item volta
+para a fila.
+

@@ -49,7 +49,7 @@ opção de uso. Conferido em 2026-11-20 (`audits/REAUDIT-2026-11-20.md`). Está 
 | `LR-AGENT-001` | OpenJarvis | padrões | sim | NOTICE + Apache |
 | `LR-STUDIO-001` | OpenIDEA | padrões | sim | NOTICE + Apache |
 | `LR-FORGE-001` | Mister Download Manager | **processo separado** (GPL) | vira GPL | fonte + avisos |
-| `LR-FORGE-002` | SculptForge | **app externo** (GPL) | vira GPL | fonte + avisos |
+| `LR-FORGE-002` | SculptForge | **app externo** (GPL-3.0) — desde 2026-11-20 tem **exceção de scripting**: script que use API/CLI/MCP/SDK pode ter qualquer licença | o app vira GPL; o script não | fonte + avisos + `LICENSE-EXCEPTION.md` |
 | `LR-STUDIO-003` | ReScript | ferramenta externa | LGPL no `compiler/` | avisos por diretório |
 | `LR-AGENT-004` | unslop | **nada** (sem licença) | não | — |
 | `LR-PROV-001` | RouterHub | **nada** | não | — |
@@ -129,6 +129,13 @@ permissivo, permite uso comercial, e ainda assim **não é OSI** — o próprio 
 que não foi submetido. Sempre ler o `LICENSE`.
 
 ### 3.4 GPL-3.0 / LGPL (Mister Download Manager, SculptForge, ReScript `compiler/`)
+
+> **Atualização de 2026-11-20 (SculptForge).** O repositório passou a trazer
+> `LICENSE-EXCEPTION.md` — *SculptForge Scripting Exception 1.0*, permissão adicional do §7
+> da GPLv3: programa que use o app apenas pela API pública Python, CLI, servidor MCP ou SDK
+> de plugin **pode ter qualquer licença**. Isso muda a resposta para "posso escrever script
+> em volta?" (antes: vira GPL; agora: não vira). O app continua GPL-3.0. Fonte: commit
+> `30bc117`, arquivo lido em `repositories/sculptforge/REPORT.md` §Reauditoria.
 
 ```text
 Regra de fronteira: GPL só como PROGRAMA SEPARADO (processo próprio, comunicação

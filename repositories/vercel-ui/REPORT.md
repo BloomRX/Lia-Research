@@ -10,11 +10,14 @@
 | Categoria | ui |
 | Projetos beneficiados | Lia-Project (Stage Vue), Lia Forge, Lia Agent Hub |
 | Fontes | `vercel-labs/ui@10b3b6c0eccfd176a6d60ce4efaccf0d1584da08:README.md`, `packages/*`, tree |
+| SHA completo | `10b3b6c0eccfd176a6d60ce4efaccf0d1584da08` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `b4dbe88209ecf4dc555225f630268095f510ad49` (conferido em 2026-11-20) |
 | Versão/commit analisado | `10b3b6c` (2026-11-17), release `@ui-sdk/web@0.1.0-beta.7` |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `vercel-labs/ui` · HEAD `b4dbe88209ec` · mudou desde a análise (conteúdo novo não lido) |
-| Próxima revisão | 2027-01-17 (60 dias — beta ativo) |
+| Próxima revisão | 2027-02-18 |
 | Recomendação | **ADAPT** (avaliar protótipo isolado; não adicionar dependência agora) |
 | Licença | Apache-2.0 + Vercel Beta Terms |
 | Confiança | **Alta** para estrutura/licença; **Média** para maturidade de API |
@@ -230,3 +233,18 @@ ou introduzir WebMCP.
 | 3 | Ler os Vercel beta terms | proprietário | `AGUARDA DECISÃO` sobre viabilidade jurídica |
 | 4 | Levantar issues abertas por tipo (bug × feature) | Research | indicador de estabilidade real |
 | 5 | Revisar em 60 dias | Research | decisão de manter `ADAPT` ou rebaixar para `REFERENCE_ONLY` |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``10b3b6c0eccf` (2026-11-17)` |
+| Versão novamente examinada | ``b4dbe88` (+109 commits)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | 109 commits, 300 arquivos (truncado): `apps/` (164), `.changeset/` (95), `examples/` (30), `.agents/` (8). Commits: correções de popup ancorado em pixel inteiro, `inert` após animação de saída, nome acessível de combobox/autocomplete, valor controlado em reset de formulário, correções em Vue/Solid. |
+| Evidências novas | Correções de acessibilidade e de comportamento controlado — exatamente as áreas que o relatório destacou como motivo do `ADAPT`. `LICENSE` e Beta Terms não foram tocados nos arquivos do diff. |
+| Testes próprios | Não executado: monorepo de apps; build completo inviável no ambiente. |
+| Testes independentes | CI no HEAD: 21 *success*, 9 *skipped*, 0 falhas. |
+| Conclusão | Recomendação **reavaliada e mantida em `ADAPT`** (padrões de acessibilidade). O Beta Terms continua sendo contrato de uso, não licença — nada no intervalo mudou isso. |
+| Próxima revisão | 90 dias. |
+

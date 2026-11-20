@@ -5,19 +5,22 @@
 | ID | `LR-MCP-001` |
 | Tipo | repositorio |
 | Estado da pesquisa | DOCUMENTED |
-| Resultado de execução | STATIC_REVIEW_ONLY |
+| Resultado de execução | BLOCKED |
 | Decisão de adoção | — (nenhuma registrada) |
 | Título | HA-MCP: servidor MCP para Home Assistant — avaliação e proposta de integração residencial da Lia |
 | Categoria | mcp |
 | Projetos beneficiados | Lia-Project, Lia Agent Hub |
 | Áreas transversais | `cross-project/smart-home/`, `cross-project/mcp/` |
 | Fontes | `homeassistant-ai/ha-mcp@3dd26d45fbefa6fed999b618092a56005bb5d79c:README.md`, `docs/OAUTH.md`, `docs/oidc.md`, `docs/in-process-server.md`, `docs/FAQ.md`, `src/ha_mcp/tool_catalog.py`, `pyproject.toml` |
+| SHA completo | `3dd26d45fbefa6fed999b618092a56005bb5d79c` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `dfe833cd69e2eafe28f9c4f352f66c60704b1374` (conferido em 2026-11-20) |
 | Versão/commit analisado | `3dd26d4` (2026-11-17T14:49:06Z), tag `v9.3.0.dev3610` |
 | Data da pesquisa | 2026-11-17 |
 | Última verificação | 2026-11-17 |
 | Licença | MIT (API do GitHub: `mit`, 2026-11-20; arquivo `LICENSE` não relido) |
 | Upstream conferido | 2026-11-20 · `homeassistant-ai/ha-mcp` · HEAD `955af7bf42a4` · mudou desde a análise (conteúdo novo não lido) |
-| Próxima revisão | 2027-02-17 (90 dias — segurança e automação residencial) |
+| Próxima revisão | 2027-01-19 |
 | Responsável | Research Orchestrator |
 | Recomendação | **ADAPT** (integração opcional; não adotar como dependência do Core) |
 | Licença do objeto | MIT (lida em `LICENSE`, "Copyright (c) 2024 Julien") |
@@ -353,3 +356,18 @@ Isso exige `DR-0003`.
 
 **Não implementado nesta etapa**, conforme a ordem de serviço: nenhuma integração,
 nenhuma dependência, nenhum código de terceiros incorporado.
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``3dd26d45fbef` (2026-11-17, tag `v9.3.0.dev3610`)` |
+| Versão novamente examinada | ``dfe833cd69e2` (+41 commits, release `v9.2.0`)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | 41 commits, 300 arquivos: `src/` (149), `tests/` (78), `custom_components/` (33), `scripts/` (13), 9 workflows. Materiais: `pyproject.toml` sobe pisos de dependência e re-lock de FastMCP vendorizado; addon dev publicado em `9.3.0.dev3612` e `9.3.0.dev3615`; `fastmcp-slim` em v4.1.8; Dockerfiles de addon e dev alterados. `LICENSE` inalterado (MIT). |
+| Evidências novas | **Achado que afeta adoção**: `pyproject.toml` agora declara `requires-python = ">=3.14,<3.15"` (antes: piso menor). Quem for avaliar em ambiente Lia precisa de Python 3.14 — o sandbox desta base tem 3.11. O componente `custom_components/` cresceu 33 arquivos, o que indica que a integração in-process com HA passou a ser caminho de primeira classe. |
+| Testes próprios | **Bloqueado**: instalação exige Python ≥ 3.14 e uma instância Home Assistant; nenhum dos dois existe aqui. Registrado como `BLOCKED` no log, com a linha do `pyproject.toml` como evidência. |
+| Testes independentes | CI no HEAD: 4 *success*, 26 *skipped* (e2e de HAOS exige runner próprio), 0 falhas. |
+| Conclusão | Recomendação **reavaliada e mantida em `ADAPT`** (integração opcional, nunca dependência do Core). O piso de Python 3.14 é uma nova condição de contorno e vai para a seção de riscos. |
+| Próxima revisão | 60 dias (superfície residencial + mudança de requisito de runtime). |
+

@@ -4,16 +4,19 @@
 |---|---|
 | ID | `LR-SEC-007` |
 | Tipo | repositorio |
-| Estado da pesquisa | DOCUMENTED |
-| Resultado de execução | STATIC_REVIEW_ONLY |
+| Estado da pesquisa | PARTIALLY_TESTED |
+| Resultado de execução | LOCAL_TESTS_PASS |
 | Decisão de adoção | — (nenhuma registrada) |
 | Categoria | security |
 | Projetos beneficiados | Lia-Project (auditoria dos apps), Lia Studio (Electron/IPC), Lia Agent Hub (LLM), Lia-Research (padrão de Skill auditável) |
 | Fontes | `cloudflare/security-audit-skill@main` (2026-09-14): `README.md`, `LICENSE`, árvore completa, `skills/security-audit/*.md`, `report-schema.json`, `validate-*.cjs`; API do GitHub |
+| SHA completo | `c1c8a8c1471069fb0e188eeaff69b8e8db6564a8` |
+| Proveniência do SHA | **RECUPERADO_POR_ESTABILIDADE** — repo sem push desde 2026-09-14; HEAD igual à data citada → o conteúdo lido é este |
+| HEAD atual | `c1c8a8c1471069fb0e188eeaff69b8e8db6564a8` (conferido em 2026-11-20) |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `cloudflare/security-audit-skill` · HEAD `c1c8a8c14710` · sem SHA analisado registrado |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2027-05-19 |
 | Recomendação | **ADAPT** — usar como checklist de auditoria; a estrutura de Skill é o modelo |
 | Licença | MIT (`CONFIRMED`) |
 | Confiança | Alta para conteúdo e estrutura (arquivos lidos); **UNVERIFIED** para eficácia das auditorias |
@@ -167,3 +170,18 @@ fonte citada e escrever o checklist da Lia com as classes que existem aqui.
 | 2 | Adotar `report-schema.json` como formato de achado | Lia-Research | nenhum |
 | 3 | Escrever `validate-findings` próprio em Python (sem Node) | Lia-Research | — |
 | 4 | Comparar com `LR-SEC-006` R1/R4 (eval/lint do Claude-BugHunter) | Lia-Research | — |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``c1c8a8c147` (relatório citava `@main` de 2026-09-14; SHA recuperado por estabilidade do upstream)` |
+| Versão novamente examinada | ``c1c8a8c147` (mesmo commit — repo sem push desde 2026-09-14)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | Sem commit novo. O SHA agora é conhecido (antes era ausente) e a licença MIT foi conferida no HEAD. |
+| Evidências novas | Os validadores `.cjs` do repositório funcionam e cobrem os dois artefatos centrais (`findings` e `coverage ledger`). |
+| Testes próprios | **Executado**: `node validate-findings.test.cjs` → 34 testes; `node validate-coverage-ledger.test.cjs` → 31 testes; 0 falhas nas duas. Caminho de erro conferido com entrada inválida. |
+| Testes independentes | CI no HEAD: não observado (projeto sem workflows evidentes). |
+| Conclusão | Recomendação **reavaliada e mantida em `ADAPT`** (check-list de auditoria; não instalar como dependência). |
+| Próxima revisão | 180 dias. |
+

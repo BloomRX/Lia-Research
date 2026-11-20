@@ -4,17 +4,20 @@
 |---|---|
 | ID | `LR-UI-003` |
 | Tipo | repositorio |
-| Estado da pesquisa | DOCUMENTED |
-| Resultado de execução | STATIC_REVIEW_ONLY |
+| Estado da pesquisa | PARTIALLY_TESTED |
+| Resultado de execução | LOCAL_TESTS_PASS |
 | Decisão de adoção | — (nenhuma registrada) |
 | Categoria | ui |
 | Projetos beneficiados | Lia Studio, Lia-Project (design system/UX) |
 | Fontes | `elayadesign/ai-design-skills@456d9e0d3e2d84c748bb143c6ca3d90c45e16213:README.md`, tree, `LICENSE` |
+| SHA completo | `456d9e0d3e2d84c748bb143c6ca3d90c45e16213` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `456d9e0d3e2d84c748bb143c6ca3d90c45e16213` (conferido em 2026-11-20) |
 | Versão/commit | `456d9e0` (2026-11-01) — sem releases |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `elayadesign/ai-design-skills` · HEAD `456d9e0d3e2d` · sem mudança no HEAD |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2027-02-18 |
 | Recomendação | **ADAPT** (por padrão, não por conteúdo) |
 | Licença | MIT (`CONFIRMED`) |
 | Confiança | Alta para licença/estrutura; Média para profundidade (só 2 skills) |
@@ -172,3 +175,18 @@ dependência de produto.
 | 1 | Comparar a anatomia com `lia-ui-quality-review` atual | Studio | lista de lacunas |
 | 2 | Propor molde de skill de design para o catálogo Lia | Agent Hub | spec |
 | 3 | Revisar em 90 dias | Research | — |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``456d9e0d3e2d` (2026-11-17)` |
+| Versão novamente examinada | ``456d9e0d3e2d` (mesmo commit, conferido em 2026-11-20)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | Sem commit novo. Reavaliação focada em: licença no HEAD, CI, releases (nenhuma) e teste próprio da suíte do repositório. |
+| Evidências novas | A suíte do próprio projeto (17 testes) passou inteira — o validador de Skill deles funciona e é reaproveitável como referência de regra. |
+| Testes próprios | **Executado**: `unittest discover -s tests` → **17 testes, OK**. |
+| Testes independentes | CI no HEAD: não observado (sem execução recente listada). |
+| Conclusão | Recomendação **reavaliada e mantida em `ADAPT`** (por padrão, não por conteúdo — como antes). Agora com evidência de execução, não só de leitura. |
+| Próxima revisão | 90 dias. |
+

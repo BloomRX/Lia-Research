@@ -5,15 +5,18 @@
 | ID | `LR-AGENT-011` |
 | Tipo | repositorio |
 | Estado da pesquisa | DOCUMENTED |
-| Resultado de execução | STATIC_REVIEW_ONLY |
+| Resultado de execução | BLOCKED |
 | Decisão de adoção | — (nenhuma registrada) |
 | Categoria | agent |
 | Projetos beneficiados | Lia Agent Hub (memória compartilhada), Lia Model Lab (harness), Lia-Project (continuidade de sessão) |
 | Fontes | `akitaonrails/ai-memory@main` (2026-11-19): `README.md`, árvore (859 subdiretórios em `crates/`, 211 hooks, 187 companions, 184 docs, 51 plugins, 41 evals), API do GitHub; site aimemory.sh |
+| SHA completo | `6a141858bb88fbd025b144664a37271acd5e0e43` |
+| Proveniência do SHA | **CANDIDATO_POR_DATA** — leitura de `main` em 2026-11-19 sem SHA registrado; candidato = último commit antes do fim do dia, NÃO confirmado |
+| HEAD atual | `6a141858bb88fbd025b144664a37271acd5e0e43` (conferido em 2026-11-20) |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `akitaonrails/ai-memory` · HEAD `6a141858bb88` · sem SHA analisado registrado |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2027-01-19 |
 | Recomendação | **ADAPT** — o protocolo de *handoff* e o modelo de memória, não o binário |
 | Licença | MIT (`CONFIRMED` no `LICENSE` e no README) |
 | Confiança | Alta para o desenho (README lido); **UNVERIFIED** para funcionamento — não executado |
@@ -178,3 +181,18 @@ mesmo sem o binário. Se a Lia for adotar uma memória, comparar com `mempalace`
 | 2 | Escrever o protocolo de handoff (M1) como proposta do Hub | Hub | `LR-AGENT-009` |
 | 3 | Verificar Windows e testar 1 fluxo de handoff real | Model Lab | autorização |
 | 4 | Ligar retenção ao `DR-0009` | Lia-Research | `DR-0009` |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``6a141858bb88` (leitura de `main` em 2026-11-19; SHA **candidato**)` |
+| Versão novamente examinada | ``6a141858bb88` (HEAD atual, release `v3.5.1` de 2026-11-19)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | Nenhum commit entre o candidato e o HEAD. A reavaliação confirma que o candidato coincide com o HEAD, mas **não** prova qual árvore foi lida em 2026-11-19 (ver `audits/PROVENANCE-2026-11-20.md` §2.2). |
+| Evidências novas | Proveniência passa de 'sem SHA' para 'candidato por data, coincidente com o HEAD'. `LICENSE` MIT conferido no HEAD. |
+| Testes próprios | **Bloqueado**: Rust; `cargo` ausente. |
+| Testes independentes | Release `v3.5.1` publicada em 2026-11-19 — posterior à análise, portanto o relatório descreve versão anterior à release atual. |
+| Conclusão | Recomendação **reavaliada e mantida em `ADAPT`** (protocolo de *handoff* e modelo de memória). |
+| Próxima revisão | 60 dias — é o objeto com proveniência mais frágil. |
+

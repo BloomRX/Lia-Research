@@ -14,5 +14,7 @@ evita publicar link morto e dá gatilho de revisão.
 | Rodada | Objetos | Resultado |
 |---|---|---|
 | `audits/REAUDIT-2026-11-20.md` | 22 | 22 existem; 10 com commits novos desde a análise; 0 links mortos |
+| `audits/PROVENANCE-2026-11-20.md` | 23 | SHA analisado de cada objeto; 21 com 40 caracteres, 2 organizações incompletas por desenho |
+| `audits/TECHNICAL-REAUDIT-2026-11-20.md` | 22 | reavaliação de conteúdo: 3.917 commits no intervalo, 5 suítes executadas, 8 bloqueios por toolchain |
 
 Voltar: `README.md` · `catalog/README.md`

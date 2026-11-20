@@ -4,7 +4,7 @@
 veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID aparece em
 outro documento e não aqui, o outro documento está errado.
 
-- **Data de referência:** 2026-11-20
+- **Data de referência:** 2026-11-20 (reauditoria técnica dos 22 objetos concluída nesta data)
 - **Itens:** 23 objetos externos (27 linhas com sub-documentos) + 5 dossiês internos + 31 digests transversais + 3 comparações + 18 registros de governança
 - **Quase nada foi executado.** Existem **2 linhas** em `data/testing/test-log.tsv`, ambas de
   2026-11-20 (`LR-STUDIO-006`, Nível 1). Todo o resto é `STATIC_REVIEW_ONLY` ou `NOT_RUN`.
@@ -39,7 +39,7 @@ tem autoridade para criar).
 | `LR-AGENT-001` | `open-jarvis/OpenJarvis` | Apache-2.0 | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/openjarvis/REPORT.md` |
 | `LR-UI-001` | `vercel-labs/ui` | Apache-2.0 + beta | DOCUMENTED | **ADAPT** | — nenhuma | Alta | `repositories/vercel-ui/REPORT.md` |
 | `LR-FORGE-001` | `anefzaoui/misterdownloadmanager` | **GPL-3.0** | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/misterdownloadmanager/REPORT.md` |
-| `LR-AGENT-002` | `tradermonty/claude-trading-skills` | MIT | DOCUMENTED | **ADAPT** | — nenhuma | Alta | `repositories/claude-trading-skills/REPORT.md` |
+| `LR-AGENT-002` | `tradermonty/claude-trading-skills` | MIT | PARTIALLY_TESTED | **ADAPT** | — nenhuma | Alta | `repositories/claude-trading-skills/REPORT.md` |
 | `LR-STUDIO-001` | `l0ng-ai/openidea` | Apache-2.0 | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/openidea/REPORT.md` |
 | `LR-PROV-001` | `routerhubSI` (organização) | MIT / NOASSERTION | DOCUMENTED | **REJECT** | — nenhuma | Média | `repositories/routerhub/REPORT.md` |
 | `LR-FORGE-002` | `islandmed/SculptForge` | **GPL-3.0** | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/sculptforge/REPORT.md` |
@@ -50,14 +50,14 @@ tem autoridade para criar).
 | `LR-FORGE-004` | `patch-gg/pixelfx` | MIT + NOTICE | DOCUMENTED | **ADAPT** | — nenhuma | Alta | `repositories/pixelfx/REPORT.md` |
 | `LR-AGENT-004` | `theclaymethod/unslop` | **nenhuma** | DOCUMENTED | **REJECT** | — nenhuma | Alta | `repositories/unslop/REPORT.md` |
 | `LR-STUDIO-003` | `rescript-lang` (org, 39 repos) | LGPL no `compiler/` | DOCUMENTED | **REJECT** | — nenhuma | Alta | `repositories/rescript-lang/REPORT.md` |
-| `LR-UI-003` | `elayadesign/ai-design-skills` | MIT | DOCUMENTED | **ADAPT** | — nenhuma | Média | `repositories/ai-design-skills/REPORT.md` |
-| `LR-SEC-006` | `elementalsouls/Claude-BugHunter` | MIT + CC BY 4.0 | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/claude-bughunter/REPORT.md` |
+| `LR-UI-003` | `elayadesign/ai-design-skills` | MIT | PARTIALLY_TESTED | **ADAPT** | — nenhuma | Média | `repositories/ai-design-skills/REPORT.md` |
+| `LR-SEC-006` | `elementalsouls/Claude-BugHunter` | MIT + CC BY 4.0 | PARTIALLY_TESTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/claude-bughunter/REPORT.md` |
 | `LR-STUDIO-004` | `storytold` (ArtCraft, 17 apps + 186 crates) | MIT OR Apache-2.0 | DOCUMENTED | **ADAPT** | — nenhuma | Alta | `repositories/artcraft/REPORT.md` |
 | `LR-STUDIO-005` | `ahwootech/BRUTAL` (framework C#/Vulkan) | BRUTAL License v1.0 (não OSI) | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/brutal/REPORT.md` |
 | `LR-STUDIO-006` | `gamedev-skills/awesome-gamedev-agent-skills` (79 Skills + roteador, 12 engines) | Apache-2.0 | PARTIALLY_TESTED | **ADAPT** | — nenhuma | Alta | `repositories/awesome-gamedev-agent-skills/REPORT.md` |
 | `LR-AGENT-011` | `akitaonrails/ai-memory` (memória multi-harness) | MIT | DOCUMENTED | **ADAPT** | — nenhuma | Alta | `repositories/ai-memory/REPORT.md` |
-| `LR-SEC-007` | `cloudflare/security-audit-skill` | MIT | DOCUMENTED | **ADAPT** | — nenhuma | Média | `repositories/cloudflare-security-audit-skill/REPORT.md` |
-| `LR-MODEL-006` | `tashfeenahmed/freellmapi` (free tiers agregados) | MIT (software) | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/freellmapi/REPORT.md` |
+| `LR-SEC-007` | `cloudflare/security-audit-skill` | MIT | PARTIALLY_TESTED | **ADAPT** | — nenhuma | Média | `repositories/cloudflare-security-audit-skill/REPORT.md` |
+| `LR-MODEL-006` | `tashfeenahmed/freellmapi` (free tiers agregados) | MIT (software) | PARTIALLY_TESTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/freellmapi/REPORT.md` |
 
 ## 2. Projetos do ecossistema — dossiês internos (5)
 

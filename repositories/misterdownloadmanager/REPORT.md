@@ -5,16 +5,19 @@
 | ID | `LR-FORGE-001` |
 | Tipo | repositorio |
 | Estado da pesquisa | DOCUMENTED |
-| Resultado de execução | STATIC_REVIEW_ONLY |
+| Resultado de execução | BLOCKED |
 | Decisão de adoção | — (nenhuma registrada) |
 | Categoria | forge (aquisição de arquivos grandes) |
 | Projetos beneficiados | Lia Forge, Lia Agent Hub, Lia Model Lab (eventual) |
 | Fontes | `anefzaoui/misterdownloadmanager@d9a9ef0621cb494a39999ab9adf433515a9d36a1:README.md`, `crates/mcp/Cargo.toml`, `docs/browser-integration.md`, tree, `LICENSE` |
+| SHA completo | `d9a9ef0621cb494a39999ab9adf433515a9d36a1` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `37b721627988aeb2f50b83b606f079fce755d860` (conferido em 2026-11-20) |
 | Versão/commit | `d9a9ef0` (2026-11-17), release `v0.5.2` (2026-11-09) |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `anefzaoui/misterdownloadmanager` · HEAD `f648a0c2bc58` · mudou desde a análise (conteúdo novo não lido) |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2027-02-18 |
 | Recomendação | **REFERENCE_ONLY** para o produto; **`ADAPT`** apenas se usado como processo externo via MCP |
 | Licença | **GPL-3.0** (`CONFIRMED`) |
 | Confiança | Alta para licença, arquitetura, MCP e integração de navegador; Baixa para desempenho |
@@ -244,3 +247,18 @@ sem análise, ou habilitar download arbitrário por agente.
 | 3 | Verificar bind do IPC/MCP (loopback?) | Research | `CONFIRMED` de exposição |
 | 4 | Definir política de quota de download para agentes | Forge | spec |
 | 5 | Revisar em 90 dias (projeto jovem) | Research | novo commit |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``d9a9ef0621cb` (2026-11-17)` |
+| Versão novamente examinada | ``37b7216` (+70 commits, release `v0.5.2`)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | 70 commits, 300 arquivos: `crates/` (104), `fuzz/` (70), `extension/` (59), `docs/` (21), `i18n/` (20). Materiais: `.clusterfuzzlite/`, `codeql.yml`, `scorecard.yml`, `ci.yml`, `Cargo.toml`. Commits: *rate limit* do GitHub tratado com cache/helpers, log com fila limitada (não bloqueia disco), retomada de torrents após crash, páginas de vídeo por playlist `.m3u8`/`.mpd`. |
+| Evidências novas | Postura de segurança **melhorou de forma mensurável**: fuzzing contínuo (ClusterFuzzLite), CodeQL e Scorecard entraram no CI. `LICENSE` (GPL-3.0) inalterado, então a implicação de copyleft para produto continua idêntica. |
+| Testes próprios | **Bloqueado**: projeto Rust; `cargo` ausente. Registrado como `BLOCKED`. |
+| Testes independentes | CI no HEAD: 11 *success*, 3 *skipped*, 2 sem conclusão. |
+| Conclusão | Recomendação **reavaliada e mantida**: `REFERENCE_ONLY` para o produto (GPL) e `ADAPT` apenas se usado como processo externo via MCP. O fuzzing novo não muda a licença. |
+| Próxima revisão | 90 dias. |
+

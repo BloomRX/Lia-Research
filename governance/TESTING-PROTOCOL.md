@@ -69,12 +69,15 @@ Toda tentativa — inclusive a que falhou — gera uma linha em
 | `level` | 0 · 1 · 2 · 3 |
 | `environment` | SO, versão, hardware (quando aplicável), isolamento usado |
 | `procedure` | comando ou sequência executada |
-| `result` | `PASS` · `FAIL` · `PARTIAL` · `BLOCKED` |
+| `result` | vocabulário de §3 (`LOCAL_TESTS_PASS`, `PARTIAL`, `BLOCKED`…), nunca opinião |
 | `evidence` | log, saída, caminho do artefato |
 | `not_tested` | o que ficou fora e por quê |
 | `repro` | como repetir |
 
-Sem essas dez colunas, a tentativa **não** pode ser citada no relatório.
+Sem essas dez colunas, a tentativa **não** pode ser citada no relatório. Tentativa
+**bloqueada** também é registrada: `result = BLOCKED`, `evidence` traz a linha concreta que
+bloqueia (ex.: `requires-python >=3.14` no `pyproject.toml`, ausência de `cargo`), e
+`not_tested` diz o que não rodou. Bloqueio sem evidência é opinião.
 
 ## 3. Vocabulário de resultado (campo separado do estado)
 
@@ -91,6 +94,13 @@ Correspondência com a origem da evidência:
 | CI oficial do projeto | `OFFICIAL_CI_REVIEWED` |
 | benchmark independente / demonstração do autor / relato de usuário | evidência `REPORTED`, **nunca** resultado de teste |
 | alegação sem comprovação | `UNVERIFIED` |
+
+## 3.1. O que conta como suíte executada
+
+`LOCAL_TESTS_PASS` exige que **todas** as asserções do comando tenham passado. Comando com
+falhas ou erros de coleta é `PARTIAL` (ou `LOCAL_TESTS_FAIL` quando a falha é do objeto), e o
+relatório nomeia a causa observada. Suíte que não conclui por dependência ausente **não** é
+falha do upstream: é `BLOCKED`/`PARTIAL` por ambiente.
 
 ## 4. Quando não é possível testar
 

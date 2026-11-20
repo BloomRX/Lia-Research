@@ -10,11 +10,14 @@
 | Categoria | agents |
 | Projetos beneficiados | (nenhum — bloqueado por licença) |
 | Fontes | `theclaymethod/unslop@0f4a07f5ca8bb400b4d4450b00d67c6e4a30b85a:README.md`, tree, `api.github.com` (metadados de licença) |
+| SHA completo | `0f4a07f5ca8bb400b4d4450b00d67c6e4a30b85a` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `0f4a07f5ca8bb400b4d4450b00d67c6e4a30b85a` (conferido em 2026-11-20) |
 | Versão/commit | `0f4a07f` (2026-11-14) — sem releases |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `theclaymethod/unslop` · HEAD `0f4a07f5ca8b` · sem mudança no HEAD |
-| Próxima revisão | 2027-05-17 (baixa prioridade) |
+| Próxima revisão | 2027-11-20 |
 | Recomendação | **REJECT** (por ausência de licença) |
 | Licença | **Nenhuma** — todos os direitos reservados (`CONFIRMED`) |
 | Confiança | Alta (licença e estrutura verificadas diretamente) |
@@ -185,3 +188,18 @@ do texto do repositório (só a partir do conceito).
 | 2 | Se útil, pedir licença ao autor (opcional, cortesia) | proprietário | licença publicada |
 | 3 | Extrair apenas o conceito de "rewrite gates" como padrão Lia | Agent Hub | nota de padrão |
 | 4 | Revisar em 6 meses | Research | — |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``0f4a07f5ca8b` (2026-11-17)` |
+| Versão novamente examinada | ``0f4a07f5ca8b` (mesmo commit)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | Sem commit novo. Confirmado no HEAD: **nenhum arquivo de licença** (404 no endpoint de licença). |
+| Evidências novas | A ausência de licença continua sendo o motivo do `REJECT`, e a reauditoria a reverificou em vez de repetir a afirmação. |
+| Testes próprios | Não executado: Skill única, sem suíte; testar exigiria um host de agente. |
+| Testes independentes | CI no HEAD: não observado. |
+| Conclusão | Recomendação **reavaliada e mantida em `REJECT`** (sem licença, sem uso). |
+| Próxima revisão | 365 dias. |
+

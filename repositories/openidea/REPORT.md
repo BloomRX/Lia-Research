@@ -5,16 +5,19 @@
 | ID | `LR-STUDIO-001` |
 | Tipo | repositorio |
 | Estado da pesquisa | DOCUMENTED |
-| Resultado de execução | STATIC_REVIEW_ONLY |
+| Resultado de execução | BLOCKED |
 | Decisão de adoção | — (nenhuma registrada) |
 | Categoria | studio |
 | Projetos beneficiados | Lia Studio (Lia Forge e Agent Hub como referência secundária) |
 | Fontes | `l0ng-ai/openidea@182285647ee2a80e84c01157ae35d6b63f572d71:README.md`, tree (`crates/`, `plugins/`), `LICENSE`, releases |
+| SHA completo | `182285647ee2a80e84c01157ae35d6b63f572d71` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `6d157c8b711faa27ef8ca065fb04c22cd14c5f43` (conferido em 2026-11-20) |
 | Versão/commit | `1822856` (2026-11-17), release `v0.1.47` + nightly `0.1.48-nightly` |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `l0ng-ai/openidea` · HEAD `e6905f288ea4` · mudou desde a análise (conteúdo novo não lido) |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2027-01-19 |
 | Recomendação | **REFERENCE_ONLY** |
 | Licença | Apache-2.0 (`CONFIRMED`) |
 | Confiança | Alta para estrutura/licença; Baixa para desempenho e benchmarks |
@@ -225,3 +228,18 @@ produto, ou adotar plugins de terceiros.
 | 2 | Ler o modelo de permissão de plugins (`ide-plugin`) | Studio/Research | `CONFIRMED` ou `BLOCKED` |
 | 3 | Se houver interesse em medição, executar build e medir memória em idle | Studio | benchmark próprio |
 | 4 | Revisar em 90 dias | Research | novo commit |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``182285647ee2` (2026-11-17)` |
+| Versão novamente examinada | ``6d157c8` (+515 commits, release `v0.1.49`)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | 515 commits, 300 arquivos (truncado): `crates/` (293), 3 workflows, `Cargo.lock`/`Cargo.toml`. Commits: correções em bench, VCS (seleção de branch, largura de log), abrir projeto em nova aba, postcondições de operação. |
+| Evidências novas | Atividade intensa num projeto ainda em `0.1.x`: a API e a estrutura mudam rápido. `LICENSE` não aparece entre os arquivos alterados. |
+| Testes próprios | **Bloqueado**: Rust; `cargo` ausente. |
+| Testes independentes | CI no HEAD: apenas 1 check *skipped* — **não há evidência de CI verde neste commit**; isso é um dado, não um defeito. |
+| Conclusão | Recomendação **reavaliada e mantida em `REFERENCE_ONLY`**. Sem CI verificável no HEAD e com 515 commits de diferença, qualquer conclusão sobre código seria leitura de superfície. |
+| Próxima revisão | 60 dias. |
+

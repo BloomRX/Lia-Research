@@ -10,11 +10,14 @@
 | Categoria | providers |
 | Projetos beneficiados | Lia-Project (provider opcional), Lia Model Lab (avaliação) |
 | Fontes | `api.github.com/orgs/routerhubSI`, repositórios da organização (2026-11-17), descrição da org, `routerhub-repos.json` |
+| SHA completo | — não determinado (ver motivo) |
+| Proveniência do SHA | **INCOMPLETA_ORGANIZACAO** — organização, não um repositório: não existe commit único analisado |
+| HEAD atual | — (organização: sem HEAD único; ver §Fontes) |
 | Versão/commit analisado | não aplicável (serviço comercial + repos de marketing); commits individuais listados em §16 |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `routerhubSI/litellm` · HEAD `187f936cb345` · sem SHA analisado registrado |
-| Próxima revisão | 2026-12-17 (30 dias — serviço comercial) |
+| Próxima revisão | 2027-11-20 |
 | Recomendação | **REJECT** (com `PENDENTE` nos fatos não verificáveis) |
 | Licença | MIT nos repositórios de marketing; **serviço sem termos verificáveis** |
 | Confiança | **Alta** para o que a organização declara; **Baixa** para tudo que depende do site (inacessível nesta coleta) |
@@ -252,3 +255,18 @@ o serviço como opção recomendada.
 | 3 | Não incluir em nenhuma lista de providers até (2) | Lia-Project | garantir |
 | 4 | Usar `routerhub-model-evals` apenas como referência de método de avaliação | Model-Lab | nota de método |
 | 5 | Revisar em 30 dias se houver nova informação pública | Research | — |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``—` (organização + serviço comercial; sem commit único)` |
+| Versão novamente examinada | ``—` (11 repositórios; o fork `routerhubSI/litellm` tem HEAD próprio, mas não é o objeto)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | Sem mudança detectada nos repositórios de marketing da organização. Termos do serviço **não foram reverificados** nesta rodada (exigiria abrir o site e ler contrato). |
+| Evidências novas | A proveniência segue incompleta por desenho: `DR-0005` rejeitou o **fork**, e o objeto avaliado é o produto. |
+| Testes próprios | Não executado: serviço comercial; testar exigiria conta e pagamento (Nível 3). |
+| Testes independentes | CI no HEAD: não aplicável. |
+| Conclusão | Recomendação **reavaliada e mantida em `REJECT`**. Os termos continuam `BLOCKED` como lacuna declarada. |
+| Próxima revisão | 365 dias. |
+

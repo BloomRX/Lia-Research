@@ -5,15 +5,18 @@
 | ID | `LR-AGENT-001` |
 | Tipo | repositorio |
 | Estado da pesquisa | DOCUMENTED |
-| Resultado de execução | STATIC_REVIEW_ONLY |
+| Resultado de execução | BLOCKED |
 | Decisão de adoção | — (nenhuma registrada) |
 | Categoria | agents |
 | Projetos beneficiados | Lia Agent Hub, Lia-Project, Lia Model Lab |
 | Fontes | `open-jarvis/OpenJarvis@6656b7fed28e2ff1efa4e77987cf351f2d71eec0:README.md`, `docs/architecture/overview.md`, `docs/architecture/security.md`, `pyproject.toml`, tree |
+| SHA completo | `6656b7fed28e2ff1efa4e77987cf351f2d71eec0` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `a9e59e8770f92dd8046c2e5fcc1246eef51bb96a` (conferido em 2026-11-20) |
 | Versão/commit analisado | `6656b7f` (2026-11-17), release `desktop-v1.0.5` (2026-11-11) |
 | Data da pesquisa | 2026-11-17 |
 | Upstream conferido | 2026-11-20 · `open-jarvis/OpenJarvis` · HEAD `a9e59e8770f9` · mudou desde a análise (conteúdo novo não lido) |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2027-02-18 |
 | Recomendação | **REFERENCE_ONLY** (padrões sim; código não) |
 | Licença | Apache-2.0 (`CONFIRMED`) |
 | Confiança | **Alta** para arquitetura, licença e dependências; **Baixa** para desempenho/energia (não medido aqui) |
@@ -261,3 +264,18 @@ da Lia.
 | 3 | Ler `docs/architecture/learning.md` e avaliar métricas de energia para a bancada | Model-Lab | proposta de bancada |
 | 4 | Verificar suporte real a backend Vulkan/CPU em Windows AMD | Model-Lab | `CONFIRMED` ou `BLOCKED` documentado |
 | 5 | Revisar em 90 dias (projeto alpha, muda rápido) | Research | novo commit analisado |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``6656b7fed28e` (2026-11-17)` |
+| Versão novamente examinada | ``a9e59e8` (+7 commits, release `desktop-v1.0.5`)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | 7 commits, 22 arquivos: `rust/` (9), `tests/` (6), `src/` (5), 2 workflows. Commits materiais: **correção de segurança** substituindo `Chrono` não mantido no agendador nativo; `/v1/models` lista o modelo configurado primeiro; `doctor` deixa de sondar engines remotas por padrão. |
+| Evidências novas | Duas mudanças mexem com o que o relatório avaliou: menos sondagem remota por padrão (postura de privacidade melhor) e substituição de dependência abandonada. `Cargo.toml` das crates alterado; `LICENSE` inalterado. |
+| Testes próprios | **Bloqueado**: Rust/desktop; `cargo` ausente. |
+| Testes independentes | CI no HEAD: 5 *success*, 0 falhas. |
+| Conclusão | Recomendação **reavaliada e mantida em `REFERENCE_ONLY`**. As correções reduzem risco de dependência, mas não criam motivo de adoção. |
+| Próxima revisão | 90 dias. |
+

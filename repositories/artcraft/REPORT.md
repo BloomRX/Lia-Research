@@ -5,15 +5,18 @@
 | ID | `LR-STUDIO-004` |
 | Tipo | repositorio |
 | Estado da pesquisa | DOCUMENTED |
-| Resultado de execução | STATIC_REVIEW_ONLY |
+| Resultado de execução | BLOCKED |
 | Decisão de adoção | — (nenhuma registrada) |
 | Categoria | studio (com leitura transversal em forge, agent, model, security) |
 | Projetos beneficiados | Lia Studio (primário), Lia Forge, Lia Agent Hub, Lia Model Lab, Lia-Project |
 | Fontes | `storytold/photocraft@a858d42a5028287662e28e89be0bbce9d0bec6b5`, `storytold/craft-libs@2466fd7ad8371a3551946a0795dbae11e0c3f805`, `storytold/artcraft@a6d52df45e553a6119116e560403155b0c65dc60`, `storytold/craft-ai-integrations@d94a3593adcff504eaaad9e5aee4c84fd2f07a72`: READMEs, `book/src/{architecture/command-engine,automation/mcp}.md`, `docs/ai-shared-layer.md`, árvores recursivas, API do GitHub; site `getartcraft.com/apps` (2026-11-17) |
+| SHA completo | `a858d42a5028287662e28e89be0bbce9d0bec6b5` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `3af21cf94f09f01f76f3b7a6cb2f49defbaa8bbe` (conferido em 2026-11-20) |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `storytold/photocraft` · HEAD `359051359fee` · mudou desde a análise (conteúdo novo não lido) |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2027-01-19 |
 | Recomendação | **ADAPT** — o desenho arquitetural, não o código |
 | Licença | **MIT OR Apache-2.0** (dual) em todos os repos verificados `CONFIRMED` |
 | Confiança | **Alta** para arquitetura e segurança (docs e código lidos); **baixa** para qualidade de execução (nenhum app executado; tudo alpha) |
@@ -325,3 +328,18 @@ segurança na mesma página em que descreve a defesa. É o padrão que esta base
 | 4 | Adotar a regra de caminho de documento (A5) no IPC | Lia-Project | `LR-SEC-005` |
 | 5 | Piloto do book + tag imutável (A6/A7) | Lia-Research | nenhum |
 | 6 | Revisar em 2027-02-17 — objetos de 7 semanas envelhecem rápido | Lia-Research | — |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``a858d42a5028` (análise de 2026-11-17)` |
+| Versão novamente examinada | ``3af21cf` (+1.011 commits, release `v0.23.1` de 2026-11-12)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | **1.011 commits e 300 arquivos** no intervalo (lista truncada pelo limite da API). Áreas: `crates/` (279), `apps/` (6), 5 workflows de CI, `Cargo.toml` e `crates/engine/Cargo.toml`. Nenhuma alteração em `LICENSE`, `LICENSE-MIT`, `LICENSE-APACHE` ou `NOTICE`. |
+| Evidências novas | O projeto é um monorepo de altíssima rotatividade (186 crates, 17 apps): a versão analisada já não é representativa do estado atual. Arquitetura e padrões citados no relatório continuam existindo; números de tamanho e contagem de crates envelheceram. |
+| Testes próprios | Não executado — `cargo` ausente no sandbox (registrado como `BLOCKED` em `data/testing/test-log.tsv`). |
+| Testes independentes | CI no HEAD: 15 *success*, 7 *skipped*, 4 sem conclusão (workflows em fila). Nenhuma falha. |
+| Conclusão | Recomendação **reavaliada e mantida em `ADAPT`** (o desenho arquitetural, não o código). O motivo não mudou; o que mudou é a distância entre a versão analisada e o HEAD — qualquer adoção futura precisa repinar no SHA do dia da decisão. |
+| Próxima revisão | 60 dias (antes: 90) — rotatividade alta. |
+

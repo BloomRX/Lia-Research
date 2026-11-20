@@ -25,6 +25,23 @@ Regra: item só sai daqui quando existe documento com evidência, não quando "j
 | 0-2 | ~~Persistir inventário~~ | **feito** 2026-11-17: `data/` com TSVs + snapshot | `data/README.md` |
 | 0-3 | ~~Unificar a contagem de commits do Lia-Project~~ | **feito**: 349 nas duas menções | `ecosystem/ECOSYSTEM-MAP.md` §1 e §5 |
 
+## Trilha C — Confiabilidade da base (2026-11-20)
+
+| # | Item | Status | Evidência |
+|---|---|---|---|
+| C-1 | Validador com data injetável e testes próprios | **feito** | `tools/validate.py` (18 verificações), `tools/test_validate.py` (76 testes) |
+| C-2 | Proveniência de SHA por objeto | **feito** | `audits/PROVENANCE-2026-11-20.md`; 21/23 com SHA de 40 caracteres, 2 organizações incompletas por desenho |
+| C-3 | Reauditoria de upstream (existência + movimento) | **feito** | `audits/REAUDIT-2026-11-20.md`; 10 de 22 com commit novo |
+| C-4 | Reauditoria **técnica** (conteúdo) | **feito, com lacunas declaradas** | `audits/TECHNICAL-REAUDIT-2026-11-20.md`; 22 relatórios com seção `Reauditoria` |
+| C-5 | Execução real de suítes | **parcial** | 5 suítes executadas; 8 objetos bloqueados por toolchain; 9 tentativas registradas |
+| C-6 | Fila de pesquisa com decisão escrita | **feito** | `RESEARCH-BACKLOG.md` §7 (17 triados + 6 candidatos) |
+| C-7 | Teste de Skill com entrada sintética (fecha "0 Skills medidas") | **pendente** | depende de `promptfoo`/`deepeval` (fila §7.1 #12 e #13) |
+| C-8 | Rodar as suítes Rust/C++/.NET num ambiente com toolchain | **pendente** | bloqueio de ambiente, não de pesquisa |
+
+> C-4 é "feito" no sentido de que **cada** objeto tem seção com evidência nova; não significa
+> que todo objeto foi executado. A diferença está escrita na seção 5 do documento de
+> reauditoria técnica.
+
 ## Trilha H — Hardware (bloqueia toda decisão de modelo)
 
 | # | Item | Pré-requisito | Status |

@@ -5,15 +5,18 @@
 | ID | `LR-STUDIO-005` |
 | Tipo | repositorio |
 | Estado da pesquisa | DOCUMENTED |
-| Resultado de execução | STATIC_REVIEW_ONLY |
+| Resultado de execução | BLOCKED |
 | Decisão de adoção | — (nenhuma registrada) |
 | Categoria | studio (leitura transversal em licensing, hardware) |
 | Projetos beneficiados | Lia Studio (referência de runtime), Lia Forge (interop nativo), Lia-Research (governança de contribuição) |
 | Fontes | `ahwootech/BRUTAL@c4c62f55286828e51ba93b59ec7fa21ecedae3ca`: `README.md` (10 KB), `LICENSE.txt`, `NOTICE.txt`, `CONTRIBUTING.md`, árvore completa (6.016 entradas), API do GitHub |
+| SHA completo | `c4c62f55286828e51ba93b59ec7fa21ecedae3ca` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `c4c62f55286828e51ba93b59ec7fa21ecedae3ca` (conferido em 2026-11-20) |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `ahwootech/BRUTAL` · HEAD `c4c62f552868` · sem mudança no HEAD |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2027-05-19 |
 | Recomendação | **REFERENCE_ONLY** — não adotar; três práticas a adaptar |
 | Licença | **BRUTAL License v1.0** — base MIT + créditos + **logo antes do gameplay** + `NOTICE.txt`; **não é OSI** (`CONFIRMED` no texto) |
 | Confiança | Alta para licença, escopo e estrutura (arquivos lidos); **UNVERIFIED** para desempenho e para rodar na RX 580 |
@@ -275,3 +278,18 @@ cláusula de branding, ou o README não pode dizer "open source" sem qualificar.
 | 3 | Rodar `vulkaninfo` na RX 580 e registrar em `LR-HW-001` | Model Lab | acesso à máquina |
 | 4 | Se um app Lia precisar de runtime nativo 3D, comparar BRUTAL com alternativas antes de decidir | Studio | — |
 | 5 | Revisar em 2027-02-17 (licença pode ser submetida à OSI) | Lia-Research | — |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``c4c62f552868` (2026-11-17)` |
+| Versão novamente examinada | ``c4c62f552868` (mesmo commit)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | Sem commit novo; release mais recente `v2026.10.1` (2026-10-23), anterior à análise. `LICENSE.txt` (licença própria de atribuição gráfica) inalterado. |
+| Evidências novas | Nada novo. O ponto do relatório sobre licença não-OSI continua sendo o fato central. |
+| Testes próprios | **Bloqueado**: C#/.NET + Vulkan; `dotnet` ausente. |
+| Testes independentes | CI no HEAD: não observado. |
+| Conclusão | Recomendação **reavaliada e mantida em `REFERENCE_ONLY`**. |
+| Próxima revisão | 180 dias (tema estável, projeto sem movimento). |
+

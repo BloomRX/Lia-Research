@@ -5,16 +5,19 @@
 | ID | `LR-FORGE-002` |
 | Tipo | repositorio |
 | Estado da pesquisa | DOCUMENTED |
-| Resultado de execução | STATIC_REVIEW_ONLY |
+| Resultado de execução | BLOCKED |
 | Decisão de adoção | — (nenhuma registrada) |
 | Categoria | forge |
 | Projetos beneficiados | Lia Forge (referência), Lia Studio (referência de integração 3D) |
 | Fontes | `islandmed/SculptForge@363e2b86cf8da3834206a9465a31560a8ea7e583:README.md`, tree, `LICENSE`, releases |
+| SHA completo | `363e2b86cf8da3834206a9465a31560a8ea7e583` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `30bc1171acb49ee492801a01ae2155916adbe542` (conferido em 2026-11-20) |
 | Versão/commit | `363e2b8` (2026-11-17), release `v0.13.6` |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `islandmed/SculptForge` · HEAD `3776e3918248` · mudou desde a análise (conteúdo novo não lido) |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2027-01-19 |
 | Recomendação | **REFERENCE_ONLY** |
 | Licença | GPL-3.0-or-later (`CONFIRMED`) |
 | Confiança | Alta para licença/estrutura; Baixa para desempenho |
@@ -194,3 +197,18 @@ pipeline Blender do Forge.
 | 1 | Propor formato de benchmark pack para a Lia (inspirado, não copiado) | Model-Lab | spec |
 | 2 | Avaliar se escultura dedicada é necessária ao Forge (ou Blender basta) | Forge | decisão de produto |
 | 3 | Revisar em 90 dias | Research | — |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``363e2b86cf8d` (2026-11-17)` |
+| Versão novamente examinada | ``30bc117` (+285 commits, release `v0.13.9`)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | 285 commits, 300 arquivos (truncado): `src/` (177), `docs/` (45), `tests/` (39), `packaging/` (7). Materiais: **`LICENSE-EXCEPTION.md` novo** (SculptForge Scripting Exception 1.0), `pyproject.toml` novo (pacote Python `sculptforge` via scikit-build-core + pybind11), 5 workflows, e *Python scripting* dentro do app. |
+| Evidências novas | **Achado que muda a análise de licença**: a exceção de scripting é uma permissão adicional do §7 da GPLv3 — programas que usam a API pública Python, a CLI, o servidor MCP ou o SDK de plugin **podem ter qualquer licença**. Antes, o relatório tratava qualquer integração como contaminação GPL. `LICENSE` (GPL-3.0) continua igual para o app. |
+| Testes próprios | **Bloqueado**: C++/CMake + Blender ausentes. |
+| Testes independentes | CI no HEAD: 18 *success*, 12 *skipped*, 0 falhas. |
+| Conclusão | Recomendação **reavaliada e mantida em `REFERENCE_ONLY`**, mas o motivo mudou: o bloqueio jurídico para uso por API/CLI/MCP deixou de existir (a exceção é explícita); o que resta é ausência de necessidade de produto na Lia. Registrado assim para não repetir a conclusão antiga com a justificativa antiga. |
+| Próxima revisão | 60 dias. |
+

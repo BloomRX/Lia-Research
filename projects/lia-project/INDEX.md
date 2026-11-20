@@ -5,6 +5,12 @@ quando o relatório vive em `repositories/` ou `cross-project/`, o ponteiro est�
 
 ---
 
+
+> **Reauditoria de 2026-11-20.** Todo relatório externo listado aqui foi reavaliado
+> nesta data (versão anterior, versão atual, mudanças, testes e conclusão). O detalhe
+> está na seção `Reauditoria 2026-11-20` de cada `repositories/*/REPORT.md`;
+> resumo por objeto em `audits/REAUDIT-2026-11-20.md`.
+
 ## 1. Pesquisa consolidada no Lia-Research
 
 | ID | Tema | Relatório principal | Origem no projeto |

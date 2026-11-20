@@ -10,11 +10,14 @@
 | Categoria | studio |
 | Projetos beneficiados | Lia Studio, Lia Agent Hub |
 | Fontes | `Donchitos/Claude-Code-Game-Studios@abc0de79d6ceb0b5d7aa693945849b3937afbe6a:README.md`, tree (`.claude/`, `studio-tests/`, `docs/`), `LICENSE`, releases |
+| SHA completo | `abc0de79d6ceb0b5d7aa693945849b3937afbe6a` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `abc0de79d6ceb0b5d7aa693945849b3937afbe6a` (conferido em 2026-11-20) |
 | Versão/commit | `abc0de7` (2026-11-09), release `v1.3.0` |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `Donchitos/Claude-Code-Game-Studios` · HEAD `abc0de79d6ce` · sem mudança no HEAD |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2027-05-19 |
 | Recomendação | **ADAPT** (padrões de processo e hierarquia) |
 | Licença | MIT (`CONFIRMED`, © 2026 Donchitos) |
 | Confiança | Alta para estrutura/licença; Média para eficácia do processo |
@@ -205,3 +208,18 @@ produto usando a marca do upstream.
 | 2 | Avaliar a "escada de documentos" para o fluxo da Studio | Studio | proposta |
 | 3 | Medir custo de contexto do carregamento atual | Studio | número |
 | 4 | Revisar em 90 dias | Research | — |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``abc0de79d6ce` (2026-11-17)` |
+| Versão novamente examinada | ``abc0de79d6ce` (mesmo commit, release `v1.3.0` de 2026-11-09)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | Sem commit novo. Licença MIT conferida no HEAD. Nenhuma release posterior à análise. |
+| Evidências novas | Nada novo; o valor está nos padrões de processo (hierarquia de agentes), não em código executável. |
+| Testes próprios | Não executado: é pacote de instruções (Skills/comandos), não há suíte própria para rodar. |
+| Testes independentes | CI no HEAD: não observado. |
+| Conclusão | Recomendação **reavaliada e mantida em `ADAPT`** (padrões de processo). |
+| Próxima revisão | 180 dias. |
+

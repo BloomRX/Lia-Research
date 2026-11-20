@@ -2,6 +2,12 @@
 
 ---
 
+
+> **Reauditoria de 2026-11-20.** Todo relatório externo listado aqui foi reavaliado
+> nesta data (versão anterior, versão atual, mudanças, testes e conclusão). O detalhe
+> está na seção `Reauditoria 2026-11-20` de cada `repositories/*/REPORT.md`;
+> resumo por objeto em `audits/REAUDIT-2026-11-20.md`.
+
 ## 1. Pesquisa consolidada no Lia-Research
 
 | ID | Tema | Relatório principal | Origem |
@@ -15,6 +21,7 @@
 | `LR-SEC-007` | Checklist de auditoria para app desktop e IPC local | `repositories/cloudflare-security-audit-skill/REPORT.md` | pesquisa externa (novo) |
 | `LR-AGENT-010` | Skills de edição de foto/PDF sem gerador de imagem | `cross-project/agents/ARTCRAFT-SKILL-PACK.md` | derivado de `LR-STUDIO-004` |
 | `LR-FORGE-004` | VFX 2D / animação pixel art | `repositories/pixelfx/REPORT.md` | pesquisa externa (novo) |
+| `LR-STUDIO-006` | 79 Skills de game dev + roteador; regras de autoria e pipeline de asset | `repositories/awesome-gamedev-agent-skills/REPORT.md` | pesquisa externa (novo, 2026-11-20) |
 | `LR-UI-003` | Molde de skill de design | `repositories/ai-design-skills/REPORT.md` | pesquisa externa (novo) |
 | `LR-LIC-001` | Licença e proveniência de Skills | `projects/lia-agent-hub/skills/SKILL-LICENSE-CONSOLIDATION.md` | `SKILL-LICENSE-AND-PROVENANCE-AUDIT.md` + `docs/licenses/` |
 | `LR-SEC-002` | Segurança de runtime de agente | `cross-project/agents/AGENT-RUNTIME-SECURITY.md` | `ARENA-RUNTIME-SECURITY-AUDIT.md` |

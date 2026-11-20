@@ -10,11 +10,14 @@
 | Categoria | forge |
 | Projetos beneficiados | Lia Forge (assets/VFX), Lia Studio (jogos 2D) |
 | Fontes | `patch-gg/pixelfx@5294518ce7c72e48b6100a744596e0acf57f2826:README.md`, `NOTICE.md`, tree, `LICENSE` |
+| SHA completo | `5294518ce7c72e48b6100a744596e0acf57f2826` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `5294518ce7c72e48b6100a744596e0acf57f2826` (conferido em 2026-11-20) |
 | Versão/commit | `5294518` (2026-11-12) — sem releases/tags |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `patch-gg/pixelfx` · HEAD `5294518ce7c7` · sem mudança no HEAD |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2027-05-19 |
 | Recomendação | **ADAPT** (uso de catálogo/efeitos com atribuição correta) |
 | Licença | MIT **com atribuições específicas** em `NOTICE.md` |
 | Confiança | Alta para licença; Média para qualidade dos efeitos |
@@ -193,3 +196,18 @@ não integrar o pacote inteiro como dependência.
 | 1 | Selecionar 10 efeitos candidatos e revisar visualmente | Forge | lista curada |
 | 2 | Definir política de NOTICE dentro de pacote de asset | Forge/Agent Hub | spec |
 | 3 | Avaliar a skill de criação de efeito como padrão para a Studio | Studio | proposta |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``5294518ce7c7` (2026-11-17)` |
+| Versão novamente examinada | ``5294518ce7c7` (mesmo commit)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | Sem commit novo e sem release. `NOTICE.md` e fontes externas inalterados. |
+| Evidências novas | Nada novo. |
+| Testes próprios | Não executado: efeitos de vídeo exigem GPU (Nível 3 / hardware). |
+| Testes independentes | CI no HEAD: não observado. |
+| Conclusão | Recomendação **reavaliada e mantida em `ADAPT`** (padrões de efeito). |
+| Próxima revisão | 180 dias. |
+

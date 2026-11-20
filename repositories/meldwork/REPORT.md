@@ -10,11 +10,14 @@
 | Categoria | agents |
 | Projetos beneficiados | Lia Agent Hub |
 | Fontes | `Ryder-Sun/Meldwork@db9b6c84cbb1c86f3e3facf3cbebdcd6f1f79397:README.md`, `COMMERCIAL_USE.md`, `LICENSE`, tree, releases |
+| SHA completo | `db9b6c84cbb1c86f3e3facf3cbebdcd6f1f79397` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `db9b6c84cbb1c86f3e3facf3cbebdcd6f1f79397` (conferido em 2026-11-20) |
 | Versão/commit | `db9b6c8` (2026-11-16), release `Meldwork-V1.0.9` (Preview) |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `Ryder-Sun/Meldwork` · HEAD `db9b6c84cbb1` · sem mudança no HEAD |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2027-05-19 |
 | Recomendação | **REFERENCE_ONLY** |
 | Licença | Apache-2.0 + declaração explícita de uso comercial permitido |
 | Confiança | Alta para licença/estrutura; Média para capacidades |
@@ -198,3 +201,18 @@ redistribuir o app.
 | 2 | Adotar `COMMERCIAL_USE.md` no Lia-Research e nas Skills Lia | Research | arquivo criado |
 | 3 | Verificar se há build Windows em issues/PRs | Research | `CONFIRMED`/`BLOCKED` |
 | 4 | Revisar em 90 dias | Research | — |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``db9b6c84cbb1` (2026-11-17)` |
+| Versão novamente examinada | ``db9b6c84cbb1` (mesmo commit)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | Sem commit novo e sem release. `LICENSE` + `COMMERCIAL_USE.md` conferidos: Apache-2.0 com documento comercial separado. |
+| Evidências novas | O modelo de documentação comercial continua sendo o melhor do corpus — e não mudou. |
+| Testes próprios | Não executado: pacote de Skills/manuais; sem suíte própria. |
+| Testes independentes | CI no HEAD: não observado. |
+| Conclusão | Recomendação **reavaliada e mantida em `REFERENCE_ONLY`**. |
+| Próxima revisão | 180 dias. |
+

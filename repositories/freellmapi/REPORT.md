@@ -4,16 +4,19 @@
 |---|---|
 | ID | `LR-MODEL-006` |
 | Tipo | repositorio |
-| Estado da pesquisa | DOCUMENTED |
-| Resultado de execução | STATIC_REVIEW_ONLY |
+| Estado da pesquisa | PARTIALLY_TESTED |
+| Resultado de execução | PARTIAL |
 | Decisão de adoção | — (nenhuma registrada) |
 | Categoria | model |
 | Projetos beneficiados | Lia Model Lab (roteamento), Lia Agent Hub (provider adapter), Lia-Research (política de termos) |
 | Fontes | `tashfeenahmed/freellmapi@main` (2026-11-19): `README.md`, `LICENSE`, API do GitHub; site freellmapi.co/models |
+| SHA completo | `dd0fb71351746ed7bfcbe061a7aa7c6bdb291e1d` |
+| Proveniência do SHA | **CANDIDATO_POR_DATA** — leitura de `main` em 2026-11-19 sem SHA registrado; candidato = último commit antes do fim do dia, NÃO confirmado |
+| HEAD atual | `7ad9097fd9d83bc3e1af0f925ea813a913b18dde` (conferido em 2026-11-20) |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `tashfeenahmed/freellmapi` · HEAD `dd0fb7135174` · sem SHA analisado registrado |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2026-12-20 |
 | Recomendação | **REFERENCE_ONLY** — o desenho de roteamento/orçamento serve; o serviço, não |
 | Licença | MIT (`CONFIRMED`) — a licença do **software**, não dos provedores que ele agrega |
 | Confiança | Alta para o que o README declara; **UNVERIFIED** para conformidade com termos de uso |
@@ -173,3 +176,18 @@ termos de uso.
 | 2 | Registrar política: agregação de free tier não entra em produto | Lia-Research | decisão do proprietário |
 | 3 | Comparar com `litellm` (upstream) antes de qualquer gateway caseiro | Lia-Research | fila da triagem |
 | 4 | Se usar pessoalmente, medir o roteamento e registrar | Model Lab | — |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``dd0fb7135174` (leitura de `main` em 2026-11-19, SHA candidato)` |
+| Versão novamente examinada | ``7ad9097` (+4 commits, release `v0.16.37` de 2026-11-20)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | 4 commits, 28 arquivos: `server/` (10), `client/` (6), `desktop/` (2), `README.ja.md` novo, `docs/` (2). Commits materiais: provedor novo (`cheapllm.shop`, DeepSeek V4.1 Flash), teste de modelo de decisão a partir do cartão, teste de buscadores. |
+| Evidências novas | O catálogo de provedores cresce a cada release — o que confirma a limitação central do relatório: a lista de free tiers é uma foto, não um estado. Primeiro SHA confirmado por esta reauditoria é o do HEAD; a leitura de 2026-11-19 continua `CANDIDATO`. |
+| Testes próprios | **Executado parcialmente**: `npm ci && npm test` → **2044 passaram, 1796 falharam, 1656 pulados**; 749 falhas citam `better-sqlite3 is not installed` (módulo nativo ausente no sandbox). Veredito sobre a suíte fica inconclusivo e está registrado como `PARTIAL`. |
+| Testes independentes | CI no HEAD: 9 *success*, 0 falhas. |
+| Conclusão | Recomendação **reavaliada e mantida em `REFERENCE_ONLY`**: nada no intervalo muda o fato de que o valor está na lista, e a lista vence em 30 dias. |
+| Próxima revisão | 30 dias (é o objeto com prazo mais curto do catálogo). |
+

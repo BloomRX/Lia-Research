@@ -10,11 +10,14 @@
 | Categoria | ui |
 | Projetos beneficiados | Lia-Project, Lia Agent Hub |
 | Fontes | `backnotprop/plannotator@b5b3077838a1758960198dc404ee98e2a57acf6d:README.md`, tree, `LICENSE`, releases |
+| SHA completo | `b5b3077838a1758960198dc404ee98e2a57acf6d` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `f61d44dc304ad15ce68cb71acace3abbf3346de0` (conferido em 2026-11-20) |
 | Versão/commit | `b5b3077` (2026-11-17), release `v0.28.67` (2026-11-17) |
 | Data | 2026-11-17 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `backnotprop/plannotator` · HEAD `589d4230a6d2` · mudou desde a análise (conteúdo novo não lido) |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2027-01-19 |
 | Recomendação | **REFERENCE_ONLY** (avaliar como ponte de revisão humana; não adotar agora) |
 | Licença | Apache-2.0 (`CONFIRMED`) |
 | Confiança | Alta para estrutura/licença; Média para integrações |
@@ -184,3 +187,18 @@ sensível de planos para ele sem política.
 | 1 | Propor "contrato de revisão" no fluxo de pesquisa (artefato → anotação → decisão) | Research | spec |
 | 2 | Popular `decisions/` do Lia-Research (hoje com poucos registros) | Research | ≥ 10 DRs |
 | 3 | Testar como ferramenta interna de revisão de planos | proprietário | decisão de uso |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``b5b3077838a1` (2026-11-17)` |
+| Versão novamente examinada | ``f61d44d` (+1.511 commits, release `v0.29.1`)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | 1.511 commits, 300 arquivos (truncado): `apps/` (288), 4 workflows, `package.json` de 6 apps (`cline-plugin`, `dsh-plugin`, `hook`, `opencode-plugin`, `pi-extension`…). Commits: execução automática com permissões totais e agentes confiáveis, lista telefônica/mobile, renomeação de Skill para `/picture-it`. |
+| Evidências novas | O produto virou uma família de plugins de host (Cline, opencode, pi) — o relatório o tratava como app único. **Nenhuma alteração de `LICENSE`**, mas a superfície de integração com hosts de agente cresceu muito. |
+| Testes próprios | Não executado: monorepo Node com `pnpm` e dezenas de apps; build completo não cabe no ambiente de 3 GB. Registrado como não executado na seção de testes. |
+| Testes independentes | CI no HEAD: 12 *success*, 17 *skipped*, **1 falha** — relatório anterior não tinha esse dado. |
+| Conclusão | Recomendação **reavaliada e mantida em `REFERENCE_ONLY`**, agora com ressalva explícita: há check vermelho no HEAD e a arquitetura de plugins multiplataforma não foi avaliada nesta rodada. |
+| Próxima revisão | 60 dias. |
+

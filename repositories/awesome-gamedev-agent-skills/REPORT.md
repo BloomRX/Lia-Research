@@ -11,11 +11,14 @@
 | Categoria | studio (leitura transversal em agents, licensing) |
 | Projetos beneficiados | Lia Studio (se o engine estiver na lista), Lia Forge (pipeline de asset), Lia Agent Hub (formato de Skill) |
 | Fontes | `gamedev-skills/awesome-gamedev-agent-skills@c6ca6c41c839b68319ffc08430b99ab768debc32` (2026-11-12): `README.md`, `LICENSE`, `NOTICE`, `docs/SKILL-FORMAT.md`, `docs/INSTALLATION.md`, `docs/VERSION-SUPPORT.md`, `router/SKILL.md`, `skills/disciplines/create-game-assets/` (SKILL.md + 2 scripts + assets), `evals/RESULTS.md`, `evals/triggers.json` (366 itens), `scripts/validate-skills.py`, `.github/workflows/ci.yml`, árvore completa (504 entradas), API do GitHub, tarball do commit |
+| SHA completo | `c6ca6c41c839b68319ffc08430b99ab768debc32` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `c6ca6c41c839b68319ffc08430b99ab768debc32` (conferido em 2026-11-20) |
 | Versão analisada | `c6ca6c4` (2026-11-12T07:38:53Z), release `v2.0.0` (2026-11-11) |
 | Data da pesquisa | 2026-11-20 |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `gamedev-skills/awesome-gamedev-agent-skills` · HEAD `c6ca6c41c839` · sem mudança no HEAD |
-| Próxima revisão | 2027-02-20 (90 dias — Skills de engine mudam com o engine) |
+| Próxima revisão | 2027-02-18 |
 | Responsável | Research Orchestrator |
 | Licença | **Apache-2.0** (lida em `LICENSE`; `NOTICE` com atribuição e *disclaimer* de marca) |
 
@@ -220,5 +223,20 @@ responsável do projeto.
    engine e só então estudar instalação — em diretório isolado, nunca na configuração do agente.
 4. Revisar em 2027-02-20: Skills de engine envelhecem junto com o engine, e o repositório tem
    3 PRs abertos que mudam estrutura (marketplace de plugins).
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | `— (primeira análise em 2026-11-20)` |
+| Versão novamente examinada | ``c6ca6c41c839`` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | Não é reauditoria: o objeto entrou nesta rodada (`LR-STUDIO-006`) e já nasceu com SHA, teste próprio e conferência de versões. |
+| Evidências novas | Duas execuções Nível 1 registradas no log (validador do repo e `asset_report.py`). |
+| Testes próprios | **Executado**: validador (80 Skills, exit 0) e QA de raster (3 casos). |
+| Testes independentes | CI no HEAD: *success* em `c6ca6c4`. |
+| Conclusão | Recomendação `ADAPT` definida hoje; sem reavaliação anterior. |
+| Próxima revisão | 90 dias. |
+
 
 Voltar: `RESEARCH-INDEX.md` · `catalog/catalog.tsv` · `cross-project/licensing/ASSET-PROVENANCE-REGISTRY.md`

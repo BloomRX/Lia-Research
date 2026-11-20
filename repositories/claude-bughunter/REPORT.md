@@ -4,16 +4,19 @@
 |---|---|
 | ID | `LR-SEC-006` |
 | Tipo | repositorio |
-| Estado da pesquisa | DOCUMENTED |
-| Resultado de execução | STATIC_REVIEW_ONLY |
+| Estado da pesquisa | PARTIALLY_TESTED |
+| Resultado de execução | LOCAL_TESTS_PASS |
 | Decisão de adoção | — (nenhuma registrada) |
 | Categoria | security |
 | Projetos beneficiados | Lia Agent Hub (primário), Lia-Project, Lia Studio, Lia Forge, Lia Model Lab — **pela engenharia, não pelo conteúdo** |
 | Fontes | `elementalsouls/Claude-BugHunter@b63ae349afad88772e6d854a277ae9965fd4c369` (2026-11-18): `README.md` (23 KB, 346 linhas), `plugin.json`, `marketplace.json`, `LICENSE`, `LICENSE-CONTENT`, `NOTICE`, `docs/credits.md`, `eval/README.md`, `eval/BASELINE.md`, `.github/workflows/{leak-guard,skill-lint,doc-count-check}.yml`, `scripts/scan_identifiers.py`, `skills/hunt-xss/SKILL.md`, árvore completa (341 blobs) |
+| SHA completo | `b63ae349afad88772e6d854a277ae9965fd4c369` |
+| Proveniência do SHA | **INFORMADO_NO_RELATORIO** — SHA citado no próprio relatório |
+| HEAD atual | `c5d5c38123bf01f1223da3225bd3d28a930d028f` (conferido em 2026-11-20) |
 | Data | 2026-11-17 (coleta) · commit do repo é de 2026-11-18 UTC |
 | Última verificação | 2026-11-20 |
 | Upstream conferido | 2026-11-20 · `elementalsouls/Claude-BugHunter` · HEAD `0e70a021e59d` · mudou desde a análise (conteúdo novo não lido) |
-| Próxima revisão | 2027-02-17 |
+| Próxima revisão | 2027-02-18 |
 | Recomendação | **REFERENCE_ONLY** — instalar não; copiar seis mecanismos de engenharia, sim |
 | Licença | **Dupla**: código MIT + conteúdo CC BY 4.0 (`CONFIRMED`) |
 | Confiança | **Alta** para estrutura, licença e CI (arquivos lidos); **nula** para eficácia das Skills (não executado; o próprio repo mede delta 0 no que mediu) |
@@ -298,3 +301,18 @@ conteúdo.** É a distinção que separa aproveitar engenharia de importar risco
 | 5 | Incorporar **R6** ao schema de `LR-AGENT-009` (licença por classe + `sensitive`) | Agent Hub | `DR-0020` |
 | 6 | Avaliar **R7** (pipeline de citação) para `SOURCE-PRESERVATION-POLICY` | Lia-Research | `L-5` |
 | 7 | Revisar em 2027-02-17 (repo ativo: pode mudar de versão) | Lia-Research | — |
+
+## Reauditoria 2026-11-20
+
+| Campo | Valor |
+|---|---|
+| Versão anteriormente analisada | ``b63ae349afad` (2026-11-17)` |
+| Versão novamente examinada | ``c5d5c38` (+8 commits, release `v2.1`)` (2026-11-20) |
+| Método | `compare` da API do GitHub (commits + arquivos), leitura de arquivos materiais no HEAD, estado de CI no HEAD, releases |
+| Mudanças encontradas | 8 commits, 23 arquivos: `engine/` (7), `docs/` (3), `scripts/` (3), `tests/` (3), `assets/` (2). Commits materiais: nova ferramenta MCP `get_report` para ler corpo de relatório divulgado, correção de codificação UTF-8 em toda I/O de arquivo/console no Windows, e documentação deixando explícito que a conta HackerOne é **opcional**. |
+| Evidências novas | A ferramenta MCP nova amplia a superfície de leitura (relatórios divulgados) sem exigir conta; a correção de UTF-8 resolve o defeito de Windows descrito no relatório original. `LICENSE` e `LICENSE-CONTENT` não foram alterados. |
+| Testes próprios | **Executado**: `python -m unittest discover -s tests` → **65 testes, OK** (Nível 1, sem rede, em `/tmp`). |
+| Testes independentes | CI no HEAD: 6 *success*, 0 falhas. |
+| Conclusão | Recomendação **reavaliada e mantida em `REFERENCE_ONLY`**: os 65 testes provam que o pacote funciona, não que o engine de pentest deve rodar contra alvo da Lia — isso exige autorização (Nível 3) e escopo escrito. |
+| Próxima revisão | 90 dias. |
+

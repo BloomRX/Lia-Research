@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Documento | Padrão único de registro de tecnologia |
-| Versão | 1.0 — 2026-11-20 |
+| Versão | 1.1 — 2026-11-20 (proveniência + reauditoria) |
 | Canônico em | este arquivo |
 | Gerado por | `tools/build_catalog.py` → `catalog/catalog.tsv` |
 
@@ -33,6 +33,20 @@ Avaliação: `Funcionalidades` · `Aplicações potenciais` · `Compatibilidade`
 Estado e decisão: `Estado da pesquisa` · `Resultado de execução` · `Recomendação` ·
 `Decisão de adoção` (vazio = não existe decisão registrada).
 
+Proveniência (obrigatório desde 1.1): `SHA completo` (40 caracteres, quando existir) ·
+`Proveniência do SHA` · `HEAD atual`. Vocabulário fechado de `Proveniência do SHA`:
+
+| Valor | Significado |
+|---|---|
+| `INFORMADO_NO_RELATORIO` | o relatório já citava SHA/tag e ele foi conferido |
+| `RECUPERADO_POR_ESTABILIDADE` | não havia SHA; o upstream não recebe push desde a data analisada, então o HEAD atual é a árvore lida |
+| `CANDIDATO_POR_DATA` | não havia SHA; existe um commit cuja data casa com a leitura, mas não é prova |
+| `INCOMPLETA_ORGANIZACAO` | o objeto é organização/serviço: não existe commit único |
+
+Regra: **não inventar SHA**. Quando a versão não é determinável, o campo diz qual dos
+rótulos incompletos se aplica e o relatório explica por quê. Versão analisada histórica
+**nunca** é reescrita com o SHA recuperado — o recuperado vai no campo de proveniência.
+
 Conferência de upstream (opcional, recomendado): `Upstream conferido` — data + HEAD atual +
 se mudou desde a versão analisada. Confirmar que o repositório existe **não** é reler o
 conteúdo: `Upstream conferido` não promove estado nem zera `Próxima revisão`.
@@ -44,6 +58,10 @@ conteúdo: `Upstream conferido` não promove estado nem zera `Próxima revisão`
 
 Regra: `DOCUMENTED` exige >1 fonte lida. `TESTED` exige linha no `data/testing/test-log.tsv`.
 `STALE` é automático quando `Próxima revisão` < hoje.
+
+`TESTED` exige linha de execução **com resultado de teste** no log (`LOCAL_TESTS_PASS`,
+`LOCAL_TESTS_FAIL`, `LOCAL_SMOKE_PASS`, `PARTIAL`); linha `BLOCKED` documenta a tentativa e
+**não** promove o estado. `PARTIALLY_TESTED` cobre execução real com cobertura incompleta.
 
 `STALE` **não** é disparado por commit novo no upstream. Divergência de upstream fica em
 `Upstream conferido` e é motivo de revisão, não de mudança automática de estado: o relatório
@@ -73,6 +91,20 @@ A migração preservou o texto original entre parênteses quando a célula tinha
 
 `NOT_RUN` · `STATIC_REVIEW_ONLY` · `OFFICIAL_CI_REVIEWED` · `LOCAL_SMOKE_PASS` ·
 `LOCAL_TESTS_PASS` · `LOCAL_TESTS_FAIL` · `PARTIAL` · `BLOCKED`
+
+## 5.1. Reauditoria (obrigatório quando `Última verificação` > `Data da pesquisa`)
+
+Cada relatório reavaliado carrega uma seção `Reauditoria AAAA-MM-DD` com **oito** campos:
+
+`Versão anteriormente analisada` · `Versão novamente examinada` · `Método` ·
+`Mudanças encontradas` · `Evidências novas` · `Testes próprios` · `Testes independentes` ·
+`Conclusão` · `Próxima revisão`.
+
+A `Conclusão` precisa dizer se a recomendação foi **mantida** ou **alterada**. Se mantida,
+diz o motivo atual; se o motivo mudou (ex.: `sculptforge`, onde o GPL deixou de bloquear
+script), o relatório registra o antes e o depois em vez de repetir a justificativa antiga.
+Reescrever histórico é erro; declarar "reavaliado" sem mudança é permitido, desde que a
+evidência lida esteja nomeada.
 
 ## 6. Evidência (mantido)
 

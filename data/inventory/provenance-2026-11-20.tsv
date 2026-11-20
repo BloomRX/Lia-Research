@@ -1,0 +1,24 @@
+pasta	upstream	tipo	sha_analisado	proveniencia	branch_tag	data_leitura	head_atual	nota
+ai-design-skills	elayadesign/ai-design-skills	repositorio	456d9e0d3e2d84c748bb143c6ca3d90c45e16213	INFORMADO_NO_RELATORIO	main	—	456d9e0d3e2d84c748bb143c6ca3d90c45e16213	SHA citado no próprio relatório
+ai-memory	akitaonrails/ai-memory	repositorio	6a141858bb88fbd025b144664a37271acd5e0e43	CANDIDATO_POR_DATA	main	2026-11-19	6a141858bb88fbd025b144664a37271acd5e0e43	leitura de `main` em 2026-11-19 sem SHA registrado; candidato = último commit antes do fim do dia, NÃO confirmado
+artcraft	storytold/photocraft	repositorio	a858d42a5028287662e28e89be0bbce9d0bec6b5	INFORMADO_NO_RELATORIO	main	—	3af21cf94f09f01f76f3b7a6cb2f49defbaa8bbe	SHA citado no próprio relatório
+awesome-gamedev-agent-skills	gamedev-skills/awesome-gamedev-agent-skills	repositorio	c6ca6c41c839b68319ffc08430b99ab768debc32	INFORMADO_NO_RELATORIO	main	—	c6ca6c41c839b68319ffc08430b99ab768debc32	SHA citado no próprio relatório
+brutal	ahwootech/BRUTAL	repositorio	c4c62f55286828e51ba93b59ec7fa21ecedae3ca	INFORMADO_NO_RELATORIO	main	—	c4c62f55286828e51ba93b59ec7fa21ecedae3ca	SHA citado no próprio relatório
+claude-bughunter	elementalsouls/Claude-BugHunter	repositorio	b63ae349afad88772e6d854a277ae9965fd4c369	INFORMADO_NO_RELATORIO	main	—	c5d5c38123bf01f1223da3225bd3d28a930d028f	SHA citado no próprio relatório
+claude-code-game-studios	Donchitos/Claude-Code-Game-Studios	repositorio	abc0de79d6ceb0b5d7aa693945849b3937afbe6a	INFORMADO_NO_RELATORIO	main	—	abc0de79d6ceb0b5d7aa693945849b3937afbe6a	SHA citado no próprio relatório
+claude-trading-skills	tradermonty/claude-trading-skills	repositorio	a627d17dd1d8fde1c8fa73b3cc69ffe83b33cb71	INFORMADO_NO_RELATORIO	main	—	f95e770591b56fd83b9917175f5a7e8fe9ac47dc	SHA citado no próprio relatório
+cloudflare-security-audit-skill	cloudflare/security-audit-skill	repositorio	c1c8a8c1471069fb0e188eeaff69b8e8db6564a8	RECUPERADO_POR_ESTABILIDADE	main	2026-09-14	c1c8a8c1471069fb0e188eeaff69b8e8db6564a8	repo sem push desde 2026-09-14; HEAD igual à data citada → o conteúdo lido é este
+freellmapi	tashfeenahmed/freellmapi	repositorio	dd0fb71351746ed7bfcbe061a7aa7c6bdb291e1d	CANDIDATO_POR_DATA	main	2026-11-19	7ad9097fd9d83bc3e1af0f925ea813a913b18dde	leitura de `main` em 2026-11-19 sem SHA registrado; candidato = último commit antes do fim do dia, NÃO confirmado
+ha-mcp	homeassistant-ai/ha-mcp	repositorio	3dd26d45fbefa6fed999b618092a56005bb5d79c	INFORMADO_NO_RELATORIO	master	—	dfe833cd69e2eafe28f9c4f352f66c60704b1374	SHA citado no próprio relatório
+manimgx	academa-labs/manimgx	repositorio	1fb4dd7327bf5ed7d0c40d022c05cb816455ae1d	INFORMADO_NO_RELATORIO	main	—	1fb4dd7327bf5ed7d0c40d022c05cb816455ae1d	SHA citado no próprio relatório
+meldwork	Ryder-Sun/Meldwork	repositorio	db9b6c84cbb1c86f3e3facf3cbebdcd6f1f79397	INFORMADO_NO_RELATORIO	main	—	db9b6c84cbb1c86f3e3facf3cbebdcd6f1f79397	SHA citado no próprio relatório
+misterdownloadmanager	anefzaoui/misterdownloadmanager	repositorio	d9a9ef0621cb494a39999ab9adf433515a9d36a1	INFORMADO_NO_RELATORIO	main	—	37b721627988aeb2f50b83b606f079fce755d860	SHA citado no próprio relatório
+openidea	l0ng-ai/openidea	repositorio	182285647ee2a80e84c01157ae35d6b63f572d71	INFORMADO_NO_RELATORIO	main	—	6d157c8b711faa27ef8ca065fb04c22cd14c5f43	SHA citado no próprio relatório
+openjarvis	open-jarvis/OpenJarvis	repositorio	6656b7fed28e2ff1efa4e77987cf351f2d71eec0	INFORMADO_NO_RELATORIO	main	—	a9e59e8770f92dd8046c2e5fcc1246eef51bb96a	SHA citado no próprio relatório
+pixelfx	patch-gg/pixelfx	repositorio	5294518ce7c72e48b6100a744596e0acf57f2826	INFORMADO_NO_RELATORIO	main	—	5294518ce7c72e48b6100a744596e0acf57f2826	SHA citado no próprio relatório
+plannotator	backnotprop/plannotator	repositorio	b5b3077838a1758960198dc404ee98e2a57acf6d	INFORMADO_NO_RELATORIO	main	—	f61d44dc304ad15ce68cb71acace3abbf3346de0	SHA citado no próprio relatório
+rescript-lang	rescript-lang/rescript	organizacao		INCOMPLETA_ORGANIZACAO	—	—		organização, não um repositório: não existe commit único analisado
+routerhub	routerhubSI/litellm	organizacao		INCOMPLETA_ORGANIZACAO	—	—		organização, não um repositório: não existe commit único analisado
+sculptforge	islandmed/SculptForge	repositorio	363e2b86cf8da3834206a9465a31560a8ea7e583	INFORMADO_NO_RELATORIO	main	—	30bc1171acb49ee492801a01ae2155916adbe542	SHA citado no próprio relatório
+unslop	theclaymethod/unslop	repositorio	0f4a07f5ca8bb400b4d4450b00d67c6e4a30b85a	INFORMADO_NO_RELATORIO	main	—	0f4a07f5ca8bb400b4d4450b00d67c6e4a30b85a	SHA citado no próprio relatório
+vercel-ui	vercel-labs/ui	repositorio	10b3b6c0eccfd176a6d60ce4efaccf0d1584da08	INFORMADO_NO_RELATORIO	main	—	b4dbe88209ecf4dc555225f630268095f510ad49	SHA citado no próprio relatório

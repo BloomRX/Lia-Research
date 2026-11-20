@@ -8,6 +8,46 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-20 (2ª rodada) — validadores, proveniência e reauditoria técnica dos 22
+
+### Validadores (FIX — sem fragilizar)
+- `tools/validate.py` reescrito como classe: **data dinâmica** (`--today` / `LIA_TODAY` para
+  teste reproduzível), 18 verificações, 3 níveis. `STALE` virou diagnóstico: o validador
+  **nunca** reescreve relatório.
+- Segredos: 18 padrões (GitHub, pat, OpenAI, Anthropic, Stripe, AWS key/secret, Google, Slack
+  token e webhook, Discord, npm, **JWT**, chave privada OpenPGP/RSA, string de conexão,
+  Azure, Bearer). Máscara `XXXX`/`0000` não é erro; "placeholder" na mesma linha **não**
+  serve de passe livre (teste dedicado).
+- Catálogo: comparação byte a byte contra o gerador → linha extra, linha faltando e célula
+  editada à mão passam a ser erro.
+- `tools/test_validate.py`: **76 testes** com fixtures temporárias (positivo, negativo, campo
+  ausente, data vencida, `BLOCKED`/`NOT_RUN` legítimos, arquivo histórico, integração no repo
+  real). Antes: 10.
+
+### Proveniência (ADD)
+- `audits/PROVENANCE-2026-11-20.md` + `data/inventory/provenance-2026-11-20.tsv`.
+- Contagem corrigida: eram **5** objetos sem SHA, não 4.
+- 21 de 23 com SHA de 40 caracteres no cabeçalho; `ai-memory` e `freellmapi` ficam como
+  **candidato por data** (coincidem com o HEAD, mas não provam a árvore lida);
+  `rescript-lang` e `routerhub` declarados **incompletos por serem organizações**.
+
+### Reauditoria técnica (ADD)
+- 22 relatórios receberam a seção `Reauditoria 2026-11-20`: versão anterior, versão
+  examinada, mudanças, evidências, testes, conclusão e próxima revisão.
+- 10 objetos com commit novo (**3.917 commits** no total), 11 sem commit novo.
+- **0 recomendações alteradas**; **1 motivo alterado**: `sculptforge` ganhou
+  `LICENSE-EXCEPTION.md` (scripting), então o GPL deixou de bloquear script via API/CLI/MCP.
+- `audits/TECHNICAL-REAUDIT-2026-11-20.md` com números, lacunas e limites do método.
+
+### Testes próprios (ADD — 14 linhas no log)
+- `ai-design-skills` 17/17 · `claude-bughunter` 65/65 · `cloudflare-security-audit-skill`
+  65/65 (34+31) · `claude-trading-skills` 3.530/3.598 · `freellmapi` 2.044/3.840.
+- 9 tentativas bloqueadas com motivo (`cargo`, `dotnet`, Blender, Manim, Python ≥3.14, HA).
+
+### Fila (ADD)
+- `RESEARCH-BACKLOG.md` §7: decisão escrita para os 17 triados e para os 6 candidatos;
+  `uv` deduplicado; `promptfoo`/`deeval` no topo por atacarem a lacuna de **teste**.
+
 ## 2026-11-20 — `LR-STUDIO-006` pacote de Skills de game dev (23º objeto)
 
 ### Pesquisa nova (ADD)
