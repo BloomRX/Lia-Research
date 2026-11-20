@@ -5,7 +5,7 @@
 | ID | `LR-STUDIO-007` |
 | Categoria | studio / forge |
 | Projetos | Lia Forge 2.0 (consumidor), Lia Studio |
-| Fontes | 49 registros na matriz de evidências (46 originais + 3 candidatos) (repositórios, páginas oficiais e serviços; ver `CHARACTER-CREATION-EVIDENCE-MATRIX.tsv`), página pública do vídeo com transcrição parcial, e a pesquisa interna listada em §2 |
+| Fontes | 51 registros na matriz de evidências (46 originais + 3 da rodada 7.1 + 2 da 7.2) (repositórios, páginas oficiais e serviços; ver `CHARACTER-CREATION-EVIDENCE-MATRIX.tsv`), página pública do vídeo com transcrição parcial, e a pesquisa interna listada em §2 |
 | Data | 2026-11-20 |
 | Revisão | 2026-11-21 (rodada 7.1: correções de licença, hardware, vídeo e contagens) |
 | Status | CURRENT |
@@ -91,7 +91,7 @@ contratos do Forge**, e isso está dito de novo em
 | Consistência entre vistas / character sheet | **não** | — | `LR-STUDIO-009` |
 | Image-to-3D, text-to-3D | **menção** (`hunyuan3d`, Forge index; `LR-FORGE-005`) | Forge (fora de `main`) | comparação: `LR-FORGE-007` |
 | Retopologia, UV, textura, rigging | **parcial** (Blender/MCP) | `LR-FORGE-005` | `LR-FORGE-008` |
-| Pipeline completo 2D→3D→jogo | **não** | — | `LR-FORGE-009` |
+| Pipeline completo 2D→3D→jogo | **não** | — | `LR-FORGE-007` (três pipelines propostos; nenhum aprovado) |
 | Encaixe no Forge 2.0 | **não** | — | `LR-FORGE-010` |
 | Skills candidatas | **parcial** (49 capacidades no Forge, 1 skill) | Forge index | `LR-AGENT-012` |
 
@@ -230,6 +230,8 @@ Nenhuma delas é "a escolha". A comparação item a item está em `CHARACTER-2D-
 | Instant Meshes / xatlas | retopologia e UV determinísticos, sem nuvem | BSD-3 / MIT |
 | TripoSR (CPU, a validar) | único image-to-3D com menção explícita a fallback CPU — exceção declarada, tempo `UNVALIDATED` | MIT / MIT |
 | Blender + CC Wrap (Reallusion) como referência de "IA → topologia de personagem" | mostra o elo que falta nos modelos abertos; CC5.2 exige GPU ≥ RX 5500 XT (a RX 580 não é citada) e 200 GB de cache | GPL-2.0-or-later / proprietário |
+| `live2d-add-motion-sample-web-ui` (`LR-FORGE-009`) | **como padrão de fluxo**, não como tecnologia: gerador + validador independente + verificação visual headless + Definition of Done + documentação para agente | MIT no repo / **Core proprietário** e release license da Live2D |
+| AetherAI (`LR-MODEL-008`) | candidato a testar **para animação de sprite 2D**, porque o termo de direitos é o mais claro entre os serviços lidos — e porque o caminho local na RX 580 não cobre isso | proprietário (SaaS) / n.a. |
 
 **Não recomendadas (com motivo):**
 
@@ -245,6 +247,8 @@ Nenhuma delas é "a escolha". A comparação item a item está em `CHARACTER-2D-
 | ZLUDA / ComfyUI-Zluda | camada não oficial, sem suporte do fornecedor; serve para experimento, não para produto |
 | Plano **gratuito** do Tripo para personagem de jogo | o output nasce público e o usuário renuncia a direitos autorais, inclusive para exploração comercial por terceiros sem atribuição |
 | Plano **gratuito** do Meshy como entrega final | CC BY 4.0: comercial, mas com atribuição obrigatória — decisão de produto, não técnica |
+| Live2D como caminho de personagem **3D** | a tecnologia é 2D por construção: não gera malha, não exporta GLB |
+| AetherAI para **3D, rig ou GLB** | o serviço não faz nada disso; a animação é por sprites |
 
 ## 8-bis. Revisão cruzada deste conjunto
 
@@ -263,7 +267,8 @@ arquitetura (`LR-FORGE-010`).
 
 ## 8-ter. Revisão cruzada da rodada 7.1 — contradições encontradas e corrigidas
 
-Releitura dos 8 documentos contra as fontes obtidas em 2026-11-20/21. Sete contradições,
+Releitura dos 8 documentos contra as fontes obtidas em 2026-11-20/21 (a rodada 7.2 acrescentou
+mais dois documentos, revisados de forma independente). Sete contradições,
 todas corrigidas na fonte, não "harmonizadas" no texto:
 
 | # | Contradição | Onde estava | Correção |
@@ -327,10 +332,15 @@ mascotes legítimos.
 | `CHARACTER-PRODUCTION-TOOLS-ASSESSMENT.md` | blockout a exportação, automação por IA × ferramenta tradicional |
 | `CHARACTER-CREATION-ARCHITECTURE-RECOMMENDATIONS.md` | encaixe no Forge 2.0, aprovações, retornos |
 | `CHARACTER-CREATION-SKILLS-ANALYSIS.md` | 7 competências candidatas, entradas/saídas/critérios |
-| `CHARACTER-CREATION-EVIDENCE-MATRIX.tsv` | **49 registros** (50 linhas com o cabeçalho: 46 da rodada 7.0 + 3 candidatos da 7.1): licença de código × pesos, hardware, nível de evidência |
+| `AETHERAI-GAME-ASSET-SERVICE-RESEARCH.md` | serviço de assets 2D: funções, direitos do resultado, tokens, proibições contratuais |
+| `LIVE2D-MOTION-AUTHORING-RESEARCH.md` | autoria de movimento por JSON, padrão gerador+validador+verificação, pilha de licenças |
+| `CHARACTER-CREATION-EVIDENCE-MATRIX.tsv` | **51 registros** (52 linhas com o cabeçalho: 46 da rodada 7.0 + 3 da 7.1 + 2 da 7.2): licença de código × pesos, hardware, nível de evidência |
 
-Contagem do conjunto: **8 IDs, 8 documentos Markdown e 1 matriz com 49 registros** (46 da rodada 7.0 + 3 candidatos acrescentados na correção 7.1).
-Não existe `LR-FORGE-009`; o número ficou livre de propósito, para não inventar documento
-só para fechar sequência.
+Contagem do conjunto: **10 IDs, 10 documentos Markdown e 1 matriz com 51 registros**
+(46 da rodada 7.0 + 3 candidatos da 7.1 + 2 objetos da 7.2).
+
+> `LR-FORGE-009` ficou livre nas rodadas 7.0 e 7.1 justamente para não inventar documento só
+> para fechar sequência. Na rodada 7.2 ele foi ocupado por um objeto real
+> (`LIVE2D-MOTION-AUTHORING-RESEARCH.md`). `LR-MODEL-008` é o serviço AetherAI.
 
 Voltar: `README.md` · `projects/lia-forge/INDEX.md` · `RESEARCH-INDEX.md`
