@@ -8,6 +8,40 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-20 (UTC) — disciplina operacional: conjunto mínimo de Skills do ecossistema
+
+Não é rodada de pesquisa: nenhum objeto novo foi investigado, nenhum ID ou documento de
+tecnologia foi criado. O que entrou é **procedimento**: qual instrução já existente no
+ecossistema Lia o Research aplica, quando aplica e o que rejeitou.
+
+### ADD — `agents/SKILLS-OPERATING-SET.md`
+- **Catálogo localizado:** `Lia-AgentHub`, branch `arena/db625478-lia-agenthub`,
+  `docs/research/` (4 arquivos `*.records.json` com 48 registros, inventário canônico de 37 KB,
+  relatório de importação e roadmap). Todos os 48 registros seguem `trust: unreviewed` e
+  `lifecycle: quarantined` — catálogo não é biblioteca nem aprovação.
+- **Lidas por inteiro (10 `SKILL.md`, com commit e hash):** 5 de `Lia-Project` @ `0093de09`
+  e 5 de `Lia-Studio` @ `203b60f`. As 9 de `Lia-Model-Lab` e a de `Lia-Forge` **não puderam
+  ser lidas**: os dois repositórios retornam `404` ao token atual → `BLOCKED`, sem adivinhação.
+- **Conjunto mínimo adotado — 1 principal + 3 especialistas:** `lia-agent-orchestration`
+  (brief de 8 campos, retorno de 6, um escritor por caminho, capacidade por evidência, parada
+  ao sair do escopo), `lia-regression-investigation` (refutar a própria hipótese, uma variável
+  por vez), `lia-game-test-evidence-review` (matriz de rastreabilidade, `NÃO AVALIADO` nunca
+  vira aprovação) e `lia-project-resume` (reconstruir estado do artefato persistido).
+- **Rejeitadas com motivo, uma linha cada:** `lia-module-planning`, `lia-test-discipline`,
+  `lia-task-handoff`, `lia-agent-evaluation`, `lia-safe-change`, `lia-game-design-review`,
+  `alethe`, `lia-brand-check`, `lia-brand-consistency-review`.
+- **Achado que limita a expectativa:** a Skill de que o Research mais precisaria,
+  `lia-research-evidence`, é a **proposta nº 7** do roadmap do Hub — **não implementada**.
+  Nada foi criado, instalado ou copiado de outro projeto.
+- **Compatibilidade:** o Arena não expõe runtime de Skills; a aplicação é leitura e adesão
+  manual, registrada como `APPLIED (manual)`, nunca como execução. Nenhuma das quatro existe
+  em `main` de seu repositório — os commits pinados podem desaparecer com a limpeza de branch.
+
+### FIX — contagem de arquivos
+- `README.md` passa de 173 para 174 arquivos Markdown (o validador confere a contagem).
+
+---
+
 ## 2026-11-20 (UTC) — rodada 7.5: §5.3 do Tripo, visibilidade/retenção e downloads do Meshy Free
 
 Rodada pequena e focada: corrigir a referência contratual do treinamento no plano pago, registrar
