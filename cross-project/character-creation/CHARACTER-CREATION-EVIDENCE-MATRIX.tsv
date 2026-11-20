@@ -1,0 +1,47 @@
+slug	nome	tipo	fonte_oficial	licenca_codigo	licenca_pesos	sha_pesos_hf	atividade_2026-11-20	requisito_hardware	rx580	nivel_evidencia	nota
+sd-xl-base	SDXL base 1.0	imagem	Stability-AI/generative-models + HF stabilityai/stable-diffusion-xl-base-1.0	MIT	OpenRAIL++	46216598	27,3k * / 2025-12-16	2,57 B; inferencia por PyTorch ou ggml	VULKAN	CONFIRMED	unica base aberta confortavel em 8 GB
+flux1-schnell	FLUX.1-schnell	imagem	black-forest-labs/flux + HF	Apache-2.0	Apache-2.0	169573f5	26,1k * / 2025-07-31	11,89 B; gate auto no HF	VULKAN	CONFIRMED	variante utilizavel do FLUX
+flux1-dev	FLUX.1-dev	imagem	HF black-forest-labs/FLUX.1-dev	Apache-2.0	nao comercial (flux-1-dev-non-commercial-license)	45d95c49	2026-11-19	11,90 B; gate auto	VULKAN	CONFIRMED	pesos nao comerciais
+flux2	FLUX.2	imagem	black-forest-labs/flux2	Apache-2.0	nao lida		2,9k * / 2026-03-12	nao lida	?	UNVERIFIED	licenca de pesos desconhecida
+qwen-image	Qwen-Image	imagem	QwenLM/Qwen-Image + HF	Apache-2.0	Apache-2.0	75e0b4be	8,5k * / 2026-02-10	20,43 B; 58 GB de storage no HF	VULKAN	CONFIRMED	quantizacao obrigatoria em 8 GB
+qwen-image-edit	Qwen-Image-Edit-2509	imagem/edicao	HF Qwen/Qwen-Image-Edit-2509	Apache-2.0	Apache-2.0	d3968ef9	2025-09-22	20,43 B	VULKAN	CONFIRMED	edicao multi-referencia; chave para sheet
+hunyuan-image-3	HunyuanImage-3.0	imagem	Tencent-Hunyuan/HunyuanImage-3.0	licenca comunitaria Tencent	idem (exclui UE, UK, Coreia)		3,3k * / 2026-06-23	nao lida	?	CONFIRMED	clausula territorial verificada no texto
+controlnet-sd15	ControlNet (SD1.5)	controle	lllyasviel/ControlNet	Apache-2.0	n/a		34,2k * / 2024-02-25	SD1.5	VULKAN	CONFIRMED	parado desde 2024-02
+controlnetplus	ControlNet++ / Union	controle	xinsir6/ControlNetPlus	Apache-2.0	n/a		2,1k * / 2024-09-30	SDXL	VULKAN	CONFIRMED	controle unificado SDXL
+ip-adapter	IP-Adapter	referencia	tencent-ailab/IP-Adapter	Apache-2.0	n/a		6,7k * / 2024-06-28	SD1.5/SDXL	VULKAN	CONFIRMED	foco em rosto/estilo
+instantid	InstantID	identidade	instantX-research/InstantID	Apache-2.0	n/a		12,0k * / 2024-07-18	SDXL	VULKAN	CONFIRMED	identidade facial, nao personagem inteiro
+pulid	PuLID	identidade	ToTheBeginning/PuLID	Apache-2.0	n/a		3,6k * / 2025-07-31	SDXL/FLUX	VULKAN	CONFIRMED	
+photomaker	PhotoMaker	identidade	TencentARC/PhotoMaker	Apache-2.0 exceto componentes de terceiros	n/a		10,1k * / 2024-10-31	SDXL	VULKAN	CONFIRMED	excecoes de terceiros no LICENSE
+dreamo	DreamO	referencia	bytedance/DreamO	Apache-2.0	n/a		1,6k * / 2025-08-14	FLUX	?	CONFIRMED	herda custo/licenca do FLUX
+uno	UNO	referencia	bytedance/UNO	Apache-2.0	n/a		1,4k * / 2025-09-12	FLUX	?	CONFIRMED	
+infiniteyou	InfiniteYou	identidade	bytedance/InfiniteYou	Apache-2.0	n/a		2,7k * / 2025-08-22	FLUX	?	CONFIRMED	
+omnigen2	OmniGen2	imagem/edicao	VectorSpaceLab/OmniGen2	Apache-2.0	n/a		4,1k * / 2026-03-20	CUDA recomendado	?	CONFIRMED	
+mv-adapter	MV-Adapter	multi-view	huanngzh/MV-Adapter	Apache-2.0	n/a		1,3k * / 2025-06-26	SDXL	?	CONFIRMED	ataca turnaround diretamente
+storydiffusion	StoryDiffusion	consistencia	HVision-NKU/StoryDiffusion	Apache-2.0	n/a		6,5k * / 2024-09-26	SD/SDXL	?	CONFIRMED	
+ace-plus	ACE++	edicao	ali-vilab/ACE_plus	SEM LICENCA	n/a		1,4k * / 2025-04-21	SD3/FLUX	-	CONFIRMED	sem arquivo de licenca: excluido
+charactergen	CharacterGen	3D	zjp-shadow/CharacterGen	Apache-2.0	nao lida		860 * / 2025-04-11	CUDA	NAO	CONFIRMED	pesos nao verificados
+trellis	TRELLIS	3D	microsoft/TRELLIS + HF TRELLIS-image-large	MIT	MIT	25e0d31f	14,4k * / 2026-10-27	NVIDIA 16 GB + CUDA toolkit	NAO	CONFIRMED	renderer CUDA proprio
+trellis2	TRELLIS.2	3D	microsoft/TRELLIS.2	MIT	MIT		13,1k * / 2026-07-10	NVIDIA 24 GB + CUDA 12.4	NAO	CONFIRMED	
+hunyuan3d-2	Hunyuan3D-2	3D	Tencent-Hunyuan/Hunyuan3D-2	licenca comunitaria Tencent	idem		15,5k * / 2025-10-28	6 GB forma / 16 GB total	NAO	CONFIRMED	low_vram_mode; exige CUDA
+hunyuan3d-2-1	Hunyuan3D-2.1	3D	Tencent-Hunyuan/Hunyuan3D-2.1 + HF tencent/Hunyuan3D-2.1	licenca comunitaria Tencent	idem; HF marca extra_gated_eu_disallowed	0b946776	4,5k * / 2025-10-17	10 GB forma / 21 GB textura / 29 GB total	NAO	CONFIRMED	exclusao territorial explicita
+hunyuan3d-omni	Hunyuan3D-Omni	3D	Tencent-Hunyuan/Hunyuan3D-Omni	licenca comunitaria Tencent	idem		667 * / 2025-10-17	nao lida	NAO	CONFIRMED	
+triposr	TripoSR	3D	VAST-AI-Research/TripoSR	MIT	MIT		7,4k * / 2026-06-04	~6 GB; menciona fallback CPU	?	CONFIRMED	unico com caminho CPU declarado
+triposg	TripoSG	3D	VAST-AI-Research/TripoSG + HF VAST-AI/TripoSG	MIT	MIT	2c1c516d	1,9k * / 2025-04-18	CUDA >= 8 GB	NAO	CONFIRMED	
+instantmesh	InstantMesh	3D	TencentARC/InstantMesh + HF	Apache-2.0	Apache-2.0	b785b4ec	4,6k * / 2025-01-03	CUDA >= 12.1, Python >= 3.10	NAO	CONFIRMED	multi-view
+sf3d	Stable Fast 3D	3D	Stability-AI/stable-fast-3d + HF	SEM LICENSE na raiz	Stability Community (gated)	f0c9a8ff	1,9k * / 2025-01-22	CUDA ou MPS; Windows exige VS 2022	NAO	CONFIRMED	licenca de pesos separada da ausencia no GitHub
+lgm	LGM	3D/splat	3DTopia/LGM	MIT	n/a		2,1k * / 2024-08-20	CUDA	NAO	CONFIRMED	splat nao e malha
+stable-dreamfusion	stable-dreamfusion	3D/SDS	ashawkey/stable-dreamfusion	Apache-2.0	n/a		8,9k * / 2023-12-10	CUDA	NAO	CONFIRMED	legado
+blender	Blender	producao	blender/blender	GPL-2.0-or-later	n/a		22,3k * / 2026-11-20	qualquer	SIM	CONFIRMED	COPYING lido; GPL so para scripts internos
+mpfb2	MPFB2	producao	makehumancommunity/mpfb2	licenca propria (codigo+assets+saida)	n/a		718 * / 2026-11-12	Blender	SIM	CONFIRMED	v2.0.18; clausula de saida nao interpretada
+instant-meshes	Instant Meshes	retopo	wjakob/instant-meshes	BSD-3-clause	n/a		6,3k * / 2022-01-03	CPU/GPU	SIM	CONFIRMED	parado desde 2022-01
+xatlas	xatlas	UV	jpcy/xatlas	MIT	n/a		2,6k * / 2024-06-16	CPU	SIM	CONFIRMED	
+material-maker	Material Maker	textura	RodZill4/material-maker	MIT	n/a		6,3k * / 2026-11-11	GPU	SIM	CONFIRMED	release 1.8
+armorpaint	ArmorPaint	textura	armory3d/armorpaint	zlib/libpng	n/a		5,5k * / 2026-11-20	GPU	SIM	CONFIRMED	license.md lido
+kimodo	kimodo	animacao	nv-tlabs/kimodo	Apache-2.0	n/a		4,3k * / 2026-10-15	nao avaliado	?	CONFIRMED	nao avaliado tecnicamente
+godot	Godot	engine	godotengine/godot	MIT	n/a		120,5k * / 2026-11-20	qualquer	SIM	CONFIRMED	4.7.2-stable
+comfyui	ComfyUI	runtime	comfyanonymous/ComfyUI	GPL-3.0	n/a		147,8k * / 2026-11-20	depende do backend	?	CONFIRMED	README cita ROCm em Linux e Windows
+sdcpp	stable-diffusion.cpp	runtime	leejet/stable-diffusion.cpp	MIT	n/a		8,1k * / 2026-11-16	Vulkan, CUDA, Metal; build Windows	VULKAN	CONFIRMED	unico caminho GPU plausivel na RX 580
+zluda	ZLUDA	runtime	vosen/ZLUDA	Apache-2.0	n/a		15,2k * / 2026-11-15	GPU AMD	?	CONFIRMED	camada nao oficial
+comfyui-zluda	ComfyUI-Zluda	runtime	patientx/ComfyUI-Zluda	GPL-3.0	n/a		1,0k * / 2026-11-20	GPU AMD via ZLUDA	?	REPORTED	projeto comunitario
+tripo	Tripo (servico)	servico	tripo3d.ai/pricing	proprietario	free = nao comercial; Pro = comercial		leitura 2026-11-20	nuvem	NUVEM	CONFIRMED	Free 13 modelos; Pro US$ 20/mes
+meshy	Meshy (servico)	servico	meshy.ai/pricing	proprietario	free = CC BY 4.0; Pro = private/customer owned		leitura 2026-11-20	nuvem	NUVEM	CONFIRMED	Free 10 assets; Pro US$ 20/mes
