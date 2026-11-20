@@ -5,21 +5,21 @@
 | ID | `LR-FORGE-009` |
 | Categoria | forge (ferramenta e padrão de fluxo) |
 | Projetos | Lia Forge 2.0, Lia Studio |
-| Fontes | `gh api repos/shinshin86/live2d-add-motion-sample-web-ui` (metadados, licença, árvore, `README.md`, `AGENTS.md`, `.gitignore`, `index.html`), lidos em 2026-11-21; `live2d.com/en/sdk/license/` (Cubism SDK Release License); `github.com/Live2D/CubismWebFramework/blob/develop/LICENSE.md` |
-| Data | 2026-11-21 |
+| Fontes | `gh api repos/shinshin86/live2d-add-motion-sample-web-ui` (metadados, licença, árvore, `README.md`, `AGENTS.md`, `.gitignore`, `index.html`), lidos em 2026-11-20; `live2d.com/en/sdk/license/` (Cubism SDK Release License); `github.com/Live2D/CubismWebFramework/blob/develop/LICENSE.md` |
+| Data | 2026-11-20 |
 | Status | CURRENT |
 | Confiança | **Alta na mecânica e nas licenças lidas**; **média no fluxo de agente** (relato do autor, não reproduzido por mim); **nula em resultado visual** — não rodei a WebUI |
 | Natureza | pesquisa e documentação; não autoriza copiar código para o Forge nem adotar a tecnologia |
 
 > Este ID estava deliberadamente livre até a rodada 7.1 (para não inventar documento só para
-> fechar sequência). Passa a ser ocupado por um objeto real a partir de 2026-11-21.
+> fechar sequência). Passa a ser ocupado por um objeto real a partir de 2026-11-20.
 
 ---
 
 ## 1. O que é
 
 Repositório de **Yuki Shindo** (`shinshin86`), licença **MIT** (Copyright 2026), JavaScript +
-Python de biblioteca padrão. Metadados na leitura de 2026-11-21: **336 estrelas, 23 forks,
+Python de biblioteca padrão. Metadados na leitura de 2026-11-20: **336 estrelas, 23 forks,
 48 commits, 4 branches, 0 tags**, criado em 2026-07-13, último push em 2026-11-03 — atividade
 real, não abandonado. Tópicos: `live2d`, `cubism`, `motion`, `avatar`, `face-tracking`,
 `mediapipe`, `obs`, `webui`, `claude-code`, `codex`.

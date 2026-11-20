@@ -7,7 +7,7 @@
 | Projetos | Lia Forge 2.0 |
 | Fontes | pedido de pesquisa (nomes dos componentes); `LR-FORGE-005` (Blender/MCP); `LR-LIC-002` (proveniência); `LR-STUDIO-008` e `LR-STUDIO-009` (silhueta e sheet); `LR-FORGE-007` (pipelines) |
 | Data | 2026-11-20 |
-| Revisão | 2026-11-21 (rodada 7.1: correções de licença, hardware, vídeo e contagens) |
+| Revisão | 2026-11-20 (UTC) — 7.1: licença, hardware, vídeo e contagens; 7.3: conciliação Tripo/Meshy/Flow/ROCm |
 | Status | CURRENT |
 | Confiança | Baixa-média — **não li os contratos do Forge**; a proposta é de fronteira, não de implementação |
 | Natureza | recomendação arquitetural; **não é decisão** e não autoriza alteração no produto |
@@ -30,7 +30,7 @@ hipótese que se apresenta como decisão vira dívida.
 
 ## 2. A sequência de 10 etapas — como hipótese de pesquisa
 
-**Procedência (corrigida em 2026-11-21):** esta sequência vem da **ordem de pesquisa recebida
+**Procedência (corrigida em 2026-11-20):** esta sequência vem da **ordem de pesquisa recebida
 do proprietário** — ela não é extraída do vídeo citado no pedido, que é um teste comparativo de
 modelos de linguagem para criação de jogos e não descreve processo de personagem
 (`CHARACTER-CREATION-RESEARCH.md` §1.1). Trato a sequência como hipótese a validar com o

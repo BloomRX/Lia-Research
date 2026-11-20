@@ -7,7 +7,7 @@
 | Projetos | Lia Forge 2.0 |
 | Fontes | `gh api` (licença, atividade, releases) e arquivos de licença lidos em 2026-11-20: Blender (`COPYING`), MPFB2 (`LICENSE.md`), Instant Meshes (`LICENSE.txt`), ArmorPaint (`license.md`); glTF 2.0 (Khronos) |
 | Data | 2026-11-20 |
-| Revisão | 2026-11-21 (rodada 7.1: correções de licença, hardware, vídeo e contagens) |
+| Revisão | 2026-11-20 (UTC) — 7.1: licença, hardware, vídeo e contagens; 7.3: conciliação Tripo/Meshy/Flow/ROCm |
 | Status | CURRENT |
 | Confiança | Média-alta em licença das ferramentas abertas; **baixa** em ferramentas comerciais não verificadas |
 | Natureza | pesquisa e documentação; não instala nada, não autoriza integração |

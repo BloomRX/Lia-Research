@@ -5,8 +5,8 @@
 | ID | `LR-MODEL-008` |
 | Categoria | model (serviço comercial) |
 | Projetos | Lia Forge 2.0, Lia Studio |
-| Fontes | `aetherforgeai.com/pt` e `/en` (home, lidas em 2026-11-21); `/pt/policy/service` (Termos de Serviço, vigência 2026-04-01); `/pt/policy/privacy`; `/en/student-instructor-plan`; `/pt/free-assets`; `/pt/pricing` (não renderiza sem JavaScript) |
-| Data | 2026-11-21 |
+| Fontes | `aetherforgeai.com/pt` e `/en` (home, lidas em 2026-11-20); `/pt/policy/service` (Termos de Serviço, vigência 2026-04-01); `/pt/policy/privacy`; `/en/student-instructor-plan`; `/pt/free-assets`; `/pt/pricing` (não renderiza sem JavaScript) |
+| Data | 2026-11-20 |
 | Status | CURRENT |
 | Confiança | **Alta em direitos e natureza do serviço** (texto contratual lido); **baixa em preço por operação e em qualidade** — a página de preços não renderiza e nada foi gerado |
 | Natureza | pesquisa e documentação; **não é recomendação de contratação** e não autoriza abrir conta nem gastar créditos |
@@ -61,7 +61,7 @@ atacam por outro caminho — e é justamente onde o caminho local na RX 580 não
 ## 4. Direitos sobre o resultado — o texto, não a impressão
 
 Fonte: `https://www.aetherforgeai.com/pt/policy/service`, seção "Uso dos resultados gerados",
-lida em 2026-11-21. Resumo fiel em oito pontos:
+lida em 2026-11-20. Resumo fiel em oito pontos:
 
 | # | O que o termo diz | Consequência prática |
 |---|---|---|
@@ -79,7 +79,7 @@ lida em 2026-11-21. Resumo fiel em oito pontos:
 | Serviço | Plano gratuito | Atribuição | Output público? | Observação |
 |---|---|---|---|---|
 | **AetherAI** | "Comece grátis" + 70 tokens na 1ª compra (paga) | não exigida | não declarado como público | regime comercial declarado no termo, sem renúncia de direitos pelo usuário |
-| Tripo | Free com renúncia de direitos e output público | não exigida no Free | **sim, por padrão** | `LR-MODEL-007` §6.1 |
+| Tripo | Free **`CONFLICTING`**: página diz "non-commercial", termo dá renúncia + licença pública de exploração comercial a terceiros | não exigida no Free | **sim, por padrão** | `LR-MODEL-007` §6.1 |
 | Meshy | Free com CC BY 4.0 | **obrigatória** | não | `LR-MODEL-007` §6.2 |
 | GPT Image | por token, sem nível gratuito próprio | não há exigência contratual de atribuição | não | `LR-MODEL-007` §6.3 |
 
@@ -124,7 +124,7 @@ repeti-lo aqui**.
 
 ## 7. Privacidade — o que está e o que não está no texto
 
-`https://www.aetherforgeai.com/pt/policy/privacy` (lida em 2026-11-21):
+`https://www.aetherforgeai.com/pt/policy/privacy` (lida em 2026-11-20):
 
 | Ponto | Texto |
 |---|---|

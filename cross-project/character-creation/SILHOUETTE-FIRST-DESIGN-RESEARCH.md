@@ -7,7 +7,7 @@
 | Projetos | Lia Forge 2.0, Lia Studio |
 | Fontes | 5 fontes de prática identificadas por título/autor/URL em §2.2; Pix3D (Sun et al., CVPR 2018) para o limite das métricas; CharNeRF (arXiv 2402.17115) para turnaround→3D; página pública do vídeo do pedido (transcrição parcial) para **descartar** a atribuição anterior |
 | Data | 2026-11-20 |
-| Revisão | 2026-11-21 (rodada 7.1: correções de licença, hardware, vídeo e contagens) |
+| Revisão | 2026-11-20 (UTC) — 7.1: licença, hardware, vídeo e contagens; 7.3: conciliação Tripo/Meshy/Flow/ROCm |
 | Status | CURRENT |
 | Confiança | Média — o método converge entre fontes de prática; as métricas automáticas propostas são **hipótese não calibrada**; base bibliográfica é fraca e está declarada em §2.2 |
 | Natureza | pesquisa e documentação; não autoriza implementação |

@@ -7,7 +7,7 @@
 | Projetos | Lia Forge 2.0, Lia AgentHub |
 | Fontes | `LR-FORGE-010` (fronteira de componentes), `LR-STUDIO-008` (critérios de silhueta), `LR-STUDIO-009` (QA de sheet), `LR-FORGE-007` (gate técnico) |
 | Data | 2026-11-20 |
-| Revisão | 2026-11-21 (rodada 7.1: correções de licença, hardware, vídeo e contagens) |
+| Revisão | 2026-11-20 (UTC) — 7.1: licença, hardware, vídeo e contagens; 7.3: conciliação Tripo/Meshy/Flow/ROCm |
 | Status | CURRENT |
 | Confiança | Média — análise de responsabilidades; **nenhuma skill foi escrita** |
 | Natureza | análise; o pedido proíbe criar skills definitivas nesta etapa |
