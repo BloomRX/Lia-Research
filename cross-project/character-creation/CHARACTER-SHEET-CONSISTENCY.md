@@ -7,6 +7,7 @@
 | Projetos | Lia Forge 2.0, Lia Studio |
 | Fontes | catálogo `LR-MODEL-007` (licenças e hardware), READMEs de MV-Adapter / IP-Adapter / Qwen-Image-Edit / CharTurner (Civitai), CharNeRF (arXiv 2402.17115) |
 | Data | 2026-11-20 |
+| Revisão | 2026-11-21 (rodada 7.1: nenhuma afirmação deste documento foi invalidada; correções do conjunto em `CHARACTER-CREATION-RESEARCH.md` §8-ter) |
 | Status | CURRENT |
 | Confiança | Média — problema bem documentado na prática; nenhuma solução foi executada |
 | Natureza | pesquisa e documentação; não autoriza implementação |
