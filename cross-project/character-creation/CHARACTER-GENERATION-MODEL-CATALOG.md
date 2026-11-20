@@ -7,7 +7,7 @@
 | Projetos | Lia Forge 2.0, Lia Studio |
 | Fontes | `gh api` (licença, atividade, releases) e API de modelos do Hugging Face (licença de pesos, SHA, contagem de parâmetros), lidos em 2026-11-20; READMEs oficiais para requisitos de hardware |
 | Data | 2026-11-20 |
-| Revisão | 2026-11-21 (rodada 7.1: correções de licença, hardware, vídeo e contagens) |
+| Revisão | 2026-11-20 (UTC) — 7.1: licença, hardware, vídeo e contagens; 7.3: conciliação Tripo/Meshy/Flow/ROCm |
 | Status | CURRENT |
 | Confiança | Média-alta em licença e metadados; **baixa em desempenho** — nada foi executado |
 | Natureza | pesquisa e documentação; não autoriza download de pesos nem integração |
@@ -32,6 +32,20 @@
    (`catalog/CATALOG-SCHEMA.md` §6): `OFFICIAL_*` → `CONFIRMED`; `PAPER_OR_RESEARCH` →
    `REPORTED`; `COMMUNITY_REPORTED` → `REPORTED`; `UNVALIDATED` → `UNVERIFIED`.
    **`TESTED` não aparece em nenhuma linha deste catálogo** — nada foi executado.
+6. **Datas — convenção deste conjunto:** todas as datas de consulta e revisão são **UTC**. O
+   ambiente e os commits registram UTC; o horário local de referência (São Paulo) é **UTC−3**,
+   de modo que `2026-11-20T20:04Z` = `2026-11-20 17:04` em São Paulo. Datas sem hora indicam o
+   dia em UTC. Nenhuma fonte externa citada neste catálogo tem data posterior a 2026-11-20.
+7. **A matriz de evidências passou a ter evidência por dimensão** (`evidencia_licenca`,
+   `evidencia_hardware`, `evidencia_atividade`, `evidencia_desempenho`), mantendo
+   `nivel_evidencia` como resumo. Motivo: uma licença lida em arquivo oficial, um requisito de
+   hardware lido em documentação e um tempo relatado por terceiro são evidências de naturezas
+   diferentes — resumi-las numa célula apagava a diferença. A taxonomia global do Research **não**
+   foi alterada.
+8. **Qualificador adicional, declarado:** `CONFLICTING` marca o caso em que **duas fontes
+   oficiais do mesmo fornecedor** dizem coisas incompatíveis (hoje: Tripo, §6.1). Ele não
+   substitui nenhum dos 8 rótulos — acompanha `OFFICIAL_LICENSE` e sempre vem junto de
+   `REQUIRES_LEGAL_REVIEW`.
 
 ## 2. Modelos de imagem (text-to-image e edição)
 
@@ -132,10 +146,36 @@ com apoio jurídico se necessário.
 
 | Runtime | Licença | Papel | Situação na RX 580 |
 |---|---|---|---|
-| ComfyUI (`comfyanonymous/ComfyUI`) | GPL-3.0 | grafo de nós, padrão de fato para experimentos | README cita "AMD ROCm on Linux and Windows"; **isso vale para GPUs suportadas, não para gfx803** |
+| ComfyUI (`comfyanonymous/ComfyUI`) | GPL-3.0 | grafo de nós, padrão de fato para experimentos | README cita "AMD ROCm on Linux and Windows"; **vale para as GPUs suportadas pela AMD (hoje gfx1150/gfx1151 em Windows), não para gfx803** |
 | `stable-diffusion.cpp` (`leejet`) | MIT | inferência C/C++ sobre ggml; backends **CUDA, Vulkan, Metal**; build Windows | único caminho GPU plausível; **não validado** na RX 580 |
 | ComfyUI-Zluda (`patientx`) | GPL-3.0 | CUDA em AMD via ZLUDA, comunitário | `COMMUNITY_REPORTED`; camada não oficial |
 | ZLUDA (`vosen/ZLUDA`) | Apache-2.0 | tradução CUDA→AMD | `COMMUNITY_REPORTED` |
+
+### 5.0. AMD no Windows: o que é oficial hoje (ROCm 7.2.1 + Ryzen AI)
+
+Fontes: `rocm.docs.amd.com/projects/radeon-ryzen/en/latest/docs/compatibility/compatibilityryz/windows/windows_compatibility.html`
+e `.../install/installryz/windows/install-pytorch.html`, lidas em 2026-11-20 (UTC).
+
+| Item | O que a documentação oficial diz | Classificação |
+|---|---|---|
+| SO | **Windows 11** | `OFFICIAL_DOCUMENTATION` |
+| Arquiteturas | **gfx1150** e **gfx1151** (APUs Ryzen AI) | `OFFICIAL_DOCUMENTATION` |
+| SKUs listados | Ryzen AI Max+ 395, Max 390, Max 385, AI 9 HX 375/370/365, AI 9 HX 475/470/465 | `OFFICIAL_DOCUMENTATION` |
+| Stack | **ROCm 7.2.1**, **PyTorch 2.9.1**, **Python 3.12**, FP16 | `OFFICIAL_DOCUMENTATION` |
+| Instalação | wheels oficiais em `repo.radeon.com/rocm/windows/rocm-rel-7.2.1/` (`rocm_sdk_*`, `torch-2.9.1+rocm7.2.1`), driver gráfico 26.2.2 | `OFFICIAL_DOCUMENTATION` |
+| Escopo | nota da própria AMD: *"PyTorch on Windows includes ROCm 7.2 components; however, the entire ROCm stack is not yet supported on Windows"* | `OFFICIAL_DOCUMENTATION` |
+| **Radeon RX 580 / gfx803** | **não aparece** em nenhuma matriz Windows | ausência de evidência |
+| **Ryzen 5 5500** (hardware de referência) | **não é APU Ryzen AI** e não está na lista | ausência de evidência |
+
+**Correção de classificação:** na rodada anterior o suporte Ryzen AI no Windows aparecia como
+`UNVALIDATED` por eu não ter encontrado wheel oficial no seletor do PyTorch. **Estava
+desatualizado**: a AMD distribui wheels próprios no `repo.radeon.com`, fora do seletor do
+PyTorch. Passa a `OFFICIAL_DOCUMENTATION`.
+
+**O que isso NÃO muda:** a conclusão sobre o equipamento de referência (Ryzen 5 5500 + RX 580,
+gfx803) permanece — nenhuma das matrizes oficiais, nem a do ROCm Linux nem a do Windows/Ryzen
+AI, contempla gfx803. E "PyTorch no Windows com componentes ROCm 7.2" **não** equivale a "o
+stack ROCm completo no Windows".
 
 ### 5.1. `stable-diffusion.cpp`: separar as quatro afirmações
 
@@ -178,99 +218,202 @@ alternativa disponível.
 Todos os dados abaixo foram lidos em **2026-11-20**, nas URLs indicadas. Não são parecer
 jurídico; onde o texto é ambíguo, marco `REQUIRES_LEGAL_REVIEW`.
 
-### 6.1. Tripo (`tripo3d.ai`) — Free, Pro, Max, Team
+### 6.1. Tripo (`tripo3d.ai`) — preço e termo **discordam** sobre o plano gratuito
 
-Preços lidos em `https://www.tripo3d.ai/pricing` e direitos em `https://www.tripo3d.ai/terms`
-(termos com "Last updated: November 13, 2026").
+Fontes lidas em **2026-11-20 (UTC)**: `https://www.tripo3d.ai/pricing` (tabela de planos) e
+`https://www.tripo3d.ai/terms` ("Last updated: November 13, 2026"; §5.2, §5.2.1, §5.2.2,
+§5.2.3 e §12.9).
 
-| Plano | Preço | Créditos | Uso comercial | Privacidade do resultado |
+**Classificação do caso: `CONFLICTING` + `REQUIRES_LEGAL_REVIEW`.** `CONFLICTING` é um
+qualificador pontual — duas fontes oficiais do mesmo fornecedor dizem coisas diferentes — e não
+substitui a taxonomia de 8 rótulos; ele acompanha o rótulo `OFFICIAL_LICENSE` (as duas fontes
+são oficiais).
+
+#### 6.1.1. O que cada texto diz, literalmente
+
+| Fonte | Texto | O que afirma |
+|---|---|---|
+| Página de preços, plano Free | *"200 Monthly Credits ≈ 13 Models"*, *"Public Models · Non-Commercial Use"*, *"Exports 15 (H2.5 only)"*, *"Limited Access"* em HD model / 8K / Smart Topology | o plano gratuito é **público** e de **uso não comercial** |
+| Página de preços, Pro/Max/Team | *"Private Models · Commercial Use"* | o uso comercial aparece como **benefício do plano pago** |
+| Termos §5.2.1 | Free Outputs "are public by default"; o usuário concorda, na medida permitida por lei, em **renunciar** aos direitos autorais e permitir que **"anyone, worldwide and permanently"** use, copie, modifique, distribua ou **explore comercialmente**, sem permissão, pagamento ou atribuição; onde a renúncia não é possível, concede licença pública irrevogável de mesmo escopo | o **terceiro** pode explorar comercialmente; o texto **não** diz que o próprio usuário pode |
+| Termos §5.2.2 | Paid Content: direitos são do usuário; pode usar, copiar, modificar, distribuir, **inclusive para fins comerciais**, e manter privado | plano pago = comercial, coerente com a página |
+| Termos §12.9 | ordem de precedência: (a) order form/contrato empresarial; (b) DPA; (c) Supplemental Terms; (d) **estes Termos**; (e) Acceptable Use Policy | **a página de preços não está na lista** |
+
+#### 6.1.2. O que dá para concluir, sem parecer jurídico
+
+| Pergunta | Resposta documentada |
+|---|---|
+| O que o usuário pode fazer com os **seus próprios** Free Outputs? | **Não está resolvido.** A página diz "non-commercial"; o termo não concede nem proíbe explicitamente o uso comercial do próprio usuário — ele **renuncia** aos direitos. Um terceiro poder explorar comercialmente **não autoriza** o usuário a fazer o mesmo: são sujeitos e cláusulas diferentes |
+| O que **terceiros** podem fazer? | Pelo §5.2.1, usar, copiar, modificar, distribuir e **explorar comercialmente**, sem atribuição, no mundo todo e permanentemente. Isso é o efeito literal da renúncia |
+| A página de preços cria restrição **adicional** ao usuário? | É o que ela afirma ("Non-Commercial Use"), mas ela **não está** na ordem de precedência do §12.9 (que lista order form, DPA, Supplemental Terms, Termos e AUP). Se a descrição do plano vale como *order form* na contratação paga, é discussão contratual em aberto |
+| Visibilidade, PI, direitos comerciais e exclusividade são a mesma coisa? | **Não, e é aí que a confusão nasce.** (1) *Visibilidade*: público por padrão; (2) *PI*: o usuário renuncia ao que tinha; (3) *direito comercial do usuário*: restringido pela página, ausente no termo; (4) *exclusividade*: não existe — qualquer pessoa pode usar o mesmo output, inclusive concorrentes |
+| Qual texto prevalece quando são incompatíveis? | **Não é possível afirmar.** O termo é o contrato e tem cláusula de precedência que não menciona a página; a página é a descrição do plano que o usuário contrata. `REQUIRES_LEGAL_REVIEW` |
+
+#### 6.1.3. Orientação conservadora (mantida e reforçada)
+
+**Não usar Free Outputs do Tripo para personagem proprietário do Lia Forge.** O motivo não é
+"falta de licença comercial" — é pior: o output nasce público, o usuário renuncia ao que tinha,
+qualquer terceiro pode explorá-lo comercialmente, e existe uma afirmação oficial em contrário
+sobre o uso do próprio usuário que não se consegue resolver lendo as fontes. Enquanto o conflito
+não for esclarecido por escrito pelo fornecedor (ou por advogado), o plano gratuito serve para
+teste descartável, não para asset de produto.
+
+#### 6.1.4. Plano pago: consistente entre preço e termo?
+
+| Verificação | Resultado |
+|---|---|
+| Página: "Private Models · Commercial Use" | sim, Pro/Max/Team |
+| Termo §5.2.2: direitos do usuário, uso comercial, privacidade quando o serviço oferecer | **coerente** |
+| Termo §5.2.2(a): Paid Content mantém status após expirar/cancelar/rebaixar | acrescenta garantia que a página não dá |
+| Termo §5.2.2(b): Free Outputs **não** se tornam Paid Content ao assinar | restrição relevante: assinar depois não "limpa" o output gratuito |
+| Termo §5.2.3: tornar Paid Content público dá à Tripo licença promocional não exclusiva, com atribuição, aviso prévio e incentivo, **sem** autorizar treino de modelo | mais restrito que a página sugere; `REQUIRES_LEGAL_REVIEW` só se o plano for publicar assets |
+
+Conclusão do item: **plano pago é consistente**. O conflito é exclusivo do plano gratuito.
+
+#### 6.1.5. Preços e créditos (página de preços, 2026-11-20)
+
+| Plano | Preço | Créditos/mês | Saída estimada pela própria página | Modelos |
 |---|---|---|---|---|
-| Free | US$ 0 | 200 créditos/mês | **sim, mas com waiver** (ver abaixo) | **público por padrão** |
-| Pro | US$ 20/mês (anual US$ 240) | 3.000/mês | sim, direitos do usuário | privado |
-| Max | US$ 90/mês (anual US$ 1.080) | 25.000/mês | idem | privado |
-| Team | US$ 55/assento/mês (anual) | 90.000/mês | idem | privado |
+| Free | US$ 0 | 200 | ≈ 13 modelos | público, "non-commercial" |
+| Pro | US$ 20/mês (US$ 240/ano) | 3.000 | ≈ 200 modelos (US$ 0,16/modelo) | privado, comercial |
+| Max | US$ 90/mês (US$ 1.080/ano) | 25.000 | ≈ 1.660 modelos | privado, comercial |
+| Team | US$ 55/assento/mês (US$ 110 mensal) | 90.000 | ≈ 6.000 modelos | privado, comercial |
 
-**O que o termo diz sobre o plano gratuito** (§5.2.1, texto lido): *Free Outputs* são públicos
-por padrão; o usuário **renuncia** aos direitos autorais sobre eles e permite que qualquer
-pessoa, no mundo, os use, copie, modifique, distribua ou **explore comercialmente, sem
-atribuição**. Onde a renúncia não é possível juridicamente, concede licença pública
-irrevogável e gratuita com o mesmo escopo. Outputs pagos (§5.2.2) pertencem ao usuário, podem
-ser privados e usados comercialmente.
+Créditos por operação (FAQ da mesma página): HD Generate **15** · Smart Mesh **35** · Segmentation
+**5** · Retopology **5** · Texture Gen **10** · Auto Rig **20**; add-ons: Ultra +15, Generate in
+Parts +30, Texture Gen +10, HD Texture +10, Quad +5, Style Reference +5, PBR +5; Smart Mesh P2.0
++65, Part Completion +5/parte, Smart Lowpoly +30. O "≈ 13 modelos" do Free corresponde a
+200 ÷ 15, ou seja **uma geração HD simples** — não inclui rig (20) nem Smart Mesh (35).
 
-Consequência prática: **não é "free = não comercial"** — é "free = você também não controla o
-que acontece com o resultado, e ele nasce público". Para personagem de jogo, isso é
-inaceitável na prática, independentemente de o uso comercial ser permitido.
-`REQUIRES_LEGAL_REVIEW` apenas para o caso de a empresa querer explorar comercialmente um
-output gratuito e depender de exclusividade.
+Observações funcionais do Free que não são de direito, mas limitam produção: exportações
+limitadas a 15 (H2.5), 1 tarefa concorrente, fila padrão, histórico de edição de 1 dia, 3
+retentativas e 10 modelos armazenados; geração de imagem restrita a Nano Banana (20 grátis/dia
+e depois 80% de desconto).
 
-**Créditos por operação** (página de preços, tabela "Feature/Credits"): HD Generate **15** ·
-Smart Mesh **35** · Segmentation **5** · Retopology **5** · Texture Gen **10** · Auto Rig
-**20**; add-ons: Ultra +15, Generate in Parts +30, HD Texture +10, Quad +5, Style Reference +5,
-PBR +5. Ou seja: 200 créditos gratuitos ≈ **13 gerações simples** ou **5 gerações com rig**
-(15 + 20).
+### 6.2. Meshy — **Web App** e **API** são dois canais com tarifas diferentes
 
-### 6.2. Meshy (`meshy.ai`) — planos e custo por modalidade
+Fontes lidas em **2026-11-20 (UTC)**: `https://docs.meshy.ai/en/webapp/pricing`,
+`https://docs.meshy.ai/en/api/pricing` e `https://www.meshy.ai/pricing`.
 
-Preço lido em `https://www.meshy.ai/pricing`; créditos por requisição em
-`https://docs.meshy.ai/en/api/pricing` (2026-11-20).
+A versão anterior deste catálogo misturava as duas tabelas — dizia "rigging 5" e "100 créditos =
+10 modelos" numa seção que também descrevia o app. **Corrigido: são canais distintos, com preços
+distintos, e a API é pré-paga.**
 
-| Plano | Preço | Créditos/mês | Licença do asset |
-|---|---|---|---|
-| Free | US$ 0 | 100 | **CC BY 4.0** (comercial **com atribuição**) |
-| Pro | US$ 20/mês | 1.000 | "private & customer owned" |
-| Premium | US$ 40/mês | 3.000 | idem |
-| Ultra | US$ 100/mês | 8.000 | idem |
-| Studio | US$ 70/mês (5.500 compartilhados) | — | idem |
+#### 6.2.1. Canal Web App (`docs.meshy.ai/en/webapp/pricing`)
 
-**Custo real por geração — a modalidade importa** (créditos por requisição):
+| Ação | Créditos | Nota |
+|---|---|---|
+| Image to 3D | **20** (Meshy 7.1 ou Meshy 6) · **25** (Ultra 2K/4K) · **10** (Meshy 6 Lite) | em planos pagos, exceto Enterprise, o Meshy 7.1 começa em Ultra 2K → padrão 25 |
+| Smart Topology | **15** (Meshy T2.5/T2) | por geração |
+| Texture ou Split na geração | **+10** cada | soma ao custo da geração |
+| AI Texturing | **10** (2K) · **15** (8K) | 8K no modelo de textura Meshy 7 |
+| Model Edit | **20** | por edição |
+| Relief | **20** | por modelo |
+| **Remesh** | **0** | por modelo |
+| **Rigging** | **0** | por modelo |
+| **Animate** | **0** | por clipe; clipes além do conjunto gratuito exigem plano pago; Text to Motion consome créditos |
 
-| API | Mesh apenas | +textura 2K | +textura 4K | +textura 8K |
+Plano Free do Web App: **100 créditos/mês**, sem cartão. Créditos mensais renovam **00:00 UTC do
+primeiro dia do mês**; créditos permanentes e comprados não expiram. Geração falha não consome
+crédito; tarefa cancelada é estornada.
+
+Licença (tabela de licenciamento da própria doc): Free = **CC BY 4.0**, uso comercial **com
+atribuição**, e "you own the output"; Pro/Premium/Ultra/Studio/Enterprise = **privado**, uso
+comercial pleno, output do usuário.
+
+#### 6.2.2. Canal API (`docs.meshy.ai/en/api/pricing`)
+
+API **pré-paga**: os créditos são comprados em `meshy.ai/settings/subscription` antes de enviar
+requisições.
+
+| API | Mesh apenas | +2K | +4K | +8K |
 |---|---|---|---|---|
-| Image to 3D (`meshy-7.1`, `meshy-6`) | **20** | 30 | 30 | 35 |
-| Image to 3D (`meshy-6-lite`, `meshy-t2`, `meshy-t2.5`) | **5** | 15 | 15 (lite: não suportado) | 20 |
-| Multi-image to 3D | 20 | 30 | 30 | 35 |
-| Ultra geometry (surcharge) | +5 | +5 | +5 | +5 |
+| Image to 3D / Text to 3D (Preview) — `meshy-7.1`, `meshy-6` | **20** | **30** | **30** | **35** |
+| idem — `meshy-6-lite`, `meshy-t2`, `meshy-t2.5` | **5** | 15 | 15 (lite: não suportado) | 20 |
+| Multi-Image to 3D — `meshy-7.1`, `meshy-6` | 20 | 30 | 30 | 35 |
+| Ultra geometry (`2k`/`4k`) | **+5** | +5 | +5 | +5 |
 
-Outros custos: **rigging 5** por requisição · **animation 3** por ação · **UV unwrap 5** ·
-**remesh 5** · retexture 10 (2K/4K) ou 15 (8K).
+| Operação | Créditos |
+|---|---|
+| Retexture / Text to 3D Refine | 10 (2K/4K) · 15 (8K) |
+| **Auto-Rigging** | **5 por requisição** |
+| **Animation** | **3 por ação** (até 10 ações por requisição) |
+| Text to Motion | 10 (`prime`) · 3 (`swift`) |
+| **Remesh** | **5** |
+| **UV Unwrap** | **5** |
+| Convert / Resize | 1 |
+| Text/Image to Image | 3–12 conforme modelo (nano-banana 3 … GPT Image 12) |
+| Analyze Printability | grátis |
 
-Portanto: **"100 créditos = 10 modelos" está errado**. Com 100 créditos gratuitos: **5** imagens
-para 3D sem textura (20 cada), **3** com textura 2K (30 cada), ou **20** no modo lite sem
-textura (5 cada). A frase anterior deste catálogo generalizava; fica corrigida.
+#### 6.2.3. Por que a distinção importa
+
+- **O mesmo nome custa diferente em cada canal**: rigging é **0** no Web App e **5** na API;
+  remesh é **0** no Web App e **5** na API; Meshy 6 Lite é **10** no Web App e **5** na API.
+  Qualquer frase do tipo "rigging custa 5" sem canal está errada.
+- **Os 100 créditos gratuitos são do Web App.** A API é pré-paga; **não há documento lido que
+  diga que o crédito gratuito do app pode ser gasto com tarifas de API**. Pool compartilhado:
+  `UNVALIDATED` (não documentado nas páginas lidas).
+- **Estimativas separadas por canal (100 créditos):**
+
+| Canal / configuração | Modelos que 100 créditos compram |
+|---|---|
+| Web App, Meshy 7.1/6 sem textura (20) | **5** |
+| Web App, com textura (+10 = 30) | **3** |
+| Web App, Ultra 2K/4K (25) | **4** |
+| Web App, Meshy 6 Lite (10) | **10** |
+| API, `meshy-7.1` mesh apenas (20) | 5 — **só se esses créditos existirem na carteira de API** |
+| API, com textura 2K (30) | 3 — idem |
+| API, `meshy-6-lite` mesh apenas (5) | 20 — idem |
+
+A linha anterior deste catálogo dizia "20 no modo lite (5)" sem canal; o número **5 é de API**, e
+no Web App o lite custa **10**. Fica corrigido, com os dois números no lugar certo.
 
 ### 6.3. GPT Image (OpenAI) — geração e edição de imagem, sem 3D
 
 Fontes: `developers.openai.com/api/docs/guides/image-generation` e
-`developers.openai.com/api/docs/pricing` (2026-11-20).
+`developers.openai.com/api/docs/pricing` (2026-11-20, UTC).
 
 | Item | Situação | Classificação |
 |---|---|---|
-| Modalidade | text-to-image **e** edição dentro da Responses API; `action: generate / edit / auto`; edição multi-turno via `previous_response_id` | `OFFICIAL_DOCUMENTATION` |
+| Modalidade | text-to-image **e** edição na Responses API; `action: generate / edit / auto`; edição multi-turno via `previous_response_id` | `OFFICIAL_DOCUMENTATION` |
 | Modelos citados | `gpt-image-2.5-sunburst` (exemplos), `gpt-image-2.6-sunburst` / `-flare` (tabela de preços) | `OFFICIAL_DOCUMENTATION` |
 | Preço | por token: imagem de entrada US$ 8/1M, saída US$ 30/1M (Standard); Batch pela metade | `OFFICIAL_DOCUMENTATION` |
 | Character sheet / consistência | **não há garantia documentada** de consistência entre vistas; multi-turno preserva contexto, não identidade | `UNVALIDATED` |
-| 3D | **não oferece** reconstrução 3D | `OFFICIAL_DOCUMENTATION` |
-| Direitos e retenção | termos e política de dados da OpenAI — **não lidos nesta rodada** | `UNVALIDATED` |
+| 3D | **não oferece** | `OFFICIAL_DOCUMENTATION` |
+| Direitos e retenção | termos e política de dados da OpenAI — **não lidos** | `UNVALIDATED` |
 
-### 6.4. Google Flow (`flow.google.com`) — estúdio web por assinatura
+### 6.4. Google Flow — **acesso gratuito existe**, e não é só assinatura
 
-Fonte: `flow.google.com/about` e `support.google.com/flow` (2026-11-20).
+Fontes: `flow.google.com/about` (para onde `labs.google/fx/tools/flow` redireciona),
+`support.google.com/flow` (índice, sem os artigos) — lidas em 2026-11-20 (UTC).
 
 | Item | Situação | Classificação |
 |---|---|---|
-| Natureza | **aplicação web** de criação (imagem + vídeo + ferramentas), modelos Google (Nano Banana para imagem, Veo 3.1 para vídeo, Gemini Omni) | `OFFICIAL_DOCUMENTATION` |
-| Acesso | por **assinatura Google AI**; recursos variam por nível, plataforma e região; 18+ | `OFFICIAL_DOCUMENTATION` |
-| API | a página do Flow **não** documenta API do produto; há API Gemini para modelos de imagem, que é outro caminho | `UNVALIDATED` para Flow-como-API |
-| Character sheet / consistência | Nano Banana é descrito como forte em "subject consistency"; **sem garantia de turnaround multi-vista** | `OFFICIAL_DOCUMENTATION` (marketing) / `UNVALIDATED` (resultado) |
-| Direitos | termos do Google AI/Flow — **não lidos nesta rodada** | `UNVALIDATED` |
-| 3D | **não oferece** reconstrução 3D | `OFFICIAL_DOCUMENTATION` |
+| Natureza | estúdio de criação (imagem + vídeo) com modelos Google | `OFFICIAL_DOCUMENTATION` |
+| **Acesso gratuito** | **existe**: contas sem assinatura Google AI usam o Flow com **50 créditos por dia** | `COMMUNITY_REPORTED` — ver ressalva abaixo |
+| Créditos diários | 50/dia; não acumulam; renovam no primeiro uso do dia (relato de terceiros) | `COMMUNITY_REPORTED` |
+| Planos pagos | Google AI Plus / Pro / Ultra acrescentam créditos mensais (200 / 1.000 / 10.000 ou 25.000) **além** dos 50 diários; preços não lidos na fonte oficial nesta rodada | `COMMUNITY_REPORTED` para os números de crédito; `BLOCKED` para preços |
+| Modelos | **Nano Banana** (imagem) · **Veo 3.1** e **Gemini Omni** (vídeo) | `OFFICIAL_DOCUMENTATION` |
+| Imagem × vídeo | Nano Banana = imagem/edição; Veo 3.1 e Omni = vídeo; o custo em créditos é **por operação e por modelo**, não fixo por imagem | `OFFICIAL_DOCUMENTATION` (função) / `UNVALIDATED` (tabela de custos por operação) |
+| Disponibilidade | "features may vary by Google AI subscription tier, platform (web vs. mobile), and region" | `OFFICIAL_DOCUMENTATION` |
+| Idade e conta | **18+**; login em conta Google | `OFFICIAL_DOCUMENTATION` |
+| API própria do Flow | **não documentada**. A API Gemini para modelos de imagem/vídeo é **outro** caminho | `UNVALIDATED` (não encontrada; não é prova de inexistência) |
+| 3D | **não oferece** | `OFFICIAL_DOCUMENTATION` |
 
-Nenhum dos dois é solução de 3D. Ambos são candidatos de **conceito e edição**; a comparação
-de qualidade exige teste visual, que esta rodada não fez.
+**Ressalva de rastreabilidade, e ela é importante:** a página oficial do produto **não exibe**
+créditos, planos nem o número 50. Ela diz que o Flow integra as assinaturas Google AI, que os
+recursos variam por nível/plataforma/região e que é 18+. O valor de **50 créditos/dia sem
+assinatura** aparece em **páginas de ajuda do Google** citadas por várias fontes terciárias
+convergentes (2026-08 a 2026-11), mas **não consegui abrir o artigo de ajuda diretamente** nesta
+sessão (`support.google.com/flow/answer/...` falhou; o índice devolveu apenas tópicos).
+Por isso o número está como `COMMUNITY_REPORTED`, com a fonte oficial citada por terceiros, e
+**não** como `OFFICIAL_DOCUMENTATION`. O que muda em relação à rodada anterior: **o Flow não é
+tratado como exclusivamente pago** — o acesso gratuito é registrado, com a ressalva de rastreio.
+**Nenhuma equivalência entre crédito e quantidade de imagens/vídeos é afirmada aqui.**
 
 ### 6.5. Rodin / Hyper3D
 
-Preço e termos **não verificados** nesta rodada. Continua `BLOCKED` como lacuna.
+Preço e termos **não verificados**. Continua `BLOCKED` como lacuna.
 
 ## 6-bis. Reallusion Character Creator 5.2 (novo candidato)
 
@@ -306,15 +449,18 @@ como caminho local no hardware de referência.
 | 1 | `stable-diffusion.cpp` + SDXL quantizado | único caminho local real no hardware; risco é qualidade, não licença |
 | 2 | Qwen-Image-Edit (nuvem ou GPU alugada) | Apache-2.0 nos pesos e edição multi-referência — resolve "manter o casaco" |
 | 3 | ControlNet + IP-Adapter sobre SDXL | controle barato e maduro para silhueta/pose |
-| 4 | Tripo/Meshy (plano **pago** mínimo) | image-to-3D utilizável sem GPU; **no plano gratuito o resultado é público** (Tripo) ou exige atribuição (Meshy) |
+| 4 | Tripo/Meshy (plano **pago** mínimo) | image-to-3D utilizável sem GPU; no gratuito, Tripo é **`CONFLICTING`** (público + renúncia, com "non-commercial" na página de preços) e Meshy é CC BY 4.0 (atribuição) |
 | 5 | TRELLIS.2 / Hunyuan3D-2.1 em GPU alugada | melhor qualidade aberta, só se o orçamento justificar |
 
 Ordem inversa ao "mais bonito": começa pelo que já cabe no hardware e no orçamento.
 
-**Correção de 2026-11-21:** a recomendação anterior tratava Tripo/Meshy como "US$ 20/mês" sem
-distinguir o que o plano gratuito concede. Com os termos lidos, o plano gratuito do Tripo
-torna o output **público com renúncia de direitos** (§6.1) — para personagem de jogo, o piso
-realista é o **plano pago**. No Meshy, o gratuito é CC BY 4.0 (atribuição obrigatória).
+**Correção de 2026-11-20 (reforçada na conciliação):** a recomendação anterior tratava
+Tripo/Meshy como "US$ 20/mês" sem distinguir o que o plano gratuito concede. No Tripo o quadro é
+**`CONFLICTING`**: output público, renúncia de direitos, licença pública que permite exploração
+comercial por terceiros, e uma página de preços que diz "Non-Commercial Use" para o próprio
+usuário, sem estar na ordem de precedência do termo (§6.1.2). Para personagem de jogo, o piso
+realista é o **plano pago** — e, no caso do Tripo Free, nem isso resolve sem esclarecimento por
+escrito. No Meshy, o gratuito (Web App) é CC BY 4.0, com atribuição obrigatória.
 
 ## 8. Não validado
 
