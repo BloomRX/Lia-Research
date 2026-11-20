@@ -7,7 +7,7 @@
 | Projetos | Lia Forge 2.0 (consumidor), Lia Studio |
 | Fontes | 51 registros na matriz de evidências (46 originais + 3 da rodada 7.1 + 2 da 7.2) (repositórios, páginas oficiais e serviços; ver `CHARACTER-CREATION-EVIDENCE-MATRIX.tsv`), página pública do vídeo com transcrição parcial, e a pesquisa interna listada em §2 |
 | Data | 2026-11-20 |
-| Revisão | 2026-11-20 (UTC) — 7.1: licença, hardware, vídeo e contagens; 7.3: conciliação Tripo/Meshy/Flow/ROCm |
+| Revisão | 2026-11-20 (UTC) — 7.1: licença, hardware, vídeo; 7.3: conciliação Tripo/Meshy/Flow/ROCm; 7.4: quatro fontes do Tripo, Flow oficial e API do Meshy |
 | Status | CURRENT |
 | Confiança | Média — catálogo de ferramentas verificado em fonte primária; **nenhum modelo foi executado** no hardware de referência |
 | Natureza | pesquisa e documentação; **não autoriza implementação** no Forge |
@@ -258,7 +258,7 @@ Nenhuma delas é "a escolha". A comparação item a item está em `CHARACTER-2D-
 | ControlNet original (lllyasviel) | parado desde 2024-02; era SD1.5 — hoje é legado |
 | Instant Meshes como dependência de produto | última atividade em 2022-01; usar como ferramenta pontual, não como biblioteca |
 | ZLUDA / ComfyUI-Zluda | camada não oficial, sem suporte do fornecedor; serve para experimento, não para produto |
-| Plano **gratuito** do Tripo para personagem de jogo | `CONFLICTING`: a página de preços diz "Non-Commercial Use" e o termo (§5.2.1) diz que qualquer terceiro pode explorar comercialmente o output, com renúncia de direitos do usuário. Enquanto não for esclarecido, não serve para asset proprietário |
+| Plano **gratuito** do Tripo para personagem de jogo | `CONFLICTING` com **quatro** fontes oficiais divergentes: página de preços diz "Non-Commercial Use"; o termo (§5.2.1) renuncia em favor do público e mantém Inputs fora do regime; e duas páginas de ajuda afirmam que a Tripo **retém todos os direitos** de Inputs e Outputs de usuários gratuitos (citando termos de 11/07/2025, substituídos). Não serve para asset proprietário nem para enviar arte própria |
 | Plano **gratuito** do Meshy como entrega final | CC BY 4.0: comercial, mas com atribuição obrigatória — decisão de produto, não técnica |
 | Live2D como caminho de personagem **3D** | a tecnologia é 2D por construção: não gera malha, não exporta GLB |
 | AetherAI para **3D, rig ou GLB** | o serviço não faz nada disso; a animação é por sprites |
@@ -306,7 +306,7 @@ mascotes legítimos.
 | Desempenho de qualquer modelo na RX 580 | sem GPU AMD nesta sessão; nenhum peso baixado. O único dado é `COMMUNITY_REPORTED` (SD1.5 ≈ 72 s; FLUX ≈ 14 min em CPU+GPU) |
 | Se `stable-diffusion.cpp` + Vulkan roda SDXL ou Qwen-Image em 8 GB | exige execução; a documentação declara suporte de modelo, não de placa |
 | DirectML como caminho | repositório `microsoft/torch-directml` deu 404 na API; `BLOCKED` |
-| Termos de Reallusion, OpenAI e Google Flow | não lidos nesta rodada |
+| Termos de Reallusion, OpenAI e Google Flow | não lidos (a **documentação de créditos** do Flow foi lida e promovida a oficial na rodada 7.4) |
 | Requisito de hardware do Hunyuan3D-Omni | README não lido para esse fim |
 | Qualidade visual comparada de Tripo/Meshy/Rodin | exigiria conta paga e julgamento humano; preços lidos, qualidade não |
 | Se TripoSR roda em CPU em tempo utilizável | README menciona fallback CPU, não dá tempo |
@@ -314,7 +314,7 @@ mascotes legítimos.
 | Conteúdo dos documentos do Forge sobre personagem/cabelo | repositório inacessível (404) |
 | Automação Blender headless no Windows do usuário | já era `NOT RUN` em `LR-FORGE-005`; continua |
 | Conteúdo do vídeo de referência | obtida apenas a página pública com transcrição parcial; **o vídeo não foi assistido** e o restante do conteúdo é `BLOCKED` |
-| Direitos e preços de Reallusion, OpenAI e Google Flow | páginas de produto lidas; EULA/termos **não** lidos |
+| Direitos e preços de Reallusion, OpenAI e Google Flow | páginas de produto e (Flow) documentação de créditos lidas; EULA/termos de uso **não** lidos |
 | `microsoft/torch-directml` (DirectML) | 404 na API nesta sessão: `BLOCKED` |
 | Suporte ROCm/Windows para APUs Ryzen AI | **resolvido nesta rodada**: documentação oficial da AMD cobre Windows 11 + gfx1150/gfx1151 com PyTorch 2.9.1/ROCm 7.2.1. Fora desses SKUs, nada muda |
 
@@ -330,8 +330,10 @@ mascotes legítimos.
    ser assistido.
 5. **Onde o Style Lock mora**: no Forge (produto) ou no Research (referência)? A resposta
    muda o contrato.
-6. **Plano pago de serviço 3D**: o gratuito do Tripo é `CONFLICTING` (página diz não comercial;
-   termo permite exploração comercial por terceiros) e o do Meshy exige atribuição (CC BY 4.0).
+6. **Plano pago de serviço 3D**: o gratuito do Tripo é `CONFLICTING` (página diz não comercial,
+   termo renuncia em favor do público, e as páginas de ajuda dizem que a Tripo retém os direitos)
+   e o do Meshy (Web App) exige atribuição (CC BY 4.0) — sendo que o **Free do Meshy não tem
+   acesso à API**, nem comprando créditos.
    Se o Forge produzir asset de jogo, o piso é plano pago (US$ 20–100/mês) ou caminho local.
 
 ## 11. Documentos deste conjunto
