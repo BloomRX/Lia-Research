@@ -5,10 +5,11 @@
 | ID | `LR-STUDIO-008` |
 | Categoria | studio |
 | Projetos | Lia Forge 2.0, Lia Studio |
-| Fontes | material de prática de design de personagem (5 fontes convergentes, ver §2.2); Pix3D (CVPR 2018) para o limite das métricas geométricas; CharNeRF (arXiv 2402.17115) para turnaround→3D |
+| Fontes | 5 fontes de prática identificadas por título/autor/URL em §2.2; Pix3D (Sun et al., CVPR 2018) para o limite das métricas; CharNeRF (arXiv 2402.17115) para turnaround→3D; página pública do vídeo do pedido (transcrição parcial) para **descartar** a atribuição anterior |
 | Data | 2026-11-20 |
+| Revisão | 2026-11-21 (rodada 7.1: correções de licença, hardware, vídeo e contagens) |
 | Status | CURRENT |
-| Confiança | Média — método converge entre fontes; as métricas automáticas propostas são **hipótese não calibrada** |
+| Confiança | Média — o método converge entre fontes de prática; as métricas automáticas propostas são **hipótese não calibrada**; base bibliográfica é fraca e está declarada em §2.2 |
 | Natureza | pesquisa e documentação; não autoriza implementação |
 
 ---
@@ -23,9 +24,14 @@ Não é "desenhar a silhueta primeiro" como etapa de arte. É uma **ordem de dec
 4. Só então investir em conceito detalhado, sheet e 3D.
 
 O argumento a favor é econômico, não estético: um erro de forma descoberto em blockout custa
-horas de modelagem; descoberto em silhueta, custa minutos. O vídeo citado no pedido descreve
-exatamente essa ordem (exploração → ficha → 3D → jogo), e ela também aparece como padrão em
-material de prática de design.
+horas de modelagem; descoberto em silhueta, custa minutos.
+
+**Sobre o vídeo citado no pedido:** a rodada 7.1 obteve a página pública do vídeo, que é um
+teste de modelos de linguagem para criação de jogos (MagmaDev, 2026-11-19) e **não descreve
+esta sequência**. A atribuição anterior era erro e está registrada em
+`CHARACTER-CREATION-RESEARCH.md` §1.1. A ordem acima vem **da ordem de pesquisa recebida do
+proprietário**, e o apoio metodológico vem das fontes de prática de §2.2 — nada depende do
+vídeo.
 
 ## 2. Base metodológica
 
@@ -45,28 +51,38 @@ Fonte primária de cada formulação: as cinco páginas listadas em §2.2. São 
 prática profissional, **não** estudo experimental: não existe, nas fontes que li, medição de
 "quanto" a silhueta melhora reconhecimento. Registro isso como limitação, não como detalhe.
 
-### 2.2. Fontes de prática consultadas (2026-11-20)
+### 2.2. Fontes de prática consultadas (leitura em 2026-11-20)
 
-| Fonte | Tipo | O que aproveitei |
-|---|---|---|
-| `heather-colbert.com/shape-language-character-design/` | guia de estúdio | mapeamento traço→forma; teste em thumbnail; proporções 7–8 cabeças |
-| `fiveable.me/lists/character-design-principles` | material didático | hierarquia "reconhecimento instantâneo" antes de personalidade |
-| `nextversity.com/…/character-design-basics` | material didático | "vinte miniaturas", teste do borrão, assimetria |
-| `mimiccartoon.com/post/what-makes-a-good-cartoon-character-design` | estúdio | checklist: silhueta em preto, em miniatura e ao lado do elenco |
-| `prints4sure.com/blogs/news/the-ultimate-guide-to-character-design…` | guia | silhueta como "teste mais puro" do design |
+| # | Título | Autor / instituição | URL | Data | Tipo | O que foi efetivamente lido | Qualidade da evidência |
+|---|---|---|---|---|---|---|---|
+| 1 | Shape Language Character Design | Heather Colbert (site pessoal de design) | `https://heather-colbert.com/shape-language-character-design/` | 2026-07-06 (indicada na página) | guia de estúdio, autoria individual | mapeamento traço→forma; teste em thumbnail; proporções 7–8 cabeças; checklist de escala | **baixa-média**: prática declarada, sem fonte citada |
+| 2 | Character Design Principles (lista de revisão) | Fiveable (plataforma de estudo) | `https://fiveable.me/lists/character-design-principles` | sem data | material didático de terceiro | hierarquia "reconhecimento instantâneo antes de personalidade"; tabela de princípios | **baixa**: material de preparação, não fonte primária |
+| 3 | Character design basics: from first sketch to concept art | Nextversity (escola/blog) | `https://nextversity.com/schools/graphic-design-illustration/blog/character-design-basics` | 2026-08-10 (indicada) | material didático | "vinte miniaturas em preto"; teste do borrão; assimetria; aviso de que estrutura importa | **baixa-média**: procedimento concreto e reproduzível |
+| 4 | What Makes a Good Cartoon Character Design? 10 Essentials | Mimic Cartoon (estúdio) | `https://www.mimiccartoon.com/post/what-makes-a-good-cartoon-character-design` | 2026-08-14 (indicada) | post de estúdio | checklist: silhueta em preto, em miniatura e ao lado do elenco | **baixa-média**: prática de produção, sem metodologia |
+| 5 | The Ultimate Guide to Character Design | Prints4Sure (blog comercial) | `https://www.prints4sure.com/blogs/news/the-ultimate-guide-to-character-design-principles-process-and-examples` | 2025-11-04 (indicada) | guia de blog | silhueta como "teste mais puro"; forma e legibilidade | **baixa**: conteúdo de marketing, uso apenas corroborativo |
 
-Nenhuma delas é fonte acadêmica. O valor delas aqui é **convergência de prática**, e é assim
-que estão citadas.
+**Limite honesto desta base:** são cinco fontes de prática, nenhuma acadêmica, nenhuma de
+estúdio AAA com metodologia publicada. A convergência entre elas é o que sustenta o princípio —
+**convergência de prática não é demonstração experimental**. Não encontrei, nas fontes que li,
+livro técnico, GDC talk ou artigo revisado que quantifique o ganho de "silhueta primeiro".
+Se o proprietário quiser subir o nível da evidência, o caminho é livro de referência de design
+de personagem (comprar/ler) ou talk de estúdio — `BLOCKED` nesta sessão por não haver acesso.
 
 ### 2.3. O que a literatura técnica acrescenta
 
 - **CharNeRF** (arXiv 2402.17115) trata explicitamente o insumo "turnaround consistente de
   três a cinco vistas, em T ou A" como o padrão da indústria de modelagem — o que valida a
   premissa do sheet canônico, e não só a silhueta.
-- **Pix3D** (CVPR 2018) mede o quanto métricas geométricas populares acompanham julgamento
-  humano: correlação de Spearman **0,32** para IoU, **0,43** para EMD e **0,49** para Chamfer.
-  Ou seja: a melhor delas explica menos de um quarto da variação da nota humana. Este é o
-  argumento central contra "aprovar por score".
+- **Pix3D** (Sun et al., CVPR 2018) conduziu estudo comportamental **sobre reconstrução 3D de
+  objetos a partir de imagem única** — inclusive a categoria *chair* — comparando métricas
+  geométricas com julgamento humano. Reporta correlação de Spearman de **0,32** (IoU),
+  **0,43** (EMD) e **0,49** (Chamfer) com a nota humana.
+  **Uso adequado:** demonstra que métricas automáticas podem se correlacionar imperfeitamente
+  com avaliação humana.
+  **Uso inadequado (removido nesta rodada):** extrapolar para silhueta de personagem,
+  reconhecimento de identidade, qualidade de sheet ou originalidade; e converter 0,49 em
+  "menos de um quarto da variância" — essa conversão não está no estudo e não é legítima
+  como inferência.
 
 ## 3. Linguagem de forma — o que dá para usar sem virar clichê
 
@@ -152,8 +168,8 @@ não os invalida como *ranking*, invalida como *veredito*.
 
 1. **IoU entre silhuetas normalizadas** de variações do mesmo briefing — mede o quanto a
    exploração está repetindo a si mesma. Barato, sem modelo.
-2. **Componentes conexos + área relativa** — detecta membro colado, cauda perdida, arma que
-   fundiu com o corpo. Barato.
+2. **Componentes conexos + área relativa** — com regra **por arquétipo** (ver §6.2): detecta
+   membro colado ou arma fundida no corpo; **não** pune quem legitimamente tem peças soltas.
 3. **Perímetro²/área** (compacidade) — separa forma "macia" de "espinhosa" sem julgar.
 4. **Legibilidade a 32 px**: reduzir, reamostrar para o tamanho original e medir perda de
    contorno. Proxy, não verdade.
@@ -161,7 +177,27 @@ não os invalida como *ranking*, invalida como *veredito*.
 Nenhuma dessas quatro precisa de modelo de IA, e todas são reprodutíveis — o que as torna
 auditáveis, ao contrário de "nota de beleza".
 
-### 6.2. O que **não** proporia
+### 6.2. Regra de "componente conexo único" — corrigida
+
+A versão anterior tratava "mais de um componente conexo" como sinal de erro. Isso está errado
+para boa parte do elenco: **armas separadas, asas, caudas, chifres, acessórios, peças de roupa
+independentes, elementos flutuantes e apêndices desacoplados** são legítimos — robôs, criaturas
+e mascotes são justamente os casos em que a silhueta tem partes soltas.
+
+Regra corrigida, configurável por arquétipo/estilo/projeto:
+
+| Arquétipo | Componentes esperados | O que é anomalia |
+|---|---|---|
+| Humano estilizado | 1 (corpo+roupa) + N declarados (arma, cabelo solto) | 2ª cabeça, membro flutuante não declarado |
+| Criatura | corpo + cauda + asas + chifres (declarados no brief) | peça não declarada ou peça declarada ausente |
+| Robô / mecânico | várias peças rígidas, juntas visíveis | peça que colide/funde sem intenção |
+| Mascote | 1 dominante, detalhe pequeno permitido | detalhe que desaparece a 32 px |
+| Com acessório | +1 por item do inventário | item do inventário ausente |
+
+Critério de aceitação operacional: **comparar o número de componentes com o inventário do
+brief**, não com um número fixo. Sem inventário, o teste é `UNVALIDATED` — não "reprovado".
+
+### 6.3. O que **não** proporia
 
 - Um "score de personagem" único, de 0 a 100. Composto de métricas fracas vira confiança
   falsa e é impossível de auditar.
@@ -173,12 +209,12 @@ auditáveis, ao contrário de "nota de beleza".
 
 | Afirmação | Evidência | Nível |
 |---|---|---|
-| Silhueta em preto é teste padrão de prática | 5 fontes de prática convergentes | `OBSERVED` (prática) |
-| Ler em miniatura é critério de qualidade | idem | `OBSERVED` |
-| Linguagem de forma comunica temperamento | idem; convenção cultural | `REPORTED` |
-| Métricas geométricas têm correlação fraca com humano | Pix3D, Spearman 0,32/0,43/0,49 | `CONFIRMED` (para o dataset deles) |
-| Turnaround 3–5 vistas é insumo padrão da indústria | CharNeRF (arXiv 2402.17115) | `REPORTED` |
-| As métricas propostas em §6.1 funcionam | **não testado** | `UNVERIFIED` |
+| Silhueta em preto é teste padrão de prática | 5 fontes de prática convergentes (§2.2) | `COMMUNITY_REPORTED` (prática profissional) |
+| Ler em miniatura é critério de qualidade | idem | `COMMUNITY_REPORTED` |
+| Linguagem de forma comunica temperamento | idem; convenção cultural | `COMMUNITY_REPORTED` |
+| Métricas geométricas se correlacionam imperfeitamente com humano | Pix3D (CVPR 2018), Spearman 0,32/0,43/0,49 em reconstrução de objeto | `PAPER_OR_RESEARCH` |
+| Turnaround 3–5 vistas é insumo padrão da indústria | CharNeRF (arXiv 2402.17115) | `PAPER_OR_RESEARCH` |
+| As métricas propostas em §6.1 funcionam | **não testado** | `UNVALIDATED` |
 
 ## 8. Riscos
 
