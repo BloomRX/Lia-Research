@@ -10,6 +10,7 @@
 |---|---|---|
 | `agents/RESEARCH-ORCHESTRATOR.md` | agente orquestrador de pesquisa | recebe demanda, investiga, delega, testa, busca evidência externa, consolida, publica, mantém catálogo e histórico |
 | `agents/SPECIALIST-ROLES.md` | especialistas por domínio | define quem cobre segurança, licença, modelo, MCP, UI, hardware, memória |
+| `agents/SKILLS-OPERATING-SET.md` | qualquer agente do Research | fixa o conjunto mínimo de Skills do ecossistema Lia aplicado ao Research, os gatilhos de cada uma e as rejeitadas com motivo |
 
 Ambos herdam a proibição central: **recomendar sim, decidir adoção não**. Se um agente
 se pegar escrevendo "aprovado para integração", o texto está errado — o vocabulário
