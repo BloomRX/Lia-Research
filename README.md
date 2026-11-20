@@ -10,15 +10,22 @@
 | Branch padrão | `main` |
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
-| Status | Fundação entregue (fases 0–3); fase 4 de medição `NOT RUN` |
-| Arquivos Markdown | 142 (contagem de 2026-11-17, `find -name '*.md'`), validados por `tools/validate.py` |
-| Relatórios externos | 22 objetos auditados, 26 documentos |
-| Decisões | 13 abertas · 3 rejeições · 2 referência · 2 pastas vazias por desenho |
+| Status | Base reorganizada em 2026-11-20 (missão, catálogo, validador). Medição em hardware: `NOT RUN`; testes de software registrados: **0** |
+| Arquivos Markdown | 158 (contagem de 2026-11-20, `find -name '*.md'`), validados por `tools/validate.py` |
+| Relatórios externos | 22 objetos, 1 relatório cada (`repositories/*/REPORT.md`) |
+| Catálogo | `catalog/catalog.tsv` — 22 linhas, gerado de `tools/build_catalog.py` |
+| Decisões (governança) | 1 aceita · 12 pendentes · 3 rejeitadas · 2 referência · 2 pastas vazias por desenho |
 
 > **Aviso de escopo.** Este repositório registra *pesquisa*, não *implementação*.
 > Nenhuma recomendação aqui autoriza alterar Lia-Project, Lia Forge, Lia Studio,
 > Lia Agent Hub ou Lia Model Lab. Decisões de implementação pertencem ao
-> responsável de cada projeto. Ver `governance/RESEARCH-STATUS-AND-DECISIONS.md`.
+> responsável de cada projeto.
+>
+> **Identidade e limites de autoridade:** [`MISSION.md`](MISSION.md) — a fonte de verdade
+> sobre o que o Research é, o que pode recomendar e o que nunca decide.
+>
+> `estado da pesquisa` ≠ `recomendação` ≠ `decisão de adoção`. Os três vivem em campos
+> separados no cabeçalho de cada relatório (`catalog/CATALOG-SCHEMA.md`).
 
 ---
 
@@ -44,7 +51,7 @@ organizações), **5 dossiês internos**, **23 digests transversais**, **4 compa
 **Cobertura declarada:** esta base é uma **camada de ponteiro**, não um espelho. São
 136 documentos aqui para **1.148 Markdown em `main`** nos cinco apps (medido em 2026-11-17),
 ou seja ~1:8. O critério é seletivo: entra o que muda decisão, não o que já vive no projeto.
-Revisão crítica do estado da base: `LIA-RESEARCH-BASELINE-REVIEW-2026-11-17.md`.
+Revisão crítica do estado da base: `archive/historical/LIA-RESEARCH-BASELINE-REVIEW-2026-11-17.md`.
 
 O Lia-Research existe para que esses números deixem de ser redescobertos a cada
 sessão. Ele oferece: um índice único, um padrão de relatório, um vocabulário de
@@ -55,7 +62,7 @@ evidência, regras de proveniência e licença, e um fluxo de publicação.
 - Não funde repositórios nem move código dos projetos para cá.
 - Não é submodule, nem dependência de build, nem dependência de runtime.
 - Não copia código de terceiros: relatórios descrevem, citam e apontam.
-- Não promove recomendação a decisão. `ADOTAR` ≠ autorização.
+- Não promove recomendação a decisão. `DIRECT_INTEGRATION_CANDIDATE` ≠ autorização.
 - Não é distribuível: ver `LICENSE` (sem licença concedida, por decisão).
 
 ## 3. Navegação por quatro dimensões
@@ -75,33 +82,48 @@ categoria, projeto, tecnologia, status, data de revisão e caminho.
 
 ## 4. Mapa do repositório
 
+Na raiz ficam só navegação, licença, índice, roadmap, changelog e política essencial.
+Documento de entrega não fica na raiz: vai para `archive/`.
+
 ```text
 Lia-Research/
+├── MISSION.md                 identidade, limites de autoridade, os três conceitos
+├── README.md                  entrada e mapa
 ├── RESEARCH-INDEX.md          índice mestre (fonte de descoberta)
-├── RESEARCH-ROADMAP.md        o que pesquisar depois, e por quê
-├── RESEARCH-CHANGELOG.md      histórico de publicações e revisões
-├── governance/                metodologia, evidência, licença, segurança, preservação
-├── ecosystem/                 mapa do ecossistema, propriedade, capacidades compartilhadas
-├── projects/                  consolidação por projeto (ler a pesquisa existente)
-├── cross-project/             conhecimento transversal por área tecnológica
-├── repositories/              um diretório por repositório/tecnologia externa investigada
+├── RESEARCH-ROADMAP.md        Parte A: o que pesquisar · Parte B: 12 meses
+├── RESEARCH-BACKLOG.md        fila de triagem (20 recebidos, 3 publicados)
+├── RESEARCH-CHANGELOG.md      histórico de publicações, revisões e migrações
+├── catalog/                   CATALOG-SCHEMA.md + catalog.tsv (gerado) + README
+├── governance/                investigação, teste, evidência, licença, segurança, preservação
+├── agents/                    orquestrador, papéis de especialista, revisão, publicação
+├── templates/                 um modelo por tipo de objeto (14 modelos)
+├── decisions/                 registros de governança (nunca aprovação de adoção)
+├── repositories/              um diretório por objeto externo (22 relatórios)
+├── cross-project/             14 áreas tecnológicas transversais
+├── projects/                  consolidação por projeto Lia
 ├── comparisons/               comparações entre alternativas
-├── decisions/                 registros de decisão (ACCEPTED/ADAPTED/REFERENCE-ONLY/REJECTED/PENDING)
-├── archive/                   material histórico, superado e incompleto (nunca descartado)
-├── templates/                 modelos obrigatórios de documento
-├── agents/                    papéis, fluxo, publicação e revisão
-├── data/                      inventário, manifesto com hash, snapshot do corpus
-├── tools/                     validate.py + scripts de coleta reproduzíveis
-├── .github/                   PR template, 3 issue templates, validação
-└── LIA-RESEARCH-*.md          os 6 relatórios de entrega da ordem de serviço
+├── ecosystem/                 mapa do ecossistema e capacidades compartilhadas
+├── audits/                    conferência periódica de upstream
+├── data/                      inventário, manifesto, test-log, snapshots
+├── archive/                   historical/ · superseded/ · incomplete/ (nunca descartado)
+├── templates, tools/          modelos e validate.py / build_catalog.py / check_upstream.py
+└── .github/                   PR template + 3 issue templates
 ```
 
-Áreas existentes em `cross-project/` (todas com conteúdo, nenhuma criada para
-"completar a árvore"): `agents/` `ai-models/` `automation/` `downloads/` `hardware/`
-`interfaces/` `licensing/` `mcp/` `memory/` `model-routing/` `security/` `smart-home/`
-`storage/` `voice/`.
+Mapa dos documentos que não são relatório:
 
-Diretórios propostos que **não** foram criados estão em §8, com justificativa.
+| Precisa de… | Vai em |
+|---|---|
+| saber o que o Research pode e não pode | `MISSION.md` |
+| pesquisar um objeto novo | `governance/INVESTIGATION-PROTOCOL.md` + modelo em `templates/README.md` |
+| testar com segurança | `governance/TESTING-PROTOCOL.md` |
+| registrar o resultado de um teste | `data/testing/test-log.tsv` |
+| saber o estado de um objeto | `catalog/catalog.tsv` + `catalog/CATALOG-SCHEMA.md` |
+| contribuir sem quebrar a base | `governance/CONTRIBUTION-WORKFLOW.md` |
+| conferir auditoria de qualidade | `governance/QUALITY-AUDIT-2026-11-17.md` |
+| ver o que já foi conferido no upstream | `audits/REAUDIT-2026-11-20.md` |
+| entender quem faz o quê | `agents/RESEARCH-ORCHESTRATOR.md` + `agents/SPECIALIST-ROLES.md` |
+| publicar | `agents/PUBLISHING-PROTOCOL.md` |
 
 ## 5. Vocabulário obrigatório
 
@@ -119,7 +141,7 @@ Diretórios propostos que **não** foram criados estão em §8, com justificativ
 **Estado do documento**: `CURRENT`, `HISTORICAL`, `SUPERSEDED`, `INCOMPLETE`,
 `UNVERIFIED`, `CONFLICTING`, `NOT-RECOVERED`.
 
-**Recomendação**: `ADOTAR`, `ADAPTAR`, `REFERÊNCIA`, `REJEITAR`, `PENDENTE`.
+**Recomendação**: `DIRECT_INTEGRATION_CANDIDATE`, `ADAPT`, `REFERENCE_ONLY`, `REJECT`, `PENDENTE`.
 
 Nenhum relatório pode usar "funciona", "é compatível" ou "é rápido" sem um dos
 rótulos acima. Benchmark de terceiro não é resultado no hardware do usuário.
@@ -139,7 +161,7 @@ que são privados. Sempre cite a **branch** junto do ID — o conteúdo difere d
 as branches de sessão.
 
 Detalhes de acesso, permissões e sincronização de leitura:
-`LIA-RESEARCH-ACCESS-AND-AGENT-WORKFLOW.md` §3-bis.
+`archive/historical/LIA-RESEARCH-ACCESS-AND-AGENT-WORKFLOW.md` §3-bis.
 
 ## 7. Como publicar uma pesquisa
 
@@ -181,24 +203,27 @@ A regra aplicada: **nenhum diretório vazio** e nenhuma pasta criada para "compl
 | Pesquisa externa (9 adicionais) | PASS |
 | HA-MCP análise aprofundada | PASS |
 | Índices e changelog | PASS (`RESEARCH-INDEX`, `-ROADMAP`, `-CHANGELOG`) |
-| Links, IDs, segredos e estrutura validados | PASS — `python3 tools/validate.py`: 0 erros, 0 avisos |
+| Links, IDs, segredos e estrutura validados | PASS — `python3 tools/validate.py` (15 verificações): 0 erros |
+| Re-auditoria de upstream (2026-11-20) | 22/22 existem · 10 com commits novos · 0 links mortos (`audits/REAUDIT-2026-11-20.md`) |
+| Testes de software executados | **0** — `data/testing/test-log.tsv` só tem cabeçalho |
+| Catálogo gerado do cabeçalho dos relatórios | PASS — `tools/build_catalog.py --check` |
 | Fase 4 (medição em hardware) | **NOT RUN** — exige execução na máquina do usuário |
 | Revisão humana da entrega | **PENDENTE** — protocolo em `agents/REVIEW-PROTOCOL.md` |
 
 `NOT RUN` e `BLOCKED` **não** são `PASS`. Detalhamento, incluindo o que ficou bloqueado
-e por quê: `LIA-RESEARCH-FOUNDATION-REPORT.md`.
+e por quê: `archive/historical/LIA-RESEARCH-FOUNDATION-REPORT.md`.
 
-## 10. Os seis relatórios de entrega
+## 10. Relatórios de entrega (arquivados)
 
 | Documento | O que responde |
 |---|---|
-| `LIA-RESEARCH-FOUNDATION-REPORT.md` | o que foi construído, com que status, e o que não foi |
-| `LIA-RESEARCH-SOURCE-INVENTORY.md` | toda fonte com origem, commit, data e modo de uso |
-| `LIA-RESEARCH-EXTERNAL-REPOSITORY-AUDIT.md` | os 16 objetos externos, vereditos e armadilhas |
-| `LIA-RESEARCH-CONSOLIDATION-REPORT.md` | duplicatas, conflitos e o que a consolidação resolveu |
-| `LIA-RESEARCH-ACCESS-AND-AGENT-WORKFLOW.md` | como um agente consulta sem virar dependência |
-| `LIA-RESEARCH-ROADMAP.md` | as 4 fases do próximo ano, com critério de parada |
-| `LIA-RESEARCH-PHASE-CLOSURE-REPORT.md` | encerramento da fase Research, com pendências por responsável |
+| `archive/historical/LIA-RESEARCH-FOUNDATION-REPORT.md` | o que foi construído, com que status, e o que não foi |
+| `archive/historical/LIA-RESEARCH-SOURCE-INVENTORY.md` | toda fonte com origem, commit, data e modo de uso |
+| `archive/historical/LIA-RESEARCH-EXTERNAL-REPOSITORY-AUDIT.md` | os 16 objetos externos, vereditos e armadilhas |
+| `archive/historical/LIA-RESEARCH-CONSOLIDATION-REPORT.md` | duplicatas, conflitos e o que a consolidação resolveu |
+| `archive/historical/LIA-RESEARCH-ACCESS-AND-AGENT-WORKFLOW.md` | como um agente consulta sem virar dependência |
+| `archive/superseded/LIA-RESEARCH-ROADMAP.md` | as 4 fases do próximo ano, com critério de parada |
+| `archive/historical/LIA-RESEARCH-PHASE-CLOSURE-REPORT.md` | encerramento da fase Research, com pendências por responsável |
 
 ## 11. Manutenção
 

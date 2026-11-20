@@ -3,6 +3,9 @@
 Medido em 2026-11-17 via GitHub API (metadados, branches, trees). Números de
 documentos são contagens de arquivos, não de conclusões.
 
+
+Documentos irmãos desta pasta: [`SHARED-TECHNOLOGY-MAP.md`](SHARED-TECHNOLOGY-MAP.md) (stack e hardware que atravessam projetos) · [`PROJECT-OWNERSHIP.md`](PROJECT-OWNERSHIP.md) · [`CROSS-PROJECT-CAPABILITIES.md`](CROSS-PROJECT-CAPABILITIES.md).
+
 ---
 
 ## 1. Os cinco projetos da ordem de serviço
@@ -34,7 +37,7 @@ falha silenciosamente.
 | `BloomRX/animations-free` | 82 KB | assets |
 
 Todos os 14 repositórios do usuário estão com visibilidade **pública** em 2026-11-17.
-Isso é relevante para a política de segurança: ver `LIA-RESEARCH-FOUNDATION-REPORT.md` §2.
+Isso é relevante para a política de segurança: ver `archive/historical/LIA-RESEARCH-FOUNDATION-REPORT.md` §2.
 
 ## 3. Fluxo de conhecimento observado
 

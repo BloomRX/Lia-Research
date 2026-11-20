@@ -3,6 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | DR-0005 |
+| Alcance | **GOVERNANCA** — decisão administrativa; não aprova adoção de tecnologia |
 | Estado | **REJECTED** |
 | Dono da decisão | Research Orchestrator (recomendação) — reabertura exige proprietário |
 | Data | 2026-11-17 |

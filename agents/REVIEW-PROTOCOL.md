@@ -1,5 +1,11 @@
 # Protocolo de revisão independente
 
+> **Limite de autoridade.** Pesquisa recomenda; não aprova adoção. Vocabulário fechado,
+> estados e resultado de execução: `catalog/CATALOG-SCHEMA.md`. Protocolo de
+> investigação: `governance/INVESTIGATION-PROTOCOL.md`; de teste:
+> `governance/TESTING-PROTOCOL.md`.
+
+
 Revisão independente é obrigatória quando o erro custa caro: segurança, credenciais,
 licença, providers comerciais e automação residencial.
 

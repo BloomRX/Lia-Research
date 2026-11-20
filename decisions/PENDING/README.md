@@ -1,5 +1,8 @@
 # PENDING — decisões aguardando proprietário
 
+> **Alcance:** aguardando decisão do proprietário — **não** bloqueia leitura nem pesquisa. Ver `decisions/README.md` §3.
+
+
 | ID | Assunto | Bloqueia |
 |---|---|---|
 | DR-0001 | licença das Skills `lia-*` | distribuição de Skill |

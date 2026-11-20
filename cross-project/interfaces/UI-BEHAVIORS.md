@@ -30,9 +30,9 @@ auditorias de UI/UX em Project (49 KB) e Forge (38 KB+); briefs de design no Hub
 
 | Fonte | O que oferece | Veredito |
 |---|---|---|
-| Vercel UI SDK | comportamentos headless (foco, seleção, popup, DnD, ARIA), adaptador Vue real | `ADAPTAR` em protótipo isolado |
-| Plannotator | contrato de revisão humana (anotar artefato → devolver ao agente) | `REFERÊNCIA` |
-| AI Design Skills | molde de skill de design (intake → sistema visual → critérios) | `ADAPTAR` (formato) |
+| Vercel UI SDK | comportamentos headless (foco, seleção, popup, DnD, ARIA), adaptador Vue real | `ADAPT` em protótipo isolado |
+| Plannotator | contrato de revisão humana (anotar artefato → devolver ao agente) | `REFERENCE_ONLY` |
+| AI Design Skills | molde de skill de design (intake → sistema visual → critérios) | `ADAPT` (formato) |
 
 ## 4. Regra
 

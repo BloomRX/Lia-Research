@@ -8,7 +8,7 @@
 | Fontes | `Lia-Project@005a324:docs/research/2026-11-14-runtime-resource-research.md` (31 KB), `Lia-Project@005a324:tools/desktop-benchmark/README.md` (10 KB), `Lia-Project@005a324:tools/agents-docs/README.md` |
 | Data | 2026-11-17 |
 | Status | CURRENT |
-| Confiança | **Média** — pesquisa documental com classificação `REFERÊNCIA`/`ADAPTAR` no original |
+| Confiança | **Média** — pesquisa documental com classificação `REFERENCE_ONLY`/`ADAPT` no original |
 
 ## 1. Pergunta
 

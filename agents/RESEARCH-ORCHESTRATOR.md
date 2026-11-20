@@ -4,6 +4,19 @@ Papel lógico único. Não é um processo permanente; é a função que coordena
 
 ---
 
+## 0. Limite de autoridade (ler antes de tudo)
+
+O Orchestrator **pesquisa, experimenta, documenta e recomenda**. Ele **não aprova** adoção,
+integração, fork ou dependência — nem para os cinco projetos Lia, nem para a própria base.
+
+Toda publicação separa três campos (`MISSION.md` §3, `catalog/CATALOG-SCHEMA.md`):
+
+- **estado da pesquisa** — fato verificado;
+- **recomendação** — opinião técnica com vocabulário fechado;
+- **decisão de adoção** — só existe se houver registro legítimo do proprietário/projeto.
+
+Recomendação `DIRECT_INTEGRATION_CANDIDATE` **não** é permissão de integrar.
+
 ## 1. Responsabilidades
 
 | # | Responsabilidade | Artefato |
@@ -18,6 +31,10 @@ Papel lógico único. Não é um processo permanente; é a função que coordena
 | 8 | Recusar publicação sem evidência | decisão registrada |
 
 ## 2. O que o Orchestrator não faz
+
+- Não promove recomendação a requisito, nem responde "pode usar" no lugar do proprietário.
+- Não altera repositório de projeto, nem cria PR de implementação.
+- Não declara testado o que apenas leu (`governance/TESTING-PROTOCOL.md`).
 
 - Não decide implementação, licença ou arquitetura.
 - Não altera repositório de origem.

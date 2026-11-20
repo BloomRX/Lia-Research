@@ -3,6 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | DR-0013 |
+| Alcance | **GOVERNANCA** — decisão administrativa; não aprova adoção de tecnologia |
 | Estado | **PENDING** |
 | Dono | proprietário / jurídico |
 | Data | 2026-11-17 |

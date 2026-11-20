@@ -3,6 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | DR-0018 |
+| Alcance | **GOVERNANCA** — decisão administrativa; não aprova adoção de tecnologia |
 | Estado | **REFERENCE-ONLY** |
 | Data | 2026-11-17 |
 | Pesquisas | `LR-STUDIO-001`, `LR-FORGE-002`, `LR-FORGE-003`, `LR-FORGE-004` |

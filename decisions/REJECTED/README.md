@@ -1,5 +1,8 @@
 # REJECTED
 
+> **Alcance:** decisão de não seguir, com condição de reabertura — **não** proíbe reavaliar. Ver `decisions/README.md` §3.
+
+
 Decisões de não adoção, com motivo e condição de reabertura. Nada aqui é proibição de
 pesquisar de novo: é registro de que a evidência de hoje não sustenta a adoção.
 

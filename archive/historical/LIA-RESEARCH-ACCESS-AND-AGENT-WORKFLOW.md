@@ -122,13 +122,13 @@ deve alterar a base que justifica a implementação.
 4. resultado: nenhuma semana perdida, nenhuma dependência adicionada.
 
 ### Cenário B — "podemos usar o serviço X de modelos?"
-1. índice → `LR-PROV-001` → relatório → **REJEITAR** com 4 condições;
+1. índice → `LR-PROV-001` → relatório → **REJECT** com 4 condições;
 2. agente lê as condições, verifica se alguma foi cumprida, e responde "não, e aqui está
    o que precisa acontecer";
 3. resultado: recusa rastreável, não opinião.
 
 ### Cenário C — "por que não usamos ReScript?"
-1. índice → `LR-STUDIO-003` → **REJEITAR** + condição de reabertura;
+1. índice → `LR-STUDIO-003` → **REJECT** + condição de reabertura;
 2. `decisions/REJECTED/DR-0016`;
 3. resultado: a pergunta não volta a cada trimestre.
 

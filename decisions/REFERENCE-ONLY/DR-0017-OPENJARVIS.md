@@ -3,6 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | DR-0017 |
+| Alcance | **GOVERNANCA** — decisão administrativa; não aprova adoção de tecnologia |
 | Estado | **REFERENCE-ONLY** |
 | Data | 2026-11-17 |
 | Pesquisa | `LR-AGENT-001` |

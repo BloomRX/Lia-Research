@@ -3,14 +3,19 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-AGENT-003` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | agents |
 | Projetos beneficiados | Lia Agent Hub |
 | Fontes | `Ryder-Sun/Meldwork@db9b6c84cbb1c86f3e3facf3cbebdcd6f1f79397:README.md`, `COMMERCIAL_USE.md`, `LICENSE`, tree, releases |
 | Versão/commit | `db9b6c8` (2026-11-16), release `Meldwork-V1.0.9` (Preview) |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `Ryder-Sun/Meldwork` · HEAD `db9b6c84cbb1` · sem mudança no HEAD |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **REFERÊNCIA** |
+| Recomendação | **REFERENCE_ONLY** |
 | Licença | Apache-2.0 + declaração explícita de uso comercial permitido |
 | Confiança | Alta para licença/estrutura; Média para capacidades |
 
@@ -179,7 +184,7 @@ commit, `REPORTED` quanto ao conteúdo).
 
 ## 17. Recomendação
 
-**`REFERÊNCIA`** — estudar o modelo de permissões, evidência e HITL; não adotar por
+**`REFERENCE_ONLY`** — estudar o modelo de permissões, evidência e HITL; não adotar por
 indisponibilidade de plataforma.
 
 **Não autoriza:** portar código para o produto, assumir suporte Windows, ou

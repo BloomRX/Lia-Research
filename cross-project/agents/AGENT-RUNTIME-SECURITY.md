@@ -5,7 +5,7 @@
 | ID | `LR-SEC-002` |
 | Categoria | security |
 | Projetos | Lia Studio, Lia Agent Hub, Lia-Project |
-| Fontes | `Lia-Studio@…:docs/research/ARENA-RUNTIME-SECURITY-AUDIT.md` (41 KB, 3× `PENDENTE`), `AGENT-ARCHITECTURE-RESEARCH.md` (42 KB, 21× `ADAPTAR`, 1× `ADOTAR`), `Lia-AgentHub:docs/architecture/SECURITY-AND-TRUST-MODEL.md` (40 KB) |
+| Fontes | `Lia-Studio@…:docs/research/ARENA-RUNTIME-SECURITY-AUDIT.md` (41 KB, 3× `PENDENTE`), `AGENT-ARCHITECTURE-RESEARCH.md` (42 KB, 21× `ADAPT`, 1× `DIRECT_INTEGRATION_CANDIDATE`), `Lia-AgentHub:docs/architecture/SECURITY-AND-TRUST-MODEL.md` (40 KB) |
 | Data | 2026-11-17 |
 | Status | CURRENT |
 | Confiança | Média-Alta |

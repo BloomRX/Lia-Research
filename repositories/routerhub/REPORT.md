@@ -3,14 +3,19 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-PROV-001` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | providers |
 | Projetos beneficiados | Lia-Project (provider opcional), Lia Model Lab (avaliação) |
 | Fontes | `api.github.com/orgs/routerhubSI`, repositórios da organização (2026-11-17), descrição da org, `routerhub-repos.json` |
 | Versão/commit analisado | não aplicável (serviço comercial + repos de marketing); commits individuais listados em §16 |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `routerhubSI/litellm` · HEAD `187f936cb345` · sem SHA analisado registrado |
 | Próxima revisão | 2026-12-17 (30 dias — serviço comercial) |
-| Status | CUARENTENA → **`REJEITAR`** para catálogo padrão, com condições de reabertura |
-| Recomendação | **REJEITAR** (com `PENDENTE` nos fatos não verificáveis) |
+| Recomendação | **REJECT** (com `PENDENTE` nos fatos não verificáveis) |
 | Licença | MIT nos repositórios de marketing; **serviço sem termos verificáveis** |
 | Confiança | **Alta** para o que a organização declara; **Baixa** para tudo que depende do site (inacessível nesta coleta) |
 
@@ -30,7 +35,7 @@
   de serviço acessíveis nesta coleta (`BLOCKED`)
 - **Versão/commit:** serviço; repositórios analisados em 2026-11-17
 - **Status da pesquisa:** `CURRENT`
-- **Recomendação:** **`REJEITAR`** para inclusão no catálogo padrão de providers
+- **Recomendação:** **`REJECT`** para inclusão no catálogo padrão de providers
 
 > Nenhuma chamada autenticada ao serviço foi feita. Nenhuma chave foi criada. Nenhum
 > dado de usuário foi enviado. Toda a análise é documental (`REPORTED`/`OBSERVED`).
@@ -217,7 +222,7 @@ Praticamente nenhuma de código. Duas de **método**:
 
 ## 17. Recomendação
 
-**`REJEITAR`** para o catálogo padrão de providers da Lia, mantendo a pesquisa em
+**`REJECT`** para o catálogo padrão de providers da Lia, mantendo a pesquisa em
 `decisions/REJECTED/` com condição de reabertura.
 
 Justificativa: a integração é tecnicamente trivial, e é exatamente por isso que o

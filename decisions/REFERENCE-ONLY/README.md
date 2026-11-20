@@ -1,5 +1,8 @@
 # REFERENCE-ONLY
 
+> **Alcance:** mantido apenas como referência — **não** concede permissão de cópia. Ver `decisions/README.md` §3.
+
+
 Fontes úteis como conhecimento, com integração proibida até decisão em contrário.
 
 | ID | Objeto | O que pode ser usado |

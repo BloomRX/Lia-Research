@@ -1,5 +1,11 @@
 # Papéis especialistas
 
+> **Limite de autoridade.** Pesquisa recomenda; não aprova adoção. Vocabulário fechado,
+> estados e resultado de execução: `catalog/CATALOG-SCHEMA.md`. Protocolo de
+> investigação: `governance/INVESTIGATION-PROTOCOL.md`; de teste:
+> `governance/TESTING-PROTOCOL.md`.
+
+
 Especialistas são **subagentes temporários**. Não têm autoridade de publicação.
 O Orchestrator assina o relatório final e responde pela consolidação.
 

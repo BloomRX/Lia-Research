@@ -3,14 +3,19 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-UI-003` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | ui |
 | Projetos beneficiados | Lia Studio, Lia-Project (design system/UX) |
 | Fontes | `elayadesign/ai-design-skills@456d9e0d3e2d84c748bb143c6ca3d90c45e16213:README.md`, tree, `LICENSE` |
 | Versão/commit | `456d9e0` (2026-11-01) — sem releases |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `elayadesign/ai-design-skills` · HEAD `456d9e0d3e2d` · sem mudança no HEAD |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **ADAPTAR** (por padrão, não por conteúdo) |
+| Recomendação | **ADAPT** (por padrão, não por conteúdo) |
 | Licença | MIT (`CONFIRMED`) |
 | Confiança | Alta para licença/estrutura; Média para profundidade (só 2 skills) |
 
@@ -155,7 +160,7 @@ depender de evolução.
 
 ## 17. Recomendação
 
-**`ADAPTAR`** — copiar a anatomia e a autocontenção na evolução das skills de UI Lia.
+**`ADAPT`** — copiar a anatomia e a autocontenção na evolução das skills de UI Lia.
 
 **Não autoriza:** substituir o design system da Studio, ou instalar as skills como
 dependência de produto.

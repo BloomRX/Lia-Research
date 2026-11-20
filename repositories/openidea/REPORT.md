@@ -3,14 +3,19 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-STUDIO-001` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | studio |
 | Projetos beneficiados | Lia Studio (Lia Forge e Agent Hub como referência secundária) |
 | Fontes | `l0ng-ai/openidea@182285647ee2a80e84c01157ae35d6b63f572d71:README.md`, tree (`crates/`, `plugins/`), `LICENSE`, releases |
 | Versão/commit | `1822856` (2026-11-17), release `v0.1.47` + nightly `0.1.48-nightly` |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `l0ng-ai/openidea` · HEAD `e6905f288ea4` · mudou desde a análise (conteúdo novo não lido) |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **REFERÊNCIA** |
+| Recomendação | **REFERENCE_ONLY** |
 | Licença | Apache-2.0 (`CONFIRMED`) |
 | Confiança | Alta para estrutura/licença; Baixa para desempenho e benchmarks |
 
@@ -200,7 +205,7 @@ julgamento, é hipótese a testar (`INFERRED`).
 
 ## 17. Recomendação
 
-**`REFERÊNCIA`** — estudar organização em crates, plugin system e integração de agente;
+**`REFERENCE_ONLY`** — estudar organização em crates, plugin system e integração de agente;
 não adotar código nem stack.
 
 **Gates** (se algum dia houver adoção de padrão):

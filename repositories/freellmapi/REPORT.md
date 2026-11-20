@@ -3,13 +3,18 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-MODEL-006` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | model |
 | Projetos beneficiados | Lia Model Lab (roteamento), Lia Agent Hub (provider adapter), Lia-Research (política de termos) |
 | Fontes | `tashfeenahmed/freellmapi@main` (2026-11-19): `README.md`, `LICENSE`, API do GitHub; site freellmapi.co/models |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `tashfeenahmed/freellmapi` · HEAD `dd0fb7135174` · sem SHA analisado registrado |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **REFERÊNCIA** — o desenho de roteamento/orçamento serve; o serviço, não |
+| Recomendação | **REFERENCE_ONLY** — o desenho de roteamento/orçamento serve; o serviço, não |
 | Licença | MIT (`CONFIRMED`) — a licença do **software**, não dos provedores que ele agrega |
 | Confiança | Alta para o que o README declara; **UNVERIFIED** para conformidade com termos de uso |
 
@@ -151,7 +156,7 @@ provider) · **Lia-Research** (política de termos de uso de agregação).
 
 ## 17. Recomendação
 
-**VEREDITO: `REFERÊNCIA`.** Copiar o **desenho** (F1–F4) para o roteamento da Lia — é
+**Recomendação (opinião técnica, não é aprovação): ** REFERENCE_ONLY`.** Copiar o **desenho** (F1–F4) para o roteamento da Lia — é
 exatamente o que falta em `LR-MODEL-005`. **Não** usar o agregador como dependência de
 produto: a licença MIT cobre o código, não os free tiers, e o próprio autor restringe o uso
 a experimentação pessoal.

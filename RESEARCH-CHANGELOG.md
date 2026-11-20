@@ -11,7 +11,7 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 ## 2026-11-17 — triagem de 20 itens + 3 relatórios publicados
 
 ### Triagem (ADD)
-- `LIA-RESEARCH-INTAKE-2026-11-17.md`: os 20 itens recebidos classificados por prioridade
+- `RESEARCH-BACKLOG.md`: os 20 itens recebidos classificados por prioridade
   (A/B/C), com licença, tamanho, o que é e o que falta. **Triagem não é relatório** — a
   própria tabela diz o que ainda não foi lido nem executado.
 - 6 candidatos adicionais medidos por API para a próxima fila: `promptfoo`, `deepeval`,
@@ -83,7 +83,7 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 ## 2026-11-17 — revisão de base (o que temos aqui × o que já existe nos apps)
 
 ### Revisão (REVIEW)
-- `LIA-RESEARCH-BASELINE-REVIEW-2026-11-17.md`: re-leitura crítica com números **medidos
+- `archive/historical/LIA-RESEARCH-BASELINE-REVIEW-2026-11-17.md`: re-leitura crítica com números **medidos
   hoje**, não herdados. Estado: 136 docs · 18 objetos (7 ADAPTAR · 8 REFERÊNCIA ·
   3 REJEITAR · **0 ADOTAR**) · 30 digests · 18 DRs · 14 repos públicos · 43 branches ·
   **1.148** Markdown em `main` nos cinco apps (cobertura ~1:8, agora declarada no README).
@@ -111,13 +111,13 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
   "não autoriza tornar o repositório público" — vencido por `DR-0006` (ACCEPTED).
   Reescrito: leitura **aberta e sem token**; restam abertas só publicação, revisão,
   cópia local e logs. Opções de deploy key/GitHub App retiradas do caminho de leitura.
-- `LIA-RESEARCH-ACCESS-AND-AGENT-WORKFLOW.md`: cabeçalho corrigido (visibilidade
+- `archive/historical/LIA-RESEARCH-ACCESS-AND-AGENT-WORKFLOW.md`: cabeçalho corrigido (visibilidade
   `DR-0006`; publicação `DR-0002`) e nova §3-bis com **acesso sem token** — URLs raw,
   API não autenticada, clone de leitura, e a distinção entre esta base (pública) e os
   cinco repositórios de produto (privados, exigem `gh`).
-- Ajustados `README.md` §6, `governance/RESEARCH-STATUS-AND-DECISIONS.md`,
-  `ecosystem/PROJECT-OWNERSHIP.md`, `LIA-RESEARCH-ROADMAP.md`, `decisions/PENDING/README.md`
-  e `LIA-RESEARCH-PHASE-CLOSURE-REPORT.md` para não descrever `DR-0002` como bloqueio de leitura.
+- Ajustados `README.md` §6, `archive/superseded/RESEARCH-STATUS-AND-DECISIONS.md`,
+  `ecosystem/PROJECT-OWNERSHIP.md`, `archive/superseded/LIA-RESEARCH-ROADMAP.md`, `decisions/PENDING/README.md`
+  e `archive/historical/LIA-RESEARCH-PHASE-CLOSURE-REPORT.md` para não descrever `DR-0002` como bloqueio de leitura.
 
 ### Pesquisa nova (ADD)
 - `LR-AGENT-010` — **pacote de 8 Skills de edição** sobre os apps ArtCraft
@@ -218,7 +218,7 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 - `DR-0006` movido de `PENDING` para `ACCEPTED`: repositório permanece **público**,
   consumo read-only para agentes de projeto (`Lia-Research@c9e6e97`). Documentos que diziam
   "privado" foram corrigidos: `README`, `SECURITY-AND-PRIVACY-POLICY` §6,
-  `RESEARCH-METHODOLOGY`, `QUALITY-AUDIT`, `RESEARCH-STATUS-AND-DECISIONS`.
+  `RESEARCH-METHODOLOGY`, `QUALITY-AUDIT`, `RESEARCH-STATUS-AND-DECISIONS` (arquivado em 2026-11-20).
 
 ### Segurança pública (ADD + FIX)
 - `governance/PUBLIC-EXPOSURE-REVIEW-2026-11-17.md`: 11 classes varridas em 131 Markdown,

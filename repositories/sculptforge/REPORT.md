@@ -3,14 +3,19 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-FORGE-002` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | forge |
 | Projetos beneficiados | Lia Forge (referência), Lia Studio (referência de integração 3D) |
 | Fontes | `islandmed/SculptForge@363e2b86cf8da3834206a9465a31560a8ea7e583:README.md`, tree, `LICENSE`, releases |
 | Versão/commit | `363e2b8` (2026-11-17), release `v0.13.6` |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `islandmed/SculptForge` · HEAD `3776e3918248` · mudou desde a análise (conteúdo novo não lido) |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **REFERÊNCIA** |
+| Recomendação | **REFERENCE_ONLY** |
 | Licença | GPL-3.0-or-later (`CONFIRMED`) |
 | Confiança | Alta para licença/estrutura; Baixa para desempenho |
 
@@ -176,7 +181,7 @@ qualitativo melhor.
 
 ## 17. Recomendação
 
-**`REFERÊNCIA`** — copiar a disciplina de benchmark e o padrão de integração; não
+**`REFERENCE_ONLY`** — copiar a disciplina de benchmark e o padrão de integração; não
 adotar código nem dependência.
 
 **Não autoriza:** incorporar código, redistribuir binário modificado, ou substituir o

@@ -3,13 +3,18 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-SEC-007` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | security |
 | Projetos beneficiados | Lia-Project (auditoria dos apps), Lia Studio (Electron/IPC), Lia Agent Hub (LLM), Lia-Research (padrão de Skill auditável) |
 | Fontes | `cloudflare/security-audit-skill@main` (2026-09-14): `README.md`, `LICENSE`, árvore completa, `skills/security-audit/*.md`, `report-schema.json`, `validate-*.cjs`; API do GitHub |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `cloudflare/security-audit-skill` · HEAD `c1c8a8c14710` · sem SHA analisado registrado |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **ADAPTAR** — usar como checklist de auditoria; a estrutura de Skill é o modelo |
+| Recomendação | **ADAPT** — usar como checklist de auditoria; a estrutura de Skill é o modelo |
 | Licença | MIT (`CONFIRMED`) |
 | Confiança | Alta para conteúdo e estrutura (arquivos lidos); **UNVERIFIED** para eficácia das auditorias |
 
@@ -149,7 +154,7 @@ auditoria continua exigindo execução (o buraco `V6` permanece).
 
 ## 17. Recomendação
 
-**VEREDITO: `ADAPTAR`.** É o item desta lista com melhor relação valor/esforço para a Lia:
+**Recomendação (opinião técnica, não é aprovação): ** ADAPT`.** É o item desta lista com melhor relação valor/esforço para a Lia:
 o conteúdo serve de checklist imediata para o IPC do Stage, e a **estrutura** (schema +
 dois validadores) é o que falta nas 48 Skills do ecossistema. Não copiar o texto: usar como
 fonte citada e escrever o checklist da Lia com as classes que existem aqui.

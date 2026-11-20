@@ -243,7 +243,7 @@ R1 (eval) e R4 (lint + roteamento).
 
 Acoplamento zero: o **formato** é compartilhado; o **arquivo** nunca é importado de
 outro repositório. Se o Hub desaparecer, Forge e Studio continuam lendo manifestos
-locais. É a mesma regra da base de pesquisa (`LIA-RESEARCH-ACCESS-AND-AGENT-WORKFLOW.md` §1).
+locais. É a mesma regra da base de pesquisa (`archive/historical/LIA-RESEARCH-ACCESS-AND-AGENT-WORKFLOW.md` §1).
 
 ## 11. O que este documento **não** decide
 

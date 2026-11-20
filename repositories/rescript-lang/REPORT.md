@@ -3,14 +3,19 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-STUDIO-003` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | studio (linguagem/stack) |
 | Projetos beneficiados | (nenhum diretamente — avaliação de stack) |
 | Fontes | `api.github.com/orgs/rescript-lang/repos` (39 repos, 2026-11-17); `rescript-lang/rescript` (`LICENSE` com texto por diretório) |
 | Versão/commit | não fixado — análise de **organização**; o compilador é `rescript-lang/rescript` (★7.486) |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `rescript-lang/rescript` · HEAD `b2df86941d6e` · sem SHA analisado registrado |
 | Próxima revisão | 2027-11-17 (tema estável) |
-| Status | CURRENT |
-| Recomendação | **REJEITAR** (adoção de stack) / **REFERÊNCIA** (interop e compilação) |
+| Recomendação | **REJECT** (adoção de stack) / **REFERENCE_ONLY** (interop e compilação) |
 | Licença | **múltipla**: `compiler/` **LGPL-3.0-or-later**; `compiler/syntax/`, `runtime/`, `belt/`, `rewatch/` **MIT** |
 | Confiança | Alta para licença e organização; Média para ecossistema |
 
@@ -175,7 +180,7 @@ Classe: `RESEARCH_ONLY` para o ecossistema como um todo (não há intenção de 
 
 ## 17. Recomendação
 
-**`REJEITAR`** para adoção de stack; **`REFERÊNCIA`** para o modelo de licença e para
+**`REJECT`** para adoção de stack; **`REFERENCE_ONLY`** para o modelo de licença e para
 a ideia de análise estática.
 
 Justificativa: incompatibilidade com a stack real (Vue), custo de migração altíssimo,

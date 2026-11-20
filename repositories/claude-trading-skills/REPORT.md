@@ -3,14 +3,19 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-AGENT-002` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | agents |
 | Projetos beneficiados | Lia Agent Hub |
 | Fontes | `tradermonty/claude-trading-skills@a627d17dd1d8fde1c8fa73b3cc69ffe83b33cb71:README.md`, tree (`skills/`, `workflows/`, `skillsets/`), `LICENSE` |
 | Versão/commit | `a627d17` (2026-11-17) — sem releases/tags |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `tradermonty/claude-trading-skills` · HEAD `f95e770591b5` · mudou desde a análise (conteúdo novo não lido) |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **ADAPTAR** (apenas padrões de organização) |
+| Recomendação | **ADAPT** (apenas padrões de organização) |
 | Licença | MIT (`CONFIRMED`, © 2026 TraderMonty) |
 | Confiança | Alta para estrutura e licença; Média para qualidade interna das Skills |
 
@@ -180,7 +185,7 @@ consome** (o "API profile" do manifesto). Hoje as Skills Lia não declaram isso.
 
 ## 17. Recomendação
 
-**`ADAPTAR`** — adotar o **formato de manifesto** para compor Skills Lia; não adotar
+**`ADAPT`** — adotar o **formato de manifesto** para compor Skills Lia; não adotar
 domínio, Skills ou credenciais.
 
 **Gates:**

@@ -1,5 +1,11 @@
 # Protocolo de publicação
 
+> **Limite de autoridade.** Pesquisa recomenda; não aprova adoção. Vocabulário fechado,
+> estados e resultado de execução: `catalog/CATALOG-SCHEMA.md`. Protocolo de
+> investigação: `governance/INVESTIGATION-PROTOCOL.md`; de teste:
+> `governance/TESTING-PROTOCOL.md`.
+
+
 Publicar não é criar arquivo. É tornar o conhecimento descobrível, rastreável e
 auditável. Um documento sem índice é conhecimento perdido com aparência de salvo.
 
@@ -65,7 +71,7 @@ Formato: `LR-<CATEGORIA>-<NNN>`.
 
 Regras:
 - ID é imutável. Mover arquivo não muda ID.
-- ID não é reaproveitado. Pesquisa rejeitada mantém o ID, marcada `REJEITAR`.
+- ID não é reaproveitado. Pesquisa rejeitada mantém o ID, marcada `REJECT`.
 - Próximo número = maior existente no índice + 1. Nunca preencher buraco.
 - Um ID = um documento. Uma família de documentos pode ter `LR-MCP-001` … `-004`
   com sufixo `PARTE`.
@@ -90,7 +96,7 @@ nova que muda a conclusão. Ao atualizar:
 ## 6. Retirada
 
 Documento nunca é apagado. Estado `SUPERSEDED` + cabeçalho apontando o substituto.
-`REJEITAR` também não apaga: a pesquisa que rejeita é evidência da decisão.
+`REJECT` também não apaga: a pesquisa que rejeita é evidência da decisão.
 
 ## 7. Pós-publicação
 

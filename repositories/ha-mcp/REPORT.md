@@ -3,6 +3,10 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-MCP-001` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Título | HA-MCP: servidor MCP para Home Assistant — avaliação e proposta de integração residencial da Lia |
 | Categoria | mcp |
 | Projetos beneficiados | Lia-Project, Lia Agent Hub |
@@ -11,10 +15,11 @@
 | Versão/commit analisado | `3dd26d4` (2026-11-17T14:49:06Z), tag `v9.3.0.dev3610` |
 | Data da pesquisa | 2026-11-17 |
 | Última verificação | 2026-11-17 |
+| Licença | MIT (API do GitHub: `mit`, 2026-11-20; arquivo `LICENSE` não relido) |
+| Upstream conferido | 2026-11-20 · `homeassistant-ai/ha-mcp` · HEAD `955af7bf42a4` · mudou desde a análise (conteúdo novo não lido) |
 | Próxima revisão | 2027-02-17 (90 dias — segurança e automação residencial) |
 | Responsável | Research Orchestrator |
-| Status | CURRENT |
-| Recomendação | **ADAPTAR** (integração opcional; não adotar como dependência do Core) |
+| Recomendação | **ADAPT** (integração opcional; não adotar como dependência do Core) |
 | Licença do objeto | MIT (lida em `LICENSE`, "Copyright (c) 2024 Julien") |
 | Confiança das evidências | **Alta** para identificação, licença, tools, transports e auth; **Média** para desempenho e comportamento em rede local instável |
 
@@ -58,7 +63,7 @@ entidade, por nível de risco) **não existe** e teria de ser construído na Lia
 
 Conclusão: a tecnologia é sólida, bem testada e permissivamente licenciada; a
 arquitetura de segurança para uso doméstico **precisa ser da Lia**, não do HA-MCP.
-Recomendação `ADAPTAR`: usar como adaptador opcional atrás do broker de ferramentas
+Recomendação `ADAPT`: usar como adaptador opcional atrás do broker de ferramentas
 da Lia, com conexão read-only por padrão e caminho elevado separado.
 
 ## 3. O que resolve
@@ -313,7 +318,7 @@ versão obrigatório**, nunca `latest`, e teste de contrato a cada bump.
 
 ## 17. Recomendação
 
-**`ADAPTAR`** — usar o HA-MCP como adaptador opcional de ferramentas, atrás do broker
+**`ADAPT`** — usar o HA-MCP como adaptador opcional de ferramentas, atrás do broker
 de ferramentas da Lia, sem acoplar o Core ao Home Assistant.
 
 Justificativa: a tecnologia é maturidade alta, licença permissiva e cobre os casos de

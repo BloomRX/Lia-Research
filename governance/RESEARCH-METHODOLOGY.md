@@ -1,5 +1,11 @@
 # Metodologia de pesquisa
 
+> **Limite de autoridade.** Pesquisa recomenda; não aprova adoção. Vocabulário fechado,
+> estados e resultado de execução: `catalog/CATALOG-SCHEMA.md`. Protocolo de
+> investigação: `governance/INVESTIGATION-PROTOCOL.md`; de teste:
+> `governance/TESTING-PROTOCOL.md`.
+
+
 Este é o procedimento operacional. Ele foi escrito a partir do método que
 realmente funcionou na fundação de 2026-11-17 (e dos erros cometidos nela).
 

@@ -3,13 +3,18 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-STUDIO-005` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | studio (leitura transversal em licensing, hardware) |
 | Projetos beneficiados | Lia Studio (referência de runtime), Lia Forge (interop nativo), Lia-Research (governança de contribuição) |
 | Fontes | `ahwootech/BRUTAL@c4c62f55286828e51ba93b59ec7fa21ecedae3ca`: `README.md` (10 KB), `LICENSE.txt`, `NOTICE.txt`, `CONTRIBUTING.md`, árvore completa (6.016 entradas), API do GitHub |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `ahwootech/BRUTAL` · HEAD `c4c62f552868` · sem mudança no HEAD |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **REFERÊNCIA** — não adotar; três práticas a adaptar |
+| Recomendação | **REFERENCE_ONLY** — não adotar; três práticas a adaptar |
 | Licença | **BRUTAL License v1.0** — base MIT + créditos + **logo antes do gameplay** + `NOTICE.txt`; **não é OSI** (`CONFIRMED` no texto) |
 | Confiança | Alta para licença, escopo e estrutura (arquivos lidos); **UNVERIFIED** para desempenho e para rodar na RX 580 |
 
@@ -242,7 +247,7 @@ VERDICT de licença: **`REFERENCE_ONLY`** para código; **`ADAPT_ALLOWED`** para
 
 ## 17. Recomendação
 
-**VEREDITO: `REFERÊNCIA`** — não adotar; adaptar três práticas.
+**Recomendação (opinião técnica, não é aprovação): `REFERENCE_ONLY`** — não adotar; adaptar três práticas.
 
 Não há caminho técnico para usar BRUTAL nos apps Lia sem trocar de stack inteira, e não há
 motivo: os apps são Electron/Vue e o BRUTAL é fundação para quem escreve motor em C#.

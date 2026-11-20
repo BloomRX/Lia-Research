@@ -3,14 +3,18 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-AGENT-001` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | agents |
 | Projetos beneficiados | Lia Agent Hub, Lia-Project, Lia Model Lab |
 | Fontes | `open-jarvis/OpenJarvis@6656b7fed28e2ff1efa4e77987cf351f2d71eec0:README.md`, `docs/architecture/overview.md`, `docs/architecture/security.md`, `pyproject.toml`, tree |
 | Versão/commit analisado | `6656b7f` (2026-11-17), release `desktop-v1.0.5` (2026-11-11) |
 | Data da pesquisa | 2026-11-17 |
+| Upstream conferido | 2026-11-20 · `open-jarvis/OpenJarvis` · HEAD `a9e59e8770f9` · mudou desde a análise (conteúdo novo não lido) |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **REFERÊNCIA** (padrões sim; código não) |
+| Recomendação | **REFERENCE_ONLY** (padrões sim; código não) |
 | Licença | Apache-2.0 (`CONFIRMED`) |
 | Confiança | **Alta** para arquitetura, licença e dependências; **Baixa** para desempenho/energia (não medido aqui) |
 
@@ -230,7 +234,7 @@ e a política de telemetria. Não foi possível validar o comportamento em runti
 
 ## 17. Recomendação
 
-**`REFERÊNCIA`** — estudar e copiar padrões; não adotar como dependência.
+**`REFERENCE_ONLY`** — estudar e copiar padrões; não adotar como dependência.
 
 Justificativa: a arquitetura responde exatamente às perguntas que a Lia enfrenta hoje
 (contrato de engine, catálogo com metadados, guardrails substituíveis), mas adotá-la

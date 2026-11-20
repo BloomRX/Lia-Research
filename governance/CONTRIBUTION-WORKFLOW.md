@@ -1,5 +1,11 @@
 # Fluxo de contribuição
 
+> **Limite de autoridade.** Pesquisa recomenda; não aprova adoção. Vocabulário fechado,
+> estados e resultado de execução: `catalog/CATALOG-SCHEMA.md`. Protocolo de
+> investigação: `governance/INVESTIGATION-PROTOCOL.md`; de teste:
+> `governance/TESTING-PROTOCOL.md`.
+
+
 ---
 
 ## 1. Quem contribui

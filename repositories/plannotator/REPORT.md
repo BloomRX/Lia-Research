@@ -3,14 +3,19 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-UI-002` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | ui |
 | Projetos beneficiados | Lia-Project, Lia Agent Hub |
 | Fontes | `backnotprop/plannotator@b5b3077838a1758960198dc404ee98e2a57acf6d:README.md`, tree, `LICENSE`, releases |
 | Versão/commit | `b5b3077` (2026-11-17), release `v0.28.67` (2026-11-17) |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `backnotprop/plannotator` · HEAD `589d4230a6d2` · mudou desde a análise (conteúdo novo não lido) |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **REFERÊNCIA** (avaliar como ponte de revisão humana; não adotar agora) |
+| Recomendação | **REFERENCE_ONLY** (avaliar como ponte de revisão humana; não adotar agora) |
 | Licença | Apache-2.0 (`CONFIRMED`) |
 | Confiança | Alta para estrutura/licença; Média para integrações |
 
@@ -166,7 +171,7 @@ com um diretório `decisions/` ainda quase vazio. Vale copiar o hábito.
 
 ## 17. Recomendação
 
-**`REFERÊNCIA`** — o valor está no padrão de revisão e no hábito de ADR; a ferramenta
+**`REFERENCE_ONLY`** — o valor está no padrão de revisão e no hábito de ADR; a ferramenta
 em si é opcional e instável.
 
 **Não autoriza:** integrar ao produto, depender do app, ou redirecionar conteúdo

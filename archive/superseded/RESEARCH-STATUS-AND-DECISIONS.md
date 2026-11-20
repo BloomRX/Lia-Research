@@ -2,6 +2,11 @@
 
 ---
 
+> **Substituído em 2026-11-20 por `catalog/CATALOG-SCHEMA.md`.** Este texto usava cinco
+> categorias de recomendação (`ADOTAR`, `ADAPTAR`, `REFERÊNCIA`, `REJEITAR`, `PENDENTE`).
+> O vocabulário atual tem sete, separa estado de pesquisa e resultado de execução, e
+> proíbe recomendar adoção. Mantido pelo registro histórico do argumento.
+
 ## 1. Duas coisas diferentes
 
 | | Pesquisa (este repositório) | Decisão de implementação |

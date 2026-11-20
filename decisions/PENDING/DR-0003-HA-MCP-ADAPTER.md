@@ -3,6 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | DR-0003 |
+| Alcance | **GOVERNANCA** — decisão administrativa; não aprova adoção de tecnologia |
 | Estado | **PENDING** |
 | Dono | proprietário + responsável do Lia-Project |
 | Data | 2026-11-17 |

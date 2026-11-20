@@ -3,6 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | DR-0014 |
+| Alcance | **GOVERNANCA** — decisão administrativa; não aprova adoção de tecnologia |
 | Estado | **PENDING** |
 | Dono | Lia Model Lab |
 | Data | 2026-11-17 |

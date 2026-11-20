@@ -9,6 +9,7 @@
 | Data de abertura | 2026-11-17 (como bloqueio de privacidade) |
 | Reverte | a suposição da ordem de serviço de que o repositório deveria ser privado |
 | Registro de origem | `BloomRX/Lia-Research@c9e6e97:README.md` — "The repository is public so agents across the ecosystem can read it." |
+| Alcance | **GOVERNANCA** — decisão administrativa; não aprova adoção de tecnologia |
 
 ## Histórico (preservado)
 

@@ -1,5 +1,11 @@
 # LIA-RESEARCH — Auditoria de Repositórios Externos
 
+> **Nota de vocabulário (2026-11-20).** Este documento é auditoria de repositórios externos (histórico) e preserva o texto da
+> época. O vocabulário de recomendação foi substituído em 2026-11-20 por
+> `ADAPT` / `REFERENCE_ONLY` / `REJECT` / `DIRECT_INTEGRATION_CANDIDATE`
+> (`catalog/CATALOG-SCHEMA.md` §4.1). Nada aqui foi promoção a aprovação de adoção.
+
+
 | Campo | Valor |
 |---|---|
 | Data | 2026-11-17 |

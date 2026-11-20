@@ -3,14 +3,19 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-FORGE-004` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | forge |
 | Projetos beneficiados | Lia Forge (assets/VFX), Lia Studio (jogos 2D) |
 | Fontes | `patch-gg/pixelfx@5294518ce7c72e48b6100a744596e0acf57f2826:README.md`, `NOTICE.md`, tree, `LICENSE` |
 | Versão/commit | `5294518` (2026-11-12) — sem releases/tags |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `patch-gg/pixelfx` · HEAD `5294518ce7c7` · sem mudança no HEAD |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **ADAPTAR** (uso de catálogo/efeitos com atribuição correta) |
+| Recomendação | **ADAPT** (uso de catálogo/efeitos com atribuição correta) |
 | Licença | MIT **com atribuições específicas** em `NOTICE.md` |
 | Confiança | Alta para licença; Média para qualidade dos efeitos |
 
@@ -171,7 +176,7 @@ aviso na raiz, payload sem aviso.
 
 ## 17. Recomendação
 
-**`ADAPTAR`** — usar como catálogo de referência/asset com atribuição completa;
+**`ADAPT`** — usar como catálogo de referência/asset com atribuição completa;
 não integrar o pacote inteiro como dependência.
 
 **Gates:**

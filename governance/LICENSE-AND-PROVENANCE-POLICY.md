@@ -1,5 +1,11 @@
 # Política de licença e proveniência
 
+> **Limite de autoridade.** Pesquisa recomenda; não aprova adoção. Vocabulário fechado,
+> estados e resultado de execução: `catalog/CATALOG-SCHEMA.md`. Protocolo de
+> investigação: `governance/INVESTIGATION-PROTOCOL.md`; de teste:
+> `governance/TESTING-PROTOCOL.md`.
+
+
 > Este documento não é parecer jurídico. É um procedimento para impedir que o
 > ecossistema Lia redistribua algo que não pode.
 

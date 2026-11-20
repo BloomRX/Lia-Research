@@ -1,5 +1,8 @@
 # ADAPTED — vazio por decisão
 
+> **Alcance:** decisão de governança ajustada — **não** autoriza adaptação em produto. Ver `decisions/README.md` §3.
+
+
 Nenhuma adaptação foi autorizada. Há candidatos claros (`ADAPTAR` no relatório), mas
 cada um exige protótipo isolado **e** decisão do projeto beneficiado:
 

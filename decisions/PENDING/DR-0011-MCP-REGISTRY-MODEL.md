@@ -3,6 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | DR-0011 |
+| Alcance | **GOVERNANCA** — decisão administrativa; não aprova adoção de tecnologia |
 | Estado | **PENDING** |
 | Dono | Lia Agent Hub |
 | Data | 2026-11-17 |

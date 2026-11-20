@@ -1,5 +1,11 @@
 # 1. Escopo e autoridade
 
+> **Limite de autoridade.** Pesquisa recomenda; não aprova adoção. Vocabulário fechado,
+> estados e resultado de execução: `catalog/CATALOG-SCHEMA.md`. Protocolo de
+> investigação: `governance/INVESTIGATION-PROTOCOL.md`; de teste:
+> `governance/TESTING-PROTOCOL.md`.
+
+
 Este documento define quem pode fazer o quê no Lia-Research. Ele deriva da ordem de
 serviço de 2026-11-17 e não pode ser ampliado por conveniência de uma sessão.
 

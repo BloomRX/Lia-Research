@@ -3,14 +3,19 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-UI-001` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | ui |
 | Projetos beneficiados | Lia-Project (Stage Vue), Lia Forge, Lia Agent Hub |
 | Fontes | `vercel-labs/ui@10b3b6c0eccfd176a6d60ce4efaccf0d1584da08:README.md`, `packages/*`, tree |
 | Versão/commit analisado | `10b3b6c` (2026-11-17), release `@ui-sdk/web@0.1.0-beta.7` |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `vercel-labs/ui` · HEAD `b4dbe88209ec` · mudou desde a análise (conteúdo novo não lido) |
 | Próxima revisão | 2027-01-17 (60 dias — beta ativo) |
-| Status | CURRENT |
-| Recomendação | **ADAPTAR** (avaliar protótipo isolado; não adicionar dependência agora) |
+| Recomendação | **ADAPT** (avaliar protótipo isolado; não adicionar dependência agora) |
 | Licença | Apache-2.0 + Vercel Beta Terms |
 | Confiança | **Alta** para estrutura/licença; **Média** para maturidade de API |
 
@@ -201,7 +206,7 @@ comportamentos em Vue (Stage) e no futuro em outras superfícies.
 
 ## 17. Recomendação
 
-**`ADAPTAR`** — aproveitar o modelo de comportamentos e, no máximo, `@ui-sdk/vue` em
+**`ADAPT`** — aproveitar o modelo de comportamentos e, no máximo, `@ui-sdk/vue` em
 protótipo isolado.
 
 **Gates:**
@@ -224,4 +229,4 @@ ou introduzir WebMCP.
 | 2 | Medir o custo de bundle de `@ui-sdk/vue` | Lia-Project | número, não impressão |
 | 3 | Ler os Vercel beta terms | proprietário | `AGUARDA DECISÃO` sobre viabilidade jurídica |
 | 4 | Levantar issues abertas por tipo (bug × feature) | Research | indicador de estabilidade real |
-| 5 | Revisar em 60 dias | Research | decisão de manter `ADAPTAR` ou rebaixar para `REFERÊNCIA` |
+| 5 | Revisar em 60 dias | Research | decisão de manter `ADAPT` ou rebaixar para `REFERENCE_ONLY` |

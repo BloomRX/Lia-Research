@@ -3,6 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | DR-0007 |
+| Alcance | **GOVERNANCA** — decisão administrativa; não aprova adoção de tecnologia |
 | Estado | **PENDING** |
 | Dono | responsáveis de Forge, Model-Lab e Project |
 | Data | 2026-11-17 |

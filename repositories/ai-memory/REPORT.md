@@ -3,13 +3,18 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-AGENT-011` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | agent |
 | Projetos beneficiados | Lia Agent Hub (memória compartilhada), Lia Model Lab (harness), Lia-Project (continuidade de sessão) |
 | Fontes | `akitaonrails/ai-memory@main` (2026-11-19): `README.md`, árvore (859 subdiretórios em `crates/`, 211 hooks, 187 companions, 184 docs, 51 plugins, 41 evals), API do GitHub; site aimemory.sh |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `akitaonrails/ai-memory` · HEAD `6a141858bb88` · sem SHA analisado registrado |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **ADAPTAR** — o protocolo de *handoff* e o modelo de memória, não o binário |
+| Recomendação | **ADAPT** — o protocolo de *handoff* e o modelo de memória, não o binário |
 | Licença | MIT (`CONFIRMED` no `LICENSE` e no README) |
 | Confiança | Alta para o desenho (README lido); **UNVERIFIED** para funcionamento — não executado |
 
@@ -160,7 +165,7 @@ por harness · concorre com `mempalace` (item 05 da triagem) e `mcpvault` (item 
 
 ## 17. Recomendação
 
-**VEREDITO: `ADAPTAR`.** Não instalar como dependência agora; adaptar o **protocolo de
+**Recomendação (opinião técnica, não é aprovação): ** ADAPT`.** Não instalar como dependência agora; adaptar o **protocolo de
 handoff (M1)** e a regra de **privacidade antes de armazenar (M3)**, que servem ao Hub
 mesmo sem o binário. Se a Lia for adotar uma memória, comparar com `mempalace` e
 `mcpvault` num único digest — não três relatórios dizendo o mesmo.

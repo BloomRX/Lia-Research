@@ -3,13 +3,18 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-STUDIO-004` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | studio (com leitura transversal em forge, agent, model, security) |
 | Projetos beneficiados | Lia Studio (primário), Lia Forge, Lia Agent Hub, Lia Model Lab, Lia-Project |
 | Fontes | `storytold/photocraft@a858d42a5028287662e28e89be0bbce9d0bec6b5`, `storytold/craft-libs@2466fd7ad8371a3551946a0795dbae11e0c3f805`, `storytold/artcraft@a6d52df45e553a6119116e560403155b0c65dc60`, `storytold/craft-ai-integrations@d94a3593adcff504eaaad9e5aee4c84fd2f07a72`: READMEs, `book/src/{architecture/command-engine,automation/mcp}.md`, `docs/ai-shared-layer.md`, árvores recursivas, API do GitHub; site `getartcraft.com/apps` (2026-11-17) |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `storytold/photocraft` · HEAD `359051359fee` · mudou desde a análise (conteúdo novo não lido) |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **ADAPTAR** — o desenho arquitetural, não o código |
+| Recomendação | **ADAPT** — o desenho arquitetural, não o código |
 | Licença | **MIT OR Apache-2.0** (dual) em todos os repos verificados `CONFIRMED` |
 | Confiança | **Alta** para arquitetura e segurança (docs e código lidos); **baixa** para qualidade de execução (nenhum app executado; tudo alpha) |
 
@@ -292,7 +297,7 @@ confiável para produção.
 
 ## 17. Recomendação
 
-**VEREDITO: `ADAPTAR`** — arquitetura, não código.
+**Recomendação (opinião técnica, não é aprovação): `ADAPT`** — arquitetura, não código.
 
 O ArtCraft é a melhor referência já encontrada por esta base para **um app criativo que é
 operável por agente sem virar shell** — e o único objeto que já resolveu, com documentação

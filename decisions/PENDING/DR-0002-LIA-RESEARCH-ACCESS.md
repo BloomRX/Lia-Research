@@ -3,6 +3,7 @@
 | Campo | Valor |
 |---|---|
 | ID | DR-0002 |
+| Alcance | **GOVERNANCA** — decisão administrativa; não aprova adoção de tecnologia |
 | Estado | **PENDING (parcial)** |
 | Dono | proprietário |
 | Data | 2026-11-17 · revisado 2026-11-17 |

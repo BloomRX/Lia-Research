@@ -3,14 +3,19 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-FORGE-001` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | forge (aquisição de arquivos grandes) |
 | Projetos beneficiados | Lia Forge, Lia Agent Hub, Lia Model Lab (eventual) |
 | Fontes | `anefzaoui/misterdownloadmanager@d9a9ef0621cb494a39999ab9adf433515a9d36a1:README.md`, `crates/mcp/Cargo.toml`, `docs/browser-integration.md`, tree, `LICENSE` |
 | Versão/commit | `d9a9ef0` (2026-11-17), release `v0.5.2` (2026-11-09) |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `anefzaoui/misterdownloadmanager` · HEAD `f648a0c2bc58` · mudou desde a análise (conteúdo novo não lido) |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **REFERÊNCIA** para o produto; **`ADAPTAR`** apenas se usado como processo externo via MCP |
+| Recomendação | **REFERENCE_ONLY** para o produto; **`ADAPT`** apenas se usado como processo externo via MCP |
 | Licença | **GPL-3.0** (`CONFIRMED`) |
 | Confiança | Alta para licença, arquitetura, MCP e integração de navegador; Baixa para desempenho |
 
@@ -216,7 +221,7 @@ não é maturidade. Tratar como beta até haver histórico.
 
 ## 17. Recomendação
 
-**`REFERÊNCIA`** para o produto, com **`ADAPTAR`** permitido apenas na forma
+**`REFERENCE_ONLY`** para o produto, com **`ADAPT`** permitido apenas na forma
 "processo externo + MCP".
 
 **Gates:**

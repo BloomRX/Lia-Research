@@ -1,5 +1,8 @@
 # ACCEPTED — decisões aceitas pelo proprietário
 
+> **Alcance:** decisão de governança aceita — **não** aprova adoção de tecnologia. Ver `decisions/README.md` §3.
+
+
 | ID | Decisão | Data | Registro |
 |---|---|---|---|
 | `DR-0006` | Lia-Research permanece **público**, com consumo read-only para agentes de projeto | 2026-11-17 | `DR-0006-REPOSITORY-PUBLIC.md` (origem: `Lia-Research@c9e6e97`) |

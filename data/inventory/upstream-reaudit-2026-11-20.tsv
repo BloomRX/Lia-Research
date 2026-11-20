@@ -1,0 +1,23 @@
+pasta	upstream	existe	branch	sha_analisado	sha_atual	mudou	licenca_api	pushed_at	arquivado	estrelas	nota
+ai-design-skills	elayadesign/ai-design-skills	SIM	main	456d9e0d3e2d	456d9e0d3e2d	nao	MIT	2026-11-01	nao	16156	
+ai-memory	akitaonrails/ai-memory	SIM	main		6a141858bb88	sem-sha	MIT	2026-11-19	nao	16172	
+artcraft	storytold/photocraft	SIM	main	a858d42a5028	359051359fee	SIM	Apache-2.0	2026-11-20	nao	80594	pasta 'artcraft', upstream storytold/photocraft
+brutal	ahwootech/BRUTAL	SIM	main	c4c62f552868	c4c62f552868	nao	NOASSERTION	2026-11-12	nao	2528	
+claude-bughunter	elementalsouls/Claude-BugHunter	SIM	main	b63ae349afad	0e70a021e59d	SIM	MIT	2026-11-19	nao	12934	
+claude-code-game-studios	Donchitos/Claude-Code-Game-Studios	SIM	main	abc0de79d6ce	abc0de79d6ce	nao	MIT	2026-11-09	nao	40261	
+claude-trading-skills	tradermonty/claude-trading-skills	SIM	main	a627d17dd1d8	f95e770591b5	SIM	MIT	2026-11-19	nao	7300	
+cloudflare-security-audit-skill	cloudflare/security-audit-skill	SIM	main		c1c8a8c14710	sem-sha	MIT	2026-09-14	nao	75949	
+freellmapi	tashfeenahmed/freellmapi	SIM	main		dd0fb7135174	sem-sha	MIT	2026-11-19	nao	55345	
+ha-mcp	homeassistant-ai/ha-mcp	SIM	master	3dd26d45fbef	955af7bf42a4	SIM	MIT	2026-11-20	nao	8007	
+manimgx	academa-labs/manimgx	SIM	main	1fb4dd7327bf	1fb4dd7327bf	nao	MIT	2026-11-16	nao	2822	
+meldwork	Ryder-Sun/Meldwork	SIM	main	db9b6c84cbb1	db9b6c84cbb1	nao	Apache-2.0	2026-11-16	nao	1597	
+misterdownloadmanager	anefzaoui/misterdownloadmanager	SIM	main	d9a9ef0621cb	f648a0c2bc58	SIM	GPL-3.0	2026-11-20	nao	13934	
+openidea	l0ng-ai/openidea	SIM	main	182285647ee2	e6905f288ea4	SIM	Apache-2.0	2026-11-20	nao	9603	
+openjarvis	open-jarvis/OpenJarvis	SIM	main	6656b7fed28e	a9e59e8770f9	SIM	Apache-2.0	2026-11-20	nao	17358	
+pixelfx	patch-gg/pixelfx	SIM	main	5294518ce7c7	5294518ce7c7	nao	MIT	2026-11-13	nao	8370	
+plannotator	backnotprop/plannotator	SIM	main	b5b3077838a1	589d4230a6d2	SIM	Apache-2.0	2026-11-20	nao	13731	
+rescript-lang	rescript-lang/rescript	SIM	master		b2df86941d6e	sem-sha	NOASSERTION	2026-11-19	nao	7486	
+routerhub	routerhubSI/litellm	SIM	main		187f936cb345	sem-sha	NOASSERTION	2026-11-01	nao	1	
+sculptforge	islandmed/SculptForge	SIM	main	363e2b86cf8d	3776e3918248	SIM	GPL-3.0	2026-11-20	nao	744	
+unslop	theclaymethod/unslop	SIM	main	0f4a07f5ca8b	0f4a07f5ca8b	nao	SEM_LICENCA_DETECTADA	2026-11-14	nao	1182	
+vercel-ui	vercel-labs/ui	SIM	main	10b3b6c0eccf	b4dbe88209ec	SIM	Apache-2.0	2026-11-20	nao	6175	

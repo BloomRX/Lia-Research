@@ -3,14 +3,19 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-AGENT-004` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | agents |
 | Projetos beneficiados | (nenhum — bloqueado por licença) |
 | Fontes | `theclaymethod/unslop@0f4a07f5ca8bb400b4d4450b00d67c6e4a30b85a:README.md`, tree, `api.github.com` (metadados de licença) |
 | Versão/commit | `0f4a07f` (2026-11-14) — sem releases |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `theclaymethod/unslop` · HEAD `0f4a07f5ca8b` · sem mudança no HEAD |
 | Próxima revisão | 2027-05-17 (baixa prioridade) |
-| Status | CURRENT |
-| Recomendação | **REJEITAR** (por ausência de licença) |
+| Recomendação | **REJECT** (por ausência de licença) |
 | Licença | **Nenhuma** — todos os direitos reservados (`CONFIRMED`) |
 | Confiança | Alta (licença e estrutura verificadas diretamente) |
 
@@ -164,10 +169,10 @@ Ambas são ideias; nenhuma linha de código pode ser copiada.
 
 ## 17. Recomendação
 
-**`REJEITAR`** — enquanto não houver licença, nenhum uso é possível.
+**`REJECT`** — enquanto não houver licença, nenhum uso é possível.
 
 **Condição de reabertura:** o autor adicionar uma licença (MIT/Apache-2.0 serviriam).
-Então reabrir como `ADAPTAR` após leitura da licença.
+Então reabrir como `ADAPT` após leitura da licença.
 
 **Não autoriza:** copiar texto do skill, executar scripts, ou reimplementar a partir
 do texto do repositório (só a partir do conceito).

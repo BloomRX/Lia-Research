@@ -3,14 +3,19 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-FORGE-003` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | forge |
 | Projetos beneficiados | Lia Forge, Lia Studio (referência de render programático) |
 | Fontes | `academa-labs/manimgx@1fb4dd7327bf5ed7d0c40d022c05cb816455ae1d:README.md`, tree, `LICENSE`, `LICENSES/`, releases |
 | Versão/commit | `1fb4dd7` (commit HEAD 2026-10-24; repositório recebeu push em 2026-11-16), release `v0.1.1` (2026-10-07) |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `academa-labs/manimgx` · HEAD `1fb4dd7327bf` · sem mudança no HEAD |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **REFERÊNCIA** |
+| Recomendação | **REFERENCE_ONLY** |
 | Licença | MIT + múltiplas (`LICENSES/`: Apache-2.0, CC-BY-SA-4.0, ISC, LLVM-exception, MIT, OFL-1.1) |
 | Confiança | Alta para licença/estrutura; Baixa para desempenho |
 
@@ -181,7 +186,7 @@ analisado é o que está em `main` — declarado explicitamente.
 
 ## 17. Recomendação
 
-**`REFERÊNCIA`** — copiar a disciplina de licença e de verificação; não adotar a engine
+**`REFERENCE_ONLY`** — copiar a disciplina de licença e de verificação; não adotar a engine
 sem caso de uso concreto.
 
 **Gates** (se houver adoção):

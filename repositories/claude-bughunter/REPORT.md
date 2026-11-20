@@ -3,13 +3,18 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-SEC-006` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | security |
 | Projetos beneficiados | Lia Agent Hub (primário), Lia-Project, Lia Studio, Lia Forge, Lia Model Lab — **pela engenharia, não pelo conteúdo** |
 | Fontes | `elementalsouls/Claude-BugHunter@b63ae349afad88772e6d854a277ae9965fd4c369` (2026-11-18): `README.md` (23 KB, 346 linhas), `plugin.json`, `marketplace.json`, `LICENSE`, `LICENSE-CONTENT`, `NOTICE`, `docs/credits.md`, `eval/README.md`, `eval/BASELINE.md`, `.github/workflows/{leak-guard,skill-lint,doc-count-check}.yml`, `scripts/scan_identifiers.py`, `skills/hunt-xss/SKILL.md`, árvore completa (341 blobs) |
 | Data | 2026-11-17 (coleta) · commit do repo é de 2026-11-18 UTC |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `elementalsouls/Claude-BugHunter` · HEAD `0e70a021e59d` · mudou desde a análise (conteúdo novo não lido) |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **REFERÊNCIA** — instalar não; copiar seis mecanismos de engenharia, sim |
+| Recomendação | **REFERENCE_ONLY** — instalar não; copiar seis mecanismos de engenharia, sim |
 | Licença | **Dupla**: código MIT + conteúdo CC BY 4.0 (`CONFIRMED`) |
 | Confiança | **Alta** para estrutura, licença e CI (arquivos lidos); **nula** para eficácia das Skills (não executado; o próprio repo mede delta 0 no que mediu) |
 
@@ -165,7 +170,7 @@ repositório**, inclusive em uso comercial. Isso é compatível com um README de
 Lição direta para a Lia: **manifesto de pacote é lugar de declarar licença por classe de
 conteúdo**, e licença declarada sem checagem automática diverge — mesmo com 8 workflows.
 
-VERDICT `REFERÊNCIA`, classe `USE_AS_IS` **apenas** para estudo dos mecanismos; **nenhum
+VERDICT `REFERENCE_ONLY`, classe `USE_AS_IS` **apenas** para estudo dos mecanismos; **nenhum
 payload copiado** (proibido, e desnecessário: o valor está nos scripts de higiene).
 
 ## 10. Maturidade e manutenção
@@ -264,7 +269,7 @@ auditáveis" e testa isso. A Lia-Research cita manualmente; este é o desenho au
 
 ## 17. Recomendação
 
-**VEREDITO: `REFERÊNCIA`.**
+**Recomendação (opinião técnica, não é aprovação): ** REFERENCE_ONLY`.**
 
 Não instalar, não embutir, não distribuir. O bundle é excelente no que faz e irrelevante
 para o produto da Lia — nenhum dos cinco projetos precisa de capacidade ofensiva.

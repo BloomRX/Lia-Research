@@ -3,14 +3,19 @@
 | Campo | Valor |
 |---|---|
 | ID | `LR-STUDIO-002` |
+| Tipo | repositorio |
+| Estado da pesquisa | DOCUMENTED |
+| Resultado de execução | STATIC_REVIEW_ONLY |
+| Decisão de adoção | — (nenhuma registrada) |
 | Categoria | studio |
 | Projetos beneficiados | Lia Studio, Lia Agent Hub |
 | Fontes | `Donchitos/Claude-Code-Game-Studios@abc0de79d6ceb0b5d7aa693945849b3937afbe6a:README.md`, tree (`.claude/`, `studio-tests/`, `docs/`), `LICENSE`, releases |
 | Versão/commit | `abc0de7` (2026-11-09), release `v1.3.0` |
 | Data | 2026-11-17 |
+| Última verificação | 2026-11-20 |
+| Upstream conferido | 2026-11-20 · `Donchitos/Claude-Code-Game-Studios` · HEAD `abc0de79d6ce` · sem mudança no HEAD |
 | Próxima revisão | 2027-02-17 |
-| Status | CURRENT |
-| Recomendação | **ADAPTAR** (padrões de processo e hierarquia) |
+| Recomendação | **ADAPT** (padrões de processo e hierarquia) |
 | Licença | MIT (`CONFIRMED`, © 2026 Donchitos) |
 | Confiança | Alta para estrutura/licença; Média para eficácia do processo |
 
@@ -179,7 +184,7 @@ processo. Isso o torna diretamente comparável ao que o Lia Agent Hub precisa se
 
 ## 17. Recomendação
 
-**`ADAPTAR`** — adotar padrões de processo e de organização de conhecimento;
+**`ADAPT`** — adotar padrões de processo e de organização de conhecimento;
 corrigir o empacotamento de aviso das 7 Skills já adaptadas.
 
 **Gates:**

@@ -20,32 +20,32 @@ outro documento e não aqui, o outro documento está errado.
 
 | ID | Objeto | Licença | Veredito | Confiança | Documento |
 |---|---|---|---|---|---|
-| `LR-MCP-001` | `homeassistant-ai/ha-mcp` | MIT | **ADAPTAR** | Alta | `repositories/ha-mcp/REPORT.md` |
-| `LR-MCP-001-A` | proposta de arquitetura residencial | — | ADAPTAR | Alta | `repositories/ha-mcp/ARCHITECTURE-PROPOSAL.md` |
+| `LR-MCP-001` | `homeassistant-ai/ha-mcp` | MIT | **ADAPT** | Alta | `repositories/ha-mcp/REPORT.md` |
+| `LR-MCP-001-A` | proposta de arquitetura residencial | — | ADAPT | Alta | `repositories/ha-mcp/ARCHITECTURE-PROPOSAL.md` |
 | `LR-MCP-001-B` | matriz de risco R0–R3 | — | PENDENTE (DR-0008) | Alta | `repositories/ha-mcp/RISK-MATRIX.md` |
-| `LR-MCP-001-C` | contrato de servidor MCP de casa | — | ADAPTAR | Alta | `repositories/ha-mcp/MCP-CONTRACT.md` |
+| `LR-MCP-001-C` | contrato de servidor MCP de casa | — | ADAPT | Alta | `repositories/ha-mcp/MCP-CONTRACT.md` |
 | `LR-MCP-001-D` | plano de implementação em 8 fatias | — | PENDENTE (DR-0003) | Média | `repositories/ha-mcp/IMPLEMENTATION-PLAN.md` |
-| `LR-AGENT-001` | `open-jarvis/OpenJarvis` | Apache-2.0 | **REFERÊNCIA** | Alta | `repositories/openjarvis/REPORT.md` |
-| `LR-UI-001` | `vercel-labs/ui` | Apache-2.0 + beta | **ADAPTAR** | Alta | `repositories/vercel-ui/REPORT.md` |
-| `LR-FORGE-001` | `anefzaoui/misterdownloadmanager` | **GPL-3.0** | **REFERÊNCIA** | Alta | `repositories/misterdownloadmanager/REPORT.md` |
-| `LR-AGENT-002` | `tradermonty/claude-trading-skills` | MIT | **ADAPTAR** | Alta | `repositories/claude-trading-skills/REPORT.md` |
-| `LR-STUDIO-001` | `l0ng-ai/openidea` | Apache-2.0 | **REFERÊNCIA** | Alta | `repositories/openidea/REPORT.md` |
-| `LR-PROV-001` | `routerhubSI` (organização) | MIT / NOASSERTION | **REJEITAR** | Média | `repositories/routerhub/REPORT.md` |
-| `LR-FORGE-002` | `islandmed/SculptForge` | **GPL-3.0** | **REFERÊNCIA** | Alta | `repositories/sculptforge/REPORT.md` |
-| `LR-STUDIO-002` | `Donchitos/Claude-Code-Game-Studios` | MIT | **ADAPTAR** | Alta | `repositories/claude-code-game-studios/REPORT.md` |
-| `LR-FORGE-003` | `academa-labs/manimgx` | mixed (6) | **REFERÊNCIA** | Alta | `repositories/manimgx/REPORT.md` |
-| `LR-AGENT-003` | `Ryder-Sun/Meldwork` | Apache-2.0 | **REFERÊNCIA** | Alta | `repositories/meldwork/REPORT.md` |
-| `LR-UI-002` | `backnotprop/plannotator` | Apache-2.0 | **REFERÊNCIA** | Alta | `repositories/plannotator/REPORT.md` |
-| `LR-FORGE-004` | `patch-gg/pixelfx` | MIT + NOTICE | **ADAPTAR** | Alta | `repositories/pixelfx/REPORT.md` |
-| `LR-AGENT-004` | `theclaymethod/unslop` | **nenhuma** | **REJEITAR** | Alta | `repositories/unslop/REPORT.md` |
-| `LR-STUDIO-003` | `rescript-lang` (org, 39 repos) | LGPL no `compiler/` | **REJEITAR** | Alta | `repositories/rescript-lang/REPORT.md` |
-| `LR-UI-003` | `elayadesign/ai-design-skills` | MIT | **ADAPTAR** | Média | `repositories/ai-design-skills/REPORT.md` |
-| `LR-SEC-006` | `elementalsouls/Claude-BugHunter` | MIT + CC BY 4.0 | **REFERÊNCIA** | Alta | `repositories/claude-bughunter/REPORT.md` |
-| `LR-STUDIO-004` | `storytold` (ArtCraft, 17 apps + 186 crates) | MIT OR Apache-2.0 | **ADAPTAR** | Alta | `repositories/artcraft/REPORT.md` |
-| `LR-STUDIO-005` | `ahwootech/BRUTAL` (framework C#/Vulkan) | BRUTAL License v1.0 (não OSI) | **REFERÊNCIA** | Alta | `repositories/brutal/REPORT.md` |
-| `LR-AGENT-011` | `akitaonrails/ai-memory` (memória multi-harness) | MIT | **ADAPTAR** | Alta | `repositories/ai-memory/REPORT.md` |
-| `LR-SEC-007` | `cloudflare/security-audit-skill` | MIT | **ADAPTAR** | Média | `repositories/cloudflare-security-audit-skill/REPORT.md` |
-| `LR-MODEL-006` | `tashfeenahmed/freellmapi` (free tiers agregados) | MIT (software) | **REFERÊNCIA** | Alta | `repositories/freellmapi/REPORT.md` |
+| `LR-AGENT-001` | `open-jarvis/OpenJarvis` | Apache-2.0 | **REFERENCE_ONLY** | Alta | `repositories/openjarvis/REPORT.md` |
+| `LR-UI-001` | `vercel-labs/ui` | Apache-2.0 + beta | **ADAPT** | Alta | `repositories/vercel-ui/REPORT.md` |
+| `LR-FORGE-001` | `anefzaoui/misterdownloadmanager` | **GPL-3.0** | **REFERENCE_ONLY** | Alta | `repositories/misterdownloadmanager/REPORT.md` |
+| `LR-AGENT-002` | `tradermonty/claude-trading-skills` | MIT | **ADAPT** | Alta | `repositories/claude-trading-skills/REPORT.md` |
+| `LR-STUDIO-001` | `l0ng-ai/openidea` | Apache-2.0 | **REFERENCE_ONLY** | Alta | `repositories/openidea/REPORT.md` |
+| `LR-PROV-001` | `routerhubSI` (organização) | MIT / NOASSERTION | **REJECT** | Média | `repositories/routerhub/REPORT.md` |
+| `LR-FORGE-002` | `islandmed/SculptForge` | **GPL-3.0** | **REFERENCE_ONLY** | Alta | `repositories/sculptforge/REPORT.md` |
+| `LR-STUDIO-002` | `Donchitos/Claude-Code-Game-Studios` | MIT | **ADAPT** | Alta | `repositories/claude-code-game-studios/REPORT.md` |
+| `LR-FORGE-003` | `academa-labs/manimgx` | mixed (6) | **REFERENCE_ONLY** | Alta | `repositories/manimgx/REPORT.md` |
+| `LR-AGENT-003` | `Ryder-Sun/Meldwork` | Apache-2.0 | **REFERENCE_ONLY** | Alta | `repositories/meldwork/REPORT.md` |
+| `LR-UI-002` | `backnotprop/plannotator` | Apache-2.0 | **REFERENCE_ONLY** | Alta | `repositories/plannotator/REPORT.md` |
+| `LR-FORGE-004` | `patch-gg/pixelfx` | MIT + NOTICE | **ADAPT** | Alta | `repositories/pixelfx/REPORT.md` |
+| `LR-AGENT-004` | `theclaymethod/unslop` | **nenhuma** | **REJECT** | Alta | `repositories/unslop/REPORT.md` |
+| `LR-STUDIO-003` | `rescript-lang` (org, 39 repos) | LGPL no `compiler/` | **REJECT** | Alta | `repositories/rescript-lang/REPORT.md` |
+| `LR-UI-003` | `elayadesign/ai-design-skills` | MIT | **ADAPT** | Média | `repositories/ai-design-skills/REPORT.md` |
+| `LR-SEC-006` | `elementalsouls/Claude-BugHunter` | MIT + CC BY 4.0 | **REFERENCE_ONLY** | Alta | `repositories/claude-bughunter/REPORT.md` |
+| `LR-STUDIO-004` | `storytold` (ArtCraft, 17 apps + 186 crates) | MIT OR Apache-2.0 | **ADAPT** | Alta | `repositories/artcraft/REPORT.md` |
+| `LR-STUDIO-005` | `ahwootech/BRUTAL` (framework C#/Vulkan) | BRUTAL License v1.0 (não OSI) | **REFERENCE_ONLY** | Alta | `repositories/brutal/REPORT.md` |
+| `LR-AGENT-011` | `akitaonrails/ai-memory` (memória multi-harness) | MIT | **ADAPT** | Alta | `repositories/ai-memory/REPORT.md` |
+| `LR-SEC-007` | `cloudflare/security-audit-skill` | MIT | **ADAPT** | Média | `repositories/cloudflare-security-audit-skill/REPORT.md` |
+| `LR-MODEL-006` | `tashfeenahmed/freellmapi` (free tiers agregados) | MIT (software) | **REFERENCE_ONLY** | Alta | `repositories/freellmapi/REPORT.md` |
 
 ## 2. Projetos do ecossistema — dossiês internos (5)
 
