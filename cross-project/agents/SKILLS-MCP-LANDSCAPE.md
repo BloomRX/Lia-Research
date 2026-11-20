@@ -37,3 +37,21 @@ repetia um já coberto por esses quatro documentos.
 | Permissão com escopo por execução | `LR-AGENT-003` (Meldwork) |
 | Segurança de servidor MCP | `LR-MCP-001` + `LR-MCP-002` |
 | Distribuição de Skill com licença | `LR-LIC-001` |
+
+## 4. Padrões de autoria de Skill vindos de fora (2026-11-20)
+
+`LR-STUDIO-006` (`gamedev-skills/awesome-gamedev-agent-skills`) é o melhor exemplo externo
+que esta base já leu de **disciplina de autoria**, mesmo sendo de outro domínio:
+
+| Prática | Por que fecha uma lacuna nossa |
+|---|---|
+| Frontmatter só com `name` + `description`, validado | `LR-AGENT-009` propõe manifesto, mas nada impede campo inventado |
+| Descrição que **nomeia o vizinho** ("Not for X (use `y`)") | Resolve Skill que dispara na tarefa errada — o defeito mais caro de um pacote grande |
+| Teto de linhas + `## Gotchas` obrigatório | Skill longa é contexto pago sem retorno |
+| Índice obrigatório em referência >100 linhas | mantém o carregamento sob demanda honesto |
+| Orçamento de caracteres nas descrições (56k → 29,8k) | teto prático: host trunca descrição acima de ~1% da janela |
+| Roteador que carrega 2–3 Skills, com regra de propriedade | alternativa a "instalar 48 Skills e esperar" |
+| Teste executável dentro da Skill | aproxima Skill de "capacidade verificada", não de texto |
+
+O que **não** copiar: o tamanho do pacote. 79 Skills instaladas sem uso medido é exatamente o
+custo que `LR-AGENT-009` tenta evitar. Adaptar as regras, não o catálogo.

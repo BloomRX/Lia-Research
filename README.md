@@ -11,9 +11,9 @@
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
 | Status | Base reorganizada em 2026-11-20 (missão, catálogo, validador). Medição em hardware: `NOT RUN`; testes de software registrados: **0** |
-| Arquivos Markdown | 159 (contagem de 2026-11-20, `find -name '*.md'`), validados por `tools/validate.py` |
-| Relatórios externos | 22 objetos, 1 relatório cada (`repositories/*/REPORT.md`) |
-| Catálogo | `catalog/catalog.tsv` — 22 linhas, gerado de `tools/build_catalog.py` |
+| Arquivos Markdown | 160 (contagem de 2026-11-20, `find -name '*.md'`), validados por `tools/validate.py` |
+| Relatórios externos | 23 objetos, 1 relatório cada (`repositories/*/REPORT.md`) |
+| Catálogo | `catalog/catalog.tsv` — 23 linhas, gerado de `tools/build_catalog.py` |
 | Decisões (governança) | 1 aceita · 12 pendentes · 3 rejeitadas · 2 referência · 2 pastas vazias por desenho |
 
 > **Aviso de escopo.** Este repositório registra *pesquisa*, não *implementação*.
@@ -44,12 +44,12 @@ fundação (2026-11-17):
   OpenJarvis, Vercel UI, Mister Download Manager, OpenIDEA, Claude Trading Skills,
   RouterHub) e sobre os 9 alvos adicionais depois.
 
-Depois desta fundação: **22 objetos externos auditados** (20 repositórios + 2
+Depois desta fundação: **23 objetos externos auditados** (21 repositórios + 2
 organizações), **5 dossiês internos**, **31 digests transversais**, **4 comparações** e
 **3 decisões de não adoção** registradas com condição de reabertura.
 
 **Cobertura declarada:** esta base é uma **camada de ponteiro**, não um espelho. São
-159 documentos aqui (2026-11-20) para **1.148 Markdown em `main`** nos cinco apps (medido
+160 documentos aqui (2026-11-20) para **1.148 Markdown em `main`** nos cinco apps (medido
 em 2026-11-17), ou seja ~1:7. O critério é seletivo: entra o que muda decisão, não o que já vive no projeto.
 Revisão crítica do estado da base: `archive/historical/LIA-RESEARCH-BASELINE-REVIEW-2026-11-17.md`.
 
@@ -205,7 +205,7 @@ A regra aplicada: **nenhum diretório vazio** e nenhuma pasta criada para "compl
 | Índices e changelog | PASS (`RESEARCH-INDEX`, `-ROADMAP`, `-CHANGELOG`) |
 | Links, IDs, segredos e estrutura validados | PASS — `python3 tools/validate.py` (18 verificações): 0 erros |
 | Re-auditoria de upstream (2026-11-20) | 22/22 existem · 10 com commits novos · 0 links mortos (`audits/REAUDIT-2026-11-20.md`) |
-| Testes de software executados | **0** — `data/testing/test-log.tsv` só tem cabeçalho |
+| Testes de software executados | **2 linhas** em `data/testing/test-log.tsv` (2026-11-20, Nível 1, `LR-STUDIO-006`); o resto é leitura estática |
 | Catálogo gerado do cabeçalho dos relatórios | PASS — `tools/build_catalog.py --check` |
 | Fase 4 (medição em hardware) | **NOT RUN** — exige execução na máquina do usuário |
 | Revisão humana da entrega | **PENDENTE** — protocolo em `agents/REVIEW-PROTOCOL.md` |

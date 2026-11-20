@@ -5,9 +5,9 @@ veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID apa
 outro documento e não aqui, o outro documento está errado.
 
 - **Data de referência:** 2026-11-20
-- **Itens:** 22 objetos externos (26 linhas com sub-documentos) + 5 dossiês internos + 31 digests transversais + 3 comparações + 18 registros de governança
-- **Nenhum item foi executado.** Não existe linha em `data/testing/test-log.tsv`: todo
-  `Resultado de execução` desta base é `STATIC_REVIEW_ONLY` ou `NOT_RUN`.
+- **Itens:** 23 objetos externos (27 linhas com sub-documentos) + 5 dossiês internos + 31 digests transversais + 3 comparações + 18 registros de governança
+- **Quase nada foi executado.** Existem **2 linhas** em `data/testing/test-log.tsv`, ambas de
+  2026-11-20 (`LR-STUDIO-006`, Nível 1). Todo o resto é `STATIC_REVIEW_ONLY` ou `NOT_RUN`.
 
 ## Legenda
 
@@ -23,7 +23,7 @@ Definições: `catalog/CATALOG-SCHEMA.md`. Máquina: `catalog/catalog.tsv`.
 
 ---
 
-## 1. Tecnologia externa — auditoria (22 objetos)
+## 1. Tecnologia externa — auditoria (23 objetos)
 
 Colunas separadas por exigência de `MISSION.md` §3: **estado** (quanto já se sabe),
 **recomendação** (opinião técnica) e **decisão de adoção** (não existe, e esta base não
@@ -54,6 +54,7 @@ tem autoridade para criar).
 | `LR-SEC-006` | `elementalsouls/Claude-BugHunter` | MIT + CC BY 4.0 | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/claude-bughunter/REPORT.md` |
 | `LR-STUDIO-004` | `storytold` (ArtCraft, 17 apps + 186 crates) | MIT OR Apache-2.0 | DOCUMENTED | **ADAPT** | — nenhuma | Alta | `repositories/artcraft/REPORT.md` |
 | `LR-STUDIO-005` | `ahwootech/BRUTAL` (framework C#/Vulkan) | BRUTAL License v1.0 (não OSI) | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/brutal/REPORT.md` |
+| `LR-STUDIO-006` | `gamedev-skills/awesome-gamedev-agent-skills` (79 Skills + roteador, 12 engines) | Apache-2.0 | PARTIALLY_TESTED | **ADAPT** | — nenhuma | Alta | `repositories/awesome-gamedev-agent-skills/REPORT.md` |
 | `LR-AGENT-011` | `akitaonrails/ai-memory` (memória multi-harness) | MIT | DOCUMENTED | **ADAPT** | — nenhuma | Alta | `repositories/ai-memory/REPORT.md` |
 | `LR-SEC-007` | `cloudflare/security-audit-skill` | MIT | DOCUMENTED | **ADAPT** | — nenhuma | Média | `repositories/cloudflare-security-audit-skill/REPORT.md` |
 | `LR-MODEL-006` | `tashfeenahmed/freellmapi` (free tiers agregados) | MIT (software) | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/freellmapi/REPORT.md` |

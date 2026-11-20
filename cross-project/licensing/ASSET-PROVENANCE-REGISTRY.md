@@ -150,6 +150,18 @@ Regras:
 P1–P8 são estáticas. **Nenhuma delas prova que o asset é bom** — provam que o registro
 não mente sobre a origem, que é coisa diferente e mais modesta.
 
+### 6-bis. Terceiro independente com a mesma ideia (`LR-STUDIO-006`)
+
+`gamedev-skills/awesome-gamedev-agent-skills` usa um manifesto por asset com `source`,
+`license`, `approval status` e `technical_checks_passed`, e fecha o ciclo com QA de raster
+(`asset_report.py`: tamanho, contagem de cores, **alfa falso** — RGBA todo opaco que finge
+transparência) antes de o asset ser dado como pronto. Testei o script em 2026-11-20:
+detecta alfa falso, tamanho errado e excesso de cores (`data/testing/test-log.tsv`).
+
+Duas ideias que valem para P1–P8: (a) **checagem de bitmap além do registro** — o manifesto
+não prova que o PNG tem o alfa que declara; (b) **aprovado visualmente em escala real** —
+o asset é julgado no jogo, não no visualizador. Nada disso está no nosso esquema hoje.
+
 ## 7. Integração com os projetos (sem acoplamento)
 
 | Projeto | Papel | Lê | Escreve |

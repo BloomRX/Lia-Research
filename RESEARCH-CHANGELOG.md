@@ -8,6 +8,30 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-20 — `LR-STUDIO-006` pacote de Skills de game dev (23º objeto)
+
+### Pesquisa nova (ADD)
+- `LR-STUDIO-006` `gamedev-skills/awesome-gamedev-agent-skills@c6ca6c4` — 79 Skills + roteador,
+  12 engines (Godot 4.7, Unity 6.3 LTS, Unreal 5.8, Phaser 4.2, PixiJS 8.22, three r187, Bevy
+  0.20, pygame-ce, LÖVE, Defold, Roblox, Ebitengine). **ADAPT** — formato, validador de Skill e
+  pipeline de asset; não o pacote inteiro. Apache-2.0 lida no arquivo, `NOTICE` com atribuição.
+- Estado `PARTIALLY_TESTED`, resultado `LOCAL_SMOKE_PASS`: **primeira vez** que esta base
+  registra execução de terceiro. 2 linhas em `data/testing/test-log.tsv`.
+- Independência verificada: 7 versões pinadas conferidas contra as releases reais na API do
+  GitHub (Godot 4.7.2, Ebiten 2.10.6, Bevy 0.20.1, Phaser 4.2.1, three r187, Defold 1.14.1,
+  Luau 0.746) — todas existem.
+- O que é alegação do autor, não nossa: "checked on the real engines" para 10 de 12 e 98,7% de
+  disparo em 366 prompts. O próprio `evals/RESULTS.md` declara o que não rodou (Unity Editor,
+  Unreal Editor, Roblox Studio, builds C# do Godot) e que julgou modelo, uma execução por célula.
+
+### Transversal (CONSOLIDATE)
+- `cross-project/agents/SKILLS-MCP-LANDSCAPE.md` §4: 7 práticas de autoria de Skill que fecham
+  lacunas de `LR-AGENT-009`.
+- `cross-project/licensing/ASSET-PROVENANCE-REGISTRY.md` §6-bis: manifesto + QA de raster
+  (alfa falso) como duas checagens que faltam em P1–P8.
+- `data/inventory/license-matrix.tsv` e `READY-TO-USE-LICENSES.md`: 22 → **23** objetos;
+  alerta de que copiar uma pasta de Skill não leva `NOTICE`/`LICENSE` junto.
+
 ## 2026-11-20 — redefinição de missão, catálogo gerado e re-auditoria
 
 Nada aqui é pesquisa nova sobre tecnologia: é a base arrumando a própria casa. Os 22

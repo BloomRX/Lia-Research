@@ -5,7 +5,7 @@
 | ID | `LR-LIC-005` |
 | Categoria | licensing |
 | Projetos beneficiados | todos os cinco (camada comum de licença) |
-| Fontes | §9 de cada um dos 22 relatórios em `repositories/*/REPORT.md` (licença lida no arquivo, no commit pinado); `data/inventory/license-matrix.tsv` |
+| Fontes | §9 de cada um dos 23 relatórios em `repositories/*/REPORT.md` (licença lida no arquivo, no commit pinado); `data/inventory/license-matrix.tsv` |
 | Data | 2026-11-17 |
 | Status | CURRENT — **não é parecer jurídico**; é o que o arquivo diz, com obrigação traduzida em ação |
 | Confiança | Alta para o texto das licenças lidas; média para fronteiras de caso limite (marcadas) |
@@ -27,7 +27,7 @@ Se o repositório **não tem arquivo de licença**, a resposta a (1) e (2) é **
 `storytold/photocraft` (pasta `artcraft`) ela diz `Apache-2.0`, mas o repositório oferece
 `LICENSE-MIT` **e** `LICENSE-APACHE` — o consumidor escolhe. Quem lê o selo perde uma
 opção de uso. Conferido em 2026-11-20 (`audits/REAUDIT-2026-11-20.md`). Está tabulado em `data/inventory/license-matrix.tsv`
-(22 linhas, uma por objeto, com colunas `usar_como`, `fork`, `modificar`, `comercial`,
+(23 linhas, uma por objeto, com colunas `usar_como`, `fork`, `modificar`, `comercial`,
 `redistribuir`, `atribuicao`, `copyleft`, `patente`, `notice_obrigatorio`).
 
 ## 2. Tabela-mestra (o resumo que evita a pesquisa)
@@ -56,9 +56,13 @@ opção de uso. Conferido em 2026-11-20 (`audits/REAUDIT-2026-11-20.md`). Está 
 | `LR-AGENT-011` | ai-memory | adaptar o protocolo de *handoff* | sim | copyright + MIT |
 | `LR-SEC-007` | security-audit-skill | check-list de auditoria | sim | copyright + MIT |
 | `LR-MODEL-006` | freellmapi | software MIT; o *serviço* é instantâneo de 30 dias | sim (auto-hospedar) | copyright + MIT |
+| `LR-STUDIO-006` | gamedev agent skills | adaptar formato e pipeline de asset | sim | `NOTICE` + `LICENSE` + indicar alterações |
 
-Os três últimos entraram em 2026-11-20 (antes o digest cobria 19 objetos, a matriz já tinha
-22). Contagem conferida contra `data/inventory/license-matrix.tsv`.
+Os quatro últimos entraram em 2026-11-20 (antes o digest cobria 19 objetos, a matriz já tinha
+22). Contagem conferida contra `data/inventory/license-matrix.tsv` — hoje 23.
+
+Cuidado com Apache-2.0 em pacote de Skills: copiar **uma pasta** de Skill leva só `SKILL.md` e
+`scripts/`; o `NOTICE` e o `LICENSE` têm de ser copiados junto, ou o reuso fica sem atribuição.
 
 ## 3. Quatro modelos prontos para colar
 
