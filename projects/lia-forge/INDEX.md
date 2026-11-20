@@ -72,9 +72,9 @@ Forge. Nenhum deles foi re-pesquisado nesta fundação — e não deve ser, sem 
 
 ## 4-bis. Criação de personagens (2026-11-20)
 
-Pesquisa pedida pelo Forge 2.0 sobre "silhueta antes do 3D": 9 IDs em
+Pesquisa pedida pelo Forge 2.0 sobre "silhueta antes do 3D": **8 IDs, 8 documentos Markdown e 1 matriz com 49 registros** (46 da rodada 7.0 + 3 candidatos acrescentados na correção 7.1) em
 `cross-project/character-creation/`. Três pipelines propostos (local, híbrido, alta
-qualidade), catálogo de 46 ferramentas com licença de código × pesos, e a conclusão dura:
+qualidade), catálogo de 49 registros com licença de código × pesos, e a conclusão dura:
 **image-to-3D de qualidade não roda em RX 580 8 GB** (todos os candidatos exigem CUDA).
 O modelo de linguagem (`LR-MODEL-007`) e as skills candidatas (`LR-AGENT-012`) completam o
 conjunto. Nada disso foi implementado ou aprovado.

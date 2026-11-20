@@ -8,12 +8,71 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-21 (rodada 7.1) — correção factual da pesquisa de criação de personagens
+
+Correção documental do conjunto de 2026-11-20. Nenhum documento apagado, nenhuma conclusão
+removida sem justificativa registrada, nada implementado, nenhuma conta aberta, nenhum crédito
+gasto, nenhum peso baixado.
+
+### FIX — contagens
+- Conjunto passa a ser declarado como **8 IDs, 8 documentos Markdown e 1 matriz** em
+  `README.md`, `RESEARCH-INDEX.md` (§3-ter), `projects/lia-forge/INDEX.md`, `RESEARCH-ROADMAP.md`
+  (Trilha P) e no hub `LR-STUDIO-007`. Não existe `LR-FORGE-009` e não foi inventado.
+- Matriz: **46 registros originais + 3 candidatos da rodada 7.1 = 49 registros** (50 linhas com
+  cabeçalho). O número mudou porque a rodada acrescentou candidatos — declarado aqui, não
+  silenciado.
+
+### FIX — vídeo de referência
+- `youtube.com/watch?v=lKDVvJcSB14` é **teste comparativo de modelos de linguagem para jogos**
+  (MagmaDev, 2026-11-19, 45:58), não vídeo de processo de personagem. A atribuição da sequência
+  "exploração → ficha → 3D → jogo" ao vídeo foi **removida** em `LR-STUDIO-007` §1.1 e
+  `LR-STUDIO-008` §1; a sequência fica atribuída à **ordem de pesquisa recebida**. Vídeo não
+  assistido: `BLOCKED` para o restante do conteúdo.
+
+### FIX — direitos, créditos e preços
+- Tripo: Free Outputs **públicos por padrão**, com renúncia de direitos e licença pública que
+  permite exploração comercial por terceiros sem atribuição (termos de 2026-11-13, §5.2.1);
+  Paid Outputs do usuário, privados e comerciais (§5.2.2). "Free = não comercial" **eliminado**.
+- Meshy: custo por modalidade (mesh 20 · 2K 30 · 8K 35 · lite 5 · rigging 5 · animação 3/ação).
+  "100 créditos = 10 modelos" **eliminado**.
+- Data de consulta e URL registradas no catálogo (§6), na matriz e nos pipelines.
+
+### FIX — hardware AMD
+- Separado em: ROCm Linux (sem gfx803), PyTorch oficial no Windows (CUDA/CPU), suporte restrito
+  a APUs Ryzen AI (`UNVALIDATED`) e gfx803 (sem caminho em nenhum dos dois).
+- `stable-diffusion.cpp`: backends CUDA/Vulkan/Metal (OpenCL e DirectML não documentados),
+  modelos declarados vs. matriz de testes (não publicada) vs. relato comunitário na RX 580
+  (SD1.5 ≈ 72 s; FLUX.1-schnell CPU+GPU ≈ 14 min).
+- Consumo de memória re-derivado (pesos ≠ total); "cabe confortavelmente" removido.
+- Hunyuan3D-Omni sem veredito (`UNVALIDATED`); TripoSR mantido como exceção CPU.
+
+### FIX — método
+- Vocabulário de evidência de 8 rótulos (`OFFICIAL_DOCUMENTATION`, `OFFICIAL_LICENSE`,
+  `PAPER_OR_RESEARCH`, `COMMUNITY_REPORTED`, `TESTED`, `INFERRED`, `UNVALIDATED`, `BLOCKED`)
+  no catálogo e na matriz; `CONFIRMED` retirado da matriz.
+- Pix3D reescopado (reconstrução de objeto, estudo comportamental); interpretação de variância
+  removida.
+- Cinco fontes de prática identificadas por título/autor/URL/data, com qualidade declarada.
+- Regra de "componente conexo" passou a ser **configurável por arquétipo**.
+- Blender: `--background --python` roda **dentro** do processo; consequência de distribuição
+  marcada `REQUIRES_LEGAL_REVIEW`.
+
+### ADD — candidatos
+- Reallusion Character Creator 5.2, GPT Image (OpenAI) e Google Flow no catálogo (§6-bis,
+  §6.3, §6.4) e na matriz (3 linhas novas).
+
+### DECISION — nenhuma
+- Pipeline 2 reclassificado como **candidato prioritário para avaliação**, não padrão aprovado.
+  Adoção continua decisão do proprietário.
+
+---
+
 ## 2026-11-20 (3ª rodada) — criação de personagens: silhueta antes do 3D
 
 Pesquisa pedida pelo Lia Forge 2.0. Nada foi implementado, nenhum peso baixado, nenhuma
 ferramenta executada.
 
-### ADD — 9 documentos em `cross-project/character-creation/`
+### ADD — 8 documentos Markdown (8 IDs) + 1 matriz em `cross-project/character-creation/`
 - `CHARACTER-CREATION-RESEARCH.md` (`LR-STUDIO-007`): visão geral, matriz de reutilização do
   que já existia, conclusões e decisões pendentes.
 - `SILHOUETTE-FIRST-DESIGN-RESEARCH.md` (`LR-STUDIO-008`): método, linguagem de forma, 8
@@ -30,7 +89,7 @@ ferramenta executada.
   componentes, gates e retornos — **sem ter lido os contratos do Forge** (repo 404).
 - `CHARACTER-CREATION-SKILLS-ANALYSIS.md` (`LR-AGENT-012`): 7 competências, 6 que não devem
   virar skill.
-- `CHARACTER-CREATION-EVIDENCE-MATRIX.tsv`: 46 linhas com licença, hardware, atividade e
+- `CHARACTER-CREATION-EVIDENCE-MATRIX.tsv`: 46 registros com licença, hardware, atividade e
   nível de evidência.
 
 ### Descobertas que mudam decisão

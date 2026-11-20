@@ -206,7 +206,7 @@ A regra aplicada: **nenhum diretório vazio** e nenhuma pasta criada para "compl
 | Índices e changelog | PASS (`RESEARCH-INDEX`, `-ROADMAP`, `-CHANGELOG`) |
 | Links, IDs, segredos e estrutura validados | PASS — `python3 tools/validate.py` (18 verificações): 0 erros |
 | Re-auditoria de upstream (2026-11-20) | 22/22 existem · 10 com commits novos · 0 links mortos (`audits/REAUDIT-2026-11-20.md`) |
-| Criação de personagens (2026-11-20) | 9 IDs, 46 ferramentas na matriz de evidências, 3 pipelines propostos; **nada executado** e nenhum peso baixado (`cross-project/character-creation/CHARACTER-CREATION-RESEARCH.md`) |
+| Criação de personagens (2026-11-20, revisada em 2026-11-21) | **8 IDs, 8 documentos Markdown e 1 matriz com 49 registros** (46 da rodada 7.0 + 3 candidatos acrescentados na correção 7.1), 3 pipelines propostos; **nada executado** e nenhum peso baixado (`cross-project/character-creation/CHARACTER-CREATION-RESEARCH.md`) |
 | Reauditoria técnica (2026-11-20) | 22 objetos reavaliados · 3.576 commits no intervalo · 0 recomendações alteradas · 1 motivo alterado (`audits/TECHNICAL-REAUDIT-2026-11-20.md`) |
 | Validador próprio | `python3 tools/validate.py` (18 verificações, data dinâmica) e `python3 tools/test_validate.py` (**76 testes**) |
 | Testes de software executados | **16 linhas** em `data/testing/test-log.tsv`: 5 suítes reais (17 + 65 + 65 + 3.530 + 2.044 asserções), 2 execuções parciais e 9 tentativas bloqueadas com motivo |
