@@ -7,6 +7,7 @@
 | Projetos | Lia Forge 2.0 |
 | Fontes | `gh api` (licença, atividade, releases) e arquivos de licença lidos em 2026-11-20: Blender (`COPYING`), MPFB2 (`LICENSE.md`), Instant Meshes (`LICENSE.txt`), ArmorPaint (`license.md`); glTF 2.0 (Khronos) |
 | Data | 2026-11-20 |
+| Revisão | 2026-11-21 (rodada 7.1: correções de licença, hardware, vídeo e contagens) |
 | Status | CURRENT |
 | Confiança | Média-alta em licença das ferramentas abertas; **baixa** em ferramentas comerciais não verificadas |
 | Natureza | pesquisa e documentação; não instala nada, não autoriza integração |
@@ -28,7 +29,7 @@ Para cada etapa, três perguntas: **a IA ajuda de verdade?**, **qual ferramenta 
 
 | Ferramenta | Papel | Licença (lida) | Atividade | Observação |
 |---|---|---|---|---|
-| **Blender** | DCC central: modelagem, escultura, retopo, UV, rig, animação, exportação | **GPL-2.0-or-later** (texto: "Blender uses the GNU General Public License… not available under other licenses") | 22,2k★, ativo (2026-11-20) | GPL vale para o programa e para scripts que rodam **dentro** dele; chamar `blender --background --python` como processo externo mantém separação — mesma análise de `LR-FORGE-005` |
+| **Blender** | DCC central: modelagem, escultura, retopo, UV, rig, animação, exportação | **GPL-2.0-or-later** (texto: "Blender uses the GNU General Public License… not available under other licenses") | 22,2k★, ativo (2026-11-20) | ver §2.1 — a análise foi **corrigida** nesta rodada |
 | **MPFB2** (MakeHuman Plugin for Blender) | base humana paramétrica com rig | licença própria (código + assets + cláusula sobre **saída**) | 718★, `v2.0.18` (2026-10-11) | resolve "humano base" sem IA; a cláusula de saída precisa ser lida antes de uso comercial |
 | **Instant Meshes** | retopologia automática (campo de orientação) | **BSD-3-clause** (texto lido) | 6,3k★, **última atividade 2022-01-03** | ferramenta pontual, não biblioteca de produto; parada |
 | **xatlas** | desempacotamento de UV | **MIT** | 2,6k★, 2024-06-16 | determinístico, ótimo para "UV sem sobreposição" automático |
@@ -37,18 +38,31 @@ Para cada etapa, três perguntas: **a IA ajuda de verdade?**, **qual ferramenta 
 | **Godot** | engine de destino (importação GLB) | **MIT** | 120,5k★, `4.7.2-stable` | valida o caminho de exportação, não a produção |
 | **kimodo** (nv-tlabs) | geração de movimento | Apache-2.0 | 4,3k★, 2026-10-15 | relevante para animação, **não avaliado tecnicamente** |
 
-### 2.1. O caso GPL, dito sem rodeio
+### 2.1. O caso GPL — corrigido, sem conclusão geral
 
-Blender é GPL-2.0+. Duas consequências distintas, frequentemente confundidas:
+A versão anterior tratava `blender --background --python script.py` como "processo externo" e
+daí concluía que a separação GPL estava preservada. **Isso estava errado no ponto técnico**: o
+`--python` executa o script **dentro do processo do Blender**, com o interpretador Python
+embutido e a API `bpy` disponível. "É headless" e "é sem interface" não são "é outro programa".
+Importa também o que o script faz: se ele usa `bpy` para manipular a cena, é código que roda
+no contexto do Blender.
 
-| Situação | Efeito |
-|---|---|
-| Add-on/script que roda **dentro** do Blender e é distribuído | precisa ser compatível com GPL |
-| Processo externo que chama `blender --background` e troca arquivos | separação preservada (o Blender é ferramenta) |
-| Asset gerado no Blender (malha, textura) | não é obra derivada do programa |
+| Situação concreta | Situação da análise | Classificação |
+|---|---|---|
+| Script Python que usa `bpy`, executado via `--background --python`, **não distribuído** (fica no servidor/repo interno) | GPL impõe obrigações na **distribuição**; uso interno não distribuído não aciona a cláusula | `OFFICIAL_LICENSE` (GPL-2.0 §0/§4) + `REQUIRES_LEGAL_REVIEW` para o caso de o Forge ser distribuído a terceiros |
+| Script que usa `bpy` e é **distribuído** como parte do produto | é obra que roda dentro do programa; compatibilidade com GPL é a questão | `REQUIRES_LEGAL_REVIEW` |
+| Ferramenta externa que **chama** o Blender por linha de comando, sem importar `bpy`, trocando arquivos | a ferramenta é separada; o Blender é usado como programa | `OFFICIAL_LICENSE` (uso de programa GPL não contamina o chamador) — mas ver ressalva abaixo |
+| Add-on/script distribuído para rodar dentro do Blender | precisa ser compatível com GPL | `OFFICIAL_LICENSE` |
+| Asset gerado (malha, textura, `.glb`) | não é obra derivada do programa pela leitura corrente da comunidade Blender | `COMMUNITY_REPORTED` — a FSF não se pronunciou sobre este caso específico |
 
-Isso é a leitura que o próprio repo já registra em `LR-FORGE-005`; repito aqui porque qualquer
-pipeline de personagem passa por essa decisão.
+**O que eu não faço:** dar parecer jurídico. A pergunta "posso distribuir o Lia Forge (produto)
+chamando `blender --background --python` com scripts que importam `bpy`?" **não tem resposta
+nesta pesquisa**; depende de como o Forge é distribuído, de quem recebe os scripts e de
+jurisdição. Fica marcada `REQUIRES_LEGAL_REVIEW` e é decisão do proprietário, com advogado.
+
+O que a pesquisa entrega é a distinção técnica correta — script que roda **dentro** do Blender
+(usa `bpy`) ≠ ferramenta externa que apenas invoca o binário — e o registro de que a conclusão
+anterior misturava as duas.
 
 ## 3. Ferramentas comerciais — o que **não** verifiquei
 
