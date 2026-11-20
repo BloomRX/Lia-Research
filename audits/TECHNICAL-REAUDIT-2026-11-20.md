@@ -13,9 +13,9 @@
 
 | Medida | Valor |
 |---|---|
-| Objetos com commit novo desde a análise | **10** |
+| Objetos com commit novo desde a análise | **10 confirmados** + 1 (`freellmapi`) medido a partir de SHA candidato |
 | Objetos sem commit novo | **11** (+1 objeto novo) |
-| Commits totais no intervalo (10 objetos) | **3.917** |
+| Commits totais no intervalo (11 objetos) | **3.576** |
 | Maior movimento | `plannotator` +1.511 · `artcraft` +1.011 · `openidea` +515 · `sculptforge` +285 |
 | Arquivos alterados analisados | 300 por objeto (limite da API; truncado em 6 objetos) |
 | Recomendações alteradas | **0** |

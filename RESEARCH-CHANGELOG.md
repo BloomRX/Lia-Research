@@ -34,7 +34,7 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 ### Reauditoria técnica (ADD)
 - 22 relatórios receberam a seção `Reauditoria 2026-11-20`: versão anterior, versão
   examinada, mudanças, evidências, testes, conclusão e próxima revisão.
-- 10 objetos com commit novo (**3.917 commits** no total), 11 sem commit novo.
+- 10 objetos com commit novo confirmado (**3.576 commits** no total, incluindo 4 de `freellmapi` medidos a partir do SHA candidato), 11 sem commit novo.
 - **0 recomendações alteradas**; **1 motivo alterado**: `sculptforge` ganhou
   `LICENSE-EXCEPTION.md` (scripting), então o GPL deixou de bloquear script via API/CLI/MCP.
 - `audits/TECHNICAL-REAUDIT-2026-11-20.md` com números, lacunas e limites do método.

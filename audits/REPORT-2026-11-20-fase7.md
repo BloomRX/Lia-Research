@@ -26,8 +26,8 @@
 |---|---|---|
 | Objetos inventariados | **23** (22 herdados + `LR-STUDIO-006`) | `catalog/catalog.tsv` (23 linhas × 18 colunas) |
 | Objetos efetivamente reavaliados | **23** (22 herdados + o novo) | 23 seções `## Reauditoria 2026-11-20` |
-| Upstreams com commit novo desde a análise | **10 de 22** | `audits/TECHNICAL-REAUDIT-2026-11-20.md` §2 |
-| Commits somados no intervalo | **3.917** | `compare` da API, por objeto |
+| Upstreams com commit novo desde a análise | **10 de 22 confirmados** (+1 medido a partir do SHA candidato: `freellmapi`, 4 commits) | `audits/TECHNICAL-REAUDIT-2026-11-20.md` §2 |
+| Commits somados no intervalo | **3.576** (soma dos `ahead` dos 11 objetos) | `compare` da API, por objeto |
 | SHAs completos no cabeçalho | **21 de 23** | `data/inventory/provenance-2026-11-20.tsv` |
 | SHAs que faltavam e continuam sem prova | **2** (`ai-memory`, `freellmapi`: candidato por data) | §2.2 do documento de proveniência |
 | Organizações declaradas incompletas | **2** (`rescript-lang`, `routerhub`) | idem |
