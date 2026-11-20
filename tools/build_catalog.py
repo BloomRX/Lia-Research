@@ -17,7 +17,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "catalog/catalog.tsv")
 COLS = ["id", "objeto", "caminho", "tipo", "estado_pesquisa", "resultado_execucao",
         "recomendacao", "licenca", "categoria", "data", "ultima_verificacao",
-        "proxima_revisao", "upstream_conferido", "divergencia_upstream", "recomendacao_texto"]
+        "proxima_revisao", "upstream_conferido", "divergencia_upstream", "recomendacao_texto",
+        "sha_analisado", "proveniencia_sha", "head_atual"]
 
 
 def header(text: str) -> dict[str, str]:
@@ -39,9 +40,9 @@ def clean(v: str) -> str:
     return v.replace("**", "").replace("`", "").strip()
 
 
-def rows() -> list[list[str]]:
+def build_rows(root: str | os.PathLike = ROOT) -> list[list[str]]:
     out = []
-    for path in sorted(glob.glob(os.path.join(ROOT, "repositories/*/REPORT.md"))):
+    for path in sorted(glob.glob(os.path.join(str(root), "repositories/*/REPORT.md"))):
         text = open(path, encoding="utf-8").read()
         f = header(text)
         slug = os.path.basename(os.path.dirname(path))
@@ -64,6 +65,9 @@ def rows() -> list[list[str]]:
             clean(f.get("Upstream conferido", "")).split("·")[0].strip(),
             "SIM" if "mudou desde a análise" in f.get("Upstream conferido", "") else "nao",
             rec,
+            clean(f.get("SHA completo", "")).strip("— ")[:40] if "não determinado" not in f.get("SHA completo", "") else "",
+            (f.get("Proveniência do SHA", "").split("**")[1] if "**" in f.get("Proveniência do SHA", "") else ""),
+            clean(f.get("HEAD atual", "")).split(" ")[0].strip("—"),
         ])
     return out
 
@@ -75,7 +79,7 @@ def render(data: list[list[str]]) -> str:
 
 
 def main() -> int:
-    data = rows()
+    data = build_rows(ROOT)
     text = render(data)
     if "--check" in sys.argv:
         current = open(OUT, encoding="utf-8").read() if os.path.exists(OUT) else ""
