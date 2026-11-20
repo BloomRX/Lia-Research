@@ -16,6 +16,9 @@
 | `LR-FORGE-002` | Escultura 3D e disciplina de benchmark | `repositories/sculptforge/REPORT.md` | pesquisa externa (novo) |
 | `LR-FORGE-003` | Animação programática e proveniência de licença | `repositories/manimgx/REPORT.md` | pesquisa externa (novo) |
 | `LR-FORGE-004` | 244 efeitos pixel art / VFX 2D | `repositories/pixelfx/REPORT.md` | pesquisa externa (novo) |
+| `LR-FORGE-007` | 2D→3D: image-to-3D, multi-view, splatting, blockout; 12 critérios | `cross-project/character-creation/CHARACTER-2D-TO-3D-PIPELINES.md` | pedido do Forge 2.0 (2026-11-20) |
+| `LR-FORGE-008` | Produção: retopo, UV, textura, rig, exportação GLB | `cross-project/character-creation/CHARACTER-PRODUCTION-TOOLS-ASSESSMENT.md` | derivado de `LR-FORGE-007` |
+| `LR-FORGE-010` | Arquitetura de referência do personagem no Forge 2.0 | `cross-project/character-creation/CHARACTER-CREATION-ARCHITECTURE-RECOMMENDATIONS.md` | derivado de `LR-FORGE-007` |
 | `LR-LIC-002` | Proveniência de asset (E3) | `cross-project/licensing/ASSET-PROVENANCE.md` | `docs/T11-E3-ASSET-PROVENANCE-AND-CONTENT-VALIDATION.md` |
 | `LR-AGENT-005` | Orquestração de agentes de produção de assets | `cross-project/agents/ASSET-AGENT-ORCHESTRATION-DIGEST.md` | `docs/T14-AGENT-ORCHESTRATION-ARCHITECTURE.md` |
 | `LR-FORGE-005` | Ecossistema Blender / MCP | `cross-project/agents/BLENDER-MCP-DIGEST.md` | `docs/BLENDER-MCP-RESEARCH.md`, `docs/ECOSYSTEM-RESEARCH-BLENDER-ADDONS.md` |
@@ -66,6 +69,15 @@ Forge. Nenhum deles foi re-pesquisado nesta fundação — e não deve ser, sem 
 | Skill | Função | Licença | Observação |
 |---|---|---|---|
 | `lia-brand-check` | revisão de marca | ❌ ausente no payload | duplica `lia-brand-consistency-review` (Model-Lab) |
+
+## 4-bis. Criação de personagens (2026-11-20)
+
+Pesquisa pedida pelo Forge 2.0 sobre "silhueta antes do 3D": 9 IDs em
+`cross-project/character-creation/`. Três pipelines propostos (local, híbrido, alta
+qualidade), catálogo de 46 ferramentas com licença de código × pesos, e a conclusão dura:
+**image-to-3D de qualidade não roda em RX 580 8 GB** (todos os candidatos exigem CUDA).
+O modelo de linguagem (`LR-MODEL-007`) e as skills candidatas (`LR-AGENT-012`) completam o
+conjunto. Nada disso foi implementado ou aprovado.
 
 ## 5. Lacunas
 

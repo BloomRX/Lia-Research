@@ -8,6 +8,48 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-20 (3ª rodada) — criação de personagens: silhueta antes do 3D
+
+Pesquisa pedida pelo Lia Forge 2.0. Nada foi implementado, nenhum peso baixado, nenhuma
+ferramenta executada.
+
+### ADD — 9 documentos em `cross-project/character-creation/`
+- `CHARACTER-CREATION-RESEARCH.md` (`LR-STUDIO-007`): visão geral, matriz de reutilização do
+  que já existia, conclusões e decisões pendentes.
+- `SILHOUETTE-FIRST-DESIGN-RESEARCH.md` (`LR-STUDIO-008`): método, linguagem de forma, 8
+  critérios de avaliação com nível de confiança e a fronteira automação/humano.
+- `CHARACTER-SHEET-CONSISTENCY.md` (`LR-STUDIO-009`): vistas canônicas, 7 causas de
+  inconsistência, técnicas por eficácia e QA automatizável.
+- `CHARACTER-GENERATION-MODEL-CATALOG.md` (`LR-MODEL-007`): modelos de imagem, controle e 3D;
+  **licença de código separada da licença de pesos**; veredito para a RX 580.
+- `CHARACTER-2D-TO-3D-PIPELINES.md` (`LR-FORGE-007`): 12 critérios, três pipelines, e a
+  distinção "visualmente convincente × geometricamente adequado × pronto para jogo".
+- `CHARACTER-PRODUCTION-TOOLS-ASSESSMENT.md` (`LR-FORGE-008`): blockout → GLB, com licenças
+  lidas (Blender GPL, Instant Meshes BSD, xatlas MIT, ArmorPaint zlib, MPFB2 própria).
+- `CHARACTER-CREATION-ARCHITECTURE-RECOMMENDATIONS.md` (`LR-FORGE-010`): fronteira dos
+  componentes, gates e retornos — **sem ter lido os contratos do Forge** (repo 404).
+- `CHARACTER-CREATION-SKILLS-ANALYSIS.md` (`LR-AGENT-012`): 7 competências, 6 que não devem
+  virar skill.
+- `CHARACTER-CREATION-EVIDENCE-MATRIX.tsv`: 46 linhas com licença, hardware, atividade e
+  nível de evidência.
+
+### Descobertas que mudam decisão
+- **Windows + RX 580 não tem ROCm**: gfx803 não está na matriz do ROCm 10.2 e o HIP SDK para
+  Windows não lista a RX 580 (marca até RDNA2 como não suportado).
+- **Nenhum image-to-3D relevante roda sem CUDA**: TRELLIS 16 GB, TRELLIS.2 24 GB, Hunyuan3D-2.1
+  29 GB, TripoSG 8 GB CUDA, InstantMesh CUDA ≥ 12.1, SF3D CUDA/MPS com VS 2022 no Windows.
+- **`stable-diffusion.cpp` (MIT, Vulkan, build Windows)** é o único caminho local plausível
+  para imagem — qualidade resultante não validada.
+- **Licenças que excluem território**: Hunyuan Image 3.0 e Hunyuan3D 2.x não se aplicam à UE,
+  Reino Unido e Coreia do Sul; o HF marca `extra_gated_eu_disallowed`.
+- **`ACE++` não tem arquivo de licença** — código público não é licença.
+- **Métricas geométricas não são veredito**: no Pix3D, Spearman de 0,32 (IoU), 0,43 (EMD) e
+  0,49 (Chamfer) contra julgamento humano.
+
+### NÃO validado (declarado nos documentos)
+Desempenho em qualquer hardware AMD, qualidade de Tripo/Meshy/Rodin, tempo de CPU do TripoSR,
+licença dos pesos de FLUX.2 e CharacterGen, contratos do Forge, e termos de Mixamo/MetaHuman.
+
 ## 2026-11-20 (2ª rodada) — validadores, proveniência e reauditoria técnica dos 22
 
 ### Validadores (FIX — sem fragilizar)

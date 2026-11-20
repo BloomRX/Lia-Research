@@ -22,6 +22,9 @@
 | `LR-AGENT-010` | Skills de edição de foto/PDF sem gerador de imagem | `cross-project/agents/ARTCRAFT-SKILL-PACK.md` | derivado de `LR-STUDIO-004` |
 | `LR-FORGE-004` | VFX 2D / animação pixel art | `repositories/pixelfx/REPORT.md` | pesquisa externa (novo) |
 | `LR-STUDIO-006` | 79 Skills de game dev + roteador; regras de autoria e pipeline de asset | `repositories/awesome-gamedev-agent-skills/REPORT.md` | pesquisa externa (novo, 2026-11-20) |
+| `LR-STUDIO-007` | Criação de personagens: silhueta antes do 3D (visão geral) | `cross-project/character-creation/CHARACTER-CREATION-RESEARCH.md` | pedido do Forge 2.0 (2026-11-20) |
+| `LR-STUDIO-008` | Silhueta, linguagem de forma e avaliação | `cross-project/character-creation/SILHOUETTE-FIRST-DESIGN-RESEARCH.md` | derivado de `LR-STUDIO-007` |
+| `LR-STUDIO-009` | Character sheet e consistência entre vistas | `cross-project/character-creation/CHARACTER-SHEET-CONSISTENCY.md` | derivado de `LR-STUDIO-007` |
 | `LR-UI-003` | Molde de skill de design | `repositories/ai-design-skills/REPORT.md` | pesquisa externa (novo) |
 | `LR-LIC-001` | Licença e proveniência de Skills | `projects/lia-agent-hub/skills/SKILL-LICENSE-CONSOLIDATION.md` | `SKILL-LICENSE-AND-PROVENANCE-AUDIT.md` + `docs/licenses/` |
 | `LR-SEC-002` | Segurança de runtime de agente | `cross-project/agents/AGENT-RUNTIME-SECURITY.md` | `ARENA-RUNTIME-SECURITY-AUDIT.md` |

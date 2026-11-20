@@ -42,6 +42,21 @@ Regra: item só sai daqui quando existe documento com evidência, não quando "j
 > que todo objeto foi executado. A diferença está escrita na seção 5 do documento de
 > reauditoria técnica.
 
+## Trilha P — Criação de personagens (pedido do Forge 2.0, 2026-11-20)
+
+| # | Item | Status | Evidência / próximo passo |
+|---|---|---|---|
+| P-1 | Silhueta como primeiro gate, com critérios | **feito (método)** | `LR-STUDIO-008`; falta calibrar as métricas |
+| P-2 | Catálogo de modelos com licença de código × pesos | **feito** | `LR-MODEL-007` + matriz de 46 linhas |
+| P-3 | Consistência entre vistas / character sheet | **feito (análise)** | `LR-STUDIO-009`; nenhuma técnica executada |
+| P-4 | 12 critérios 2D→3D e definição de "pronto para jogo" | **feito** | `LR-FORGE-007` §3 e §6 |
+| P-5 | Três pipelines comparados | **feito** | `LR-FORGE-007` §4–5 |
+| P-6 | Arquitetura para o Forge 2.0 | **feito como hipótese** | `LR-FORGE-010`; **requer leitura do código do Forge** |
+| P-7 | Skills candidatas | **feito (análise)** | `LR-AGENT-012`; nenhuma skill escrita |
+| P-8 | Rodar `stable-diffusion.cpp` + SDXL na RX 580 | **BLOCKED** | exige a máquina do usuário (Nível 3 de hardware) |
+| P-9 | Comparar qualidade Tripo × Meshy × manual | **BLOCKED** | exige conta paga e julgamento humano |
+| P-10 | Piloto de um personagem com medição de tempo por etapa | **PENDING** | decisão do proprietário |
+
 ## Trilha H — Hardware (bloqueia toda decisão de modelo)
 
 | # | Item | Pré-requisito | Status |
