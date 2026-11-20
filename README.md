@@ -45,12 +45,12 @@ fundação (2026-11-17):
   RouterHub) e sobre os 9 alvos adicionais depois.
 
 Depois desta fundação: **22 objetos externos auditados** (20 repositórios + 2
-organizações), **5 dossiês internos**, **23 digests transversais**, **4 comparações** e
+organizações), **5 dossiês internos**, **31 digests transversais**, **4 comparações** e
 **3 decisões de não adoção** registradas com condição de reabertura.
 
 **Cobertura declarada:** esta base é uma **camada de ponteiro**, não um espelho. São
-136 documentos aqui para **1.148 Markdown em `main`** nos cinco apps (medido em 2026-11-17),
-ou seja ~1:8. O critério é seletivo: entra o que muda decisão, não o que já vive no projeto.
+159 documentos aqui (2026-11-20) para **1.148 Markdown em `main`** nos cinco apps (medido
+em 2026-11-17), ou seja ~1:7. O critério é seletivo: entra o que muda decisão, não o que já vive no projeto.
 Revisão crítica do estado da base: `archive/historical/LIA-RESEARCH-BASELINE-REVIEW-2026-11-17.md`.
 
 O Lia-Research existe para que esses números deixem de ser redescobertos a cada
@@ -203,7 +203,7 @@ A regra aplicada: **nenhum diretório vazio** e nenhuma pasta criada para "compl
 | Pesquisa externa (9 adicionais) | PASS |
 | HA-MCP análise aprofundada | PASS |
 | Índices e changelog | PASS (`RESEARCH-INDEX`, `-ROADMAP`, `-CHANGELOG`) |
-| Links, IDs, segredos e estrutura validados | PASS — `python3 tools/validate.py` (15 verificações): 0 erros |
+| Links, IDs, segredos e estrutura validados | PASS — `python3 tools/validate.py` (18 verificações): 0 erros |
 | Re-auditoria de upstream (2026-11-20) | 22/22 existem · 10 com commits novos · 0 links mortos (`audits/REAUDIT-2026-11-20.md`) |
 | Testes de software executados | **0** — `data/testing/test-log.tsv` só tem cabeçalho |
 | Catálogo gerado do cabeçalho dos relatórios | PASS — `tools/build_catalog.py --check` |

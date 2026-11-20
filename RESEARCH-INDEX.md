@@ -5,7 +5,7 @@ veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID apa
 outro documento e não aqui, o outro documento está errado.
 
 - **Data de referência:** 2026-11-20
-- **Itens:** 22 objetos externos + 5 dossiês internos + 35 digests/propostas + 18 registros de governança
+- **Itens:** 22 objetos externos (26 linhas com sub-documentos) + 5 dossiês internos + 31 digests transversais + 3 comparações + 18 registros de governança
 - **Nenhum item foi executado.** Não existe linha em `data/testing/test-log.tsv`: todo
   `Resultado de execução` desta base é `STATIC_REVIEW_ONLY` ou `NOT_RUN`.
 

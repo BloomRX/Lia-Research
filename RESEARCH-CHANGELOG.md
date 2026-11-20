@@ -49,7 +49,7 @@ relatórios continuam com a mesma data de pesquisa (`2026-11-17`).
 - `archive/superseded/RESEARCH-STATUS-AND-DECISIONS.md` e demais órfãos agora linkados.
 
 ### Validador (FIX)
-- `tools/validate.py` reescrito: 19 verificações em 3 níveis (ERRO bloqueia, AVISO pede
+- `tools/validate.py` reescrito: 18 verificações em 3 níveis (ERRO bloqueia, AVISO pede
   revisão, NOTA é pendência legítima). Inclui ID↔índice, link local, órfão, cabeçalho
   completo, vocabulário fechado, teste declarado sem linha no log, catálogo dessincronizado,
   contagem de licenças e cache versionado.
