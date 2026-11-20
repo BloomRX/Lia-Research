@@ -7,7 +7,7 @@
 | Projetos | Lia Forge 2.0 (consumidor), Lia Studio |
 | Fontes | 51 registros na matriz de evidências (46 originais + 3 da rodada 7.1 + 2 da 7.2) (repositórios, páginas oficiais e serviços; ver `CHARACTER-CREATION-EVIDENCE-MATRIX.tsv`), página pública do vídeo com transcrição parcial, e a pesquisa interna listada em §2 |
 | Data | 2026-11-20 |
-| Revisão | 2026-11-20 (UTC) — 7.1: licença, hardware, vídeo; 7.3: conciliação Tripo/Meshy/Flow/ROCm; 7.4: quatro fontes do Tripo, Flow oficial e API do Meshy |
+| Revisão | 2026-11-20 (UTC) — 7.1: licença, hardware, vídeo; 7.3: conciliação Tripo/Meshy/Flow/ROCm; 7.4: quatro fontes do Tripo, Flow oficial, API do Meshy; 7.5: §5.3 do Tripo, visibilidade/retenção, downloads do Free |
 | Status | CURRENT |
 | Confiança | Média — catálogo de ferramentas verificado em fonte primária; **nenhum modelo foi executado** no hardware de referência |
 | Natureza | pesquisa e documentação; **não autoriza implementação** no Forge |
@@ -259,7 +259,7 @@ Nenhuma delas é "a escolha". A comparação item a item está em `CHARACTER-2D-
 | Instant Meshes como dependência de produto | última atividade em 2022-01; usar como ferramenta pontual, não como biblioteca |
 | ZLUDA / ComfyUI-Zluda | camada não oficial, sem suporte do fornecedor; serve para experimento, não para produto |
 | Plano **gratuito** do Tripo para personagem de jogo | `CONFLICTING` com **quatro** fontes oficiais divergentes: página de preços diz "Non-Commercial Use"; o termo (§5.2.1) renuncia em favor do público e mantém Inputs fora do regime; e duas páginas de ajuda afirmam que a Tripo **retém todos os direitos** de Inputs e Outputs de usuários gratuitos (citando termos de 11/07/2025, substituídos). Não serve para asset proprietário nem para enviar arte própria |
-| Plano **gratuito** do Meshy como entrega final | CC BY 4.0: comercial, mas com atribuição obrigatória — decisão de produto, não técnica |
+| Plano **gratuito** do Meshy como entrega final | CC BY 4.0 (atribuição obrigatória) **e** teto de **10 downloads/mês**, só de modelos 6 Lite sem textura; Meshy 6/7/T2.5 e qualquer modelo texturizado **exigem upgrade** para baixar; crédito comprado não libera download |
 | Live2D como caminho de personagem **3D** | a tecnologia é 2D por construção: não gera malha, não exporta GLB |
 | AetherAI para **3D, rig ou GLB** | o serviço não faz nada disso; a animação é por sprites |
 
@@ -333,7 +333,9 @@ mascotes legítimos.
 6. **Plano pago de serviço 3D**: o gratuito do Tripo é `CONFLICTING` (página diz não comercial,
    termo renuncia em favor do público, e as páginas de ajuda dizem que a Tripo retém os direitos)
    e o do Meshy (Web App) exige atribuição (CC BY 4.0) — sendo que o **Free do Meshy não tem
-   acesso à API**, nem comprando créditos.
+   acesso à API** nem baixa modelos 6/7/T2.5 ou texturizados, com teto de **10 downloads/mês**.
+   O único ponto **resolvido** a favor do plano pago no Tripo é a proibição de treinamento com
+   Paid Inputs/Outputs, que existe no **§5.3** (a página de ajuda cita §5.2.2 por engano).
    Se o Forge produzir asset de jogo, o piso é plano pago (US$ 20–100/mês) ou caminho local.
 
 ## 11. Documentos deste conjunto
