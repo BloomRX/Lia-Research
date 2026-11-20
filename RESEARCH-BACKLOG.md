@@ -6,6 +6,8 @@
 | Origem | lista do proprietário (11 repositórios + 9 sites/serviços) + 6 candidatos adicionais |
 | Natureza | **triagem, não relatório**. Nada aqui foi executado; cada linha diz o que falta |
 | Regra usada | repo → relatório com pin de SHA; site/serviço → análise de função e de como usar/reimplementar |
+| Estado desta fila | 20 recebidos: **3 publicados** (`LR-AGENT-011`, `LR-SEC-007`, `LR-MODEL-006`), **17 triados** |
+| Natureza do registro | linha de triagem **não** é pesquisa: nenhum item aqui é `DOCUMENTED` só por estar na tabela |
 
 > **Como ler.** `INTAKE-nn` é o número da triagem, **não** é ID de pesquisa. ID (`LR-...`)
 > só existe quando o relatório é publicado — a tabela diz quais já saíram.
@@ -44,6 +46,10 @@
 
 ## 3. Candidatos adicionais (para a próxima fila, medidos por API)
 
+**Estado honesto: `TRIAGED`.** Estes seis foram medidos por API do GitHub (nome, licença,
+estrelas, descrição). Nenhum README foi lido, nenhuma licença foi aberta no arquivo. Não
+existe relatório e não existe ID — dizer "avaliado" aqui seria mentira.
+
 | Repositório | O que é | Licença | ★ | Por que entra na fila |
 |---|---|---|---:|---|
 | `promptfoo/promptfoo` | teste/red-team de prompt, agente e RAG | MIT | 27.477 | responde direto ao "0 Skills medidas" (`LR-AGENT-009` V6) |
@@ -74,6 +80,12 @@
 | 5 | `langfuse` × `sentry` para a lacuna `R-2` | observabilidade nunca pesquisada |
 
 ## 6. Limites desta triagem
+
+- Os 6 candidatos da §3 têm **licença informada pela API**, não lida no arquivo (`langfuse`
+  e `litellm` aparecem como `NOASSERTION` justamente por isso).
+- Nada desta fila foi executado; `Resultado de execução` de todos os itens é `NOT_RUN`.
+- Triagem é ordem de fila, não conclusão técnica: item `C` aqui pode voltar se o contexto
+  do ecossistema mudar.
 
 - **Não executei** nenhum dos 11 repositórios; estrelas e tamanho vêm da API.
 - **Não li** README completo de 8 dos 11 repositórios — só metadados e descrição.

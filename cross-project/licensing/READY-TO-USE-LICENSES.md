@@ -5,7 +5,7 @@
 | ID | `LR-LIC-005` |
 | Categoria | licensing |
 | Projetos beneficiados | todos os cinco (camada comum de licença) |
-| Fontes | §9 de cada um dos 18 relatórios em `repositories/*/REPORT.md` (licença lida no arquivo, no commit pinado); `data/inventory/license-matrix.tsv` |
+| Fontes | §9 de cada um dos 22 relatórios em `repositories/*/REPORT.md` (licença lida no arquivo, no commit pinado); `data/inventory/license-matrix.tsv` |
 | Data | 2026-11-17 |
 | Status | CURRENT — **não é parecer jurídico**; é o que o arquivo diz, com obrigação traduzida em ação |
 | Confiança | Alta para o texto das licenças lidas; média para fronteiras de caso limite (marcadas) |
@@ -21,8 +21,13 @@ Para qualquer código, asset ou documento de terceiro, o projeto só precisa res
 3. **O que tenho de colar junto?** (aviso, NOTICE, atribuição)
 
 Se o repositório **não tem arquivo de licença**, a resposta a (1) e (2) é **não** —
-"sem arquivo, sem permissão". Está tabulado em `data/inventory/license-matrix.tsv`
-(18 linhas, uma por objeto, com colunas `usar_como`, `fork`, `modificar`, `comercial`,
+"sem arquivo, sem permissão".
+
+**Selo ≠ licença.** A API do GitHub informa **uma** licença por repositório. Em
+`storytold/photocraft` (pasta `artcraft`) ela diz `Apache-2.0`, mas o repositório oferece
+`LICENSE-MIT` **e** `LICENSE-APACHE` — o consumidor escolhe. Quem lê o selo perde uma
+opção de uso. Conferido em 2026-11-20 (`audits/REAUDIT-2026-11-20.md`). Está tabulado em `data/inventory/license-matrix.tsv`
+(22 linhas, uma por objeto, com colunas `usar_como`, `fork`, `modificar`, `comercial`,
 `redistribuir`, `atribuicao`, `copyleft`, `patente`, `notice_obrigatorio`).
 
 ## 2. Tabela-mestra (o resumo que evita a pesquisa)
@@ -48,6 +53,12 @@ Se o repositório **não tem arquivo de licença**, a resposta a (1) e (2) é **
 | `LR-STUDIO-003` | ReScript | ferramenta externa | LGPL no `compiler/` | avisos por diretório |
 | `LR-AGENT-004` | unslop | **nada** (sem licença) | não | — |
 | `LR-PROV-001` | RouterHub | **nada** | não | — |
+| `LR-AGENT-011` | ai-memory | adaptar o protocolo de *handoff* | sim | copyright + MIT |
+| `LR-SEC-007` | security-audit-skill | check-list de auditoria | sim | copyright + MIT |
+| `LR-MODEL-006` | freellmapi | software MIT; o *serviço* é instantâneo de 30 dias | sim (auto-hospedar) | copyright + MIT |
+
+Os três últimos entraram em 2026-11-20 (antes o digest cobria 19 objetos, a matriz já tinha
+22). Contagem conferida contra `data/inventory/license-matrix.tsv`.
 
 ## 3. Quatro modelos prontos para colar
 
@@ -125,6 +136,17 @@ Isso é `INFERRED` (interpretação usual), **não** parecer jurídico — a fro
 "programa separado" tem critérios técnicos e merece avaliação se virar produto.
 
 ## 4. Fichas de uso (o que o projeto precisa saber, sem abrir o relatório)
+
+**`LR-AGENT-011` ai-memory — MIT.** Adapte o protocolo de *handoff*; o servidor recebe só
+identidade de sessão, nunca o corpo do transcript — copiar essa fronteira é o valor.
+**MIT exige o aviso junto do código derivado.**
+
+**`LR-SEC-007` security-audit-skill — MIT.** Use como check-list de auditoria (11 classes
+de risco, `report-schema.json`); reimplementar o fluxo é mais útil que instalar.
+
+**`LR-MODEL-006` freellmapi — MIT no software.** O catálogo de free tiers é uma foto de
+30 dias atrás; o serviço pago é outro produto. Auto-hospedar o código é permitido, usar a
+lista como verdade não é.
 
 **`LR-MCP-001` HA-MCP — MIT.** Use como servidor externo; pode forkar. Não exibe
 marca "Home Assistant" sem seguir a política do HA. `NOTICE` com copyright + MIT.

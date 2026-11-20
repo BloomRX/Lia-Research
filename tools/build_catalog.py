@@ -17,7 +17,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "catalog/catalog.tsv")
 COLS = ["id", "objeto", "caminho", "tipo", "estado_pesquisa", "resultado_execucao",
         "recomendacao", "licenca", "categoria", "data", "ultima_verificacao",
-        "proxima_revisao", "upstream_conferido", "divergencia_upstream"]
+        "proxima_revisao", "upstream_conferido", "divergencia_upstream", "recomendacao_texto"]
 
 
 def header(text: str) -> dict[str, str]:
@@ -63,6 +63,7 @@ def rows() -> list[list[str]]:
             clean(f.get("Próxima revisão", "")),
             clean(f.get("Upstream conferido", "")).split("·")[0].strip(),
             "SIM" if "mudou desde a análise" in f.get("Upstream conferido", "") else "nao",
+            rec,
         ])
     return out
 

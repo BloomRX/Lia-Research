@@ -8,6 +8,64 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-20 — redefinição de missão, catálogo gerado e re-auditoria
+
+Nada aqui é pesquisa nova sobre tecnologia: é a base arrumando a própria casa. Os 22
+relatórios continuam com a mesma data de pesquisa (`2026-11-17`).
+
+### Identidade e autoridade (ADD)
+- `MISSION.md`: identidade permanente (departamento de P&D e avaliação técnica), limite de
+  autoridade (pesquisa **recomenda**, não decide adoção) e a separação dos três conceitos.
+- `agents/RESEARCH-ORCHESTRATOR.md` §0: o orquestrador não pode aprovar nada, em nenhum
+  projeto, nem "só desta vez".
+- Banner de limite de autoridade em 13 documentos de `governance/` e `agents/`.
+
+### Protocolos novos (ADD)
+- `governance/INVESTIGATION-PROTOCOL.md`: etapas A–E e tabela dos 6 erros que esta base
+  já cometeu (triagem virando `DOCUMENTED`, etc.).
+- `governance/TESTING-PROTOCOL.md`: níveis 0–3, 10 regras obrigatórias, registro de 10
+  colunas em `data/testing/test-log.tsv`.
+- `catalog/CATALOG-SCHEMA.md` + `catalog/catalog.tsv` (gerado por
+  `tools/build_catalog.py`): 22 linhas, estado ≠ resultado ≠ recomendação ≠ decisão.
+- 5 modelos novos em `templates/`: MCP, Skill, modelo, API/serviço, paper.
+
+### Vocabulário (FIX, com migração registrada)
+- 22 relatórios: `ADAPTAR`→`ADAPT`, `REFERÊNCIA`→`REFERENCE_ONLY`, `REJEITAR`→`REJECT`.
+  `ADOTAR` não existia. Texto original preservado entre parênteses quando havia dois
+  valores no mesmo campo (ex.: `LR-STUDIO-003` rejeita a stack e aceita referência de interop).
+- `RESEARCH-INDEX.md` §1 ganhou coluna **Decisão de adoção** (vazia: pesquisa não decide) e
+  passou a mostrar estado e recomendação em colunas separadas.
+- `archive/superseded/RESEARCH-STATUS-AND-DECISIONS.md`: o texto antigo de 5 categorias
+  foi arquivado, não reescrito.
+
+### Reorganização (FIX)
+- 7 relatórios de entrega movidos para `archive/historical/`; `LIA-RESEARCH-ROADMAP.md`
+  fundido em `RESEARCH-ROADMAP.md` Partes A/B; `LIA-RESEARCH-INTAKE-2026-11-17.md` virou
+  `RESEARCH-BACKLOG.md`. Raiz agora só tem entrada, missão, índice, roadmap, fila,
+  changelog e licença. Todos os links corrigidos.
+- `tools/__pycache__/` removido. `collect.py`, `enum2.py` e `fetch3.py` movidos para
+  `archive/scripts/` (são scripts de sessão únicos, dependem de arquivos que não existem
+  mais; ver README de lá).
+- `archive/superseded/RESEARCH-STATUS-AND-DECISIONS.md` e demais órfãos agora linkados.
+
+### Validador (FIX)
+- `tools/validate.py` reescrito: 19 verificações em 3 níveis (ERRO bloqueia, AVISO pede
+  revisão, NOTA é pendência legítima). Inclui ID↔índice, link local, órfão, cabeçalho
+  completo, vocabulário fechado, teste declarado sem linha no log, catálogo dessincronizado,
+  contagem de licenças e cache versionado.
+- `tools/test_validate.py`: 10 testes, rodam em 5 ms (`python3 tools/test_validate.py`).
+
+### Re-auditoria de upstream (ADD)
+- `tools/check_upstream.py` + `data/inventory/upstream-reaudit-2026-11-20.tsv`:
+  **22/22 objetos existem**, **10 com commits novos** desde a versão analisada, 0 links
+  mortos. Cada relatório ganhou `| Upstream conferido |`.
+- `audits/REAUDIT-2026-11-20.md` com a tabela completa e a lição do selo ≠ licença.
+
+### Correções de contagem (FIX)
+- `cross-project/licensing/READY-TO-USE-LICENSES.md`: 19 → **22** objetos (faltavam
+  `LR-AGENT-011`, `LR-SEC-007`, `LR-MODEL-006`), conferido contra a matriz.
+- `README.md`: 142 → 158 arquivos; estado da base atualizado; 0 testes declarado.
+
 ## 2026-11-17 — triagem de 20 itens + 3 relatórios publicados
 
 ### Triagem (ADD)

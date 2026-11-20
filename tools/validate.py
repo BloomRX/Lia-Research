@@ -64,6 +64,12 @@ def walk_md() -> list[str]:
     return sorted(out)
 
 
+def first_token(text: str, vocab: set[str]) -> str | None:
+    """Token do vocabulário que aparece primeiro no texto (determinístico)."""
+    hits = [(text.find(t), t) for t in vocab if t in text]
+    return min(hits)[1] if hits else None
+
+
 def header_block(text: str) -> dict[str, str]:
     """Campos do primeiro bloco de tabela do documento."""
     fields: dict[str, str] = {}
@@ -213,6 +219,35 @@ def check_report_schema(files: list[str]) -> None:
             errors.append(f"relatório sem seção de evidência: {r}")
 
 
+def check_index_consistency() -> None:
+    """Índice e relatório precisam concordar na recomendação e no estado."""
+    path = os.path.join(ROOT, "RESEARCH-INDEX.md")
+    if not os.path.exists(path):
+        return
+    index = open(path, encoding="utf-8").read()
+    linhas = {}
+    for line in index.split("\n"):
+        if line.startswith("| `LR-") and line.count("|") >= 6:
+            c = [x.strip() for x in line.strip().strip("|").split("|")]
+            linhas[c[0].strip("`")] = c
+    import glob as _glob
+    for f in _glob.glob(os.path.join(ROOT, "repositories/*/REPORT.md")):
+        fields = header_block(open(f, encoding="utf-8").read())
+        oid = fields.get("ID", "").strip("` ")
+        if oid not in linhas:
+            errors.append(f"relatório fora do índice: {oid} ({rel(f)})")
+            continue
+        c = linhas[oid]
+        rec_idx = first_token(" ".join(c), RECS)
+        rec_rep = first_token(fields.get("Recomendação", ""), RECS)
+        if rec_idx and rec_rep and rec_idx != rec_rep:
+            errors.append(f"recomendação divergente em {oid}: índice={rec_idx} relatório={rec_rep}")
+        st_idx = first_token(" ".join(c), STATES)
+        st_rep = fields.get("Estado da pesquisa", "").split(" ")[0]
+        if st_idx and st_rep and st_idx != st_rep and st_rep in STATES:
+            errors.append(f"estado divergente em {oid}: índice={st_idx} relatório={st_rep}")
+
+
 def check_test_claims(files: list[str]) -> None:
     log = os.path.join(ROOT, "data/testing/test-log.tsv")
     rows = []
@@ -276,6 +311,40 @@ def check_counts(files: list[str]) -> None:
         errors.append(f"README diz {m2.group(1)} objetos auditados; existem {n_reports}")
 
 
+def check_catalog_sync() -> None:
+    """catalog.tsv precisa ter uma linha por relatório, com o mesmo ID."""
+    tsv = os.path.join(ROOT, "catalog/catalog.tsv")
+    if not os.path.exists(tsv):
+        errors.append("catalog/catalog.tsv ausente (rode tools/build_catalog.py)")
+        return
+    linhas = [l for l in open(tsv, encoding="utf-8").read().split("\n")[1:] if l.strip()]
+    ids_tsv = {l.split("\t")[0] for l in linhas}
+    import glob as _glob
+    for f in _glob.glob(os.path.join(ROOT, "repositories/*/REPORT.md")):
+        oid = header_block(open(f, encoding="utf-8").read()).get("ID", "").strip("` ")
+        if oid not in ids_tsv:
+            errors.append(f"objeto fora do catálogo: {oid} ({rel(f)})")
+
+
+def check_licence_counts() -> None:
+    matrix = os.path.join(ROOT, "data/inventory/license-matrix.tsv")
+    digest = os.path.join(ROOT, "cross-project/licensing/READY-TO-USE-LICENSES.md")
+    if not (os.path.exists(matrix) and os.path.exists(digest)):
+        return
+    ids_matrix = {l.split("\t")[0] for l in open(matrix, encoding="utf-8").read().split("\n")[1:] if l.strip()}
+    text = open(digest, encoding="utf-8").read()
+    inicio = text.find("## 2. Tabela-mestra")
+    fim = text.find("## 3.", inicio)
+    bloco = text[inicio:fim] if inicio > 0 and fim > inicio else ""
+    ids_digest = set(re.findall(r"\| `(LR-[A-Z]+-\d+)` \|", bloco))
+    faltando = ids_matrix - ids_digest
+    if faltando:
+        warnings.append(f"objetos na matriz de licença e fora do digest de licenças: {sorted(faltando)}")
+    sobrando = ids_digest - ids_matrix
+    if sobrando:
+        errors.append(f"digest de licenças cita objeto inexistente na matriz: {sorted(sobrando)}")
+
+
 def check_orphans(files: list[str]) -> None:
     corpus = {rel(f): open(f, encoding="utf-8", errors="replace").read() for f in files}
     allowed = {"README.md", "RESEARCH-INDEX.md", "RESEARCH-CHANGELOG.md",
@@ -318,13 +387,14 @@ def main() -> int:
         ("diretórios", check_empty_dirs), ("tamanho", check_sizes),
         ("caminhos", check_local_paths), ("links", check_md_links),
         ("IDs", check_ids), ("relatórios", check_report_schema),
-        ("testes", check_test_claims), ("decisões", check_decisions),
+        ("índice", check_index_consistency), ("testes", check_test_claims), ("decisões", check_decisions),
         ("digests", check_digests), ("caches", check_caches),
-        ("contagens", check_counts), ("órfãos", check_orphans),
+        ("contagens", check_counts), ("catálogo", check_catalog_sync),
+        ("licenças", check_licence_counts), ("órfãos", check_orphans),
         ("vencidas", check_stale),
     ]:
         before = (len(errors), len(warnings))
-        fn(files) if name not in ("diretórios", "caches") else fn()
+        fn(files) if name not in ("diretórios", "caches", "índice", "catálogo", "licenças") else fn()
         status = "ok" if (len(errors), len(warnings)) == before else "nota"
         if not quiet and not as_json:
             print(f"[{status:5}] {name}")
