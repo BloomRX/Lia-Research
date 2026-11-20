@@ -58,8 +58,8 @@ Regra: item só sai daqui quando existe documento com evidência, não quando "j
 | P-11 | Decidir sobre CC5.2 / GPT Image / Flow como candidatos | **PENDING** | novos em 2026-11-20; exigem avaliação em máquina compatível e leitura de EULA |
 | P-12 | Descobrir custo real por operação da AetherAI (`LR-MODEL-008`) | **BLOCKED** | a página de preços exige sessão/JavaScript; 70 tokens = US$ 3,99 é o único número obtido. Exige decisão de abrir conta |
 | P-13 | Spike de movimento 2D com `LR-FORGE-009` (Live2D) | **BLOCKED** | exige modelo Live2D licenciado e Chrome; **e** decisão sobre o Cubism SDK Release License (faixa de faturamento) |
-| P-14 | Esclarecer por escrito o Free do Tripo (`CONFLICTING`) | **BLOCKED** | depende de consulta ao fornecedor/advogado; até lá, Free do Tripo vetado para asset proprietário |
-| P-15 | Descobrir se créditos de Web App e API do Meshy são o mesmo pool | **UNVALIDATED** | documentação lida separa canais e não afirma pool único |
+| P-14 | Esclarecer por escrito o Free do Tripo (`CONFLICTING`) | **BLOCKED** (piorou na 7.4) | agora são quatro fontes oficiais divergentes, duas delas afirmando retenção de direitos; depende de consulta ao fornecedor/advogado; Free segue vetado para asset proprietário |
+| P-15 | Descobrir se créditos de Web App e API do Meshy são o mesmo pool | **UNVALIDATED** (não fecha) | a 7.4 confirmou que o **Free não tem API**; para planos pagos, nenhum documento lido afirma pool único nem separação definitiva |
 | P-10 | Piloto de um personagem com medição de tempo por etapa | **PENDING** | decisão do proprietário |
 
 ## Trilha H — Hardware (bloqueia toda decisão de modelo)

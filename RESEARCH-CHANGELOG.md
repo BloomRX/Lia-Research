@@ -8,6 +8,66 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-20 (UTC) — rodada 7.4: últimas fontes oficiais (Tripo, Flow, API do Meshy)
+
+Fechamento de quatro achados de revisão independente. Nenhum documento apagado, nenhuma
+recomendação convertida em adoção, nada implementado, nenhuma conta aberta, nenhum crédito gasto.
+
+### FIX — Tripo: quatro fontes oficiais na mesma conciliação
+- Somadas duas páginas de ajuda oficiais: **"How to Use Tripo Models Commercially"** e
+  **"How to Understand Data Privacy and AI Training at Tripo"**. Ambas afirmam que a Tripo
+  **retém todos os direitos de Inputs e Outputs** de usuários gratuitos e citam os termos de
+  **11/07/2025** — versão substituída pela de 13/11/2026.
+- Montada a tabela das quatro fontes (página de preços, Termos, guia comercial, guia de
+  privacidade/treinamento) com data, natureza (comercial / contratual / orientação), escopo
+  (Inputs × Outputs × Free × pago), titular do direito e o que cada uma permite, restringe ou
+  não esclarece.
+- Nomeadas cinco divergências: **D1** titularidade (guias dizem "retains all rights"; §5.2 diz
+  que os direitos que o usuário detém são dele e §5.2.1 renuncia em favor do público); **D2**
+  Inputs (guias incluem; §5.2.1 exclui expressamente do regime); **D3** treinamento (guia diz
+  proibição para pago "nos termos 5.2.2" — o texto lido do §5.2.2 não contém essa cláusula);
+  **D4** uso comercial do usuário Free (página "non-commercial", guia "not granted", termo
+  silente e permissivo quanto a terceiros); **D5** versão dos termos citada pelos guias.
+- Mantido **`CONFLICTING` + `REQUIRES_LEGAL_REVIEW`**. O direito comercial do usuário gratuito
+  **não** foi declarado resolvido. Recomendação conservadora reforçada (não usar Free Outputs
+  nem enviar arte própria de personagem). Plano pago **sem alteração** de recomendação, com a
+  ressalva nova de que a "proibição de treinamento" para pago é afirmação de página de ajuda.
+
+### FIX — Google Flow: `COMMUNITY_REPORTED` → `OFFICIAL_DOCUMENTATION`
+- O artigo oficial de créditos está acessível e confirma: **50 créditos/dia com ou sem
+  assinatura**; **+200/mês** no Plus, **+1.000** no Pro, **+10.000** no Ultra US$ 100 e
+  **+25.000** no Ultra US$ 200; atualização diária disparada pela **primeira geração do dia**;
+  diários e mensais **não acumulam**; mensais renovam no início do ciclo de faturamento;
+  **vídeo pode ficar indisponível para não assinantes entre ~14h e 17h UTC**, com imagem e
+  agente disponíveis; **18+ com idade verificada** e região suportada (VPN não contorna);
+  Workspace qualificado recebe 50 diários; custo por **segundo/modelo** (Omni Flash 1.2: 1/s em
+  360p, 3/s em 720p; Veo 3.1 Lite: 10 créditos, 5 no Ultra; 4K: 50 créditos, só Ultra);
+  SynthID invisível; falha devolve créditos em até 1 hora.
+- Removida a ressalva de que o artigo não teria sido acessado. Continua vedado inventar
+  "crédito = N imagens/vídeos"; API própria do Flow segue não documentada (API Gemini é outro
+  caminho); Flow continua sem 3D.
+
+### FIX — Meshy: plano Free não tem API
+- Help Center oficial: custos iguais entre planos pagos; **o plano Free não tem acesso à API,
+  mesmo comprando créditos adicionais**; plugins e integrações consomem o mesmo saldo de API.
+- Catálogo passa a separar **Free Web App (100 créditos/mês)** de **Free API (não disponível)**.
+  Fica registrado que "gastar os 100 créditos gratuitos em chamadas de API" é duplamente
+  errado. **P-15 continua `UNVALIDATED`**: para planos pagos, nenhum documento lido afirma pool
+  único nem separação definitiva.
+
+### FIX — relatório e índices
+- Contagem real de arquivos da rodada 7.3 conferida no diff `2d46707..b7f0be7`: **16 caminhos**
+  — 11 em `cross-project/character-creation/` (10 Markdown + 1 TSV) e 5 de índice/controle. O
+  resumo anterior dizia "12 + 5" e estava errado; o número correto é **11 + 5**.
+- `RESEARCH-INDEX.md` §3-ter passa a listar as rodadas em **ordem cronológica** (7.1 → 7.2 →
+  7.3 → 7.4), com o changelog mantendo ordem inversa e horários em UTC.
+
+### DECISION — nenhuma
+- Nenhuma adoção ou integração aprovada. Pipeline 2 continua candidato a avaliação. Free do
+  Tripo continua vetado para asset proprietário.
+
+---
+
 ## 2026-11-20 (UTC) — rodada 7.3 (o pedido a chama de "7.2"): conciliação de fontes, créditos e compatibilidade
 
 Quatro inconsistências apontadas por revisão independente. Nenhum documento apagado, nenhuma

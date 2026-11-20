@@ -117,9 +117,19 @@ tem autoridade para criar).
 
 ## 3-ter. Criação de personagens — silhueta primeiro (2026-11-20, ampliada e conciliada em 2026-11-20 UTC)
 
-Pesquisa pedida pelo Lia Forge 2.0. **10 IDs e 10 documentos Markdown**, mais 1 matriz; nenhum
-deles autoriza implementação. Revisada em 2026-11-20 UTC (rodada 7.1, correções factuais; rodada 7.3, conciliação de fontes; rodada
-7.2, dois objetos novos).
+Pesquisa pedida pelo Lia Forge 2.0. **10 IDs e 10 documentos Markdown**, mais 1 matriz de 51
+registros em 16 colunas; nenhum deles autoriza implementação.
+
+Histórico das rodadas, em ordem cronológica (todas em 2026-11-20 UTC):
+
+1. **Rodada 7.1** — correção factual: vídeo de referência reclassificado, contagens, licenças
+   Tripo/Meshy, hardware AMD, regra de componente conexo por arquétipo.
+2. **Rodada 7.2** — dois objetos novos: `LR-MODEL-008` (AetherAI) e `LR-FORGE-009` (Live2D).
+3. **Rodada 7.3** — conciliação: Tripo `CONFLICTING`, Meshy por canal (Web App × API), acesso
+   gratuito do Flow, ROCm 7.2.1/Ryzen AI oficial, evidência por dimensão na matriz.
+4. **Rodada 7.4** — fechamento: quatro fontes oficiais do Tripo (incluindo as páginas de ajuda),
+   Flow promovido a `OFFICIAL_DOCUMENTATION`, restrição de API no Free do Meshy e correções de
+   contagem/ordenação.
 
 | ID | Tema | Documento | Natureza |
 |---|---|---|---|
