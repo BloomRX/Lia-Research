@@ -5,6 +5,9 @@ title: "[PESQUISA] <nome> — <uma frase do que se espera aprender>"
 labels: pesquisa
 ---
 
+- Tipo de objeto: repositório · MCP · Skill · modelo · API/SaaS · paper · voz/visão · hardware/automação
+- Modelo aplicável (`templates/README.md`):
+
 ## Objeto
 
 | Campo | Valor |

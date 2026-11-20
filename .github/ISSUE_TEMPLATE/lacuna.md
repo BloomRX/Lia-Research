@@ -5,6 +5,8 @@ title: "[LACUNA] <tema> — <BLOCKED|NOT RUN|UNVERIFIED>"
 labels: lacuna
 ---
 
+- Relatório/ID onde a lacuna aparece:
+
 ## O que falta
 
 ## Por que falta

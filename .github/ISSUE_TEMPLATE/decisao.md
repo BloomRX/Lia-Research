@@ -5,6 +5,8 @@ title: "[DR-00XX] <decisão em uma frase>"
 labels: decisao
 ---
 
+- Alcance: **GOVERNANCA** (esta base não aprova adoção de tecnologia)
+
 ## Decisão
 
 ## Por que o agente não pode decidir

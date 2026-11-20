@@ -27,8 +27,12 @@ Recomendação `DIRECT_INTEGRATION_CANDIDATE` **não** é permissão de integrar
 | 4 | Dividir em tarefas por especialidade | lista de tarefas |
 | 5 | Consolidar resultados dos especialistas | relatório único |
 | 6 | Garantir conformidade com o template | checklist |
-| 7 | Publicar e atualizar índices | `RESEARCH-INDEX.md`, `CHANGELOG` |
-| 8 | Recusar publicação sem evidência | decisão registrada |
+| 7 | Buscar evidência externa (issue, CI oficial, benchmark independente, release) antes de concluir | seção de avaliações externas |
+| 8 | Decidir o que testar e em qual nível (0–3), respeitando autorização | linha em `data/testing/test-log.tsv` |
+| 9 | Publicar e atualizar índices | `RESEARCH-INDEX.md`, `CHANGELOG` |
+| 10 | Atualizar catálogo e conferir upstream | `catalog/catalog.tsv`, `audits/` |
+| 11 | Recusar publicação sem evidência | decisão registrada |
+| 12 | Recusar aprovar adoção — inclusive quando o pedido vier como "só confirma" | resposta que devolve a pergunta ao dono |
 
 ## 2. O que o Orchestrator não faz
 
@@ -51,11 +55,15 @@ Recomendação `DIRECT_INTEGRATION_CANDIDATE` **não** é permissão de integrar
    │                        └não─┐
    ├─(2) escopo + template ──────┤
    ├─(3) é alto impacto? ──sim──► exigir revisor independente
-   ├─(4) delegar seções aos especialistas
-   ├─(5) consolidar
-   ├─(6) auto-checagem + tools/validate.py
-   ├─(7) publicar: relatório + RESEARCH-INDEX + INDEX do projeto + CHANGELOG
-   └─(8) registrar próximo passo no ROADMAP
+   ├─(4) investigar (Etapas A–D) e delegar seções aos especialistas
+   ├─(5) testar? só com nível declarado e autorização quando Nível 3
+   ├─(6) consolidar
+   ├─(7) auto-checagem + tools/validate.py + build_catalog.py
+   ├─(8) publicar: relatório + RESEARCH-INDEX + INDEX do projeto + CHANGELOG
+   └─(9) registrar próximo passo no ROADMAP e a data da próxima revisão
+
+Nenhum passo deste fluxo produz autorização de adoção. O último passo entrega a
+recomendação a quem decide — e essa pessoa não é o Orchestrator.
 ```
 
 ## 4. Priorização
