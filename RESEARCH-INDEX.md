@@ -130,6 +130,10 @@ Histórico das rodadas, em ordem cronológica (todas em 2026-11-20 UTC):
 4. **Rodada 7.4** — fechamento: quatro fontes oficiais do Tripo (incluindo as páginas de ajuda),
    Flow promovido a `OFFICIAL_DOCUMENTATION`, restrição de API no Free do Meshy e correções de
    contagem/ordenação.
+5. **Rodada 7.5** — correção de fonte: proibição de treinamento do plano pago localizada no
+   **§5.3** dos Termos (a ajuda citava §5.2.2), divergências de **visibilidade** e de
+   **exclusão/retenção** registradas como itens próprios, e limite de **10 downloads/mês** do
+   Meshy Free separado dos créditos.
 
 | ID | Tema | Documento | Natureza |
 |---|---|---|---|

@@ -8,6 +8,65 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-20 (UTC) — rodada 7.5: §5.3 do Tripo, visibilidade/retenção e downloads do Meshy Free
+
+Rodada pequena e focada: corrigir a referência contratual do treinamento no plano pago, registrar
+duas divergências ajuda × Termos e completar as limitações operacionais do Meshy Free. Nenhum
+documento ou ID novo, nada implementado, nenhuma conta aberta, nenhum crédito gasto.
+
+### FIX — Tripo §5.3 (correção de erro da própria 7.4)
+- A 7.4 classificou a proibição de treinamento no plano pago como `UNVALIDATED`, por não achá-la
+  no §5.2.2. **Estava errado**: a cláusula existe no **§5.3** ("Company will not use Paid Users'
+  Inputs or Paid Outputs as training data to train, fine-tune or otherwise develop any artificial
+  intelligence model"). A página de ajuda atribui a proteção ao §5.2.2 — **erro de referência da
+  ajuda**, agora registrado como tal. Classificação com evidência contratual: `OFFICIAL_LICENSE`.
+- Registradas as três coisas que o §5.3 **não** impede: uso de informação **agregada ou
+  anonimizada** para melhorar serviço/funcionalidades/modelos; **revisão** de Inputs e Outputs sob
+  o §3.1 para operar, proteger, solucionar problemas e avaliar qualidade/segurança/desempenho
+  (expressamente separada de treinamento); retenção de dado anonimizado já usado em modelo.
+  Fica vedado afirmar que a Tripo nunca processa, revisa ou avalia conteúdo pago.
+- Recomendação do plano pago **sem alteração**: segue como regime contratual mais favorável, sem
+  promessa de exclusividade absoluta nem de ausência de todo processamento.
+
+### FIX — Tripo: duas divergências novas, como itens independentes
+- **Visibilidade** (§6.1.6): a ajuda diz que assets "are only visible to you unless you explicitly
+  set them to public"; os Termos (§4, §5.2.1) dizem que **Free Outputs são públicos por padrão**.
+  Separadas cinco categorias (Inputs, Free Outputs, Paid Outputs, visibilidade de interface,
+  regime contratual de publicidade/licença), com a ressalva de que a interface **não** resolve o
+  conflito contratual.
+- **Exclusão e retenção** (§6.1.7): a ajuda fala em retenção "in perpetuity" citando o §10.5 de
+  uma versão de 2025; o §10.5 atual trata de exclusão **sujeita a retenção legal/operacional
+  permitida**, de cópias já baixadas por terceiros ("cannot be recalled"), da **persistência da
+  licença/renúncia** e da retenção de anonimizado. Registrado que persistência de licença **não**
+  é retenção perpétua do arquivo.
+- **Contradição interna da ajuda** (§6.1.8): a mesma página que afirma "Tripo retains all rights to
+  Inputs and Outputs" também classifica "your own artwork / photos" como "Safe — Full commercial
+  use". Registradas as duas leituras (assuntos distintos × incompatibilidade residual) e
+  **nenhuma** foi escolhida para "resolver" o problema.
+
+### FIX — Meshy: downloads do Free, separados dos créditos
+- Help Center oficial: Free tem **10 downloads/mês**, apenas de modelos **sem textura do Meshy 6
+  Lite**; **Meshy 6, 7, T2.5, qualquer modelo texturizado, textura aplicada a modelo enviado e
+  modelos do 3D Agent exigem upgrade** para baixar; crédito comprado "doesn't unlock downloads";
+  modelos de assinatura anterior continuam baixáveis sem limite.
+- Catálogo passa a separar explicitamente **geração, crédito, download e licença**. Corrigida a
+  leitura implícita de que "100 créditos = 5 modelos" seria "5 assets exportáveis": no Free o teto
+  real é o download (10/mês, só 6 Lite sem textura).
+
+### C — Google Flow
+- Reconferido em 2026-11-20 (UTC) nos artigos `16526234` (pt-BR) e `16353333` (en-GB): 50
+  créditos/dia com ou sem assinatura, extras mensais por plano, atualização na primeira geração,
+  não acumulação, janela de vídeo 14h–17h UTC para não assinantes, 18+ com idade verificada e
+  região suportada, aposentadoria de Veo 3.1 Fast/Quality e Omni Flash 1.1 em **05/12/2026**.
+  Mantido `OFFICIAL_DOCUMENTATION`; sem custo fixo de imagem, sem API própria, sem 3D.
+
+### DECISION — nenhuma
+- Free do Tripo continua `CONFLICTING` + `REQUIRES_LEGAL_REVIEW`; direito comercial do usuário
+  gratuito **não** foi declarado resolvido; segue vedado usar Free Outputs em asset proprietário
+  e enviar arte proprietária enquanto a divergência documental não tiver esclarecimento formal.
+
+---
+
 ## 2026-11-20 (UTC) — rodada 7.4: últimas fontes oficiais (Tripo, Flow, API do Meshy)
 
 Fechamento de quatro achados de revisão independente. Nenhum documento apagado, nenhuma
