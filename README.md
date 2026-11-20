@@ -11,7 +11,7 @@
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
 | Status | Base reorganizada em 2026-11-20 (missão, catálogo, validador). Medição em hardware: `NOT RUN`; testes de software registrados: **0** |
-| Arquivos Markdown | 162 (contagem de 2026-11-20, `find -name '*.md'`), validados por `tools/validate.py` |
+| Arquivos Markdown | 163 (contagem de 2026-11-20, `find -name '*.md'`), validados por `tools/validate.py` |
 | Relatórios externos | 23 objetos, 1 relatório cada (`repositories/*/REPORT.md`) |
 | Catálogo | `catalog/catalog.tsv` — 23 linhas, gerado de `tools/build_catalog.py` |
 | Decisões (governança) | 1 aceita · 12 pendentes · 3 rejeitadas · 2 referência · 2 pastas vazias por desenho |
@@ -207,7 +207,7 @@ A regra aplicada: **nenhum diretório vazio** e nenhuma pasta criada para "compl
 | Re-auditoria de upstream (2026-11-20) | 22/22 existem · 10 com commits novos · 0 links mortos (`audits/REAUDIT-2026-11-20.md`) |
 | Reauditoria técnica (2026-11-20) | 22 objetos reavaliados · 3.917 commits no intervalo · 0 recomendações alteradas · 1 motivo alterado (`audits/TECHNICAL-REAUDIT-2026-11-20.md`) |
 | Validador próprio | `python3 tools/validate.py` (18 verificações, data dinâmica) e `python3 tools/test_validate.py` (**76 testes**) |
-| Testes de software executados | **14 linhas** em `data/testing/test-log.tsv`: 5 suítes reais (17 + 65 + 65 + 3.530 + 2.044 testes) e 9 tentativas bloqueadas com motivo |
+| Testes de software executados | **16 linhas** em `data/testing/test-log.tsv`: 5 suítes reais (17 + 65 + 65 + 3.530 + 2.044 asserções), 2 execuções parciais e 9 tentativas bloqueadas com motivo |
 | Catálogo gerado do cabeçalho dos relatórios | PASS — `tools/build_catalog.py --check` |
 | Fase 4 (medição em hardware) | **NOT RUN** — exige execução na máquina do usuário |
 | Revisão humana da entrega | **PENDENTE** — protocolo em `agents/REVIEW-PROTOCOL.md` |

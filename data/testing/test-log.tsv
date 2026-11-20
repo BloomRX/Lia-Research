@@ -13,3 +13,5 @@ date	object_id	version	level	environment	procedure	result	evidence	not_tested	re
 2026-11-20	LR-AGENT-001	a9e59e8	2	bloqueado: Rust + app desktop (cargo/Tauri ausentes)	cargo test / build	BLOCKED	rust/crates/* presentes	toda a execução	nenhum
 2026-11-20	LR-FORGE-002	30bc117	2	bloqueado: C++ (CMake) + Blender; nenhum dos dois no sandbox	cmake build / testes Blender	BLOCKED	CMakeLists.txt + tests/ C++	toda a execução	nenhum
 2026-11-20	LR-STUDIO-005	c4c62f5	2	bloqueado: C#/.NET (dotnet ausente) e Vulkan (GPU)	dotnet build	BLOCKED	sem toolchain .NET	toda a execução	nenhum
+2026-11-20	LR-UI-006	1fb4dd73	2	bloqueado: exige Manim + LaTeX (ausentes) e render de vídeo	python -m manim / render de amostra	BLOCKED	requirements com manim; sem TeX no sandbox	render real e qualidade visual	nenhum
+2026-11-20	LR-AGENT-011	6a141858	2	bloqueado: projeto Rust (cargo ausente)	cargo test	BLOCKED	Cargo.toml presente; sem toolchain	toda a execução	nenhum

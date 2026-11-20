@@ -7,7 +7,7 @@
 | Método | `compare` da API (commits + arquivos), leitura de arquivos materiais no HEAD, CI do upstream no HEAD, releases, testes próprios em ambiente isolado |
 | O que **não** foi feito | leitura integral de código de cada objeto; nenhum objeto Rust/C#/Go/Blender foi executado (toolchain ausente) |
 | Registro por objeto | seção `Reauditoria 2026-11-20` em `repositories/*/REPORT.md` |
-| Registro de execução | `data/testing/test-log.tsv` (14 linhas) |
+| Registro de execução | `data/testing/test-log.tsv` (16 linhas) |
 
 ## 1. Números
 
@@ -20,10 +20,10 @@
 | Arquivos alterados analisados | 300 por objeto (limite da API; truncado em 6 objetos) |
 | Recomendações alteradas | **0** |
 | Motivos de recomendação alterados | **1** (`sculptforge`: o bloqueio de licença caiu; o rótulo ficou) |
-| Testes próprios executados | **5 suítes** em 5 objetos + 12 tentativas bloqueadas registradas |
+| Testes próprios executados | **5 suítes** em 5 objetos + 2 execuções parciais + **9 tentativas bloqueadas**, todas com linha no log |
 | Testes aprovados | `ai-design-skills` 17/17 · `claude-bughunter` 65/65 · `cloudflare` 65/65 (34+31) · `claude-trading-skills` 3.530 de 3.598 · `freellmapi` 2.044 de 3.840 |
 | Testes falhos | `claude-trading-skills` 88 (+73 erro de coleta) · `freellmapi` 1.796 (dominados por `better-sqlite3` ausente) |
-| Bloqueados | 8 objetos: Rust (4), C#/.NET (1), C++/Blender (1), C++/Manim (1), Python ≥3.14 + HA (1) |
+| Bloqueados | 9 objetos: Rust (5), C#/.NET (1), C++/Blender (1), Manim/LaTeX (1), Python ≥3.14 + HA (1) |
 | Versões pinadas conferidas contra release real | 7 |
 
 ## 2. O que mudou de fato nos 10
@@ -66,8 +66,8 @@ Não basta "o SHA é o mesmo". Para os 11, esta rodada conferiu:
 ## 5. Conclusão honesta
 
 Os 22 objetos foram reavaliados com evidência nova por objeto. **Isso não é o mesmo que
-dizer que todos foram testados**: cinco tiveram execução real, oito estão bloqueados por
-toolchain, e nove só têm revisão estática de diff. Nenhuma recomendação mudou de rótulo;
+dizer que todos foram testados**: cinco tiveram execução real, nove estão bloqueados por
+toolchain, e oito só têm revisão estática de diff. Nenhuma recomendação mudou de rótulo;
 uma mudou de motivo. Declarar "tudo reauditado e validado" seria exatamente o tipo de
 afirmação que `governance/TESTING-PROTOCOL.md` proíbe.
 

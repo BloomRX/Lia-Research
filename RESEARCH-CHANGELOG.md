@@ -39,10 +39,10 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
   `LICENSE-EXCEPTION.md` (scripting), então o GPL deixou de bloquear script via API/CLI/MCP.
 - `audits/TECHNICAL-REAUDIT-2026-11-20.md` com números, lacunas e limites do método.
 
-### Testes próprios (ADD — 14 linhas no log)
+### Testes próprios (ADD — 16 linhas no log)
 - `ai-design-skills` 17/17 · `claude-bughunter` 65/65 · `cloudflare-security-audit-skill`
-  65/65 (34+31) · `claude-trading-skills` 3.530/3.598 · `freellmapi` 2.044/3.840.
-- 9 tentativas bloqueadas com motivo (`cargo`, `dotnet`, Blender, Manim, Python ≥3.14, HA).
+  65/65 (34+31) · `claude-trading-skills` 3.530/3.598 · `freellmapi` 2.044/3.840 (pares `PARTIAL`).
+- 9 tentativas bloqueadas com motivo (`cargo`, `dotnet`, Blender, Manim, Python ≥3.14, HA), cada uma com linha no log.
 
 ### Fila (ADD)
 - `RESEARCH-BACKLOG.md` §7: decisão escrita para os 17 triados e para os 6 candidatos;
