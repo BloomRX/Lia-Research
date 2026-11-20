@@ -7,6 +7,7 @@
 | Projetos | Lia Forge 2.0, Lia Studio |
 | Fontes | `gh api` (licença, atividade, releases) e API de modelos do Hugging Face (licença de pesos, SHA, contagem de parâmetros), lidos em 2026-11-20; READMEs oficiais para requisitos de hardware |
 | Data | 2026-11-20 |
+| Revisão | 2026-11-21 (rodada 7.1: correções de licença, hardware, vídeo e contagens) |
 | Status | CURRENT |
 | Confiança | Média-alta em licença e metadados; **baixa em desempenho** — nada foi executado |
 | Natureza | pesquisa e documentação; não autoriza download de pesos nem integração |
@@ -24,6 +25,13 @@
    `NÃO` (exige CUDA), `VULKAN` (há caminho ggml/Vulkan, não validado no hardware),
    `NUVEM` (serviço), `?` (não determinado).
 4. Nenhum peso foi baixado nesta rodada. O maior arquivo citado tem 69 GB de storage.
+5. **Vocabulário de evidência desta série** (pedido da rodada 7.1):
+   `OFFICIAL_LICENSE` (texto de licença lido), `OFFICIAL_DOCUMENTATION` (README/doc oficial),
+   `PAPER_OR_RESEARCH`, `COMMUNITY_REPORTED`, `TESTED` (executado por nós),
+   `INFERRED`, `UNVALIDATED`, `BLOCKED`. Equivalência com o vocabulário do repositório
+   (`catalog/CATALOG-SCHEMA.md` §6): `OFFICIAL_*` → `CONFIRMED`; `PAPER_OR_RESEARCH` →
+   `REPORTED`; `COMMUNITY_REPORTED` → `REPORTED`; `UNVALIDATED` → `UNVERIFIED`.
+   **`TESTED` não aparece em nenhuma linha deste catálogo** — nada foi executado.
 
 ## 2. Modelos de imagem (text-to-image e edição)
 
@@ -41,9 +49,15 @@
 
 - 11,9 B em fp16 ≈ **23,8 GB** só de pesos; 20,4 B ≈ **40,8 GB**. Em 8 GB de VRAM, isso
   exige quantização (GGUF) ou offload — não é "instalar e rodar".
-- SDXL (2,57 B ≈ 5,1 GB em fp16) é o único da lista que cabe confortavelmente em 8 GB.
-- O caminho realista para a RX 580 é `stable-diffusion.cpp` com modelo quantizado. Isso está
-  na documentação do runtime; **a qualidade resultante é `UNVERIFIED`**.
+- SDXL (2,57 B ≈ 5,1 GB em fp16) é o **candidato de menor porte** da lista. Não afirmo que
+  "cabe confortavelmente": pesos não são o consumo total. Somam-se VAE, text encoders
+  (dois no SDXL), ativações, resolução e overhead do driver. Medição real: `UNVALIDATED`.
+- Para a RX 580, `stable-diffusion.cpp` oferece quantização GGUF, *offload* de pesos para
+  disco/RAM (`--params-backend disk`) e teto por dispositivo (`--max-vram`) — ou seja, existem
+  **mecanismos** para caber. Existir mecanismo não é caber com desempenho aceitável:
+  `UNVALIDATED`, e com 16 GB de RAM o offload para RAM é limitado.
+- Qwen-Image/Edit (≈20,4 B) e FLUX (≈11,9 B): quantizar reduz o consumo, mas não garante
+  velocidade. Não trate "quantizado" como "utilizável".
 
 ### 2.2. Licenças que mudam a decisão
 
@@ -103,38 +117,187 @@ com apoio jurídico se necessário.
 
 ### 4.1. O que isso significa para a decisão
 
-1. **Não existe image-to-3D de qualidade em 8 GB AMD no Windows hoje**, com base na
-   documentação oficial de todos os candidatos relevantes. O único com caminho não-CUDA
-   declarado é TripoSR (CPU), e CPU para 3D é lento por definição — tempo não medido.
+1. **Os candidatos com requisito de hardware documentado exigem CUDA** — TRELLIS, TRELLIS.2,
+   Hunyuan3D-2/2.1, TripoSG, InstantMesh e SF3D (este admite MPS, mas no Windows pede CUDA +
+   VS 2022). A exceção declarada é **TripoSR**, que menciona fallback CPU via `torchmcubes`
+   (`COMMUNITY_REPORTED`/`OFFICIAL_DOCUMENTATION`; desempenho `UNVALIDATED`).
+   **Não afirmo que "todo image-to-3D depende de CUDA"**: Hunyuan3D-Omni não teve requisito
+   de hardware lido (`UNVALIDATED`), e há modelos fora deste catálogo não avaliados.
 2. **Gaussian Splatting não resolve** o problema do Forge: splat não é malha com topologia,
    não tem rig, e a conversão para malha reintroduz o problema de retopo.
 3. **Hunyuan3D-2 é o único com 6 GB declarados**, mas em CUDA — portanto o número de VRAM
    não ajuda na RX 580.
 
-## 5. Runtimes e interfaces
+## 5. Runtimes e interfaces — e o que "suporta AMD" quer dizer
 
-| Runtime | Licença | Papel | RX 580 |
+| Runtime | Licença | Papel | Situação na RX 580 |
 |---|---|---|---|
-| ComfyUI (`comfyanonymous/ComfyUI`) | GPL-3.0 | grafo de nós, padrão de fato para experimentos | depende do backend; README cita AMD ROCm em Linux e Windows |
-| `stable-diffusion.cpp` (`leejet`) | MIT | inferência em C/C++ sobre ggml, **backend Vulkan**, build Windows, SDXL/FLUX/Qwen-Image/edição | **único caminho GPU plausível** |
-| ComfyUI-Zluda (`patientx`) | GPL-3.0 | CUDA em GPU AMD via ZLUDA, comunitário | `?` — camada não oficial |
-| ZLUDA (`vosen/ZLUDA`) | Apache-2.0 | tradução CUDA→AMD | `?` |
+| ComfyUI (`comfyanonymous/ComfyUI`) | GPL-3.0 | grafo de nós, padrão de fato para experimentos | README cita "AMD ROCm on Linux and Windows"; **isso vale para GPUs suportadas, não para gfx803** |
+| `stable-diffusion.cpp` (`leejet`) | MIT | inferência C/C++ sobre ggml; backends **CUDA, Vulkan, Metal**; build Windows | único caminho GPU plausível; **não validado** na RX 580 |
+| ComfyUI-Zluda (`patientx`) | GPL-3.0 | CUDA em AMD via ZLUDA, comunitário | `COMMUNITY_REPORTED`; camada não oficial |
+| ZLUDA (`vosen/ZLUDA`) | Apache-2.0 | tradução CUDA→AMD | `COMMUNITY_REPORTED` |
 
-Sobre ComfyUI em AMD: o README cita ROCm em Linux **e Windows**, mas a matriz do HIP SDK
-para Windows não lista a RX 580 (gfx803) — e marca até RDNA2 como não suportado. Ou seja:
-"ComfyUI suporta AMD no Windows" é verdade para GPUs suportadas, **não para esta**.
+### 5.1. `stable-diffusion.cpp`: separar as quatro afirmações
 
-## 6. Serviços comerciais (lidos nas páginas de preço, 2026-11-20)
+| Afirmação | Situação | Evidência |
+|---|---|---|
+| Modelos declarados | SD1.x/2.x, SDXL, SD3/3.5, FLUX.1, FLUX.2, Qwen-Image, Qwen-Image-Edit, Z-Image, Chroma, PixArt e outros (lista extensa no README) | `OFFICIAL_DOCUMENTATION` |
+| Backends implementados | **CUDA, Vulkan, Metal**. **Não encontrei OpenCL nem DirectML** na documentação do projeto | `OFFICIAL_DOCUMENTATION` (README + `docs/guides/backend.md`) |
+| Sistemas suportados | Linux e Windows (README traz comandos PowerShell e caminho `bin/Release`) | `OFFICIAL_DOCUMENTATION` |
+| Combinações testadas | o README **não** publica matriz de "modelo × backend × placa" testada | ausência de evidência |
+| Resultado na RX 580 | um relato comunitário (abaixo) | `COMMUNITY_REPORTED` |
 
-| Serviço | Preço de entrada | Licença do asset no plano gratuito | Observação |
+O projeto permite atribuição de backend **por módulo** (`--backend te=cpu,vae=cuda0,diffusion=vulkan0`),
+`--params-backend disk` para manter pesos fora da VRAM e `--max-vram` por dispositivo. É a
+base técnica do *offload*; continua sem garantia de velocidade.
+
+### 5.2. Relato comunitário na RX 580 (`COMMUNITY_REPORTED`)
+
+| Cenário | Tempo reportado | Observação |
+|---|---|---|
+| SD 1.5, 512×512, 20 passos | ≈ 72 s | mesma faixa de hardware (Polaris 8 GB) |
+| FLUX.1-schnell, 1024×1024, CPU+GPU | ≈ 14 min | combinação CPU+GPU, não GPU pura |
+
+Classificação: **`COMMUNITY_REPORTED`**, não benchmark independente e não medição do Lia
+Research. Não generalizo para outras versões do runtime, para outro build Vulkan ou para
+outros modelos. Serve para calibrar expectativa de ordem de grandeza: **minutos, não segundos**,
+e FLUX na casa de dezenas de minutos.
+
+### 5.3. DirectML e OpenCL
+
+| Caminho | Situação | Classificação |
+|---|---|---|
+| DirectML (`torch-directml`) | o repositório `microsoft/torch-directml` **não foi encontrado** na API (404) nesta sessão | `BLOCKED` — não é possível afirmar suporte atual |
+| OpenCL | não é backend documentado em `stable-diffusion.cpp`; nenhum dos modelos do catálogo declara caminho OpenCL | `UNVALIDATED` |
+
+Nenhum dos dois entra como recomendação. Ficam como linha de investigação futura, não como
+alternativa disponível.
+
+## 6. Serviços comerciais — direitos, créditos e preços
+
+Todos os dados abaixo foram lidos em **2026-11-20**, nas URLs indicadas. Não são parecer
+jurídico; onde o texto é ambíguo, marco `REQUIRES_LEGAL_REVIEW`.
+
+### 6.1. Tripo (`tripo3d.ai`) — Free, Pro, Max, Team
+
+Preços lidos em `https://www.tripo3d.ai/pricing` e direitos em `https://www.tripo3d.ai/terms`
+(termos com "Last updated: November 13, 2026").
+
+| Plano | Preço | Créditos | Uso comercial | Privacidade do resultado |
+|---|---|---|---|---|
+| Free | US$ 0 | 200 créditos/mês | **sim, mas com waiver** (ver abaixo) | **público por padrão** |
+| Pro | US$ 20/mês (anual US$ 240) | 3.000/mês | sim, direitos do usuário | privado |
+| Max | US$ 90/mês (anual US$ 1.080) | 25.000/mês | idem | privado |
+| Team | US$ 55/assento/mês (anual) | 90.000/mês | idem | privado |
+
+**O que o termo diz sobre o plano gratuito** (§5.2.1, texto lido): *Free Outputs* são públicos
+por padrão; o usuário **renuncia** aos direitos autorais sobre eles e permite que qualquer
+pessoa, no mundo, os use, copie, modifique, distribua ou **explore comercialmente, sem
+atribuição**. Onde a renúncia não é possível juridicamente, concede licença pública
+irrevogável e gratuita com o mesmo escopo. Outputs pagos (§5.2.2) pertencem ao usuário, podem
+ser privados e usados comercialmente.
+
+Consequência prática: **não é "free = não comercial"** — é "free = você também não controla o
+que acontece com o resultado, e ele nasce público". Para personagem de jogo, isso é
+inaceitável na prática, independentemente de o uso comercial ser permitido.
+`REQUIRES_LEGAL_REVIEW` apenas para o caso de a empresa querer explorar comercialmente um
+output gratuito e depender de exclusividade.
+
+**Créditos por operação** (página de preços, tabela "Feature/Credits"): HD Generate **15** ·
+Smart Mesh **35** · Segmentation **5** · Retopology **5** · Texture Gen **10** · Auto Rig
+**20**; add-ons: Ultra +15, Generate in Parts +30, HD Texture +10, Quad +5, Style Reference +5,
+PBR +5. Ou seja: 200 créditos gratuitos ≈ **13 gerações simples** ou **5 gerações com rig**
+(15 + 20).
+
+### 6.2. Meshy (`meshy.ai`) — planos e custo por modalidade
+
+Preço lido em `https://www.meshy.ai/pricing`; créditos por requisição em
+`https://docs.meshy.ai/en/api/pricing` (2026-11-20).
+
+| Plano | Preço | Créditos/mês | Licença do asset |
 |---|---|---|---|
-| Tripo | Free (200 créditos ≈ 13 modelos); Pro US$ 20/mês | free = **modelos públicos, uso não comercial** | Pro dá modelos privados + uso comercial; tem DCC bridge (Blender, Unity, Godot…) |
-| Meshy | Free (100 créditos, ~10 assets); Pro US$ 20/mês | free = **CC BY 4.0** (comercial com atribuição) | Pro = "private & customer owned" |
-| Rodin / Hyper3D | **não verificado** | — | página não consultada nesta rodada |
+| Free | US$ 0 | 100 | **CC BY 4.0** (comercial **com atribuição**) |
+| Pro | US$ 20/mês | 1.000 | "private & customer owned" |
+| Premium | US$ 40/mês | 3.000 | idem |
+| Ultra | US$ 100/mês | 8.000 | idem |
+| Studio | US$ 70/mês (5.500 compartilhados) | — | idem |
 
-Preço não é qualidade: **não avaliei a qualidade de nenhum dos dois**. O que dá para afirmar
-é o custo de entrada e a diferença de licença entre free e pago — que é justamente onde
-times erram.
+**Custo real por geração — a modalidade importa** (créditos por requisição):
+
+| API | Mesh apenas | +textura 2K | +textura 4K | +textura 8K |
+|---|---|---|---|---|
+| Image to 3D (`meshy-7.1`, `meshy-6`) | **20** | 30 | 30 | 35 |
+| Image to 3D (`meshy-6-lite`, `meshy-t2`, `meshy-t2.5`) | **5** | 15 | 15 (lite: não suportado) | 20 |
+| Multi-image to 3D | 20 | 30 | 30 | 35 |
+| Ultra geometry (surcharge) | +5 | +5 | +5 | +5 |
+
+Outros custos: **rigging 5** por requisição · **animation 3** por ação · **UV unwrap 5** ·
+**remesh 5** · retexture 10 (2K/4K) ou 15 (8K).
+
+Portanto: **"100 créditos = 10 modelos" está errado**. Com 100 créditos gratuitos: **5** imagens
+para 3D sem textura (20 cada), **3** com textura 2K (30 cada), ou **20** no modo lite sem
+textura (5 cada). A frase anterior deste catálogo generalizava; fica corrigida.
+
+### 6.3. GPT Image (OpenAI) — geração e edição de imagem, sem 3D
+
+Fontes: `developers.openai.com/api/docs/guides/image-generation` e
+`developers.openai.com/api/docs/pricing` (2026-11-20).
+
+| Item | Situação | Classificação |
+|---|---|---|
+| Modalidade | text-to-image **e** edição dentro da Responses API; `action: generate / edit / auto`; edição multi-turno via `previous_response_id` | `OFFICIAL_DOCUMENTATION` |
+| Modelos citados | `gpt-image-2.5-sunburst` (exemplos), `gpt-image-2.6-sunburst` / `-flare` (tabela de preços) | `OFFICIAL_DOCUMENTATION` |
+| Preço | por token: imagem de entrada US$ 8/1M, saída US$ 30/1M (Standard); Batch pela metade | `OFFICIAL_DOCUMENTATION` |
+| Character sheet / consistência | **não há garantia documentada** de consistência entre vistas; multi-turno preserva contexto, não identidade | `UNVALIDATED` |
+| 3D | **não oferece** reconstrução 3D | `OFFICIAL_DOCUMENTATION` |
+| Direitos e retenção | termos e política de dados da OpenAI — **não lidos nesta rodada** | `UNVALIDATED` |
+
+### 6.4. Google Flow (`flow.google.com`) — estúdio web por assinatura
+
+Fonte: `flow.google.com/about` e `support.google.com/flow` (2026-11-20).
+
+| Item | Situação | Classificação |
+|---|---|---|
+| Natureza | **aplicação web** de criação (imagem + vídeo + ferramentas), modelos Google (Nano Banana para imagem, Veo 3.1 para vídeo, Gemini Omni) | `OFFICIAL_DOCUMENTATION` |
+| Acesso | por **assinatura Google AI**; recursos variam por nível, plataforma e região; 18+ | `OFFICIAL_DOCUMENTATION` |
+| API | a página do Flow **não** documenta API do produto; há API Gemini para modelos de imagem, que é outro caminho | `UNVALIDATED` para Flow-como-API |
+| Character sheet / consistência | Nano Banana é descrito como forte em "subject consistency"; **sem garantia de turnaround multi-vista** | `OFFICIAL_DOCUMENTATION` (marketing) / `UNVALIDATED` (resultado) |
+| Direitos | termos do Google AI/Flow — **não lidos nesta rodada** | `UNVALIDATED` |
+| 3D | **não oferece** reconstrução 3D | `OFFICIAL_DOCUMENTATION` |
+
+Nenhum dos dois é solução de 3D. Ambos são candidatos de **conceito e edição**; a comparação
+de qualidade exige teste visual, que esta rodada não fez.
+
+### 6.5. Rodin / Hyper3D
+
+Preço e termos **não verificados** nesta rodada. Continua `BLOCKED` como lacuna.
+
+## 6-bis. Reallusion Character Creator 5.2 (novo candidato)
+
+Fonte principal: `reallusion.com/character-creator/ai-character-creator.html` e
+`reallusion.com/character-creator/` (2026-11-20).
+
+| Item | O que a documentação oficial informa | Classificação |
+|---|---|---|
+| AI 3D Generator | geração de personagem/prop por texto ou imagem, com motores **AI Mesh**, **Tripo** e **Tencent Hunyuan** integrados | `OFFICIAL_DOCUMENTATION` |
+| Entrada por imagens | image-to-3D com imagem de referência; a página mostra "reference image and target images" (1–4 imagens **não** é número que eu tenha lido explicitamente) | `OFFICIAL_DOCUMENTATION` parcial |
+| CC Wrap | converte modelo humanoide (inclusive gerado por IA) em **CC Base** com topologia de personagem, por 3 passos: detectar pontos → alinhar → refinar | `OFFICIAL_DOCUMENTATION` |
+| Presets anatômicos | dedos (0–5), dedos do pé, orelha/nariz — pensado para estilizado e criatura | `OFFICIAL_DOCUMENTATION` |
+| Roupas | "AI Clothing to 3D": quad remesh, redução de polígonos, transferência automática de pesos | `OFFICIAL_DOCUMENTATION` |
+| Rigging | AccuRIG integrado (humanoide, hard-surface, ajuste de pesos) | `OFFICIAL_DOCUMENTATION` |
+| Interoperabilidade | iClone, Maya, Blender, Unreal, Unity e "qualquer outra ferramenta 3D" | `OFFICIAL_DOCUMENTATION` |
+| Requisito de hardware | Windows 10/11 64-bit; **8 GB VRAM**; GPU "NVIDIA GTX 10 Series / **AMD Radeon RX5500 XT**"; 16 GB RAM; 30 GB de instalação + **200 GB de cache DDS**; recomendado 64 GB RAM e SSD | `OFFICIAL_DOCUMENTATION` (manual e KB da Reallusion) |
+| **RX 580** | **não é a placa citada**. Ter 8 GB de VRAM não iguala a RX 5500 XT (RDNA1, gfx1012) à RX 580 (Polaris, gfx803) | `INFERRED` a partir do requisito publicado |
+| Custos de IA | consumo por créditos/serviço dos provedores integrados (Tripo/Hunyuan) — **valores por operação não lidos** | `UNVALIDATED` |
+| Licença dos resultados | EULA da Reallusion — **não lido nesta rodada** | `BLOCKED` |
+| Preço do software | há teste gratuito de 30 dias; preços de licença **não coletados** | `BLOCKED` |
+
+**Parecer de pesquisa (não recomendação):** CC5.2 é o único candidato do catálogo que ataca
+explicitamente o elo "malha de IA → topologia de personagem com rig", que é justamente o que
+falta nos image-to-3D abertos. Ao mesmo tempo, ele **não roda na RX 580** segundo o requisito
+publicado, exige 200 GB de disco para cache e depende dos provedores de IA integrados (com as
+licenças deles). Vale como **opção comercial/híbrida a avaliar em máquina compatível**, não
+como caminho local no hardware de referência.
 
 ## 7. Recomendação de leitura (não de compra)
 
@@ -143,10 +306,15 @@ times erram.
 | 1 | `stable-diffusion.cpp` + SDXL quantizado | único caminho local real no hardware; risco é qualidade, não licença |
 | 2 | Qwen-Image-Edit (nuvem ou GPU alugada) | Apache-2.0 nos pesos e edição multi-referência — resolve "manter o casaco" |
 | 3 | ControlNet + IP-Adapter sobre SDXL | controle barato e maduro para silhueta/pose |
-| 4 | Tripo/Meshy (assinatura mínima) | image-to-3D utilizável sem GPU; base para comparar com o caminho manual |
+| 4 | Tripo/Meshy (plano **pago** mínimo) | image-to-3D utilizável sem GPU; **no plano gratuito o resultado é público** (Tripo) ou exige atribuição (Meshy) |
 | 5 | TRELLIS.2 / Hunyuan3D-2.1 em GPU alugada | melhor qualidade aberta, só se o orçamento justificar |
 
 Ordem inversa ao "mais bonito": começa pelo que já cabe no hardware e no orçamento.
+
+**Correção de 2026-11-21:** a recomendação anterior tratava Tripo/Meshy como "US$ 20/mês" sem
+distinguir o que o plano gratuito concede. Com os termos lidos, o plano gratuito do Tripo
+torna o output **público com renúncia de direitos** (§6.1) — para personagem de jogo, o piso
+realista é o **plano pago**. No Meshy, o gratuito é CC BY 4.0 (atribuição obrigatória).
 
 ## 8. Não validado
 
