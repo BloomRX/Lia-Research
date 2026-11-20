@@ -7,6 +7,8 @@
 | ID | Tema | Relatório principal | Origem |
 |---|---|---|---|
 | `LR-LIC-005` | Licenças prontas: pesos de modelo têm licença própria, fora do framework | `cross-project/licensing/READY-TO-USE-LICENSES.md` | derivado de 18 relatórios |
+| `LR-MODEL-006` | Roteamento com orçamento por chave e failover; free tiers **não** entram em produto | `repositories/freellmapi/REPORT.md` | pesquisa externa (novo) |
+| `LR-AGENT-011` | Troca de harness sem perder contexto (handoff tipado) | `repositories/ai-memory/REPORT.md` | pesquisa externa (novo) |
 | `LR-MODEL-003` | LFM3 (avaliação combinada Project + Model-Lab) | `cross-project/ai-models/LFM3-EVALUATION.md` | `docs/17-LFM3-RESEARCH.md` + `LIA-LFM3-EVALUATION.md` |
 | `LR-MODEL-001` | Catálogo de modelos/providers | `cross-project/model-routing/MODEL-CATALOG-DIGEST.md` | `docs/05-FOUNDATION-MODEL-COMPARISON.md` + research do Project |
 | `LR-MODEL-004` | Catálogo de capacidades (44/131/0) | `cross-project/ai-models/CAPABILITY-CATALOG-DIGEST.md` | `lia-capability-catalog/` |

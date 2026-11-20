@@ -60,6 +60,9 @@ Regra: item só sai daqui quando existe documento com evidência, não quando "j
 | A-6 | Pacote de Skills de edição (ArtCraft) — 8 Skills propostas | `LR-STUDIO-004` | **PASS (proposta)** — `LR-AGENT-010` |
 | A-7 | Executar V6 do pacote (editar foto real via MCP) | A-6 + app instalado | `NOT RUN` |
 | A-8 | **Política de contribuição assistida por IA** (declarar, testar, explicar) | `LR-STUDIO-005` B1 | `NOT RUN` — texto-modelo existe |
+| A-9 | Protocolo de **handoff entre agentes** (dono + reivindicação única) | `LR-AGENT-011` M1 | `NOT RUN` |
+| A-10 | **Schema de achado + validador** para auditorias (forma, não verdade) | `LR-SEC-007` S1/S3 | `NOT RUN` |
+| M-6 | **Orçamento por chave + failover com motivo registrado** | `LR-MODEL-006` F1/F2 | `NOT RUN` |
 
 ## Trilha UI — Interface
 

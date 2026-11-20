@@ -12,6 +12,7 @@
 | `LR-LIC-005` | Licenças prontas: aviso MIT dentro do payload de Skill, marca de terceiros | `cross-project/licensing/READY-TO-USE-LICENSES.md` | derivado de 18 relatórios |
 | `LR-STUDIO-004` | 17 apps criativos em Rust: barramento único de comandos e superfície de agente | `repositories/artcraft/REPORT.md` | pesquisa externa (novo) |
 | `LR-STUDIO-005` | Framework C#/Vulkan (BRUTAL): “framework, não engine”, `LICENSES/` por pacote, política de IA em PR | `repositories/brutal/REPORT.md` | pesquisa externa (novo) |
+| `LR-SEC-007` | Checklist de auditoria para app desktop e IPC local | `repositories/cloudflare-security-audit-skill/REPORT.md` | pesquisa externa (novo) |
 | `LR-AGENT-010` | Skills de edição de foto/PDF sem gerador de imagem | `cross-project/agents/ARTCRAFT-SKILL-PACK.md` | derivado de `LR-STUDIO-004` |
 | `LR-FORGE-004` | VFX 2D / animação pixel art | `repositories/pixelfx/REPORT.md` | pesquisa externa (novo) |
 | `LR-UI-003` | Molde de skill de design | `repositories/ai-design-skills/REPORT.md` | pesquisa externa (novo) |

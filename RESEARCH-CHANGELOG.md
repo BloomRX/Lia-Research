@@ -8,6 +8,33 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-17 — triagem de 20 itens + 3 relatórios publicados
+
+### Triagem (ADD)
+- `LIA-RESEARCH-INTAKE-2026-11-17.md`: os 20 itens recebidos classificados por prioridade
+  (A/B/C), com licença, tamanho, o que é e o que falta. **Triagem não é relatório** — a
+  própria tabela diz o que ainda não foi lido nem executado.
+- 6 candidatos adicionais medidos por API para a próxima fila: `promptfoo`, `deepeval`,
+  `langfuse`, `litellm` (upstream do gateway rejeitado em `LR-PROV-001`),
+  `modelcontextprotocol/servers`, `astral-sh/uv`.
+
+### Relatórios publicados (ADD)
+- `LR-AGENT-011` `ai-memory` — memória multi-harness com **handoff que tem dono e é
+  reivindicado uma única vez**, busca híbrida com vetor opcional, e privacidade decidida
+  antes de armazenar (servidor recebe só harness + identidade da sessão). **ADAPTAR**.
+- `LR-SEC-007` `cloudflare/security-audit-skill` — 143 KB, ★75.939: 11 classes de ataque
+  (incluindo **desktop/IPC local** e **AI/LLM**) + `report-schema.json` + **dois validadores
+  com teste**. Primeira Skill lida por esta base cujo resultado é verificado por código.
+  **ADAPTAR**.
+- `LR-MODEL-006` `freellmapi` — 87 free tiers num `/v1` com roteamento, failover e orçamento
+  por chave. **REFERÊNCIA**: o desenho serve ao Model Lab; o serviço não pode virar
+  dependência de produto (o repo se declara "personal experimentation only").
+
+### Integrações
+- `license-matrix.tsv`: 22 linhas.
+- Roadmap: A-9 (handoff), A-10 (schema de achado), M-6 (orçamento por chave).
+- Índices de Project, Studio, Hub e Model Lab apontam para os novos IDs.
+
 ## 2026-11-17 — novo objeto externo: BRUTAL (framework C#/Vulkan)
 
 ### Pesquisa nova (ADD)

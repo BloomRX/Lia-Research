@@ -18,6 +18,8 @@
 | `LR-LIC-005` | Licenças prontas: TASL (CC BY), Apache com NOTICE, `license:` no payload da Skill | `cross-project/licensing/READY-TO-USE-LICENSES.md` | derivado de 18 relatórios |
 | `LR-STUDIO-004` | Superfície de agente por app: roots, token, consentimento, MCP stdio (precedente real) | `repositories/artcraft/REPORT.md` | pesquisa externa (novo) |
 | `LR-AGENT-010` | Pacote de 8 Skills de edição (ArtCraft) — opção adicional, habilitada pelo usuário | `cross-project/agents/ARTCRAFT-SKILL-PACK.md` | derivado de `LR-STUDIO-004` |
+| `LR-AGENT-011` | Memória compartilhada e handoff com dono/reivindicação única | `repositories/ai-memory/REPORT.md` | pesquisa externa (novo) |
+| `LR-MODEL-006` | Orçamento por chave + failover para adapters de provider | `repositories/freellmapi/REPORT.md` | pesquisa externa (novo) |
 
 ## 2. Documentos do Hub que permanecem na origem (fonte canônica)
 

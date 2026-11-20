@@ -5,7 +5,7 @@ veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID apa
 outro documento e não aqui, o outro documento está errado.
 
 - **Data de referência:** 2026-11-17
-- **Itens:** 19 relatórios externos + 5 dossiês internos + 28 digests/propostas transversais + 12 decisões abertas + 1 aceita
+- **Itens:** 22 relatórios externos + 5 dossiês internos + 28 digests/propostas transversais + 12 decisões abertas + 1 aceita
 - **Nenhum item foi executado.** Todos os vereditos são sobre o *valor de pesquisa*.
 
 ## Legenda
@@ -16,7 +16,7 @@ outro documento e não aqui, o outro documento está errado.
 
 ---
 
-## 1. Tecnologia externa — auditoria (19)
+## 1. Tecnologia externa — auditoria (22)
 
 | ID | Objeto | Licença | Veredito | Confiança | Documento |
 |---|---|---|---|---|---|
@@ -43,6 +43,9 @@ outro documento e não aqui, o outro documento está errado.
 | `LR-SEC-006` | `elementalsouls/Claude-BugHunter` | MIT + CC BY 4.0 | **REFERÊNCIA** | Alta | `repositories/claude-bughunter/REPORT.md` |
 | `LR-STUDIO-004` | `storytold` (ArtCraft, 17 apps + 186 crates) | MIT OR Apache-2.0 | **ADAPTAR** | Alta | `repositories/artcraft/REPORT.md` |
 | `LR-STUDIO-005` | `ahwootech/BRUTAL` (framework C#/Vulkan) | BRUTAL License v1.0 (não OSI) | **REFERÊNCIA** | Alta | `repositories/brutal/REPORT.md` |
+| `LR-AGENT-011` | `akitaonrails/ai-memory` (memória multi-harness) | MIT | **ADAPTAR** | Alta | `repositories/ai-memory/REPORT.md` |
+| `LR-SEC-007` | `cloudflare/security-audit-skill` | MIT | **ADAPTAR** | Média | `repositories/cloudflare-security-audit-skill/REPORT.md` |
+| `LR-MODEL-006` | `tashfeenahmed/freellmapi` (free tiers agregados) | MIT (software) | **REFERÊNCIA** | Alta | `repositories/freellmapi/REPORT.md` |
 
 ## 2. Projetos do ecossistema — dossiês internos (5)
 
