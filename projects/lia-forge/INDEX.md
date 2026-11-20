@@ -70,7 +70,7 @@ Forge. Nenhum deles foi re-pesquisado nesta fundação — e não deve ser, sem 
 |---|---|---|---|
 | `lia-brand-check` | revisão de marca | ❌ ausente no payload | duplica `lia-brand-consistency-review` (Model-Lab) |
 
-## 4-bis. Criação de personagens (2026-11-20, ampliada em 2026-11-21)
+## 4-bis. Criação de personagens (2026-11-20, ampliada e conciliada em 2026-11-20 UTC)
 
 Pesquisa pedida pelo Forge 2.0 sobre "silhueta antes do 3D": **10 IDs, 10 documentos Markdown e 1 matriz com 51 registros** (46 da rodada 7.0 + 3 da 7.1 + 2 da 7.2) em
 `cross-project/character-creation/`. Três pipelines propostos (local, híbrido, alta

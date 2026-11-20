@@ -42,12 +42,12 @@ Regra: item só sai daqui quando existe documento com evidência, não quando "j
 > que todo objeto foi executado. A diferença está escrita na seção 5 do documento de
 > reauditoria técnica.
 
-## Trilha P — Criação de personagens (pedido do Forge 2.0, 2026-11-20; corrigida em 2026-11-21)
+## Trilha P — Criação de personagens (pedido do Forge 2.0, 2026-11-20; corrigida em 2026-11-20)
 
 | # | Item | Status | Evidência / próximo passo |
 |---|---|---|---|
 | P-1 | Silhueta como primeiro gate, com critérios | **feito (método)** | `LR-STUDIO-008`; falta calibrar as métricas |
-| P-2 | Catálogo de modelos com licença de código × pesos | **feito (revisado)** | `LR-MODEL-007` + matriz de 49 registros (46 + 3 candidatos) |
+| P-2 | Catálogo de modelos com licença de código × pesos | **feito (revisado)** | `LR-MODEL-007` + matriz de 51 registros (46 + 3 + 2), com evidência por dimensão |
 | P-3 | Consistência entre vistas / character sheet | **feito (análise)** | `LR-STUDIO-009`; nenhuma técnica executada |
 | P-4 | 12 critérios 2D→3D e definição de "pronto para jogo" | **feito** | `LR-FORGE-007` §3 e §6 |
 | P-5 | Três pipelines comparados | **feito** | `LR-FORGE-007` §4–5 |
@@ -55,9 +55,11 @@ Regra: item só sai daqui quando existe documento com evidência, não quando "j
 | P-7 | Skills candidatas | **feito (análise)** | `LR-AGENT-012`; nenhuma skill escrita |
 | P-8 | Rodar `stable-diffusion.cpp` + SDXL na RX 580 | **BLOCKED** | exige a máquina do usuário; único dado é `COMMUNITY_REPORTED` (SD1.5 ≈ 72 s) |
 | P-9 | Comparar qualidade Tripo × Meshy × manual | **BLOCKED** | exige conta paga; lembrar que Free do Tripo torna o output público |
-| P-11 | Decidir sobre CC5.2 / GPT Image / Flow como candidatos | **PENDING** | novos em 2026-11-21; exigem avaliação em máquina compatível e leitura de EULA |
+| P-11 | Decidir sobre CC5.2 / GPT Image / Flow como candidatos | **PENDING** | novos em 2026-11-20; exigem avaliação em máquina compatível e leitura de EULA |
 | P-12 | Descobrir custo real por operação da AetherAI (`LR-MODEL-008`) | **BLOCKED** | a página de preços exige sessão/JavaScript; 70 tokens = US$ 3,99 é o único número obtido. Exige decisão de abrir conta |
 | P-13 | Spike de movimento 2D com `LR-FORGE-009` (Live2D) | **BLOCKED** | exige modelo Live2D licenciado e Chrome; **e** decisão sobre o Cubism SDK Release License (faixa de faturamento) |
+| P-14 | Esclarecer por escrito o Free do Tripo (`CONFLICTING`) | **BLOCKED** | depende de consulta ao fornecedor/advogado; até lá, Free do Tripo vetado para asset proprietário |
+| P-15 | Descobrir se créditos de Web App e API do Meshy são o mesmo pool | **UNVALIDATED** | documentação lida separa canais e não afirma pool único |
 | P-10 | Piloto de um personagem com medição de tempo por etapa | **PENDING** | decisão do proprietário |
 
 ## Trilha H — Hardware (bloqueia toda decisão de modelo)

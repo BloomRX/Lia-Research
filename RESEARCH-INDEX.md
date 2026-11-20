@@ -5,7 +5,7 @@ veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID apa
 outro documento e não aqui, o outro documento está errado.
 
 - **Data de referência:** 2026-11-20 (reauditoria técnica dos 22 objetos concluída nesta data)
-- **Itens:** 23 objetos externos (27 linhas com sub-documentos) + 5 dossiês internos + 31 digests transversais + 3 comparações + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de evidências** (2026-11-20, revisado em 2026-11-21)
+- **Itens:** 23 objetos externos (27 linhas com sub-documentos) + 5 dossiês internos + 31 digests transversais + 3 comparações + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de evidências** (2026-11-20, revisado em 2026-11-20)
 - **Pouco foi executado.** Existem **16 linhas** em `data/testing/test-log.tsv` (2026-11-20):
   5 suítes reais rodadas, 2 execuções parciais e 9 tentativas bloqueadas com motivo. Na
   criação de personagens, **nada foi executado** — não há GPU AMD nesta sessão e nenhum peso
@@ -115,10 +115,10 @@ tem autoridade para criar).
 | `LR-CMP-002` | qual servidor MCP de casa usar, se algum | `comparisons/MCP-SERVER-COMPARISON.md` |
 | `LR-CMP-003` | como medir modelo/hardware sem virar fé | `comparisons/BENCHMARK-APPROACH-COMPARISON.md` |
 
-## 3-ter. Criação de personagens — silhueta primeiro (2026-11-20, ampliada em 2026-11-21)
+## 3-ter. Criação de personagens — silhueta primeiro (2026-11-20, ampliada e conciliada em 2026-11-20 UTC)
 
 Pesquisa pedida pelo Lia Forge 2.0. **10 IDs e 10 documentos Markdown**, mais 1 matriz; nenhum
-deles autoriza implementação. Revisada em 2026-11-21 (rodada 7.1, correções factuais; rodada
+deles autoriza implementação. Revisada em 2026-11-20 UTC (rodada 7.1, correções factuais; rodada 7.3, conciliação de fontes; rodada
 7.2, dois objetos novos).
 
 | ID | Tema | Documento | Natureza |

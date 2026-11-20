@@ -8,7 +8,71 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
-## 2026-11-21 (rodada 7.2) — dois objetos novos: serviço de assets 2D e autoria de movimento
+## 2026-11-20 (UTC) — rodada 7.3 (o pedido a chama de "7.2"): conciliação de fontes, créditos e compatibilidade
+
+Quatro inconsistências apontadas por revisão independente. Nenhum documento apagado, nenhuma
+conclusão correta revertida, nada implementado, nenhuma conta aberta, nenhum crédito gasto.
+
+### FIX — Tripo: contradição oficial documentada como tal (`CONFLICTING`)
+- Página de preços: plano Free = *"Public Models · Non-Commercial Use"*; Pro/Max/Team =
+  *"Private Models · Commercial Use"*. Termos (13/11/2026) §5.2.1: Free Outputs públicos por
+  padrão, com renúncia de direitos e licença pública que permite a **qualquer terceiro** usar e
+  explorar comercialmente, sem atribuição. §12.9 lista a ordem de precedência (order form, DPA,
+  Supplemental Terms, Termos, AUP) e **não inclui a página de preços**.
+- Análise separada em quatro dimensões (visibilidade, PI, direito comercial do usuário,
+  exclusividade) e registrada a conclusão: **o conflito não se resolve lendo as fontes**. Caso
+  classificado `CONFLICTING` + `REQUIRES_LEGAL_REVIEW`. Mantida a orientação conservadora: Free
+  do Tripo não serve para personagem proprietário, e "terceiro pode explorar comercialmente"
+  **não** autoriza o usuário.
+- Paid Outputs verificados: página e §5.2.2/§5.2.3 **coerentes**; §5.2.2(b) registra que Free
+  Outputs não se tornam pagos ao assinar.
+
+### FIX — Meshy: Web App e API separados
+- **Web App**: 100 créditos/mês; Image to 3D 20 (7.1/6), **25** (Ultra 2K/4K), **10** (6 Lite);
+  Smart Topology 15; textura/split +10; AI Texturing 10/15; Model Edit 20; **Rigging 0,
+  Animate 0 (conjunto gratuito), Remesh 0**. Licença: Free = CC BY 4.0 com atribuição.
+- **API** (pré-paga): 20 mesh / 30 com 2K–4K / 35 com 8K; 6-lite 5; Ultra +5; **Auto-Rigging 5**;
+  **Animation 3 por ação**; UV Unwrap 5; Remesh 5; Convert/Resize 1; Retexture 10/15.
+- Corrigidas as frases que misturavam canais ("rigging 5" genérico; "20 modelos no lite" usando
+  tarifa de API contra crédito de Web App; **6 Lite = 10 no Web App**, não 5). Estimativas de
+  quantidade refeitas **por canal**. Pool de créditos compartilhado entre canais: `UNVALIDATED`.
+
+### FIX — Google Flow: acesso gratuito registrado
+- Registrado que **existe acesso sem assinatura** e que o valor corrente é **50 créditos/dia**,
+  com a ressalva de rastreabilidade: a página oficial do produto não exibe números de crédito e
+  o artigo de ajuda do Google não abriu nesta sessão — logo `COMMUNITY_REPORTED`, não
+  `OFFICIAL_DOCUMENTATION`. `OFFICIAL_DOCUMENTATION` fica para o que está na página: modelos
+  (Nano Banana imagem; Veo 3.1 e Gemini Omni vídeo), variação por nível/plataforma/região e 18+.
+- Sem equivalência crédito↔imagem/vídeo. API do Flow continua **não documentada** (a API Gemini
+  é outro caminho). Não faz 3D.
+
+### FIX — ROCm/Ryzen AI no Windows: classificação corrigida
+- Documentação oficial da AMD: **Windows 11**, APUs **gfx1150/gfx1151** (Ryzen AI Max+ 395,
+  Max 390, Max 385, AI 9 HX 375/370/365, HX 475/470/465), **ROCm 7.2.1**, **PyTorch 2.9.1**,
+  **Python 3.12**, FP16, wheels em `repo.radeon.com`, driver 26.2.2. Nota da AMD: *"the entire
+  ROCm stack is not yet supported on Windows"*.
+- Suporte Ryzen AI no Windows passa de `UNVALIDATED` para **`OFFICIAL_DOCUMENTATION`**. A
+  conclusão sobre o equipamento de referência (Ryzen 5 5500 + RX 580/gfx803) **não muda**: não
+  está em nenhuma matriz oficial, e a RX 580 continua fora de ROCm/HIP.
+
+### FIX — matriz: evidência por dimensão
+- `nivel_evidencia` mantido como resumo; acrescentadas `evidencia_licenca`, `evidencia_hardware`,
+  `evidencia_atividade`, `evidencia_desempenho`. Tempos da RX 580 ficam em
+  `evidencia_desempenho` = `COMMUNITY_REPORTED`, sem contaminar licença. Taxonomia global do
+  Research intocada; 51 registros preservados.
+
+### FIX — datas
+- Padronizadas em **UTC**; removidas as ocorrências de 2026-11-21 (o commit `9a03c6f` é
+  `2026-11-20T20:04:23Z`). Convenção registrada no catálogo §1 e no hub §3, com a conversão para
+  São Paulo (UTC−3).
+
+### DECISION — nenhuma
+- Nada foi aprovado. Pipeline 2 continua "candidato prioritário para avaliação". Tripo Free
+  continua vetado para asset proprietário.
+
+---
+
+## 2026-11-20 20:33 UTC — rodada 7.2 (AetherAI + Live2D) — dois objetos novos: serviço de assets 2D e autoria de movimento
 
 Pedido do proprietário a partir de duas URLs. Nenhum documento anterior apagado, nada
 implementado, nenhuma conta criada, nenhum token comprado, nenhum peso baixado.
@@ -61,7 +125,7 @@ implementado, nenhuma conta criada, nenhum token comprado, nenhum peso baixado.
 
 ---
 
-## 2026-11-21 (rodada 7.1) — correção factual da pesquisa de criação de personagens
+## 2026-11-20 20:04 UTC — rodada 7.1 (correção factual) — correção factual da pesquisa de criação de personagens
 
 Correção documental do conjunto de 2026-11-20. Nenhum documento apagado, nenhuma conclusão
 removida sem justificativa registrada, nada implementado, nenhuma conta aberta, nenhum crédito
