@@ -8,6 +8,59 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-21 (rodada 7.2) — dois objetos novos: serviço de assets 2D e autoria de movimento
+
+Pedido do proprietário a partir de duas URLs. Nenhum documento anterior apagado, nada
+implementado, nenhuma conta criada, nenhum token comprado, nenhum peso baixado.
+
+### ADD — `LR-MODEL-008` · `AETHERAI-GAME-ASSET-SERVICE-RESEARCH.md`
+- AetherAI (`aetherforgeai.com`, Aether Forge Games Inc., lei coreana, termos vigentes
+  2026-04-01): estúdio de imagens, pixel art 32/48 px com modelo próprio, animação de sprites a
+  partir de uma imagem (`sprite-pulsar-v2`), reskin de movimento (sprite→sprite), assets
+  gratuitos e modelo de IP dedicado.
+- **Direitos lidos e transcritos**: a empresa não reivindica propriedade nem exclusividade, uso
+  comercial livre **sem atribuição**, resultados sobrevivem ao encerramento, sem restrição
+  retroativa; e, no outro lado, a existência de copyright é "determinada caso a caso" e não há
+  garantia contra semelhança com terceiros. É o regime mais permissivo entre os serviços já
+  catalogados (comparado com Tripo Free, Meshy Free/CC BY e GPT Image).
+- **Proibições contratuais registradas** (art. 6): nada de benchmarking, análise sistemática,
+  material comparativo ou scraping/automação — restringe como o serviço pode ser avaliado por
+  nós. `REQUIRES_LEGAL_REVIEW`.
+- Preço: 70 tokens por US$ 3,99 (1ª compra); educacional 1.000 tokens por KRW 68.900. **Custo
+  por geração `BLOCKED`** — a página de planos é renderizada por JavaScript. Não repito o erro
+  de inventar equivalência "X tokens = Y assets".
+
+### ADD — `LR-FORGE-009` · `LIVE2D-MOTION-AUTHORING-RESEARCH.md`
+- `shinshin86/live2d-add-motion-sample-web-ui` (MIT, 336★, 48 commits, ativo): editar
+  `.motion3.json` só com JSON e um agente, sem Cubism Editor, dentro dos parâmetros que o
+  modelo já tem.
+- **O valor registrado é o padrão de fluxo**, não a tecnologia: gerador determinístico +
+  validador independente + verificação visual em Chrome headless + "Definition of Done" +
+  documentação escrita para agentes (`AGENTS.md`/`CLAUDE.md`). É a referência mais próxima do
+  formato que `LR-AGENT-012` propõe para skills.
+- **Pilha de licenças separada**: MIT no repositório ≠ Live2D Open Software License
+  (CubismWebFramework) ≠ Live2D Proprietary Software License (Cubism Core, carregado do CDN da
+  Live2D e **não** redistribuído) ≠ dados de modelo (não incluídos por licença) ≠ pixi.js /
+  pixi-live2d-display (MIT) ≠ MediaPipe (Apache-2.0 + `POSE-LICENSE`). Cubism SDK Release
+  License a partir de 10 M JPY de faturamento, com "Expandable Application" cobrindo geradores
+  de avatar — `REQUIRES_LEGAL_REVIEW`, taxas `BLOCKED`.
+- `TESTED`: clone raso ok, `py_compile` de todas as ferramentas ok, gerador recusa rodar sem
+  `model.config.json` com mensagem clara. Pipeline completo, WebUI e tracking: `BLOCKED`.
+
+### FIX — contagens e referência cruzada
+- Conjunto: **10 IDs, 10 documentos Markdown e 1 matriz com 51 registros** (46 + 3 + 2), em
+  `README.md`, `RESEARCH-INDEX.md` §3-ter, `projects/lia-forge/INDEX.md` §4-bis, `RESEARCH-ROADMAP.md`
+  e hub `LR-STUDIO-007`. README: 171 → **173** arquivos Markdown.
+- Referência quebrada no hub §2: a linha "pipeline completo 2D→3D→jogo" citava `LR-FORGE-009`
+  antes de o ID existir. Passou a apontar para `LR-FORGE-007`; `LR-FORGE-009` agora é um objeto
+  real, não um número reservado.
+
+### DECISION — nenhuma
+- Nenhum dos dois é recomendação de contratação ou adoção. Trilha P ganhou P-12 e P-13, ambos
+  `BLOCKED` por dependência de decisão do proprietário.
+
+---
+
 ## 2026-11-21 (rodada 7.1) — correção factual da pesquisa de criação de personagens
 
 Correção documental do conjunto de 2026-11-20. Nenhum documento apagado, nenhuma conclusão

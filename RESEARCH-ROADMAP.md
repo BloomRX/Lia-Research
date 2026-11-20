@@ -56,6 +56,8 @@ Regra: item só sai daqui quando existe documento com evidência, não quando "j
 | P-8 | Rodar `stable-diffusion.cpp` + SDXL na RX 580 | **BLOCKED** | exige a máquina do usuário; único dado é `COMMUNITY_REPORTED` (SD1.5 ≈ 72 s) |
 | P-9 | Comparar qualidade Tripo × Meshy × manual | **BLOCKED** | exige conta paga; lembrar que Free do Tripo torna o output público |
 | P-11 | Decidir sobre CC5.2 / GPT Image / Flow como candidatos | **PENDING** | novos em 2026-11-21; exigem avaliação em máquina compatível e leitura de EULA |
+| P-12 | Descobrir custo real por operação da AetherAI (`LR-MODEL-008`) | **BLOCKED** | a página de preços exige sessão/JavaScript; 70 tokens = US$ 3,99 é o único número obtido. Exige decisão de abrir conta |
+| P-13 | Spike de movimento 2D com `LR-FORGE-009` (Live2D) | **BLOCKED** | exige modelo Live2D licenciado e Chrome; **e** decisão sobre o Cubism SDK Release License (faixa de faturamento) |
 | P-10 | Piloto de um personagem com medição de tempo por etapa | **PENDING** | decisão do proprietário |
 
 ## Trilha H — Hardware (bloqueia toda decisão de modelo)

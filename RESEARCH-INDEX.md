@@ -115,10 +115,11 @@ tem autoridade para criar).
 | `LR-CMP-002` | qual servidor MCP de casa usar, se algum | `comparisons/MCP-SERVER-COMPARISON.md` |
 | `LR-CMP-003` | como medir modelo/hardware sem virar fé | `comparisons/BENCHMARK-APPROACH-COMPARISON.md` |
 
-## 3-ter. Criação de personagens — silhueta primeiro (2026-11-20)
+## 3-ter. Criação de personagens — silhueta primeiro (2026-11-20, ampliada em 2026-11-21)
 
-Pesquisa pedida pelo Lia Forge 2.0. **8 IDs e 8 documentos Markdown**, mais 1 matriz; nenhum
-deles autoriza implementação. Revisada em 2026-11-21 (rodada 7.1).
+Pesquisa pedida pelo Lia Forge 2.0. **10 IDs e 10 documentos Markdown**, mais 1 matriz; nenhum
+deles autoriza implementação. Revisada em 2026-11-21 (rodada 7.1, correções factuais; rodada
+7.2, dois objetos novos).
 
 | ID | Tema | Documento | Natureza |
 |---|---|---|---|
@@ -130,7 +131,9 @@ deles autoriza implementação. Revisada em 2026-11-21 (rodada 7.1).
 | `LR-FORGE-008` | produção: blockout a exportação | `cross-project/character-creation/CHARACTER-PRODUCTION-TOOLS-ASSESSMENT.md` | ferramentas |
 | `LR-FORGE-010` | arquitetura de referência para o Forge 2.0 | `cross-project/character-creation/CHARACTER-CREATION-ARCHITECTURE-RECOMMENDATIONS.md` | recomendação |
 | `LR-AGENT-012` | competências candidatas a skill | `cross-project/character-creation/CHARACTER-CREATION-SKILLS-ANALYSIS.md` | análise |
-| — | matriz de evidências (**49 registros** = 46 da rodada 7.0 + 3 candidatos da 7.1; 50 linhas com o cabeçalho) | `cross-project/character-creation/CHARACTER-CREATION-EVIDENCE-MATRIX.tsv` | dado |
+| `LR-FORGE-009` | Live2D: movimento só com JSON, padrão gerador+validador+verificação, licenças da pilha | `cross-project/character-creation/LIVE2D-MOTION-AUTHORING-RESEARCH.md` | ferramenta |
+| `LR-MODEL-008` | AetherAI: serviço de assets 2D (pixel art, sprite animation), direitos e tokens | `cross-project/character-creation/AETHERAI-GAME-ASSET-SERVICE-RESEARCH.md` | serviço |
+| — | matriz de evidências (**51 registros** = 46 da 7.0 + 3 da 7.1 + 2 da 7.2; 52 linhas com o cabeçalho) | `cross-project/character-creation/CHARACTER-CREATION-EVIDENCE-MATRIX.tsv` | dado |
 
 Os três pipelines completos estão em `CHARACTER-2D-TO-3D-PIPELINES.md` §4 (IDs de pipeline
 não recebem LR próprio: são propostas, não objetos auditáveis).

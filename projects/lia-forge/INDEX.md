@@ -70,14 +70,18 @@ Forge. Nenhum deles foi re-pesquisado nesta fundação — e não deve ser, sem 
 |---|---|---|---|
 | `lia-brand-check` | revisão de marca | ❌ ausente no payload | duplica `lia-brand-consistency-review` (Model-Lab) |
 
-## 4-bis. Criação de personagens (2026-11-20)
+## 4-bis. Criação de personagens (2026-11-20, ampliada em 2026-11-21)
 
-Pesquisa pedida pelo Forge 2.0 sobre "silhueta antes do 3D": **8 IDs, 8 documentos Markdown e 1 matriz com 49 registros** (46 da rodada 7.0 + 3 candidatos acrescentados na correção 7.1) em
+Pesquisa pedida pelo Forge 2.0 sobre "silhueta antes do 3D": **10 IDs, 10 documentos Markdown e 1 matriz com 51 registros** (46 da rodada 7.0 + 3 da 7.1 + 2 da 7.2) em
 `cross-project/character-creation/`. Três pipelines propostos (local, híbrido, alta
-qualidade), catálogo de 49 registros com licença de código × pesos, e a conclusão dura:
+qualidade), catálogo de 51 registros com licença de código × pesos, e a conclusão dura:
 **image-to-3D de qualidade não roda em RX 580 8 GB** (todos os candidatos exigem CUDA).
-O modelo de linguagem (`LR-MODEL-007`) e as skills candidatas (`LR-AGENT-012`) completam o
-conjunto. Nada disso foi implementado ou aprovado.
+O catálogo de modelos (`LR-MODEL-007`) e as skills candidatas (`LR-AGENT-012`) completam o
+conjunto. Na rodada 7.2 entraram dois objetos fora do eixo 3D: **AetherAI** (`LR-MODEL-008`),
+serviço de assets 2D com o termo de direitos mais permissivo entre os lidos, e
+**`live2d-add-motion-sample-web-ui`** (`LR-FORGE-009`), cujo valor é o **padrão de fluxo**
+(gerador + validador independente + verificação visual headless + Definition of Done), não a
+tecnologia. Nada disso foi implementado ou aprovado.
 
 ## 5. Lacunas
 
