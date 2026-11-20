@@ -7,7 +7,7 @@
 | Projetos | Lia Forge 2.0 |
 | Fontes | `CHARACTER-GENERATION-MODEL-CATALOG.md` (licenças e hardware), READMEs oficiais, CharNeRF (arXiv 2402.17115), Pix3D (CVPR 2018) para métricas, glTF 2.0 (Khronos) para formato |
 | Data | 2026-11-20 |
-| Revisão | 2026-11-21 (rodada 7.1: correções de licença, hardware, vídeo e contagens) |
+| Revisão | 2026-11-20 (UTC) — 7.1: licença, hardware, vídeo e contagens; 7.3: conciliação Tripo/Meshy/Flow/ROCm |
 | Status | CURRENT |
 | Confiança | Média — comparativo documental; nenhum pipeline foi executado ponta a ponta |
 | Natureza | pesquisa e documentação; não autoriza implementação |
@@ -96,7 +96,7 @@ Brief → 20 silhuetas (Vulkan/CPU) → revisão humana → concept em 1 vista
 
 ```
 Brief → silhuetas locais → aprovação → concept (Qwen-Image-Edit via GPU alugada ou nuvem)
-→ sheet com edição multi-referência → image-to-3D em serviço (Tripo/Meshy)
+→ sheet com edição multi-referência → image-to-3D em serviço (Tripo pago ou Meshy)
 → retopo no Blender + UV (xatlas/Instant Meshes) → rig (Rigify/auto-rig) → GLB
 ```
 
@@ -108,7 +108,7 @@ Brief → silhuetas locais → aprovação → concept (Qwen-Image-Edit via GPU 
 | Tempo | fração do pipeline 1 |
 | Hardware | o local continua sendo o gargalo de silhueta; o passo de concept/sheet exige GPU alugada ou nuvem (RX 580/gfx803 sem caminho oficial) |
 | Dependências externas | fornecedor de 3D + eventual GPU |
-| Direitos de uso | depende do plano, e o gratuito é mais restritivo do que "grátis": **Tripo Free** = output **público por padrão** com renúncia de direitos autorais e licença pública que permite exploração comercial por terceiros (termos de 2026-11-13, §5.2.1 — `https://www.tripo3d.ai/terms`, lidos em 2026-11-20); **Meshy Free** = **CC BY 4.0**, uso comercial **com atribuição**. Plano pago: Tripo Pro US$ 20/mês (3.000 créditos), Meshy Pro US$ 20/mês (1.000 créditos). Detalhe em `CHARACTER-GENERATION-MODEL-CATALOG.md` §6.1–6.2; `REQUIRES_LEGAL_REVIEW` para o uso de output gratuito do Tripo em produto comercial |
+| Direitos de uso | depende do plano **e do canal**. **Tripo Free: `CONFLICTING`** — a página de preços diz "Public Models · Non-Commercial Use" e o termo (§5.2.1, 2026-11-13) diz que o output nasce público, o usuário renuncia a direitos e **qualquer terceiro** pode explorar comercialmente, sem atribuição; a página de preços **não** consta da ordem de precedência do §12.9. Tripo pago (Pro US$ 20/mês, 3.000 créditos): direitos do usuário, privado, comercial — coerente entre página e termo. **Meshy Web App Free: CC BY 4.0** (comercial **com atribuição**, output do usuário); Meshy pago: privado e comercial. **Meshy API é pré-paga** e não há documento lido que permita gastar os 100 créditos gratuitos do app com tarifas de API. Detalhe em `CHARACTER-GENERATION-MODEL-CATALOG.md` §6.1–6.2; `REQUIRES_LEGAL_REVIEW` para o Free do Tripo |
 | Maturidade | média (serviços mudam rápido) |
 
 ### 4.3. Pipeline 3 — Alta qualidade
