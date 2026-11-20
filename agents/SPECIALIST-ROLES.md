@@ -65,7 +65,23 @@ Avaliar: fluxo, estados de erro, acessibilidade (teclado, foco, ARIA), custo de
 aprendizado, coerência com a identidade dos produtos Lia. Não propor feature nova
 por analogia com repositório pesquisado.
 
-## 6. Regras comuns
+## 6. Especialista por tipo de objeto (cobertura de 2026-11-20)
+
+O papel acompanha o **tipo** do objeto, não o nome do repositório. Cada tipo tem modelo
+próprio em `templates/README.md`.
+
+| Tipo | Quem cobre | O que precisa saber olhar |
+|---|---|---|
+| repositório / ferramenta | arquitetura + licença | build real, dependências pesadas, licença por diretório |
+| servidor MCP | segurança + arquitetura | superfície de ferramenta, autenticação, o que o servidor vê do host |
+| Skill / agente empacotado | licença + produto | payload vs instrução, proveniência, o que executa no host |
+| modelo + pesos | desempenho + licença | licença de **pesos** ≠ licença de código; hardware; quantização |
+| API / SaaS | produto + licença | termos de uso, quota, retenção de dados, custo por uso |
+| paper / benchmark | desempenho | reprodutibilidade, tamanho de amostra, conflito de interesse |
+| voz / visão / multimodal | desempenho + produto | latência, idioma, dados de treino declarados |
+| hardware / automação | desempenho + segurança | driver, sessão real, risco físico — Nível 3 |
+
+## 7. Regras comuns
 
 1. Entregar bullets com rótulo de evidência e ponteiro (`repo@sha:path`).
 2. Declarar o que não conseguiu verificar.

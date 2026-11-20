@@ -101,3 +101,17 @@ Antes de encerrar uma rodada de consolidação, confirmar:
 - [ ] Todo documento consolidado tem origem + branch + commit + data.
 - [ ] Nenhum documento original foi alterado ou removido.
 - [ ] Avisos de copyright e licenças foram preservados nas citações.
+
+## 8. Nunca substituir o número antigo (regra de 2026-11-20)
+
+Atualizar pesquisa **não** é sobrescrever pesquisa. Ao revisar um objeto:
+
+| Campo | Regra |
+|---|---|
+| `Data da pesquisa` | fica a data em que a análise foi feita; revisão ganha data própria |
+| `Versão analisada` | o SHA antigo não desaparece: a nova versão entra ao lado, com data |
+| Conclusão que mudou | escrever "antes: X, em `<data>`, na versão `<sha>`; agora: Y, porque Z" |
+| Número medido | nunca arredondar para bater com o texto novo |
+
+Arquivo substituído vai para `archive/superseded/` com `Substitui:` no cabeçalho. Relatório
+que muda de conclusão sem registrar a anterior perde exatamente o que o torna confiável.

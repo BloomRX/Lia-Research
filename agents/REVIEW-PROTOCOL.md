@@ -37,7 +37,17 @@ licença, providers comerciais e automação residencial.
 3. **Checagem de escopo**: o relatório conclui mais do que a evidência permite?
 4. **Checagem de licença**: a licença foi lida no arquivo, no commit certo?
 5. **Checagem de segurança**: há credencial, host real, dado pessoal?
-6. **Checagem de proibição**: alguma recomendação invade decisão de outro dono?
+6. **Checagem de proibição**: alguma recomendação invade decisão de outro dono? O texto
+   diz "recomendamos", ou escorregou para "aprovado", "liberado", "pode integrar"?
+7. **Checagem de três campos**: `Estado da pesquisa`, `Resultado de execução` e
+   `Recomendação` estão em campos separados e coerentes entre si?
+8. **Checagem de teste**: o relatório afirma execução? Então existe linha correspondente em
+   `data/testing/test-log.tsv` com ambiente, procedimento e resultado. Sem linha, o texto
+   volta para `STATIC_REVIEW_ONLY`.
+9. **Checagem de histórico**: algum número antigo foi substituído no lugar? O correto é
+   manter o valor anterior, a versão anterior e a data, e explicar por que mudou.
+10. **Checagem de upstream**: `| Upstream conferido |` existe e diz se o HEAD mudou? Se
+    mudou, o relatório declara que a análise é da versão antiga?
 
 ## 4. Formato do parecer
 

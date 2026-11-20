@@ -106,3 +106,26 @@ Relatar vulnerabilidades conhecidas de projetos pesquisados é permitido e útil
 (exemplo: advisories SSRF/XSS do ha-mcp corrigidos na v7.0.0). Nunca publicar PoC
 de exploração não corrigida, nem detalhes que facilitem ataque a instalação de
 usuário.
+
+## 8. Repositório público: higiene obrigatória (2026-11-20)
+
+Este repositório é público por decisão do proprietário (`DR-0006`). Todo byte publicado é
+legível por terceiros, inclusive por agentes que não são da Lia.
+
+| Nunca entra | Como é verificado |
+|---|---|
+| token, chave, cookie, sessão, `id_rsa` | padrões de segredo em `tools/validate.py` (`gh*_`, `sk-`, `AKIA`, chave privada) |
+| `.env` real, string de conexão com senha | revisão manual + validador |
+| dado pessoal de terceiro (e-mail, telefone, endereço) | revisão do revisor; e-mail de autor de pacote só em tabela de atribuição |
+| dump de sessão de agente, log com payload do usuário | não se publica log bruto; publica-se o achado |
+| caminho local do proprietário (`C:\Users\…`) | trocar por caminho relativo |
+| credencial real em exemplo de código | placeholder explícito (`<TOKEN_AQUI>`) |
+
+Varredura de 2026-11-20, feita antes de publicar esta rodada: `git grep` sobre todos os
+arquivos versionados (`.md`, `.tsv`, `.py`, `.gz` descompactado) não encontrou segredo real.
+As únicas correspondências de padrão de chave eram fixtures sintéticos já documentados
+(prefixo `gsk-` seguido de 26 caracteres fictícios `ABCDEF…`, usado por um teste que prova que a chave não vaza).
+
+**Fronteira com o jurídico.** Esta base investiga licença e proveniência; **não emite
+parecer jurídico** e não "concede" licença. O que se escreve é: o que o arquivo diz, o que
+ele exige, e o que fica em dúvida. A decisão sobre risco jurídico é do proprietário.

@@ -119,3 +119,17 @@ Nenhuma linha desta tabela constitui licença nova nem autorização de distribu
 Toda mudança de classe de aproveitamento exige registro em `decisions/` com:
 objeto, licença lida (commit), obrigações, quem decidiu, data, e o que muda no
 produto. Pesquisa não altera classe; pessoa decide.
+
+## 9. O selo não é a licença (achado de 2026-11-20)
+
+A API do GitHub devolve **uma** licença por repositório, detectada por heurística. Ela erra
+em três direções, todas observadas nesta base:
+
+| Caso | O que a API disse | O que o arquivo diz | Efeito prático |
+|---|---|---|---|
+| `storytold/photocraft` (pasta `artcraft`) | `Apache-2.0` | `LICENSE-MIT` **e** `LICENSE-APACHE` | o consumidor pode escolher MIT; quem lê o selo perde a opção |
+| `ahwootech/BRUTAL` | `NOASSERTION` | licença própria de atribuição gráfica em `LICENSE.txt` | há licença, só não é OSI — a API não sabe ler |
+| `theclaymethod/unslop` | ausência (`404`) | nenhum arquivo | aqui o "não" está certo: sem arquivo, sem permissão |
+
+Regra: licença se lê no **arquivo**, no commit pinado, e se registra o caminho lido. Selo,
+badge e `license` da API servem para triagem, nunca para o parecer.

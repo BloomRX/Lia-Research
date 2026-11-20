@@ -24,7 +24,20 @@ auditável. Um documento sem índice é conhecimento perdido com aparência de s
 | 7 | Ponteiro no `INDEX.md` do projeto | uma linha, não cópia |
 | 8 | Entrada em `RESEARCH-CHANGELOG.md` | data, ID, o que mudou |
 | 9 | Atualização do `RESEARCH-ROADMAP.md` | se abriu ou fechou tema |
-| 10 | `python3 tools/validate.py` | sem erro |
+| 10 | Vocabulário de recomendação | um dos 7 valores de `catalog/CATALOG-SCHEMA.md` §4, nada inventado |
+| 11 | Estado ≠ resultado ≠ decisão | três campos preenchidos e distintos; `Decisão de adoção` só com fonte externa |
+| 12 | Alegação de teste | se `Resultado de execução` não é `NOT_RUN`/`STATIC_REVIEW_ONLY`, existe linha em `data/testing/test-log.tsv` |
+| 13 | `python3 tools/build_catalog.py` | `catalog/catalog.tsv` regenerado (a linha do objeto aparece) |
+| 14 | `python3 tools/validate.py` | **0 ERRO**. AVISO pode ir (com prazo); NOTA não é erro |
+| 15 | `python3 tools/build_catalog.py --check` | catálogo em dia |
+
+Níveis do validador, para não confundir os três: **ERRO** bloqueia publicação; **AVISO** é
+conteúdo a revisar (órfão, DR sem campo, digest sem metadados); **NOTA** é pendência
+legítima (`BLOCKED`, `NOT_RUN`, revisão vencida). Item `BLOCKED` correto **não** é erro.
+
+Publicação vai para a branch de sessão (`arena/<id>`), nunca para `main`, e nunca em
+repositório de produto. Publicar não é aprovar: o relatório entra com recomendação, não
+com autorização.
 
 ## 2. Onde o documento mora (regra do relatório principal)
 

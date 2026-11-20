@@ -11,6 +11,14 @@ realmente funcionou na fundação de 2026-11-17 (e dos erros cometidos nela).
 
 ---
 
+## 0. Relação com os protocolos de 2026-11-20
+
+Este documento é a **metodologia geral**. O passo a passo operacional está em
+`governance/INVESTIGATION-PROTOCOL.md` (etapas A–E, ambiguidade de homônimo, descoberta de
+aplicações) e a política de execução em `governance/TESTING-PROTOCOL.md` (níveis 0–3).
+Onde houver conflito, vale o protocolo mais específico — e o vocabulário fechado de
+`catalog/CATALOG-SCHEMA.md`.
+
 ## 1. Fases
 
 ### Fase A — Enquadramento (antes de coletar)
