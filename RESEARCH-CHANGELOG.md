@@ -8,6 +8,65 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ---
 
+## 2026-11-21 (UTC) — dois objetos novos auditados **com execução**: Bosch image-render e jenalab
+
+Rodada de descoberta, não de manutenção: dois alvos indicados pelo proprietário foram abertos,
+analisados no commit pinado e **executados localmente** onde dava para executar. Nenhum projeto Lia
+foi alterado, nenhuma conta aberta, nenhum peso baixado, nenhum GPU alugada, nenhuma chave criada.
+
+### ADD — `LR-FORGE-012` · `jenalab-com/jena-image-render` (`3b9276fe`)
+- **Executado de verdade** (venv Python 3.11.2, tarball do commit): `159 + 22 testes OK` na forma do
+  CI, `181 passed + 47 subtests` via pytest (0.72 s), e os 14 exemplos em `--dry-run` nos dois alvos
+  — **28 execuções, 0 falhas, sem GPU, sem ComfyUI e sem chave de RunPod**.
+- Achei por sonda o que a suíte não cobre: `config.py:340` faz `steps=int(...)` sem faixa — `steps 0`
+  e `steps -5` passam no plano com exit 0. A afirmação do README ("validates models, files,
+  LoRA/engine matches and output paths") é **precisa e estreita**: faixa numérica não está incluída,
+  e o que o ComfyUI faria com isso ficou `UNVALIDATED`.
+- Padrão mais útil do objeto: `catalog.json` pinna **23 arquivos de peso** por
+  `hf://org/repo@<commit>/<path>` + SHA-256 + tamanho (98,82 GB nos 13 arquivos de modelo), com tabela
+  de licença por alias "**as stated on each model card at the pinned revision**". É o formato que falta
+  em `LR-MODEL-007` (código × pesos) e no problema das 47 Skills sem licença no payload.
+- Fronteira de licença lida no `Dockerfile` do pod: pacote MIT falando com **ComfyUI GPL-3.0 por
+  HTTP**; `entrypoint.sh` recusa subir sem senha e prende o ComfyUI em `127.0.0.1`. Se o Lia um dia
+  distribuir imagem com ComfyUI: `REQUIRES_LEGAL_REVIEW`.
+- **Idade zero**: criado, publicado e analisado no mesmo dia (2026-11-21), 1 commit, sem releases,
+  sem issues. Recomendação `ADAPT` **aos padrões**, não ao pacote; revisão em 90 dias (não 180), por
+  ser software sem histórico.
+- **Os outros 7 repositórios da organização** foram abertos e registrados no mesmo relatório, sem
+  virar 7 linhas de catálogo: MIT em todos os 6 próprios; `SwiftTerm` é fork **0 à frente / 56 atrás**
+  do upstream e `mediator` é fork **idêntico** (0/0) — snapshots sem modificação; 5 dos 6 próprios são
+  apps macOS, irrelevantes como dependência para o Lia.
+
+### ADD — `LR-FORGE-011` · `boschresearch/image-render-generative` (`ba2a9608`)
+- Plugin de refinamento generativo (ControlNet multi-controle / Prompt-Free-Diffusion) do sistema de
+  render sintético catharsys da Bosch Research. Execução: `pip install -e .` **ok**,
+  `python -m compileall src/` **ok** (12 módulos), import **falha** com
+  `ModuleNotFoundError: No module named 'anybase'`.
+- Dois achados que só apareceram ao executar: (a) `setup.cfg` **sub-declara dependências** — lista só
+  `pyjson5` e `tqdm`; (b) `anybase` no PyPI é hoje **1.1.0 com `Requires-Python >=3.12`** e o sandbox tem
+  3.11 → o caminho de execução está bloqueado por idade do código, não por capricho do ambiente.
+  `catharsys` não existe no PyPI (404) e só vem do workspace de 17 repositórios declarado em
+  `image-render-setup/repos/repos-main.yaml`.
+- Licença Apache-2.0 `CONFIRMED` com **cabeçalho `<LICENSE id="Apache-2.0">` em cada `.py`**,
+  `NOTICE.md` de detentores e `3rd-party-licenses.md` declarando "nenhum" — disciplina de proveniência
+  que o Lia deveria copiar (é a mesma lacuna das Skills do Hub). Contribuir exige DCO 1.1 + commit GPG.
+- 814 dias sem push (a família inteira parou em 2025-07-31), ★0, 4 forks, sem CI, sem testes, sem
+  release; `version.py` declara 1.0.4 enquanto a linha de release fixa `tags/v1.0.3`. Veredito:
+  **`REFERENCE_ONLY`** — referência de disciplina e de forma de pipeline, nada de código.
+
+### FIX — contagens e índices da base
+- 25 objetos auditados (23 repositórios + 2 organizações), catálogo regenerado (25 linhas), índice com
+  as duas linhas novas, `data/inventory/license-matrix.tsv` com 25 linhas e as duas linhas na
+  Tabela-mestra de `LR-LIC-005`, `data/testing/test-log.tsv` com 20 linhas.
+- `README.md` dizia "**0** testes de software registrados" com 16 linhas já existentes no log: passa a
+  declarar as **20 linhas** (2026-11-21). Contagem de Markdown: 174 → 176.
+
+### Validação
+- `python3 tools/validate.py`: **0 erros · 0 avisos · 7 notas** (as 7 notas são as mesmas de antes —
+  IDs de índice sem cabeçalho próprio).
+- `python3 -m unittest tools.test_validate`: **Ran 76 tests — OK**.
+
+---
 ## 2026-11-20 (UTC) — disciplina operacional: conjunto mínimo de Skills do ecossistema
 
 Não é rodada de pesquisa: nenhum objeto novo foi investigado, nenhum ID ou documento de
