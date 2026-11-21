@@ -139,7 +139,7 @@ que não mede, e pergunta já coberta por comparação.
 
 ### 7.3. Por que esta ordem
 
-1. **`promptfoo`, 2. `deepeval`** — a base tem 23 relatórios e 14 linhas de teste, das quais
+1. **`promptfoo`, 2. `deepeval`** — a base tem 25 relatórios e 20 linhas de teste, das quais
    apenas 5 são execução real. A lacuna não é "saber mais tecnologias", é **provar** o que
    já está catalogado. Ferramenta de avaliação ataca isso.
 2. **`mcpvault`, 4. `uv`** — MCP é a superfície que mais cresce no ecossistema; `uv` é

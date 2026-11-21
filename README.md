@@ -10,10 +10,10 @@
 | Branch padrão | `main` |
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
-| Status | Base reorganizada em 2026-11-20 (missão, catálogo, validador). Medição em hardware: `NOT RUN`; testes de software registrados: **0** |
-| Arquivos Markdown | 174 (contagem de 2026-11-20, `find -name '*.md' -not -path './.git/*'`), validados por `tools/validate.py` |
-| Relatórios externos | 23 objetos, 1 relatório cada (`repositories/*/REPORT.md`) |
-| Catálogo | `catalog/catalog.tsv` — 23 linhas, gerado de `tools/build_catalog.py` |
+| Status | Base reorganizada em 2026-11-20 (missão, catálogo, validador). Medição em hardware: `NOT RUN`; testes de software registrados: **20 linhas** em `data/testing/test-log.tsv` (2026-11-21) |
+| Arquivos Markdown | 176 (contagem de 2026-11-21, `find -name '*.md' -not -path './.git/*'`), validados por `tools/validate.py` |
+| Relatórios externos | 25 objetos, 1 relatório cada (`repositories/*/REPORT.md`) |
+| Catálogo | `catalog/catalog.tsv` — 25 linhas, gerado de `tools/build_catalog.py` |
 | Decisões (governança) | 1 aceita · 12 pendentes · 3 rejeitadas · 2 referência · 2 pastas vazias por desenho |
 
 > **Aviso de escopo.** Este repositório registra *pesquisa*, não *implementação*.
@@ -44,7 +44,7 @@ fundação (2026-11-17):
   OpenJarvis, Vercel UI, Mister Download Manager, OpenIDEA, Claude Trading Skills,
   RouterHub) e sobre os 9 alvos adicionais depois.
 
-Depois desta fundação: **23 objetos externos auditados** (21 repositórios + 2
+Depois desta fundação: **25 objetos externos auditados** (23 repositórios + 2
 organizações), **5 dossiês internos**, **31 digests transversais**, **4 comparações** e
 **3 decisões de não adoção** registradas com condição de reabertura.
 
@@ -98,7 +98,7 @@ Lia-Research/
 ├── agents/                    orquestrador, papéis de especialista, revisão, publicação
 ├── templates/                 um modelo por tipo de objeto (14 modelos)
 ├── decisions/                 registros de governança (nunca aprovação de adoção)
-├── repositories/              um diretório por objeto externo (23 relatórios)
+├── repositories/              um diretório por objeto externo (25 relatórios)
 ├── cross-project/             15 áreas tecnológicas transversais (inclui `character-creation/`)
 ├── projects/                  consolidação por projeto Lia
 ├── comparisons/               comparações entre alternativas

@@ -4,10 +4,11 @@
 veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID aparece em
 outro documento e não aqui, o outro documento está errado.
 
-- **Data de referência:** 2026-11-20 (reauditoria técnica dos 22 objetos concluída nesta data)
-- **Itens:** 23 objetos externos (27 linhas com sub-documentos) + 5 dossiês internos + 31 digests transversais + 3 comparações + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de evidências** (2026-11-20, revisado em 2026-11-20)
-- **Pouco foi executado.** Existem **16 linhas** em `data/testing/test-log.tsv` (2026-11-20):
-  5 suítes reais rodadas, 2 execuções parciais e 9 tentativas bloqueadas com motivo. Na
+- **Data de referência:** 2026-11-21 (dois objetos novos auditorados nesta data; reauditoria técnica dos 22 objetos concluída em 2026-11-20)
+- **Itens:** 25 objetos externos (29 linhas com sub-documentos) + 5 dossiês internos + 31 digests transversais + 3 comparações + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de evidências** (2026-11-20, revisado em 2026-11-21)
+- **Pouco foi executado.** Existem **20 linhas** em `data/testing/test-log.tsv` (2026-11-21):
+  7 execuções locais com resultado positivo (suítes e scripts rodados de verdade), 3 execuções parciais e
+  10 tentativas bloqueadas com motivo. Na
   criação de personagens, **nada foi executado** — não há GPU AMD nesta sessão e nenhum peso
   foi baixado.
 
@@ -25,7 +26,7 @@ Definições: `catalog/CATALOG-SCHEMA.md`. Máquina: `catalog/catalog.tsv`.
 
 ---
 
-## 1. Tecnologia externa — auditoria (23 objetos)
+## 1. Tecnologia externa — auditoria (25 objetos)
 
 Colunas separadas por exigência de `MISSION.md` §3: **estado** (quanto já se sabe),
 **recomendação** (opinião técnica) e **decisão de adoção** (não existe, e esta base não
@@ -60,6 +61,8 @@ tem autoridade para criar).
 | `LR-AGENT-011` | `akitaonrails/ai-memory` (memória multi-harness) | MIT | DOCUMENTED | **ADAPT** | — nenhuma | Alta | `repositories/ai-memory/REPORT.md` |
 | `LR-SEC-007` | `cloudflare/security-audit-skill` | MIT | PARTIALLY_TESTED | **ADAPT** | — nenhuma | Média | `repositories/cloudflare-security-audit-skill/REPORT.md` |
 | `LR-MODEL-006` | `tashfeenahmed/freellmapi` (free tiers agregados) | MIT (software) | PARTIALLY_TESTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/freellmapi/REPORT.md` |
+| `LR-FORGE-011` | `boschresearch/image-render-generative` | Apache-2.0 | PARTIALLY_TESTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/image-render-generative/REPORT.md` |
+| `LR-FORGE-012` | `jenalab-com/jena-image-render` (+7 repos da org) | MIT | PARTIALLY_TESTED | **ADAPT** | — nenhuma | Alta | `repositories/jena-image-render/REPORT.md` |
 
 ## 2. Projetos do ecossistema — dossiês internos (5)
 
