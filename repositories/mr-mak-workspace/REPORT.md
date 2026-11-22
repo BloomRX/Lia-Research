@@ -143,48 +143,68 @@ commit**, e a docstring do próprio teste explica por que ele existe:
 
 Medido: o `SKILL.md` do `img2threejs` vendored tem `metadata: upstream-version: 2.0.0` **aninhado** e
 nenhum `version:` no nível raiz → o padrão do ferramental de release não casa. O outro failure é o
-badge de versão do README, mesma família.
+badge de versão do README, mesma família. **Fechado na segunda passada (§13)**: o upstream tem `version: 2.0.1` no topo do seu `SKILL.md` e o badge correspondente — ou seja, a falha não é do `img2threejs`, é do **vendoring** do Mr. Mak, que moveu a chave para dentro de `metadata:` e trocou o número. O teste anti-fixture deles detectou a edição feita pelo próprio empacotador: é exatamente o serviço que ele se propõe a fazer.
 
 Duas consequências para esta base:
 
 1. **é a mesma classe de defeito que já nos mordeu**: no Hub, `metadata:` aninhado na `alethe` quebrou o
    parser do catálogo. A diferença é que lá descobrimos na mão; aqui existe um **teste anti-fixture**
    que o autor escreveu depois de passar por isso. É o padrão a copiar para `tools/validate.py`:
-   **asserção contra o arquivo em disco**, não contra um exemplo.
+   **asserção contra o arquivo em disco**, não contra um exemplo — **levado a cabo nesta rodada**: o `tools/validate.py` ganhou a checagem de forma canônica do cabeçalho (a primeira linha da tabela tem de ser `| ID |`) medida no arquivo do disco, com um caso de regressão que **troca as linhas do próprio fixture** e uma medição direta nos 33 relatórios reais da base.
 2. **o gate existe e não está no gate**: o `checks.yml` roda, do `img2threejs`, **só**
    `python -m unittest forge.tests.test_optional_vision_tooling`. A suíte inteira (1.418 testes, 139 s,
    2 falhas) **não roda** na CI deles. Custo da escolha: os dois failures vivem no `main` há tempo
    suficiente para eu encontrá-los. Um validador parcial é pior que nenhum, porque compra confiança sem
    cobrir o caso.
 
-## 7. Empacotamento de Skills: a resposta pronta para `DR-0004`
+## 7. Empacotamento de Skills: o `DR-0004` respondido (e a minha leitura inicial, corrigida)
 
 `scripts/package_skills.py` (159 linhas) gera o `Mr-Mak-Skills-<versão>.zip` — exatamente o tipo de
-artefato que o Lia Studio mantém versionado. Lido e **executado** aqui:
+artefato que o Lia Studio mantém versionado. Executado aqui, duas vezes:
 
 | Prática | Prova |
 |---|---|
-| `manifest.json` com **SHA-256 por arquivo** do payload | construído por mim: 768 arquivos hashados |
-| timestamp fixo em **todas** as entradas do ZIP (`date_time=(2026,1,1,0,0,0)`) | construí **duas vezes**: `sha256` do ZIP idêntico (`e2bdf42d…b8933`) → **artefato reproduzível** |
-| escrita em staging num `tempfile.TemporaryDirectory` e **verificação antes** de `candidate.replace(output)` | "so failed validation cannot replace an existing package" |
-| `--check` revalida um ZIP já existente (lista de skills, paridade `namelist` × `files`, hash por arquivo) | o mesmo `verify()` roda no build |
-| o pacote carrega `LICENSE` + `THIRD_PARTY_NOTICES.md` + o `SKILLS-README.md` (que é o `docs/skills-pack.md`) | confirmado no ZIP: 4 arquivos na raiz |
-| `README` do pack diz o que **não** está incluso ("no private projects, original game assets, conversations, credentials or job receipts"; "no symlinks") | `docs/skills-pack.md` lido |
+| `manifest.json` com **SHA-256 por arquivo** do payload | 768 arquivos hashados no build do `main` |
+| timestamp fixo em **todas** as entradas (`date_time=(2026,1,1,0,0,0)`) | os dois builds deram **o mesmo `sha256` do ZIP** (`e2bdf42d…b8933`) → artefato reproduzível |
+| escrita em `tempfile.TemporaryDirectory` + `verify()` **antes** de `candidate.replace(output)` | "so failed validation cannot replace an existing package" |
+| `--check` revalida um ZIP já existente (lista de skills, paridade `namelist` × `manifest.files`, hash por arquivo) | é o mesmo `verify()` que roda no build — dá para auditar um ZIP alheio sem reconstruí-lo |
+| o pacote carrega `LICENSE` + `THIRD_PARTY_NOTICES.md` + `SKILLS-README.md` | confirmado dentro do ZIP que gerei (4 arquivos na raiz) |
+| lista **fechada** de 20 skills + 16 arquivos de suporte; `raise` se faltar `SKILL.md` de alguma | `SKILLS`/`SUPPORT` são tuplas literais, não glob |
+| rejeita symlink: "Pack resources must be real files" | bloqueia link de escape fora da pasta do skill |
+| `FORBIDDEN` = `{.env, auth.json, credentials.json, tokens.json, token.json, job.json, result.json, upload.json, settings.local.json}` + prefixo `.env.` | "Local state must not be packaged" |
+| **espelho verificado no build**: `mirror = relative.replace('.agents/','.claude/')` e `raise ValueError` se os bytes divergirem | "Claude mirror differs; run npm run skills:sync" — o `--check` não é só CI, é pré-condição do pacote |
+| exclusão **estrutural** (`EXCLUDED = {.git, .cache, __pycache__, node_modules, .venv}` + `.{...}` + `.pyc`/`.pyo`) | o meu clone tinha um `.cache/spec-search/core_3d.json` **presente na árvore** (gerado localmente, `gitignore`d); ele **não** entrou no ZIP |
 
-**Medida de divergência sobre o nosso próprio ZIP.** `data/inventory/corpus-manifest.tsv` registra
-`Lia-Studio:docs/licenses/MR-MAK-WORKSPACE-MIT.txt` (1.087 B) e o `DR-0004` trata de um
-`Mr-Mak-Skills-Free.zip` de **9,9 MB / 764 arquivos**. Contra a fonte:
+A última linha é a melhor lição de todas: o empacotador **não copia a árvore**, ele reconstrói a lista
+com exclusões próprias — por isso um artefato velho de build não vaza para um pacote publicado. É o
+contrário de "confiar no `.gitignore`".
 
-| | Nosso ZIP (registro interno) | Artefatos publicados | Meu build no `main` |
-|---|---|---|---|
-| tamanho | 9,9 MB | **nenhum** asset de release entre 9,5 e 10,5 MB (varridos os 19 releases); há `Mr-Mak-Skills-0.4.14.zip` 3.352.656 B e `Mr-Mak-Skills-0.6.0.zip` 4.263.307 B | 4.264.037 B |
-| arquivos | 764 | — | **769** |
+**O ZIP local do Lia Studio, medido por reconstrução.** O registro interno (`DR-0004`, §Situação) diz
+**764 arquivos** em **9,9 MB**. Minhas primeiras contas compararam o tamanho *comprimido* das releases —
+e deram a conclusão errada, que fica registrada aqui corrigida:
 
-Portanto: **o artefato versionado no Lia Studio não corresponde a nenhum artefato publicado do
-projeto**, nem em bytes nem em contagem. É a resposta concreta que faltava ao `DR-0004` — a decisão não
-é "manter ou jogar fora", é "**não sabemos o que é isto**", e a única forma de saber é comparar o
-conteúdo com o `manifest.json` de uma release específica (o que exige ler o ZIP local, fora do escopo
-desta sessão). Recomendação de política na §10.
+| Artefato | Entradas | Descompactado |
+|---|---:|---:|
+| publicado v0.4.14 / v0.4.15 / v0.4.16 / v0.4.17 / v0.4.19 / v0.5.0 (reconstruído da **tag**, `--depth 1`) | **764** em todos | **9,83–9,84 MB** |
+| `main` `f096373f` (meu build) | 769 | 10,78 MB (ZIP 4.264.037 B) |
+| asset publicado `Mr-Mak-Skills-0.4.14.zip` / `-0.6.0.zip` | 3.352.656 B / 4.263.307 B **comprimidos** | não verificado (ver abaixo) |
+
+Ou seja: **o ZIP do Studio corresponde, em número de entradas e em tamanho, à faixa de tags v0.4.14 →
+v0.5.0** (2026-09-30 a 2026-10-08), não a um "blob desconhecido". 9,9 MB é o tamanho **extraído**
+(9,83 MB + o próprio `manifest.json`), não o do `.zip`. O `main` atual é que é outro número (769 / 10,78 MB).
+
+Limite desta medição, registrado: **não consegui baixar os assets publicados** — `github.com` responde,
+mas o download redireciona (302) para `release-assets.githubusercontent.com`, fora da allowlist do
+sandbox; então o `sha256` do `.zip` publicado e a lista real de arquivos daquela release ficaram
+`BLOCKED`. O que fiz foi **reconstruir a contagem no commit de cada tag** pelo algoritmo do próprio
+autor, que é reprodutível e não depende da rede.
+
+**Consequência para o `DR-0004` (proposta, sem decisão aqui):** o problema deixou de ser "não sabemos o
+que é isto" e passou a ser **"o Studio está versionando um pacote de ~8 semanas atrás, e nenhum registro
+nos diz isso"**. A correção é de registro, não de remoção: anotar no aviso de terceiros do Studio a
+**a tag de origem** (`v0.4.14`…`v0.5.0`) e o SHA-256 do `.zip` local, e reempacotar quando quiser o estado
+atual. Uma política geral sai disso: **registrar pacote de terceiro por (tag, hash), nunca por nome de
+arquivo** — o nome `Mr-Mak-Skills-Free.zip` não existe em nenhum release; só `Mr-Mak-Skills-<versão>.zip`.
 
 ## 8. Licença e proveniência — o motivo de este objeto ser o **contra-exemplo** dos nossos pendentes
 
@@ -192,7 +212,7 @@ desta sessão). Recomendação de política na §10.
 |---|---|---|
 | código | MIT, e o detentor é **"Mr. Mak Workspace contributors"** — a forma coletiva que a nossa política recomenda, em vez de nomear uma pessoa só para conteúdo de outros | o Studio guarda `docs/licenses/MR-MAK-WORKSPACE-MIT.txt` (1.087 B) mas **nenhuma das 5 Skills adaptadas tem aviso no payload** → o gap que `SKILL-LICENSE-CONSOLIDATION.md` §3.3 lista |
 | conteúdo de exemplo | `THIRD_PARTY_NOTICES.md` separa: imagens "belong to their creators"; os samples Arachne/Mr. Mak 64 "contain AI-generated concept images… You may copy and adapt these included assets with the template"; os renders de câmera são do protótipo Unity do autor; "no Unity project or playable build is bundled"; e "This is an independent community project, not an official product of the listed providers" | é o **adendo de escopo** que propus em `LR-VOICE-002` §4, já preenchido — inclusive para marca e para nomes de provedores |
-| subprojeto Apache | o `SKILL.md` do `img2threejs` declara `license: Apache-2.0` **no frontmatter**; o `LICENSE` Apache-2.0 está no diretório do skill; a **seção 6 do `docs/skills-pack.md` manda copiar a pasta inteira** "including code, resources and Apache-2.0 licence" | certo em três camadas; **incompleto num ponto**: não achei `NOTICE` no `img2threejs` vendorizado (`find -maxdepth 2 -iname NOTICE*` vazio), embora o texto deles prometa "Its license **and notices** are retained". Apache-2.0 §4(d) exige que os `NOTICE` do original accompanyem a redistribuição → `REQUIRES_LEGAL_REVIEW` (não é parecer jurídico, é leitura do que o arquivo deles afirma × o que está no disco) |
+| subprojeto Apache | o `SKILL.md` do `img2threejs` declara `license: Apache-2.0` **no frontmatter**; o `LICENSE` Apache-2.0 (11.337 B) está no diretório do skill; o `docs/skills-pack.md` manda copiar a pasta inteira "including code, resources and Apache-2.0 licence" | **verificado contra a origem** (§13): o upstream `img2threejs/img2threejs` **não tem nenhum arquivo `NOTICE` na árvore inteira** — logo não há `NOTICE` a reter, e a cláusula 4(d) do Apache-2.0 está satisfeita; a frase "license and notices" é boilerplate, não promessa de um arquivo que não existe |
 | ausência de licença | regra deles: "empty MCP configuration does not hide a token pasted into a report, so review the actual files you are sharing" — ou seja, o `.gitignore` não salva você de texto seu em Markdown | exatamente a regra de pré-publicação do `agents/PUBLISHING-PROTOCOL.md` da nossa base |
 
 Somando: o objeto é MIT **e** documenta as cinco camadas de conteúdo. Nosso pendente (12 Skills do
@@ -246,11 +266,11 @@ modelo de sessão do Arena. O que se adapta, item por item:
 | **Lia Studio / Forge** — disciplina de entrega | o vocabulário de 5 estados (*baseline → proposta selecionada → implementado → verificado pelo agente → aceito pelo dono*) e as 3 negações deles: "A selected mockup is not a shipped feature", "A successful API request or attractive render is not an engine handoff", "a browser study cannot establish that an effect works in the game" | zero código; é texto de política de aceite |
 | **Lia Agent Hub** — empacotamento | `package_skills.py`: `manifest.json` com SHA-256 por arquivo, timestamp fixo, staging + verificação antes de substituir, `LICENSE`/notices **dentro** do pacote, `--check` para auditar um ZIP existente. E `sync-skills.mjs --check` (375 × 375 idênticos) para `.agents` × `.claude` | ~160 linhas de Python no catálogo |
 | **Lia Research** — evidência | o *anti-fixture* da §6: validar contra o arquivo no disco; e o par "ledger escrito logo após" + "falha com causa e correção linkada" que o anymachine (`LR-FORGE-013`) também demonstra | ajuste no `tools/validate.py` |
-| **`DR-0004`** (decisão do proprietário) | a evidência da §7: o ZIP de 9,9 MB do Studio **não bate** com nenhum artefato publicado (nenhum asset entre 9,5–10,5 MB em 19 releases; contagem 764 × 769). Sugestão de política: **registrar por hash, não por nome** — o `SHA-256` do ZIP local, a revisão de origem de onde veio, e o `manifest.json` dessa release; sem isso, é `RESEARCH_ONLY` para sempre | decisão de dono |
+| **`DR-0004`** (pendente do proprietário) | a evidência da §7 fecha a pergunta técnica: o pacote do Studio (764 arquivos / 9,83 MB extraídos) **é** o `Mr-Mak-Skills` de uma das tags v0.4.14 → v0.5.0, reconstruída pelo algoritmo do autor — não é blob desconhecido, é pacote **legítimo e desatualizado**. Falta só o `sha256sum` do arquivo local, que é um comando na máquina do Studio (`BLOCKED` aqui: o download dos assets escapa da allowlist). O que sobra para o proprietário é de **registro**: anotar tag + hash no aviso de terceiros deles e decidir quando reempacotar |
 
 **Não levar** (e por quê): pareamento por Tailscale Serve (é para uma máquina só do dono — não resolve
 equipe real); o `node-pty`/Tauri; os skills de provedor (`fal-ai-generation`, `higgsfield-workflow`)
-que presumem assinaturas pagas; e a confiança no `img2threejs` sem `NOTICE` — esse item é
+que presumem assinaturas pagas; e o **jeito** como vendorizaram o `img2threejs`: a licença está ok (o upstream não tem `NOTICE`, §13), mas mover `version:` para dentro de `metadata:` e apagar o badge quebrou os dois testes de release deles — vendorizar copiando e editando o frontmatter é o erro a não repetir.
 `REQUIRES_LEGAL_REVIEW` antes de qualquer redistribuição por um projeto Lia.
 
 ## 11. Evidências
@@ -269,22 +289,58 @@ que presumem assinaturas pagas; e a confiança no `img2threejs` sem `NOTICE` —
 | #65 chat-a-chat `open` sem os arquivos propostos no `main` | `CONFIRMED` | `gh api issues/65` + `ls desktop/service/chat-*.mjs` |
 | multiusuário não existe; loopback-only; credencial só em memória; celular só em pasta listada | `CONFIRMED` | `SECURITY.md`, `docs/mobile-access.md` (321 linhas) |
 | `RUSTSEC-2024-0429` em `glib 0.18.5`, declarado aberto | `CONFIRMED` | `SECURITY.md` + `src-tauri/Cargo.lock:1404` (`glib 0.18.5`) |
-| `NOTICE` do `img2threejs` ausente no vendoring, contra o texto que promete "license and notices" | `CONFIRMED` (busca) / `REQUIRES_LEGAL_REVIEW` (consequência) | `find -iname NOTICE*` vazio × `THIRD_PARTY_NOTICES.md` |
+| ~~`NOTICE` do `img2threejs` ausente no vendoring, contra o texto que promete "license and notices"~~ → **retratado na §13**: o upstream também não tem `NOTICE`, então nada está ausente | `DIVERGENCE` (texto meu × árvore do upstream; a pendência que eu abri não existe) | `find -iname NOTICE*` vazio × `THIRD_PARTY_NOTICES.md` × árvore completa do upstream |
 | jam: 3 pessoas, 93 h, US$ 65.000 de prêmio, UE5.8, tema 8 h antes; números do devlog (368/712/830, 2.891×255, 411/16.338/6,71 B, US$ 22,97 pagos × US$ 2.927,42 de tabela) | `REPORTED` | transcrição do vídeo (recuperada pelo fetcher) + devlog; nenhum log de API conferido |
+| `NOTICE` ausente no vendorizado → **inexistente também no upstream** (nada a reter) | `CONFIRMED` (retratando §8 inicial) | `contents/` + `git/trees?recursive=1` de `img2threejs/img2threejs` |
+| upstream tem `version: 2.0.1` no topo do `SKILL.md`; o vendoring o moveu para `metadata:` e removeu o badge | `CONFIRMED` | `SKILL.md` dos dois lados + diff de árvores (371 × 353 blobs) |
+| packager tem whitelist, anti-symlink, `FORBIDDEN`, verificação de espelho e exclusão estrutural; `.cache` local não entrou no ZIP | `OBSERVED` | `collect()` lido + `zipfile.namelist()` do meu build |
+| tags v0.4.14→v0.5.0 = **764 entradas / 9,83 MB descompactados**; `main` = 769 / 10,78 MB | `OBSERVED` | `collect()` executado no clone de cada tag |
+| `sha256` e conteúdo real dos `.zip` publicados | `BLOCKED` | 302 → `release-assets.githubusercontent.com`, fora da allowlist |
 | vídeo tem link de afiliado e oferta promocional de um provedor citado como principal | `CONFIRMED` | descrição oficial do vídeo |
 | qualidade de PT-BR, uso em equipe real multiusuário, custo de operar isto no Lia | `UNVALIDATED` | nada medido; fora do escopo do objeto |
 
 ## 12. Próximos passos
 
-1. **`DR-0004`**: computar o SHA-256 do `Mr-Mak-Skills-Free.zip` local do Studio e compará-lo com o
-   `manifest.json` das releases 0.4.14/0.6.0 antes de qualquer decisão de manter/remover — ação de
-   projeto, não desta base.
+1. **`DR-0004`** — o que falta é de registro, não de investigação: rodar `sha256sum` no `Mr-Mak-Skills-Free.zip`
+   local do Studio, gravar o hash junto da tag de origem (v0.4.14…v0.5.0) no aviso de terceiros deles, e decidir
+   **quando** reempacotar (o `main` já dá 769 arquivos / 10,78 MB). Hash do artefato publicado: `BLOCKED` neste
+   sandbox (o download redireciona para fora da allowlist); quem tiver rede aberta fecha isso em um comando.
 2. Escrever a Skill de handoff do Studio no formato da §2 (uma página, sem código deles), e o bloco de
    5 estados da §10 na política de aceite do Forge.
-3. No Hub: portar o **padrão do packager** (hash por arquivo, deterministic build, verify-before-replace,
-   `--check`) e o teste **anti-fixture** para o `tools/validate.py` desta base.
-4. Revisão em 2027-02-22. Gatilho objetivo de reabrir: a issue #65 (chats se endereçando) entrar no
-   `main` — ela muda a resposta da §1 sobre "equipe"; ou um `NOTICE` aparecer no `img2threejs` vendorizado.
+3. No Hub: portar o **padrão do packager** inteiro — não só o manifest: whitelist fechada de skills, rejeição de
+   symlink, lista de arquivos de estado proibidos, verificação de espelho `.agents` ↔ `.claude` byte a byte e
+   exclusão estrutural de `.cache`/`__pycache__`. O teste **anti-fixture** já foi levado para o `tools/validate.py`
+   desta base nesta rodada, com caso de regressão e medição direta no corpus real (§13).
+4. Revisão em 2027-02-22. Gatilhos objetivos de reabrir: a issue #65 (chats se endereçando) entrar no `main` —
+   muda a resposta da §1 sobre "equipe"; ou aparecer um `NOTICE` no upstream do `img2threejs`.
+
+---
+
+## 13. Segunda passada: quatro conclusões reavaliadas, duas retratadas
+
+Registrada porque é o que separa esta base de um resumo de README: a primeira versão deste relatório
+afirmou (a) que o `NOTICE` ausente era uma pendência legal do upstream e (b) que o ZIP de 9,9 MB do
+Studio "não corresponde a nenhum artefato publicado". **Ambas estavam erradas**, e ambas eram
+respondíveis com mais uma medição.
+
+| Afirmação inicial | Teste aplicado | Resultado |
+|---|---|---|
+| "`NOTICE` ausente no `img2threejs` vendorizado, contra o texto que promete 'license and notices' → `REQUIRES_LEGAL_REVIEW`" | olhar a **origem**: `api repos/img2threejs/img2threejs/contents/` + árvore completa (`git/trees?recursive=1`) filtrando `NOTICE` | **retratado.** A árvore inteira do upstream (★21.761, Apache-2.0, push 2026-11-16) tem **um** arquivo de licença: `LICENSE` 11.337 B. Não há `NOTICE` para reter, então a condição 4(d) do Apache-2.0 ("that You retain… NOTICE") está satisfeita por vacuidade. A pendência legal que eu abri **não existe** |
+| "os dois failures do `img2threejs` são defeito do upstream, herdado pelo vendor" | diff estruturado: árvore do `main` do upstream × a cópia em `.agents/skills/img2threejs`; e o `SKILL.md` dos dois lados | **parcialmente meu engano — e mais interessante.** O upstream tem `version: 2.0.1` **no topo** do frontmatter (o padrão `^version: \d+\.\d+\.\d+$` casa) e o badge `version-2.0.1-green.svg`; o Mr. Mak reescreveu isso para `metadata: upstream-version: 2.0.0` e **removeu o badge**, mantendo o teste que os exige. Os 2 failures são, portanto, **autoinfligidos pelo vendoring** — e são a *prova viva* de que o teste anti-fixture deles vale ouro: ele detecta a edição do próprio empacotador |
+| "o empacotador é bom" (lista de práticas da §7) | ler `collect()` por extenso + inspecionar o ZIP que eu gerei | **subestimado.** Além do manifest, há whitelist fechada, rejeição de symlink, lista `FORBIDDEN` de arquivos de estado local, `raise` se o espelho `.claude` divergir byte a byte, e exclusão **estrutural** de `.cache`/`__pycache__`/`.git` — o meu clone tinha um `.cache/spec-search/core_3d.json` órfão e ele **não** entrou no pacote. Copiar só "gerar um manifest" perderia as cinco defesas que fazem o manifest valer |
+| "o ZIP do Studio não corresponde a nada publicado" | reconstruir a contagem pelo **algoritmo do autor** em cada tag (clone `--depth 1` de v0.4.14 → v0.5.0), em vez de comparar tamanho de `.zip` | **retratado.** Seis tags consecutivas dão **764 entradas / 9,83 MB descompactados** — exatamente o par registrado no Studio. Eu estava comparando 4,26 MB **comprimidos** contra 9,9 MB **extraídos**. A conclusão correta é mais acionável: o pacote é legítimo e publicado, só está **desatualizado** (~8 semanas, 5 arquivos atrás do `main`) |
+
+O que **não** pude fechar e continua `BLOCKED`: baixar os assets publicados para conferir `sha256` e a
+lista real de arquivos da release. `github.com` responde; o `download` dos assets dá 302 para
+`release-assets.githubusercontent.com`, fora da allowlist do sandbox. Reconstruir a contagem pela tag é
+uma aproximação honesta do conteúdo — não é o hash do artefato.
+
+Método que sai daqui, e que vale para todas as rodadas desta base: **antes de registrar uma pendência
+sobre um artefato derivado, medir a origem dele** (o repositório de onde o código veio) e **conferir se
+as unidades que estou comparando são a mesma coisa** (comprimido × extraído, entrada de manifest ×
+arquivo em disco). As duas correções acima custaram três chamadas de API e seis clones descartáveis; a
+afirmação errada, se publicada, teria aberto uma revisão jurídica inexistente e encerrado um
+pendente com o diagnóstico errado.
 
 ---
 
