@@ -61,9 +61,9 @@ Todas sem licença no payload. 12 com seção `## Origem` (bom), mas aviso MIT f
 
 | Lacuna | Situação |
 |---|---|
-| ZIP de 9,9 MB de terceiros versionado | decisão de proveniência pendente (`DR-0004`); **não corresponde a nenhum artefato publicado** — varredura dos 19 releases em `LR-STUDIO-012` §7 |
+| ZIP de 9,9 MB de terceiros versionado | proveniência **estabelecida** por reconstrução: é o pacote das tags v0.4.14→v0.5.0 (764 arquivos). Resta gravar tag + `sha256` no aviso de terceiros e decidir quando reempacotar (`DR-0004`, `LR-STUDIO-012` §7) |
 | coordenação de vários agentes no Studio | o formato de handoff por arquivo (objetivo, estado, decisões e motivos, arquivos, passos) está auditado em `LR-STUDIO-012` §2 — ainda sem implementação |
-| `img2threejs` (Apache-2.0) não lido na origem | `UNVERIFIED` |
+| `img2threejs` (Apache-2.0) | lido na origem em 2026-11-22: `LICENSE` presente, nenhum `NOTICE` no upstream; o vendoring do mr-mak rompeu o campo `version:` (`LR-STUDIO-012` §13) |
 | Triagem OpenDots/OpenBot nunca concluída | `PENDENTE` desde 2026-10-17 |
 | 16 skills sem licença | bloqueia distribuição |
 | Fronteira Studio↔Forge com dois documentos concorrentes | `CONFLICTING` |

@@ -6,9 +6,9 @@ outro documento e não aqui, o outro documento está errado.
 
 - **Data de referência:** 2026-11-21 (dois objetos novos auditorados nesta data; reauditoria técnica dos 22 objetos concluída em 2026-11-20)
 - **Itens:** 33 objetos externos (38 linhas com sub-documentos) + 5 dossiês internos + 31 digests transversais + 3 comparações + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de evidências** (2026-11-20, revisado em 2026-11-22)
-- **Pouco foi executado.** Existem **20 linhas** em `data/testing/test-log.tsv` (2026-11-21):
-  7 execuções locais com resultado positivo (suítes e scripts rodados de verdade), 3 execuções parciais e
-  10 tentativas bloqueadas com motivo. Na
+- **Pouco foi executado.** Existem **30 linhas** em `data/testing/test-log.tsv` (2026-11-22):
+  15 execuções locais com resultado positivo (11 suítes completas + 4 smokes de script), 4 execuções parciais e
+  11 tentativas bloqueadas com motivo. Na
   criação de personagens, **nada foi executado** — não há GPU AMD nesta sessão e nenhum peso
   foi baixado.
 

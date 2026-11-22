@@ -10,7 +10,7 @@
 | Branch padrão | `main` |
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
-| Status | Base reorganizada em 2026-11-20 (missão, catálogo, validador). Medição em hardware: `NOT RUN`; testes de software registrados: **20 linhas** em `data/testing/test-log.tsv` (2026-11-21) |
+| Status | Base reorganizada em 2026-11-20 (missão, catálogo, validador). Medição em hardware: `NOT RUN`; testes de software registrados: **30 linhas** em `data/testing/test-log.tsv` (2026-11-22) |
 | Arquivos Markdown | 184 (contagem de 2026-11-22, `find -name '*.md' -not -path './.git/*'`), validados por `tools/validate.py` |
 | Relatórios externos | 33 objetos, 1 relatório cada (`repositories/*/REPORT.md`) |
 | Catálogo | `catalog/catalog.tsv` — 33 linhas, gerado de `tools/build_catalog.py` |
@@ -208,8 +208,8 @@ A regra aplicada: **nenhum diretório vazio** e nenhuma pasta criada para "compl
 | Re-auditoria de upstream (2026-11-20) | 22/22 existem · 10 com commits novos · 0 links mortos (`audits/REAUDIT-2026-11-20.md`) |
 | Criação de personagens (2026-11-20, revisada em 2026-11-20 UTC) | **10 IDs, 10 documentos Markdown e 1 matriz com 51 registros** (46 da rodada 7.0 + 3 da 7.1 + 2 da 7.2), 3 pipelines propostos; **nada executado** e nenhum peso baixado (`cross-project/character-creation/CHARACTER-CREATION-RESEARCH.md`) |
 | Reauditoria técnica (2026-11-20) | 22 objetos reavaliados · 3.576 commits no intervalo · 0 recomendações alteradas · 1 motivo alterado (`audits/TECHNICAL-REAUDIT-2026-11-20.md`) |
-| Validador próprio | `python3 tools/validate.py` (18 verificações, data dinâmica) e `python3 tools/test_validate.py` (**76 testes**) |
-| Testes de software executados | **16 linhas** em `data/testing/test-log.tsv`: 5 suítes reais (17 + 65 + 65 + 3.530 + 2.044 asserções), 2 execuções parciais e 9 tentativas bloqueadas com motivo |
+| Validador próprio | `python3 tools/validate.py` (18 verificações, data dinâmica) e `python3 tools/test_validate.py` (**78 testes**) |
+| Testes de software executados | **30 linhas** em `data/testing/test-log.tsv`: 11 execuções locais com suíte completa, 4 com smoke de script, 4 parciais e 11 bloqueios com motivo (contagem de 2026-11-22, `tail -n +2 | cut -f7 | sort | uniq -c`) |
 | Catálogo gerado do cabeçalho dos relatórios | PASS — `tools/build_catalog.py --check` |
 | Fase 4 (medição em hardware) | **NOT RUN** — exige execução na máquina do usuário |
 | Revisão humana da entrega | **PENDENTE** — protocolo em `agents/REVIEW-PROTOCOL.md` |

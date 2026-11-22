@@ -29,7 +29,7 @@ Regra: item só sai daqui quando existe documento com evidência, não quando "j
 
 | # | Item | Status | Evidência |
 |---|---|---|---|
-| C-1 | Validador com data injetável e testes próprios | **feito** | `tools/validate.py` (18 verificações), `tools/test_validate.py` (76 testes) |
+| C-1 | Validador com data injetável e testes próprios | **feito** | `tools/validate.py` (18 verificações), `tools/test_validate.py` (78 testes) |
 | C-2 | Proveniência de SHA por objeto | **feito** | `audits/PROVENANCE-2026-11-20.md`; 21/23 com SHA de 40 caracteres, 2 organizações incompletas por desenho |
 | C-3 | Reauditoria de upstream (existência + movimento) | **feito** | `audits/REAUDIT-2026-11-20.md`; 10 de 22 com commit novo |
 | C-4 | Reauditoria **técnica** (conteúdo) | **feito, com lacunas declaradas** | `audits/TECHNICAL-REAUDIT-2026-11-20.md`; 22 relatórios com seção `Reauditoria` |

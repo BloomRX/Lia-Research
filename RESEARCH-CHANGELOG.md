@@ -11,64 +11,103 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 
 ## 2026-11-22 (UTC) — aprofundamento em `mr-mak-workspace` (o que "trabalhar em equipe" quer dizer)
 
-Pedido do proprietario: olhar minuciosamente o Mr. Mak, com foco em trabalho em equipe, a partir do video
-do game jam da Epic, do devlog no itch.io e de um post de Patreon. Nenhuma conta, nenhuma instalacao em
+Pedido do proprietário: olhar minuciosamente o Mr. Mak, com foco em trabalho em equipe, a partir do vídeo
+do game jam da Epic, do devlog no itch.io e de um post de Patreon. Nenhuma conta, nenhuma instalação em
 projeto Lia, nenhum consumo pago, nenhum download de peso.
 
 ### ADD — `LR-STUDIO-012` · `witnesstodark/mr-mak-workspace` @ `f096373f` → **ADAPT**
-- **Respondido direto**: **nao existe colaboracao multiusuario**. `SECURITY.md`: roda na maquina do
-  usuario, escuta so em loopback, "nao exponha por proxy publico, tunel ou interface de rede"; o pareamento
-  de celular e "cada dono conecta os seus dispositivos". O que existe e **um humano orquestrando N agentes**.
-  O "trabalho em equipe" do jam foi **modificacao de fork**: instancia nova por pessoa + um unico chat cuja
-  tarefa era sincronizar o workspace a cada 5-10 minutos; o script de sincronizacao citado (tools/sync.py) **nao existe** no template.
+- **Respondido direto**: **não existe colaboração multiusuário**. `SECURITY.md`: roda na máquina do
+  usuário, escuta só em loopback, "não exponha por proxy público, túnel ou interface de rede"; o pareamento
+  de celular é "cada dono conecta os seus dispositivos". O que existe é **um humano orquestrando N agentes**.
+  O "trabalho em equipe" do jam foi **modificação de fork**: instância nova por pessoa + um único chat cuja
+  tarefa era sincronizar o workspace a cada 5-10 minutos; o script de sincronização citado no devlog deles
+  (tools/sync.py) **não existe** no template.
 - **Executado** (Node 22.22.3, clone do commit pinado): `npm test` = **144 passed, 27 failed, 6 skipped**
   em ~43 s — e os 27 falham **todos** pela mesma causa ambiente (`pty.node` sem build nativo; o `npm rebuild
   node-pty` deu node-gyp ERR, registrado `BLOCKED_BY_ENVIRONMENT`, sem insistir). `eslint src` limpo;
-  `tsc -b && vite build` exit 0; `check-template.mjs` ok (177 imagens, 8 videos, 20 skills);
-  `sync-skills.mjs --check` = **375 arquivos identicos** entre `.agents/` e `.claude/`; asset-delivery 9/9;
+  `tsc -b && vite build` exit 0; `check-template.mjs` ok (177 imagens, 8 vídeos, 20 skills);
+  `sync-skills.mjs --check` = **375 arquivos idênticos** entre `.agents/` e `.claude/`; asset-delivery 9/9;
   `test-local-voice-setup.py` 4 OK.
 - **Suíte do subprojeto vendorizado medida por extenso**: `img2threejs` = **1.418 testes em 139 s, 2 falhas**.
-  As duas sao o caso mais util da rodada: um teste que **recusa fixture** ("Assert against the real SKILL.md,
+  As duas são o caso mais útil da rodada: um teste que **recusa fixture** ("Assert against the real SKILL.md,
   never a fixture… the fixture is the shape the tooling wants rather than the shape on disk") porque
-  `version:` aninhado em `metadata:` e YAML valido, passa na revisao humana e derruba os dois caminhos de
-  release. E a CI deles roda **so um** dos 101 arquivos de teste do skill — o gate existe fora do gate.
-  Mesma classe do defeito que a `alethe` causou no parser do nosso catalogo.
-- **Empacotamento copiado apos execucao**: rodei `scripts/package_skills.py` duas vezes — **mesmo sha256 do
+  `version:` aninhado em `metadata:` é YAML válido, passa na revisão humana e derruba os dois caminhos de
+  release. E a CI deles roda **só um** dos 101 arquivos de teste do skill — o gate existe fora do gate.
+  Mesma classe do defeito que a `alethe` causou no parser do nosso catálogo.
+- **Empacotamento copiado após execução**: rodei `scripts/package_skills.py` duas vezes — **mesmo sha256 do
   ZIP** (4.264.037 B), `manifest.json` com SHA-256 por arquivo (768), timestamp fixo em todas as entradas,
   `tempfile.TemporaryDirectory` + `verify()` **antes** de `replace()`, `LICENSE` e notices dentro do pacote,
   e `--check` para auditar um ZIP alheio.
-- **Fecho de uma ponta solta nossa**: o `Mr-Mak-Skills-Free.zip` de 9,9 MB / 764 arquivos do Lia Studio
-  **nao corresponde a nada publicado** — varri os 19 releases (so 3.352.656 B em 0.4.14 e 4.263.307 B em
-  0.6.0; nenhum asset entre 9,5 e 10,5 MB) e o gerador atual (769 arquivos). Registrado no `DR-0004` como
-  evidencia nova **sem decisao**: a decisao passou a ser "identificar por hash", e nao "manter ou jogar fora".
-- Licenca: MIT com detentor **coletivo** ("Mr. Mak Workspace contributors"), `THIRD_PARTY_NOTICES.md`
+- **Ponta solta nossa** (afirmação **retificada** no sub-bloco abaixo): o `Mr-Mak-Skills-Free.zip` de 9,9 MB /
+  764 arquivos do Lia Studio **não correspondia a nada publicado** — varri os 19 releases (só 3.352.656 B em
+  0.4.14 e 4.263.307 B em 0.6.0; nenhum asset entre 9,5 e 10,5 MB) e o gerador atual (769 arquivos).
+  Registrado no `DR-0004` como evidência nova **sem decisão**.
+- Licença: MIT com detentor **coletivo** ("Mr. Mak Workspace contributors"), `THIRD_PARTY_NOTICES.md`
   cobrindo imagens de terceiros, samples gerados por IA, marca dos provedores e o disclaimer de projeto
-  comunitario independente. Pendencia real: **`NOTICE` ausente** no `img2threejs` vendorizado, contra o texto
-  que promete "license **and notices**" → `REQUIRES_LEGAL_REVIEW`.
-- Do devlog do jam (auto-relato, `REPORTED`): 368 marcos / 712 steps / 830 midias em 3 trilhas paralelas;
-  2.891 saidas em 255 runs por servico x modelo x pessoa; 411 registros de sessao, 16.338 model calls,
+  comunitário independente. Pendência então apontada: **`NOTICE` ausente** no `img2threejs` vendorizado,
+  contra o texto que promete "license **and notices**" → `REQUIRES_LEGAL_REVIEW` (**também retificada**).
+- Do devlog do jam (auto-relato, `REPORTED`): 368 marcos / 712 steps / 830 mídias em 3 trilhas paralelas;
+  2.891 saídas em 255 runs por serviço × modelo × pessoa; 411 registros de sessão, 16.338 model calls,
   6,71 B tokens; ledger de 674 registros escritos logo depois de cada job; **US$ 22,97 pagos** de verdade
   (fal.ai) contra **US$ 2.927,42** de valor de tabela estimado, com a nota "nobody paid these sums as such".
-  Contrapeso registrado: o video tem link de afiliado e o provedor principal e patrocinado, e a categoria
-  "glass box / best devlog" do proprio concurso premia o detalhe do registro.
+  Contrapeso registrado: o vídeo tem link de afiliado e o provedor principal é patrocinado, e a categoria
+  "glass box / best devlog" do próprio concurso premia o detalhe do registro.
 
 ### FIX / CONTABILIDADE
-- `tools/validate.py` continuou intocado; um aviso conhecido permanece (a matriz de licenca e CRLF e o
-  parser nao normaliza, o que produz um `''` residual na comparacao com o digest).
+- `tools/validate.py` continuou intocado na primeira passada; um aviso conhecido permanece (a matriz de
+  licença é CRLF e o parser não normaliza, o que produz um `''` residual na comparação com o digest).
 - `catalog/catalog.tsv` **regenerado**: 32 → **33 linhas**; `license-matrix.tsv` 32 → **33**;
-  `data/testing/test-log.tsv` 24 → **27**; indice (sec. 1 e 3), README (184 `.md`, 33 objetos) e
+  `data/testing/test-log.tsv` 24 → **27**; índice (sec. 1 e 3), README (184 `.md`, 33 objetos) e
   `cross-project/licensing/READY-TO-USE-LICENSES.md` (33).
-- Ponteiros novos em 5 documentos que ja citavam o mr-mak sem auditoria: `governance/LICENSE-AND-PROVENANCE-POLICY.md` §7,
+- Ponteiros novos em 5 documentos que já citavam o mr-mak sem auditoria: `governance/LICENSE-AND-PROVENANCE-POLICY.md` §7,
   `cross-project/licensing/ASSET-PROVENANCE.md` §4, `projects/lia-agent-hub/skills/SKILL-LICENSE-CONSOLIDATION.md`,
   `projects/lia-studio/README.md`, `projects/lia-studio/INDEX.md` (2 lacunas) e `decisions/PENDING/DR-0004-STUDIO-THIRD-PARTY-ZIP.md`.
 - `cross-project/agents/ASSET-AGENT-ORCHESTRATION-DIGEST.md` (`LR-AGENT-005`) §4 ganhou o objeto como
-  terceira referencia externa de orquestracao.
+  terceira referência externa de orquestração.
 
-### Recuperacao de estado (registrada porque virou recorrente)
-- A sandbox voltou em `77a6a7b` com a arvore de trabalho intacta. Restaurado com
+### Recuperação de estado (registrada porque virou recorrente)
+- A sandbox voltou em `77a6a7b` com a árvore de trabalho intacta. Restaurado com
   `git fetch origin <branch>` + `git reset --hard FETCH_HEAD` para `0b2cb24`; nenhum arquivo foi perdido
-  (183 `.md`, 32 relatorios conferidos antes e depois). Nunca forcei push.
+  (183 `.md`, 32 relatórios conferidos antes e depois). Nunca forcei push.
 
+### RETIFICAÇÃO (mesma data, na segunda passada) — duas afirmações acima não aguentaram a verificação
+
+O pedido seguinte do proprietário foi lembrar o que o Research deve fazer nas próprias diretrizes da base
+(`MISSION.md` §3: pesquisa = fato, recomendação = opinião técnica, adoção = autoridade do dono; "O Research
+não aprova nada") e verificar se as perguntas devolvidas a ele não eram, em parte, trabalho meu. Eram.
+Fechando-as com medição:
+
+- **O ZIP do Studio está identificado** — e eu estava errado. Reconstruir o empacotador do próprio autor no
+  clone de cada tag dá **764 entradas / 9,83 MB extraídos** em `v0.4.14`, `v0.4.15`, `v0.4.16`, `v0.4.17`,
+  `v0.4.19` e `v0.5.0`: o par exato que o Studio registra. Eu havia comparado 4,26 MB **comprimidos** com
+  9,9 MB **extraídos**. O pacote é legítimo e publicado; o problema real é estar **defasado** (~8 semanas,
+  5 arquivos e ~0,9 MB atrás do `main`, que dá 769 / 10,78 MB).
+- **Não há pendência jurídica de `NOTICE`**. A árvore inteira do upstream `img2threejs/img2threejs`
+  (★21.761, Apache-2.0) tem só `LICENSE` (11.337 B) — nenhum `NOTICE` para reter, cláusula 4(d) satisfeita
+  por vacuidade. A `REQUIRES_LEGAL_REVIEW` que eu abri não existe. O defeito real do vendoring é outro, e é
+  deles mesmos: a chave `version:` foi movida para `metadata:` e o badge apagado, e os testes de release do
+  próprio projeto falham por isso — o teste anti-fixture deles pegou a edição do empacotador.
+- Limite mantido: baixar os assets publicados para conferir `sha256` do `.zip` ficou `BLOCKED` (o download
+  redireciona para fora da allowlist do sandbox). A identificação acima é por reconstrução de conteúdo no
+  commit da tag, não por comparação de hash.
+- `LR-STUDIO-012` ganhou a §13 com a tabela das quatro reavaliações (duas retratações, uma subestimação do
+  empacotador, um rótulo `REFUTED`→`DIVERGENCE` na tabela de evidências), e a §7 com as cinco defesas do
+  packager que eu havia resumido demais: whitelist fechada, rejeição de symlink, lista de arquivos de estado
+  proibidos, verificação de espelho `.agents` ↔ `.claude` byte a byte e exclusão estrutural de
+  `.cache`/`__pycache__` (o meu clone tinha um `.cache/spec-search/core_3d.json` gerado localmente, e ele não
+  entrou no ZIP).
+- **Padrão levado a cabo, não só recomendado**: o `tools/validate.py` ganhou a checagem de forma canônica do
+  cabeçalho — a primeira linha da tabela tem de ser `| ID |` — **medida no arquivo em disco**, com um caso de
+  regressão que embaralha as linhas do próprio fixture e uma medição direta nos 33 relatórios reais.
+  `tools/test_validate.py`: **76 → 78 testes, OK**; `python3 tools/validate.py`: 0 erros, 1 aviso (CRLF
+  conhecido), 7 notas.
+- `DR-0004` reescrito com a retificação e a pergunta trocada: de "manter ou jogar fora" para **registrar
+  tag + `sha256`** (a ação da B continua válida, mas por peso de repositório, não por proveniência ignorada).
+- Contagens remediadas: `data/testing/test-log.tsv` 27 → **30 linhas** (11 suítes completas, 4 smokes, 4
+  parciais, 11 bloqueios), README (linhas de status, de validador e de testes) e o bloco "Pouco foi executado"
+  do `RESEARCH-INDEX.md` — que anunciavam 16, 20 e 24 linhas quando o arquivo já tinha 27; todas defasadas.
+- O que sobra para o dono, agora, é só autoridade legítima: **adotar** qualquer coisa nos projetos Lia,
+  manter ou não o ZIP no Studio, e reempacotar. Nada disso é minha alçada, e nada disso travou esta rodada.
 
 ## 2026-11-22 (UTC) — sete objetos novos, com execucao local onde o ambiente permitiu
 

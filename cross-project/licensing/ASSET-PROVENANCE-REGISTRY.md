@@ -180,7 +180,7 @@ Três exemplos reais do ecossistema mostram o custo de metadado opcional:
 | Caso | O que faltou | Consequência |
 |---|---|---|
 | `web-design-guidelines` (`LR-LIC-003`) | licença no payload | material de terceiro sem base de redistribuição |
-| ZIP de 9,9 MB no Studio (`DR-0004`) | hash + origem por arquivo | impossível provar o que está lá |
+| ZIP de 9,9 MB no Studio (`DR-0004`) | hash + tag de origem | cinco semanas de rede para chegar onde um `sha256sum` gravado no dia chegaria (`LR-STUDIO-012` §7) |
 | 12 Skills MIT do Studio (`LR-LIC-001`) | NOTICE no payload | obrigação legal não viaja com o export |
 
 Metadado opcional é metadado que ninguém preenche. O que protege é o campo obrigatório

@@ -68,3 +68,6 @@ Nenhum relatório é "documental por padrão". Documental é o que sobra depois 
 | Confundir recomendação com aprovação | três campos separados |
 | "Funciona" sem rótulo | vocabulário de evidência obrigatório |
 | Relatório de 200 linhas para objeto de 1 arquivo | template por tipo |
+| Comparar tamanho de artefato derivado sem conferir a unidade (`.zip` comprimido × conteúdo extraído, entrada de manifest × arquivo em disco) | medir a mesma grandeza; se o artefato tem gerador, **reproduzir o gerador no commit de origem** antes de declarar divergência (`LR-STUDIO-012` §7/§13) |
+| Abrir pendência jurídica por arquivo de aviso ausente sem olhar a origem | verificar se o upstream tem o arquivo: obrigação que não existe no original não é pendência nossa (§13) |
+| Devolver ao proprietário pergunta que é respondível com medição | aplicar `MISSION.md` §3: fechar primeiro o que é fato técnico e opinar o que é recomendação; sobrar para o dono só adoção, gasto, publicação e remoção |

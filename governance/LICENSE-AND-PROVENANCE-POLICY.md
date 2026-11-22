@@ -108,16 +108,17 @@ Registro: `decisions/PENDING/DR-0001-LIA-SKILLS-LICENSING.md`.
 | Upstream | Licença lida | Uso atual | Classe | Pendência |
 |---|---|---|---|---|
 | `Donchitos/Claude-Code-Game-Studios` | MIT | 7 skills adaptadas no Studio | `ADAPT_ALLOWED` | aviso dentro do pacote |
-| `witnesstodark/mr-mak-workspace` | MIT (+ `img2threejs` Apache-2.0) | 5 skills adaptadas + ZIP guardado | `ADAPT_ALLOWED` / `RESEARCH_ONLY` | ler licença do subprojeto; decidir se ZIP de 9,9 MB continua versionado |
-
-Auditoria do upstream no commit `f096373f` (2026-11-22): `repositories/mr-mak-workspace/REPORT.md`
-(`LR-STUDIO-012`) — `LICENSE` MIT com detentor coletivo ("Mr. Mak Workspace contributors"),
-`THIRD_PARTY_NOTICES.md` cobrindo imagens, samples de IA e marca, e o subprojeto `img2threejs`
-**sem** `NOTICE` no vendoring (pendência `REQUIRES_LEGAL_REVIEW` da última coluna, item 5, confirmada
-na origem). O pendente do ZIP de 9,9 MB mudou de natureza: **nenhum** artefato publicado do projeto tem
-entre 9,5 e 10,5 MB (19 releases varridos), então o arquivo local não corresponde a nenhuma release.
+| `witnesstodark/mr-mak-workspace` | MIT (+ `img2threejs` Apache-2.0 lida na origem) | 5 skills adaptadas + ZIP guardado | `ADAPT_ALLOWED` / `RESEARCH_ONLY` | ZIP identificado por reconstrução (tags v0.4.14→v0.5.0): falta registrar **tag + hash**, não identificar o arquivo |
 | `Kc1t/alethe-orchestrate-skill` | verificar na origem | skill vendorizada no Lia-Project | `FORK_CANDIDATE` (com patches) | registrar patches e aviso |
 | AIRI (`moeru-ai/airi`) | MIT (Neko Ayaka) `CONFIRMED` | 890 arquivos de doc + **28 Skills** vendorizadas no Lia-Project | 4 `USE_AS_IS` · 5 `ADAPT_ALLOWED` · 19 `RESEARCH_ONLY` (`LR-LIC-003`) | separar o que é Lia do que é upstream |
+
+Auditoria do upstream no commit `f096373f` (2026-11-22), em `repositories/mr-mak-workspace/REPORT.md`
+(`LR-STUDIO-012`): `LICENSE` MIT com detentor coletivo ("Mr. Mak Workspace contributors") e
+`THIRD_PARTY_NOTICES.md` cobrindo imagens, samples de IA e marca. O `img2threejs` é Apache-2.0 e a
+pendência de `NOTICE` que a auditoria inicial apontou **não existe**: a árvore inteira do upstream tem
+só `LICENSE`, então não há `NOTICE` a reter (cláusula 4(d) satisfeita) — a retratação está na §13 do
+relatório. O erro real do vendoring deles foi outro: a chave `version:` foi movida para dentro de
+`metadata:`, e os testes de release do próprio projeto falham por isso.
 
 Nenhuma linha desta tabela constitui licença nova nem autorização de distribuição.
 

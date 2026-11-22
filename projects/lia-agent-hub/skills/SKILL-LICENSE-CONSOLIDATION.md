@@ -44,7 +44,7 @@ do payload** (`adapters/importer.py::_detect_license`). Logo, as 47 entrariam co
 | Upstream | Licença lida | Uso no ecossistema | Classe | Pendência |
 |---|---|---|---|---|
 | `Donchitos/Claude-Code-Game-Studios` | MIT © 2026 Donchitos | 7 skills no Studio (commit `05ad7c8` verificado) | `ADAPT_ALLOWED` | aviso MIT fora do payload → **violação em export** |
-| `witnesstodark/mr-mak-workspace` | MIT © 2026 (+ `img2threejs` Apache-2.0) | 5 skills no Studio + ZIP 9,9 MB | `ADAPT_ALLOWED` / `RESEARCH_ONLY` | ler licença do subprojeto; decidir destino do ZIP (`DR-0004`) |
+| `witnesstodark/mr-mak-workspace` | MIT © 2026 (+ `img2threejs` Apache-2.0, lido na origem) | 5 skills no Studio + ZIP 9,9 MB | `ADAPT_ALLOWED` / `RESEARCH_ONLY` | subprojeto ok (sem `NOTICE` no upstream); ZIP: registrar tag + hash em vez de removê-lo por desconhecimento |
 
 > Atualizado 2026-11-22: a licença do subprojeto foi lida na origem, junto do pacote de
 > 20 Skills do autor (`repositories/mr-mak-workspace/REPORT.md`, `LR-STUDIO-012`). Duas coisas mudam
@@ -88,4 +88,4 @@ Até `DR-0001` ser decidido, toda Skill `lia-*` é "uso interno, sem redistribui
 2. Adotar `NOTICE` + `LICENSES/` por Skill (padrão REUSE).
 3. Corrigir as 12 Skills do Studio e as 5 do mr-mak (bloqueio legal).
 4. Auditar as 29 skills AIRI e separar o que é Lia do que é upstream.
-5. Decidir o destino do ZIP de 9,9 MB (`DR-0004`).
+5. Registrar tag + `sha256` do ZIP de 9,9 MB no aviso do Studio e decidir quando reempacotar (`DR-0004`).
