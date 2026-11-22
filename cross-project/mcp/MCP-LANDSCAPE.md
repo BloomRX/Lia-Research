@@ -48,3 +48,9 @@
 
 > A Lia **não instala** servidor MCP automaticamente. Todo servidor é escolha explícita
 > do usuário, com licença e escopo visíveis.
+
+Caso de teste dessa regra, auditado em 2026-11-22: `repositories/blender-ai-mcp-addon/REPORT.md`
+(`LR-SEC-008`) — repositório de imitação sem código-fonte, licença atribuída a terceiro e ZIP binário
+de 12,8 MB, com ★2.590 em 3 dias. O issue #65 do projeto mostra o que a regra acima previne: um
+servidor local que aceita caminho de arquivo arbitrário e devolve o conteúdo em base64 para uma API
+externa é exatamente o tipo de tool call que **nunca** deve passar sem aprovação explícita.

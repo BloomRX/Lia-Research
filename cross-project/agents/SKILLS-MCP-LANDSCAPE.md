@@ -55,3 +55,13 @@ que esta base já leu de **disciplina de autoria**, mesmo sendo de outro domíni
 
 O que **não** copiar: o tamanho do pacote. 79 Skills instaladas sem uso medido é exatamente o
 custo que `LR-AGENT-009` tenta evitar. Adaptar as regras, não o catálogo.
+
+### Atualização 2026-11-22 — três objetos de anatomia de Skill entraram na base
+
+| Objeto | O que acrescenta a este landscape |
+|---|---|
+| `repositories/last30days-skill/REPORT.md` (`LR-STUDIO-011`) | Skill de produção com frontmatter **declarando `license`, `version` e `allowed-tools`** — o mecanismo de custo mínimo para a lacuna das 47 Skills sem licença no payload; e o par `export-ignore` (repositório × artefato instalado) |
+| `repositories/skillevaluator/REPORT.md` (`LR-STUDIO-010`) | gate em 3 níveis (estático sem chave → redundância → efeito medido), com *harness check* por host: a resposta verificável para "essa Skill está disponível neste agente?" |
+| `repositories/landscape-skill-noise/REPORT.md` (`LR-AGENT-013`) | triagem negativa: `github.com/skills` é **curso**, não Agent Skill — busca sem `filename:SKILL.md` devolve isso |
+
+Nenhum deforma as regras acima; os três reforçam a última linha — adaptar formato, não catálogo.
