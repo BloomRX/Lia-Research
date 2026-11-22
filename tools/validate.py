@@ -242,6 +242,13 @@ class Validator:
             for fld in REPORT_FIELDS:
                 if fld not in head:
                     self.errors.append(f"relatório sem campo obrigatório {fld.strip('| ')}: {r}")
+            # Anti-fixture: a linha de ID tem de ser a PRIMEIRA do cabeçalho. O parser
+            # (`header_block`) para no primeiro texto fora da tabela, então um frontmatter que
+            # reordena ou aninha o campo passa na leitura humana e quebra o catálogo gerado — é o
+            # defeito que a Skill upstream `img2threejs` documentou com um teste "assert against the
+            # real file, never a fixture" (`LR-STUDIO-012` §6). Medido no arquivo em disco, não num exemplo.
+            if not re.search(r"^\| Campo \| Valor \|\n\|[-: ]+\|[-: ]+\|\n\| ID \|", text, flags=re.M):
+                self.errors.append(f"cabeçalho fora da forma canônica (tabela deve começar com `| ID |`): {r}")
             rec = fields.get("Recomendação", "")
             if not first_token(rec, RECS):
                 self.errors.append(f"recomendação fora do vocabulário: {r} → '{rec[:60]}'")

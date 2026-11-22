@@ -146,6 +146,42 @@ class Base(unittest.TestCase):
                         f"esperava nota contendo {fragment!r}; obtive {val.notes}")
 
 
+# ------------------------------------------------------------- anti-fixture
+class TestAntiFixture(Base):
+    """A regra é medida no arquivo em disco, não num exemplo construído pelo teste.
+
+    Herdado de `LR-STUDIO-012` §6: o `SKILL.md` do `img2threejs` vendorizado aninhou `version:`
+    sob `metadata:` — YAML válido, legível para humano, e os dois caminhos de release abortam.
+    O teste deles declara "Assert against the real SKILL.md, never a fixture". Aqui a forma
+    canônica é a mesma ideia: a primeira linha do cabeçalho tem de ser `| ID |`, porque o parser
+    para no primeiro texto fora da tabela e o catálogo gerado fica mudo.
+    """
+
+    def test_regressao_no_fixture_detecta(self) -> None:
+        """Se a linha de ID sair do topo, o validador acusa — medindo o arquivo real do fixture."""
+        root = make_repo(self.root, report_id="LR-REPO-001")
+        f = root / "repositories/foo/REPORT.md"
+        lines = f.read_text(encoding="utf-8").split("\n")
+        i_id = next(i for i, l in enumerate(lines) if l.startswith("| ID |"))
+        i_sep = next(i for i, l in enumerate(lines) if set(l) <= set("|- ") and l.startswith("|---"))
+        lines[i_id], lines[i_id + 1] = lines[i_id + 1], lines[i_id]
+        f.write_text("\n".join(lines), encoding="utf-8")
+        self.run_val()
+        val = v.Validator(root, TODAY).run()
+        self.assertTrue(any("forma canônica" in e for e in val.errors),
+                        f"esperava erro de forma de cabeçalho; obtive {val.errors}")
+        self.assertTrue(i_id > i_sep)
+
+    def test_base_real_passa_na_medi_direta(self) -> None:
+        """Mede a base de verdade (sem fixture): todo relatório real tem cabeçalho canônico."""
+        real = Path(__file__).resolve().parents[1]
+        val = v.Validator(real).run()
+        forma = [e for e in val.errors if "forma canônica" in e]
+        self.assertEqual(forma, [], f"cabeçalhos reais fora da forma canônica: {forma}")
+        rels = sorted((real / "repositories").glob("*/REPORT.md"))
+        self.assertGreaterEqual(len(rels), 30, "a medição direta precisa de corpus real para valer")
+
+
 # ------------------------------------------------------------------ fixture
 class TestFixtureSanidade(Base):
     def test_fixture_base_passa_limpo(self):
