@@ -5,7 +5,7 @@
 | ID | `LR-LIC-005` |
 | Categoria | licensing |
 | Projetos beneficiados | todos os cinco (camada comum de licença) |
-| Fontes | §9 de cada um dos 25 relatórios em `repositories/*/REPORT.md` (licença lida no arquivo, no commit pinado); `data/inventory/license-matrix.tsv` |
+| Fontes | seção de evidências de cada um dos 32 relatórios em `repositories/*/REPORT.md` (licença lida no arquivo, no commit pinado); `data/inventory/license-matrix.tsv` |
 | Data | 2026-11-17 |
 | Status | CURRENT — **não é parecer jurídico**; é o que o arquivo diz, com obrigação traduzida em ação |
 | Confiança | Alta para o texto das licenças lidas; média para fronteiras de caso limite (marcadas) |
@@ -27,7 +27,7 @@ Se o repositório **não tem arquivo de licença**, a resposta a (1) e (2) é **
 `storytold/photocraft` (pasta `artcraft`) ela diz `Apache-2.0`, mas o repositório oferece
 `LICENSE-MIT` **e** `LICENSE-APACHE` — o consumidor escolhe. Quem lê o selo perde uma
 opção de uso. Conferido em 2026-11-20 (`audits/REAUDIT-2026-11-20.md`). Está tabulado em `data/inventory/license-matrix.tsv`
-(25 linhas, uma por objeto, com colunas `usar_como`, `fork`, `modificar`, `comercial`,
+(32 linhas, uma por objeto, com colunas `usar_como`, `fork`, `modificar`, `comercial`,
 `redistribuir`, `atribuicao`, `copyleft`, `patente`, `notice_obrigatorio`).
 
 ## 2. Tabela-mestra (o resumo que evita a pesquisa)
@@ -54,6 +54,13 @@ opção de uso. Conferido em 2026-11-20 (`audits/REAUDIT-2026-11-20.md`). Está 
 | `LR-AGENT-004` | unslop | **nada** (sem licença) | não | — |
 | `LR-FORGE-012` | jena-image-render | padrões e código | sim | copyright + MIT; **imagem do pod é GPL-3.0** (ComfyUI) |
 | `LR-FORGE-011` | image-render-generative | referência de proveniência | sim | `NOTICE` + Apache + indicar alterações |
+| `LR-STUDIO-010` | NVIDIA/SkillEvaluator | padrões e CI | sim | `NOTICE` + Apache + indicar alterações |
+| `LR-STUDIO-011` | last30days-skill | padrões de metadado | sim | copyright + MIT (cookies/robots: não imitar) |
+| `LR-VOICE-002` | RealtimeTTS | referência de adendo de escopo | sim | **licença por artefato**: MIT no wheel, Apache-2.0 na master |
+| `LR-MODEL-009` | Breeze TTS 2 | **nada** (pesos não comerciais) | não | Apache no código não alcança os pesos |
+| `LR-SEC-008` | blender-ai-mcp-addon | **nada** (licença alheia + binário opaco) | não | — |
+| `LR-FORGE-013` | anymachine | método de verificação por peça | sim | MIT; imagens e `data/` à parte; pesos sem declaração lida |
+| `LR-AGENT-013` | `github.com/skills` + `waifuai` + topic `stt-tts` | **nada** (triagem negativa) | não | sem arquivo de licença não há permissão de uso |
 | `LR-PROV-001` | RouterHub | **nada** | não | — |
 | `LR-AGENT-011` | ai-memory | adaptar o protocolo de *handoff* | sim | copyright + MIT |
 | `LR-SEC-007` | security-audit-skill | check-list de auditoria | sim | copyright + MIT |
@@ -61,7 +68,7 @@ opção de uso. Conferido em 2026-11-20 (`audits/REAUDIT-2026-11-20.md`). Está 
 | `LR-STUDIO-006` | gamedev agent skills | adaptar formato e pipeline de asset | sim | `NOTICE` + `LICENSE` + indicar alterações |
 
 Os quatro últimos entraram em 2026-11-20 (antes o digest cobria 19 objetos, a matriz já tinha
-22). Contagem conferida contra `data/inventory/license-matrix.tsv` — hoje 25.
+22). Contagem conferida contra `data/inventory/license-matrix.tsv` — hoje 32.
 
 Cuidado com Apache-2.0 em pacote de Skills: copiar **uma pasta** de Skill leva só `SKILL.md` e
 `scripts/`; o `NOTICE` e o `LICENSE` têm de ser copiados junto, ou o reuso fica sem atribuição.
