@@ -7,6 +7,117 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 `BLOCKED`.
 
 ---
+---
+
+## 2026-11-22 (UTC) — sete objetos novos, com execucao local onde o ambiente permitiu
+
+Nove alvos indicados pelo proprietario foram abertos; tres deles eram **listagens** (org, org, topic) e
+foram consolidados em **um** objeto de paisagem, em vez de fabricar veredito por item. Nada foi
+instalado em projeto Lia, nenhuma conta aberta, nenhum peso baixado, nenhuma chave criada, nenhum
+consumo pago.
+
+### ADD — `LR-SEC-008` · `bookwjitchieni1986/blender-ai-mcp-addon` → **REJECT**
+- Arvore medida: **7 blobs, zero arquivos de codigo** (README, LICENSE, 2 docs, 3 PNGs); 8 commits nos
+  segundos iniciais da conta de 9 dias; ★2.580 em 3 dias (2.590 na re-leitura de 2026-11-22).
+- O `LICENSE` e MIT com "Copyright (c) 2025 Siddharth Ahuja" — detentor do projeto legítimo
+  `ahujasid/mcp-for-blender` (★35.279, fonte completa, PyPI `mcp-for-blender` 2.3.1). Produto nomeado
+  "mcp-for-blender-pro" **sem nenhuma mencionao ao original** nos tres arquivos de texto do repo.
+- Advisory real (`GHSA-4h8q-hh2j-755w`, `<1.6.5`, corrigida em 1.6.5) e **inalcançavel de avaliar aqui**:
+  o objeto advertise "v1.0.0" e nao ha como mapear isso sobre o pacote legitimo.
+- Deliberadamente **nao baixei nem abri o ZIP** de 12.849.331 bytes: registrado `BLOCKED`, nao `FALHA`.
+- Subproduto: 6 criterios de intake (hash do artefato, fonte no mesmo tag, detentor de licenca coerente,
+  idade+historico, estrelas com historia, origem declarada) que o formato atual do Hub nao expressa.
+
+### ADD — `LR-VOICE-002` · `KoljaB/RealtimeTTS` → **REFERENCE_ONLY** (licenca viaja com o artefato)
+- **Executado**: wheel 0.8.10 instalado, `import` ok em Python 3.11; suíte da master na forma do CI deles
+  = **319 passed, 6 failed, 21 erros de coleta, 14 skipped em 5.41 s**. Os 6 falham todos por `pyaudio`
+  ausente — o CI deles instala `portaudio19-dev` + `pyaudio`; eu não instalei pacote de sistema.
+- Achado central: **o wheel no PyPI e MIT; a master e Apache-2.0 desde 2026-11-10** (commit de
+  relicensing, PR #398), e `RealtimeTTS/_version.py` ainda diz 0.8.10. O addendum empacotado no wheel
+  fala "these MIT terms"; na master fala "Apache License 2.0". Mesmo número de versão, duas licencas.
+- O adendo de escopo (engines, pesos, vozes e audio de referencia **fora** da licenca) e o modelo
+  correto para a lacuna das Skills sem fronteira; mas so **3 das 30 paginas de engine** tem nota de
+  licenca — preenchimento parcial, registrado como tal.
+- PT-BR existe como `language_router` (`pt`/`pt-br`/`pt-pt` → `portuguese`) e como prefixo Kokoro
+  (`lang_code 'p'`); **nada foi sintetizado**, entao as lacunas `BLOCKED`/`NOT RUN` de
+  `cross-project/voice/VOICE-STACK-DIGEST.md` seguem intactas.
+
+### ADD — `LR-STUDIO-010` · `NVIDIA/SkillEvaluator` → **ADAPT** (padroes, nao o pacote)
+- `pip install` das deps do core ok; `import skillevaluator` ok em 3.11 — mas **3 de 306 arquivos do
+  `src` so compilam em 3.12+** (f-string com backslash, PEP 701), e o caminho do Tier 1 alcanca um deles
+  no `import`, o que derruba CLI e `pytest tests/validators` (59 erros de coleta). `BLOCKED_BY_ENVIRONMENT`
+  com causa exata, nao "falta de tentativa".
+- Medidas: **541 arquivos `test_*.py`** contra 306 modulos; SPDX em **301/306** arquivos do `src`;
+  `NOTICE`; CHANGELOG com entrada **pinada por assercao de teste** (`tests/changelog_entries.py`).
+- Transferivel: gate em 3 niveis com nivel estatico sem chave, *harness check* por host ("description tem
+  1.028 unidades UTF-16, 4 acima do teto de 1.024") e SPDX+NOTICE conferidos pelo proprio validador.
+
+### ADD — `LR-STUDIO-011` · `mvanhorn/last30days-skill` → **ADAPT** (anatomia de Skill grande)
+- Empacotamento medido nos dois caminhos: tarball `codeload` = **261 arquivos** (sem `tests/`, por
+  `export-ignore` declarado e justificado) contra **787 blobs** na arvore. Registrei a diferenca como o
+  par que um catalogo precisa guardar: **presente no repositorio × presente no artefato**.
+- **Executado**: 153 de 155 `.py` compilam em 3.11 (2 falham por f-string multilinha); o portao
+  `ensure_supported_python()` encerra a suíte com mensagem acionavel; contornando o portao, 168 erros de
+  coleta — a exigência de 3.12 é real, nao cosmeticismo.
+- Corregido o enquadramento que a busca inicial sugeria: a leitura de cookies e **desligada por padrao,
+  consentida, filtrada por dominio+nome antes de descriptografar, copia 0600, revogavel por env e por
+  `--no-browser-cookies`**. O defeito honesto a reportar e outro: Skill com `Bash, Read, Write` cuja
+  seguranca depende de consentimento de setup, documentada em arquivos que a maioria dos hosts nao le.
+- `robots.txt` desrespeitado na lane de vagas: `CONFIRMED` como declaracao, `UNVERIFIED` como
+  comportamento, e **nao e padrao a copiar** (`REQUIRES_LEGAL_REVIEW`).
+
+### ADD — `LR-FORGE-013` · `apekshik/anymachine` → **REFERENCE_ONLY** (o metodo, nao o software)
+- `python3 -m compileall -q .` sobre 284 MB: **exit 0 nos 103 `.py`**. Rebuild de rig **`BLOCKED`**: nao
+  ha `blender` no PATH. Zero releases, zero tags, zero tests.
+- O que vale: `PIPELINE.md` (243 linhas, dez etapas reference-first, custo honesto — aranha com 40
+  referencias, ~2.200 linhas de script, ~40 renders) e um **`check.json` numerico por peca**, com as
+  falhas commitadas tambem: `laptop {steps:136, any_overlap:false, min_clearance_mm:0.319}`,
+  `rolltop pass 159 estados`, `daypack pass:false max_pen_mm:6.5 / 1619 tri_overlaps`,
+  `rucksack lid 11.61 mm / 179`.
+- Fronteira de licenca lida em tres camadas: codigo/GLB MIT, imagens "belong to their creators", `data/`
+  sem arquivo de licenca, e pesos fora do repo em `~/.anymachine/models/` sem declaracao lida.
+
+### ADD — `LR-MODEL-009` · `BreezeBlue/Breeze-TTS-2` + org `breezeblue-ai` → **REJECT**
+- Excluido por tres criterios independentes: **English + Chinese apenas**; pesos, modelos derivados e
+  **saidas self-hospedadas** sob licenca research/non-commercial (assinatura paga libera saidas da API
+  hospedada, **nao** o modelo); piso de 12 GB em NVIDIA com CUDA.
+- Repositorio de inferencia: Apache-2.0, ★1.793, **sem `tests/`**. Os **tres** repositorios de benchmark
+  da org nao tem **arquivo de licenca nenhum** — bons numeros medidos por suíte sem licenca, sem
+  revisao do checkpoint, **nao sao evidencia importavel**.
+- `huggingface.co` nao e alcancavel a partir do sandbox (TLS bloqueado fora da allowlist): sem lista de
+  arquivos, sem tamanho real, **sem SHA do peso** — por isso o campo `SHA completo` registra o HEAD do
+  repositorio de codigo e o resto fica `BLOCKED`, sem inventar.
+- Heranca util: **TTFB / Initial Silence / TTFA** como definicao para a lacuna `BLOCKED` de latencia, e o
+  registro de licenca em duas camadas (codigo × pesos × saidas).
+
+### ADD — `LR-AGENT-013` · paisagem negativa (`github.com/skills` + `waifuai` + topic `stt-tts`)
+- `github.com/skills` e a org de **cursos** do GitHub (53 repos, 20/20 lidos sem licenca, **zero**
+  `SKILL.md`): busca por "skills" sem `filename:SKILL.md` ou `topic:agent-skills` devolve isto.
+- `waifuai`: 52 repos, **52/52 sem licenca**, ★max 43, `pushedAt` agrupados (atualizacao em massa).
+  unico item emprestavel: `waifu-constitution` como **formato** (constituicao separada do mecanismo).
+- `topics/stt-tts`: `total_count` **11**, ★max 12. `PerIPan/OpenWhisperer` (MIT, ★9) fica registrado
+  como **piso de escopo** para o conector de voz da CLI — evidencia de que a ideia e pequena, nao de que
+  exista projeto para adotar.
+
+### FIX — vocabulario, IDs e contagens
+- `tools/validate.py` foi corrigido em 2026-11-20 para aceitar `LOCAL_SMOKE_PASS` no vocabulario de
+  execucao; mantive os resultados dos objetos novos dentro do enum.
+- IDs renumerados **antes de qualquer commit** para nao colidir com a secao 3 do indice
+  (`LR-AGENT-008`, `LR-STUDIO-007/008` e `LR-MODEL-008` ja existiam): ficaram
+  `LR-STUDIO-010`, `LR-STUDIO-011`, `LR-AGENT-013`.
+- `catalog/catalog.tsv` **regenerado** (25 → **32 linhas**); `data/inventory/license-matrix.tsv` 25 →
+  **32 linhas**; `data/testing/test-log.tsv` 20 → **24 linhas**; indice (secoes 1 e 3), README (176 →
+  **183** `.md`, 25 → **32** objetos) e os tres digests (`LR-VOICE-001`, `LR-MCP-001/002`, `LR-AGENT-006`)
+  apontando para os relatorios novos.
+- `tools/validate.py`: **0 erros**, 1 aviso conhecido (a matriz de licenca e CRLF e o parser de
+  contagem nao normaliza, o que produz um `''` residual), 7 notas de IDs internos sem cabecalho proprio.
+  `python3 -B -m unittest tools.test_validate`: **76 tests, OK**.
+
+### Sem efeito (registrado para nao repetir)
+- `breeze-tts-2`: nenhum byte de peso baixado; nenhuma sintese; nenhum preco lido; nenhum espaco pago.
+- `last30days-skill` e `SkillEvaluator`: sem conta, sem chave, sem navegador, sem chamada de rede.
+- `blender-ai-mcp-addon`: sem download do artefato, sem issue aberta no repositorio alheio.
+
 
 ## 2026-11-21 (UTC) — dois objetos novos auditados **com execução**: Bosch image-render e jenalab
 

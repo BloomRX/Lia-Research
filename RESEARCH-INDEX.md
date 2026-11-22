@@ -5,7 +5,7 @@ veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID apa
 outro documento e não aqui, o outro documento está errado.
 
 - **Data de referência:** 2026-11-21 (dois objetos novos auditorados nesta data; reauditoria técnica dos 22 objetos concluída em 2026-11-20)
-- **Itens:** 25 objetos externos (29 linhas com sub-documentos) + 5 dossiês internos + 31 digests transversais + 3 comparações + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de evidências** (2026-11-20, revisado em 2026-11-21)
+- **Itens:** 32 objetos externos (37 linhas com sub-documentos) + 5 dossiês internos + 31 digests transversais + 3 comparações + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de evidências** (2026-11-20, revisado em 2026-11-22)
 - **Pouco foi executado.** Existem **20 linhas** em `data/testing/test-log.tsv` (2026-11-21):
   7 execuções locais com resultado positivo (suítes e scripts rodados de verdade), 3 execuções parciais e
   10 tentativas bloqueadas com motivo. Na
@@ -26,7 +26,7 @@ Definições: `catalog/CATALOG-SCHEMA.md`. Máquina: `catalog/catalog.tsv`.
 
 ---
 
-## 1. Tecnologia externa — auditoria (25 objetos)
+## 1. Tecnologia externa — auditoria (32 objetos)
 
 Colunas separadas por exigência de `MISSION.md` §3: **estado** (quanto já se sabe),
 **recomendação** (opinião técnica) e **decisão de adoção** (não existe, e esta base não
@@ -63,6 +63,13 @@ tem autoridade para criar).
 | `LR-MODEL-006` | `tashfeenahmed/freellmapi` (free tiers agregados) | MIT (software) | PARTIALLY_TESTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/freellmapi/REPORT.md` |
 | `LR-FORGE-011` | `boschresearch/image-render-generative` | Apache-2.0 | PARTIALLY_TESTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/image-render-generative/REPORT.md` |
 | `LR-FORGE-012` | `jenalab-com/jena-image-render` (+7 repos da org) | MIT | PARTIALLY_TESTED | **ADAPT** | — nenhuma | Alta | `repositories/jena-image-render/REPORT.md` |
+| `LR-SEC-008` | `bookwjitchieni1986/blender-ai-mcp-addon` ("mcp-for-blender-pro") | MIT com copyright de terceiro | DOCUMENTED | **REJECT** | — nenhuma | Alta | `repositories/blender-ai-mcp-addon/REPORT.md` |
+| `LR-FORGE-013` | `apekshik/anymachine` (Blender procedural + `check.json`) | MIT | PARTIALLY_TESTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/anymachine/REPORT.md` |
+| `LR-STUDIO-010` | `NVIDIA/SkillEvaluator` (gate de Skills em 3 níveis) | Apache-2.0 | PARTIALLY_TESTED | **ADAPT** | — nenhuma | Alta | `repositories/skillevaluator/REPORT.md` |
+| `LR-STUDIO-011` | `mvanhorn/last30days-skill` (anatomia de Skill grande) | MIT | PARTIALLY_TESTED | **ADAPT** | — nenhuma | Alta | `repositories/last30days-skill/REPORT.md` |
+| `LR-VOICE-002` | `KoljaB/RealtimeTTS` (wrapper de engines + fronteira de licença) | MIT no wheel 0.8.10 / Apache-2.0 na master | PARTIALLY_TESTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/realtimetts/REPORT.md` |
+| `LR-MODEL-009` | `BreezeBlue/Breeze-TTS-2` + org `breezeblue-ai` | Apache-2.0 (código) × não comercial (pesos/saídas) | DOCUMENTED | **REJECT** | — nenhuma | Alta | `repositories/breeze-tts-2/REPORT.md` |
+| `LR-AGENT-013` | `github.com/skills` + org `waifuai` + topic `stt-tts` | ausente na maioria | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/landscape-skill-noise/REPORT.md` |
 
 ## 2. Projetos do ecossistema — dossiês internos (5)
 
