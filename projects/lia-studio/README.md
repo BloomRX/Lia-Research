@@ -50,7 +50,7 @@ individual de todo o inventário.
 | Fonte | Licença | Estado no Studio |
 |---|---|---|
 | `Donchitos/Claude-Code-Game-Studios` | MIT | 7 skills adaptadas; texto preservado em `docs/licenses/` |
-| `witnesstodark/mr-mak-workspace` | MIT (+ `img2threejs` Apache-2.0) | 5 skills adaptadas + ZIP de 9,9 MB versionado |
+| `witnesstodark/mr-mak-workspace` | MIT (+ `img2threejs` Apache-2.0) | 5 skills adaptadas + ZIP de 9,9 MB versionado — upstream auditado em `LR-STUDIO-012` |
 | `CopilotKit/OpenDots` | a verificar | triagem `PENDENTE` |
 | `nightly-labs/openbot` | a verificar | triagem `PENDENTE` |
 | `gamedev-skills/awesome-gamedev-agent-skills` | lista | fonte de referência |

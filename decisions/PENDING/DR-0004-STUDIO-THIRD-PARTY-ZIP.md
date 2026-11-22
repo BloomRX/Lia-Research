@@ -25,3 +25,20 @@ comparado arquivo a arquivo com a fonte pública.
 ## Recomendação de pesquisa
 **B** (remover do versionamento mantendo registro de hash/URL), com C apenas após
 auditoria. A remoção exige autorização do responsável do Studio — não é ação do agente.
+
+## Evidência nova (2026-11-22, sem decisão)
+
+Auditoria do upstream em `repositories/mr-mak-workspace/REPORT.md` (`LR-STUDIO-012`):
+
+- os **19 releases** publicados têm dois artefatos de Skills — 3.352.656 B (`v0.4.14`) e
+  4.263.307 B (`v0.6.0`) — e **nenhum** asset entre 9,5 e 10,5 MB;
+- o empacotador atual do projeto (`scripts/package_skills.py`, rodado duas vezes nesta sessão)
+  produz **4.264.037 B** com `manifest.json` de **768** arquivos, e é determinístico (mesmo
+  `sha256` do ZIP em builds sucessivos);
+- o arquivo local do Studio tem **764** arquivos declarados: **não bate** com nenhuma release nem
+  com o gerador atual.
+
+Consequência para a decisão, registrada sem recomendar: enquanto o ZIP não for identificado por hash +
+revisão de origem, ele é `RESEARCH_ONLY` por definição de `MISSION.md` (proveniência desconhecida). A
+comparação que fecharia isto é barata: `sha256sum` do ZIP local × `manifest.json` de uma release pinada.
+

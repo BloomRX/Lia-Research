@@ -45,6 +45,13 @@ do payload** (`adapters/importer.py::_detect_license`). Logo, as 47 entrariam co
 |---|---|---|---|---|
 | `Donchitos/Claude-Code-Game-Studios` | MIT © 2026 Donchitos | 7 skills no Studio (commit `05ad7c8` verificado) | `ADAPT_ALLOWED` | aviso MIT fora do payload → **violação em export** |
 | `witnesstodark/mr-mak-workspace` | MIT © 2026 (+ `img2threejs` Apache-2.0) | 5 skills no Studio + ZIP 9,9 MB | `ADAPT_ALLOWED` / `RESEARCH_ONLY` | ler licença do subprojeto; decidir destino do ZIP (`DR-0004`) |
+
+> Atualizado 2026-11-22: a licença do subprojeto foi lida na origem, junto do pacote de
+> 20 Skills do autor (`repositories/mr-mak-workspace/REPORT.md`, `LR-STUDIO-012`). Duas coisas mudam
+> aqui: (a) o autor **declara `license:` no frontmatter de cada `SKILL.md`** — o mecanismo de custo
+> mínimo que a §3 deste documento propõe já existe em produção, com `MIT` no `last30days-skill` e
+> `Apache-2.0` no `img2threejs`; (b) o pack publicado deles traz `manifest.json` com SHA-256 por
+> arquivo, `LICENSE` e `THIRD_PARTY_NOTICES.md` dentro do ZIP — o nosso ZIP não tem nada disso.
 | `Kc1t/alethe-orchestrate-skill` | a verificar | 1 skill vendorizada no Project | `FORK_CANDIDATE` | registrar patches |
 | AIRI (`moeru-ai/airi`) | a verificar versão vendorizada | 890 arquivos doc + 29 skills no Project | `RESEARCH_ONLY` | auditoria completa ausente |
 | `anthropics/skills` | a verificar | referência | `RESEARCH_ONLY` | — |
