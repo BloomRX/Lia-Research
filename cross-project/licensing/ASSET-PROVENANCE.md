@@ -40,7 +40,7 @@ O Forge produz assets para jogos — ou seja, produz **conteúdo distribuível**
 | Item | Licença | Risco |
 |---|---|---|
 | Fonte da galeria do pixelfx | fora da MIT | não usar sem ler `gallery/fonts/NOTICE.md` |
-| `img2threejs` (dentro do mr-mak-workspace) | Apache-2.0 | aviso + NOTICE + indicar alterações |
+| `img2threejs` (dentro do mr-mak-workspace) | Apache-2.0 | aviso + NOTICE + indicar alterações — **`NOTICE` ausente no vendoring deles** (medido 2026-11-22, `LR-STUDIO-012` §8) |
 | ZIP de 9,9 MB de terceiros no Lia-Studio | MIT (presumido) | decisão `DR-0004` |
 | Skills AIRI vendorizadas (29) | a verificar | `RESEARCH_ONLY` até auditoria |
 | Fontes OFL em ManimGX/Meldwork | OFL-1.1 | embutir ok; vender a fonte isolada, não |

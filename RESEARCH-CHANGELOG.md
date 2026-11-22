@@ -9,6 +9,67 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 ---
 ---
 
+## 2026-11-22 (UTC) — aprofundamento em `mr-mak-workspace` (o que "trabalhar em equipe" quer dizer)
+
+Pedido do proprietario: olhar minuciosamente o Mr. Mak, com foco em trabalho em equipe, a partir do video
+do game jam da Epic, do devlog no itch.io e de um post de Patreon. Nenhuma conta, nenhuma instalacao em
+projeto Lia, nenhum consumo pago, nenhum download de peso.
+
+### ADD — `LR-STUDIO-012` · `witnesstodark/mr-mak-workspace` @ `f096373f` → **ADAPT**
+- **Respondido direto**: **nao existe colaboracao multiusuario**. `SECURITY.md`: roda na maquina do
+  usuario, escuta so em loopback, "nao exponha por proxy publico, tunel ou interface de rede"; o pareamento
+  de celular e "cada dono conecta os seus dispositivos". O que existe e **um humano orquestrando N agentes**.
+  O "trabalho em equipe" do jam foi **modificacao de fork**: instancia nova por pessoa + um unico chat cuja
+  tarefa era sincronizar o workspace a cada 5-10 minutos; o script de sincronizacao citado (tools/sync.py) **nao existe** no template.
+- **Executado** (Node 22.22.3, clone do commit pinado): `npm test` = **144 passed, 27 failed, 6 skipped**
+  em ~43 s — e os 27 falham **todos** pela mesma causa ambiente (`pty.node` sem build nativo; o `npm rebuild
+  node-pty` deu node-gyp ERR, registrado `BLOCKED_BY_ENVIRONMENT`, sem insistir). `eslint src` limpo;
+  `tsc -b && vite build` exit 0; `check-template.mjs` ok (177 imagens, 8 videos, 20 skills);
+  `sync-skills.mjs --check` = **375 arquivos identicos** entre `.agents/` e `.claude/`; asset-delivery 9/9;
+  `test-local-voice-setup.py` 4 OK.
+- **Suíte do subprojeto vendorizado medida por extenso**: `img2threejs` = **1.418 testes em 139 s, 2 falhas**.
+  As duas sao o caso mais util da rodada: um teste que **recusa fixture** ("Assert against the real SKILL.md,
+  never a fixture… the fixture is the shape the tooling wants rather than the shape on disk") porque
+  `version:` aninhado em `metadata:` e YAML valido, passa na revisao humana e derruba os dois caminhos de
+  release. E a CI deles roda **so um** dos 101 arquivos de teste do skill — o gate existe fora do gate.
+  Mesma classe do defeito que a `alethe` causou no parser do nosso catalogo.
+- **Empacotamento copiado apos execucao**: rodei `scripts/package_skills.py` duas vezes — **mesmo sha256 do
+  ZIP** (4.264.037 B), `manifest.json` com SHA-256 por arquivo (768), timestamp fixo em todas as entradas,
+  `tempfile.TemporaryDirectory` + `verify()` **antes** de `replace()`, `LICENSE` e notices dentro do pacote,
+  e `--check` para auditar um ZIP alheio.
+- **Fecho de uma ponta solta nossa**: o `Mr-Mak-Skills-Free.zip` de 9,9 MB / 764 arquivos do Lia Studio
+  **nao corresponde a nada publicado** — varri os 19 releases (so 3.352.656 B em 0.4.14 e 4.263.307 B em
+  0.6.0; nenhum asset entre 9,5 e 10,5 MB) e o gerador atual (769 arquivos). Registrado no `DR-0004` como
+  evidencia nova **sem decisao**: a decisao passou a ser "identificar por hash", e nao "manter ou jogar fora".
+- Licenca: MIT com detentor **coletivo** ("Mr. Mak Workspace contributors"), `THIRD_PARTY_NOTICES.md`
+  cobrindo imagens de terceiros, samples gerados por IA, marca dos provedores e o disclaimer de projeto
+  comunitario independente. Pendencia real: **`NOTICE` ausente** no `img2threejs` vendorizado, contra o texto
+  que promete "license **and notices**" → `REQUIRES_LEGAL_REVIEW`.
+- Do devlog do jam (auto-relato, `REPORTED`): 368 marcos / 712 steps / 830 midias em 3 trilhas paralelas;
+  2.891 saidas em 255 runs por servico x modelo x pessoa; 411 registros de sessao, 16.338 model calls,
+  6,71 B tokens; ledger de 674 registros escritos logo depois de cada job; **US$ 22,97 pagos** de verdade
+  (fal.ai) contra **US$ 2.927,42** de valor de tabela estimado, com a nota "nobody paid these sums as such".
+  Contrapeso registrado: o video tem link de afiliado e o provedor principal e patrocinado, e a categoria
+  "glass box / best devlog" do proprio concurso premia o detalhe do registro.
+
+### FIX / CONTABILIDADE
+- `tools/validate.py` continuou intocado; um aviso conhecido permanece (a matriz de licenca e CRLF e o
+  parser nao normaliza, o que produz um `''` residual na comparacao com o digest).
+- `catalog/catalog.tsv` **regenerado**: 32 → **33 linhas**; `license-matrix.tsv` 32 → **33**;
+  `data/testing/test-log.tsv` 24 → **27**; indice (sec. 1 e 3), README (184 `.md`, 33 objetos) e
+  `cross-project/licensing/READY-TO-USE-LICENSES.md` (33).
+- Ponteiros novos em 5 documentos que ja citavam o mr-mak sem auditoria: `governance/LICENSE-AND-PROVENANCE-POLICY.md` §7,
+  `cross-project/licensing/ASSET-PROVENANCE.md` §4, `projects/lia-agent-hub/skills/SKILL-LICENSE-CONSOLIDATION.md`,
+  `projects/lia-studio/README.md`, `projects/lia-studio/INDEX.md` (2 lacunas) e `decisions/PENDING/DR-0004-STUDIO-THIRD-PARTY-ZIP.md`.
+- `cross-project/agents/ASSET-AGENT-ORCHESTRATION-DIGEST.md` (`LR-AGENT-005`) §4 ganhou o objeto como
+  terceira referencia externa de orquestracao.
+
+### Recuperacao de estado (registrada porque virou recorrente)
+- A sandbox voltou em `77a6a7b` com a arvore de trabalho intacta. Restaurado com
+  `git fetch origin <branch>` + `git reset --hard FETCH_HEAD` para `0b2cb24`; nenhum arquivo foi perdido
+  (183 `.md`, 32 relatorios conferidos antes e depois). Nunca forcei push.
+
+
 ## 2026-11-22 (UTC) — sete objetos novos, com execucao local onde o ambiente permitiu
 
 Nove alvos indicados pelo proprietario foram abertos; tres deles eram **listagens** (org, org, topic) e
