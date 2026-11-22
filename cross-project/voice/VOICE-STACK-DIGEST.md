@@ -43,6 +43,16 @@ de estabilidade.
 | Barge-in / eco | `BLOCKED` |
 | Comparação Kokoro existente × alternativas | `NOT RUN` — regra do projeto: medir antes de adicionar |
 
+## 5. Objetos externos auditados nesta frente (2026-11-22)
+
+Dois relatórios entraram na base sobre esta frente e **não alteram** nenhuma linha de §4:
+`repositories/realtimetts/REPORT.md` (`LR-VOICE-002`, wrapper de engines: licença por **artefato**,
+adendo de escopo engine × peso, e 319 testes passando em Python 3.11 sem gerar áudio) e
+`repositories/breeze-tts-2/REPORT.md` (`LR-MODEL-009`, pesos não comerciais, English/Chinese,
+CUDA-only → `REJECT` para o caso de uso do Lia). O que eles trazem de concreto para as lacunas acima é
+a **definição de métrica** — TTFB, Initial Silence e TTFA separados — e não um dado novo: as três
+linhas `BLOCKED` continuam `BLOCKED`, e "medir antes de adicionar" continua valendo.
+
 ## 5. Referência externa útil
 
 `ggml-org/whisper.cpp` e `k2-fsa/sherpa-onnx` já aparecem no corpus interno; nenhum
