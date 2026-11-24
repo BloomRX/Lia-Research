@@ -9,6 +9,56 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 ---
 ---
 
+## 2026-11-24 (UTC) — `bisqit.app`: como um app fechado faz o que o Lia Project lista como lacuna
+
+Pedido do proprietário: pesquisar o link e "como foi feito o app", com possível utilidade para o Lia
+Project. Nenhuma instalação, nenhuma conta, nenhum gasto, nenhum download de binário.
+
+### ADD — `LR-FORGE-014` · `bisqit.app` (Bisqit) @ site verificado 2026-11-24 → **ADAPT**
+- **Objeto atípico na base**: app proprietário **sem repositório, sem licença e sem changelog público**.
+  O `sitemap.xml` tem 8 URLs e nenhuma página de termos, licença ou preço; `Tipo` registrado como `outro`.
+- **Arquitetura extraída da própria política de privacidade** (que, ao declarar o que sai da máquina,
+  descreve o sistema): app local no Mac (domínio `app.bisqit.mac`) e Windows (`%APPDATA%\Bisqit`) →
+  servidor na Vercel → **OpenRouter → Gemini** para classificar `focus`/`neutral`/`drift` → **fal** gera as
+  imagens e clipes do "seu cachorro" com um worker no **Railway** → **Upstash** para licenças e contadores →
+  **Resend** para o link por e-mail → **Stripe** como *seller of record*. Chaves de modelo e pagamento só no
+  servidor; servidor não persiste o que julga. Tudo `REPORTED` — nada verificado no binário.
+- **O loop que serve ao Lia Project**: lista embutida + lista do usuário antes de qualquer rede; payload
+  cortado (app, URL sem query, título em 140 caracteres, até 6 vereditos anteriores); cache de veredito de
+  6 h no cliente; correção "Not a drift" persistida como lista, não como ajuste de modelo; janela de 70 s
+  para interceptar a ação; **minimizar em vez de fechar**. É a resposta pronta para a lacuna
+  `lia-browser-automation` ("risco de egress") do Lia Project.
+- **A escolha de permissão, registrada como caso em `LR-SEC-005`**: sem extensão de navegador, e por isso
+  Acessibilidade + Automação no macOS (perguntado uma vez por navegador) e UI Automation no Windows (não
+  pede nada). O caso que expõe que um `Grant` precisa de dois eixos — *agir* e *observar* — porque **pausar
+  o app não para o julgamento**, só a ação.
+- **Modelo de negócio medido no texto deles**: sem trial, com demo que fecha um YouTube real no onboarding;
+  preço por país (Brasil citado na lista de preço menor); A/B de plano decidido pelo `install ID`, declarado
+  na política de privacidade; custo por chamada de IA como justificativa pública do preço.
+- **Duas divergências internas do site** (úteis como exemplo de por que ler as duas páginas): "assinatura ou
+  *trial* ativo" na política × "não há período de teste" na página de preço; "se você obtiver o Bisqit pela
+  Microsoft Store" no presente × "esse aviso some quando estivermos na Store" no futuro.
+- **`NOT_RUN` deliberado, e registrado como limite**: binário proprietário que pede permissões de
+  Acessibilidade/Automação não se instala "para ver"; o sandbox também não tem macOS nem Windows. Baixar o
+  `.dmg` para checar assinatura e notarização ficou `BLOCKED` (redirect para fora da allowlist). Os dois
+  testes que fechariam isto estão na §13 e são do dono: `spctl -a -vv` numa Mac de teste e observar o tráfego
+  com o app pausado × aberto.
+- Contraste com o nicho, medido nas páginas oficiais de seis concorrentes (Furever Dock, Dumple, Desktop
+  Dog, Paw-Paw, AgentPet, Desktop Pet da App Store): dois caminhos para o mesmo problema — hook/telemetria
+  local sem LLM, ou geração no servidor com estágio barato antes do pagamento. Nenhum deles publica verificação
+  independente; o Bisqit também não.
+
+### FIX / CONTABILIDADE
+- `catalog/catalog.tsv` **regenerado**: 33 → **34 linhas**; `data/inventory/license-matrix.tsv` 33 → **34**
+  (linha `RESEARCH_ONLY`, sem licença a ler); índice §1 **34 objetos** / 38 linhas com sub-documentos;
+  README (185 `.md`, 34 objetos, catálogo de 34 linhas) e `cross-project/licensing/READY-TO-USE-LICENSES.md`
+  (34, com a linha nova na tabela-mestra).
+- Ponteiros: `projects/lia-project/INDEX.md` (a lacuna `lia-browser-automation` agora aponta para o padrão
+  auditado) e `cross-project/security/PER-EXECUTION-PERMISSIONS.md` §2 (sexta fonte de evidência; a frase de
+  síntese ganhou o eixo "gradação da ação").
+- `data/testing/test-log.tsv` **não** ganhou linha: nenhuma execução deste objeto — o relatório declara
+  `NOT_RUN`, e a base não registra leitura de site como teste.
+
 ## 2026-11-22 (UTC) — aprofundamento em `mr-mak-workspace` (o que "trabalhar em equipe" quer dizer)
 
 Pedido do proprietário: olhar minuciosamente o Mr. Mak, com foco em trabalho em equipe, a partir do vídeo

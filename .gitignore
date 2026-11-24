@@ -11,3 +11,6 @@ Thumbs.db
 *.log
 *.tmp
 resolve.tsv
+
+# Saída de ferramentas de busca de imagem (scratch da sessão, não é acervo)
+image-search/

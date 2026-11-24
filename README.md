@@ -11,9 +11,9 @@
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
 | Status | Base reorganizada em 2026-11-20 (missão, catálogo, validador). Medição em hardware: `NOT RUN`; testes de software registrados: **30 linhas** em `data/testing/test-log.tsv` (2026-11-22) |
-| Arquivos Markdown | 184 (contagem de 2026-11-22, `find -name '*.md' -not -path './.git/*'`), validados por `tools/validate.py` |
-| Relatórios externos | 33 objetos, 1 relatório cada (`repositories/*/REPORT.md`) |
-| Catálogo | `catalog/catalog.tsv` — 33 linhas, gerado de `tools/build_catalog.py` |
+| Arquivos Markdown | 185 (contagem de 2026-11-24, `find -name '*.md' -not -path './.git/*'`), validados por `tools/validate.py` |
+| Relatórios externos | 34 objetos, 1 relatório cada (`repositories/*/REPORT.md`) |
+| Catálogo | `catalog/catalog.tsv` — 34 linhas, gerado de `tools/build_catalog.py` |
 | Decisões (governança) | 1 aceita · 12 pendentes · 3 rejeitadas · 2 referência · 2 pastas vazias por desenho |
 
 > **Aviso de escopo.** Este repositório registra *pesquisa*, não *implementação*.
@@ -44,8 +44,8 @@ fundação (2026-11-17):
   OpenJarvis, Vercel UI, Mister Download Manager, OpenIDEA, Claude Trading Skills,
   RouterHub) e sobre os 9 alvos adicionais depois.
 
-Depois desta fundação: **33 objetos externos em auditoria** (26 repositórios + 6 digests
-internos + 1 modelo), **5 dossiês internos**, **31 digests transversais**, **4 comparações** e
+Depois desta fundação: **34 objetos externos em auditoria** (26 repositórios + 6 digests
+internos + 1 modelo + 1 app fechado), **5 dossiês internos**, **31 digests transversais**, **4 comparações** e
 **3 decisões de não adoção** registradas com condição de reabertura.
 
 **Cobertura declarada:** esta base é uma **camada de ponteiro**, não um espelho. São

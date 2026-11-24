@@ -27,9 +27,11 @@ foi revogado, e (e) o que de fato aconteceu — sem colocar essa garantia dentro
 | HA-MCP | conexão **read-only** separada da elevada; aprovação de tool; catálogo por URL | `CONFIRMED` (doc + código) |
 | alethe | workers limitados (`maxCalls`), **reserva atômica** de orçamento antes de iniciar, cancelamento de árvore de processos | `CONFIRMED` (`SKILL.md` + `UPSTREAM.md`) |
 | Lia-Project | dono único da credencial; sandbox do Stage com correção registrada | `REPORTED` (arquitetura) |
+| Bisqit (app fechado, caso externo lido em `LR-FORGE-014`) | duas permissões de SO **nomeadas por função** (Acessibilidade para achar o botão de fechar; Automacao para ler o endereço e fechar a aba), perguntadas **uma vez por navegador**; ação com janela de graça de 70 s para o usuário interceptar; correção do usuário persistida como lista local; e **o julgamento continua com o app pausado** — exatamente o caso que mostra que `Grant` precisa de dois eixos separados: *agir* e *observar* | `REPORTED` (páginas do produto; nada verificado no binário) |
 
-Nenhuma das cinco publica um **modelo de lease** completo. Cada uma tem um pedaço:
-tempo (Meldwork), fronteira (OpenJarvis/HA-MCP), orçamento (alethe), credencial (Lia).
+Nenhuma das seis publica um **modelo de lease** completo. Cada uma tem um pedaço:
+tempo (Meldwork), fronteira (OpenJarvis/HA-MCP), orçamento (alethe), credencial (Lia),
+e **gradação da ação** (Bisqit: pausar ≠ de observar; interceptar antes de agir).
 O que falta é a composição.
 
 ## 3. Vocabulário

@@ -56,7 +56,7 @@ Lia-Research registra a conclusão durável e o ponteiro.
 | `lia-agent-evaluation` | avaliação de agente | ❌ ausente | |
 | `lia-agent-orchestration` | orquestração | ❌ | sobrepõe `multi-agent-orchestration` (Model-Lab) |
 | `lia-ai-sdk-integration` | integração AI SDK | ❌ | |
-| `lia-browser-automation` | automação de navegador | ❌ | risco de egress |
+| `lia-browser-automation` | automação de navegador | ❌ | risco de egress; o padrão que resolve metade do problema está auditado em `LR-FORGE-014` §4 (lista local + cache de veredito de 6 h + payload cortado em 140 caracteres, sem ler conteúdo nem teclas) |
 | `lia-electron-cdp-debugging` | depuração CDP | ❌ | |
 | `lia-eventa-ipc` | IPC | ❌ | |
 | `lia-pnpm-workspaces` | monorepo | ❌ | |
