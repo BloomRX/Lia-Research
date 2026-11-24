@@ -26,7 +26,7 @@ Definições: `catalog/CATALOG-SCHEMA.md`. Máquina: `catalog/catalog.tsv`.
 
 ---
 
-## 1. Tecnologia externa — auditoria (34 objetos)
+## 1. Tecnologia externa — auditoria (42 objetos)
 
 Colunas separadas por exigência de `MISSION.md` §3: **estado** (quanto já se sabe),
 **recomendação** (opinião técnica) e **decisão de adoção** (não existe, e esta base não
@@ -72,6 +72,14 @@ tem autoridade para criar).
 | `LR-AGENT-013` | `github.com/skills` + org `waifuai` + topic `stt-tts` | ausente na maioria | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta | `repositories/landscape-skill-noise/REPORT.md` |
 | `LR-STUDIO-012` | `witnesstodark/mr-mak-workspace` (workspace local de vários agentes + pack de 20 Skills) | MIT (+ `img2threejs` Apache-2.0) | TESTED | **ADAPT** | — nenhuma | Alta | `repositories/mr-mak-workspace/REPORT.md` |
 | `LR-FORGE-014` | `bisqit.app` — Bisqit, app fechado de desktop que fecha abas (o que ele lê, o que sai da máquina, o pipeline de foto → cachorro animado, preço por país) | **nenhuma** (proprietário fechado) | DOCUMENTED | **ADAPT** | — nenhuma | Alta para o que eles afirmam; nenhuma para o binário | `repositories/bisqit/REPORT.md` |
+| `LR-FORGE-015` | `AppFlowy-IO` (org — 27 repositórios contados um a um) | AGPL-3.0 no produto; dual no editor; **nenhuma** licença em 6; SelfHost-Commercial sem LICENSE | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta para censo e licenças; média para o binário | `repositories/appflowy-io/REPORT.md` |
+| `LR-FORGE-016` | `opf` (org OpenProject — 123 repositórios) + o cluster de IA | GPL-3.0 no produto (sem `ee/` na árvore); MIT no pack de Skills e no `recense` | DOCUMENTED | **ADAPT** | — nenhuma | Alta | `repositories/opf-openproject/REPORT.md` |
+| `LR-FORGE-017` | `every-app/open-seo` (OpenSEO) — MCP + 12 Skills + suíte executada aqui | **MIT** (um único LICENSE na árvore) | TESTED | **ADAPT** | — nenhuma | Alta (2.130 testes executados) | `repositories/open-seo/REPORT.md` |
+| `LR-FORGE-018` | `capsoftware/cap` — gravação de tela; AGENTS.md de 125 linhas com ratchet | MIT só em `cap-camera*`/`scap-*`; **AGPLv3** no resto | DOCUMENTED | **ADAPT** | — nenhuma | Alta nos arquivos; nenhuma execução | `repositories/cap/REPORT.md` |
+| `LR-FORGE-019` | `calcom/cal.diy` — fork com o comercial removido; `agents/` + symlinks | **MIT puro** (zero AGPL); licença stubada em `return true` | DOCUMENTED | **ADAPT** | — nenhuma | Alta | `repositories/cal-diy/REPORT.md` |
+| `LR-SEC-009` | `chatwoot/chatwoot` — a fila de triagem de GHSA (211 linhas) e `enterprise/` | MIT exceto `enterprise/` (759 blobs, cláusula condicional) | DOCUMENTED | **ADAPT** | — nenhuma | Alta no que foi lido | `repositories/chatwoot/REPORT.md` |
+| `LR-VOICE-003` | `debpalash/VoiceStudio` — 931 testes, 262/262 pins em SHA, NOTICE de assets | AGPL-3.0-only + `LICENSE-NOTICE.md` (comercial ok; pesos à parte) | PARTIALLY_TESTED | **ADAPT** | — nenhuma | Alta (20 testes do fornecedor executados) | `repositories/voicestudio/REPORT.md` |
+| `LR-VOICE-004` | `OpenWhispr/openwhispr` — transcrição local com allowlist de rede e 2 Skills | MIT | DOCUMENTED | **ADAPT** | — nenhuma | Alta nos arquivos; nenhuma em PT-BR | `repositories/openwhispr/REPORT.md` |
 
 ## 2. Projetos do ecossistema — dossiês internos (5)
 
@@ -83,7 +91,7 @@ tem autoridade para criar).
 | `LR-PROJ-004` | Lia-AgentHub | 57 | biblioteca (48 no ecossistema) | `projects/lia-agent-hub/INDEX.md` |
 | `LR-PROJ-005` | Lia-Model-Lab | 90 | 9 (únicos em `main`) | `projects/lia-model-lab/INDEX.md` |
 
-## 3. Digests transversais (31)
+## 3. Digests transversais (34)
 
 | ID | Tema | Documento |
 |---|---|---|
@@ -118,6 +126,9 @@ tem autoridade para criar).
 | `LR-SEC-003` | auditoria de segurança de STT | `cross-project/voice/VOICE-STACK-DIGEST.md` §2 |
 | `LR-LIC-003` | **auditoria das 28 skills AIRI + `alethe`** (parecer por Skill) | `projects/lia-agent-hub/skills/AIRI-AND-ALETHE-PROVENANCE.md` |
 | `LR-LIC-005` | **licenças prontas para uso** (18 objetos, obrigação em ação) | `cross-project/licensing/READY-TO-USE-LICENSES.md` |
+| `LR-AGENT-014` | declaração de envolvimento de IA: o gate do OpenProject (script de 129 linhas) comparado com os outros sete | `cross-project/agents/AI-INVOLVEMENT-DECLARATIONS.md` |
+| `LR-MCP-004` | `confirm: true` como JSON Schema e `tools_integrity` — o par de plugins MCP do AppFlowy (verificador executado) | `cross-project/mcp/APPFLOWY-AI-PLUGINS-GATES.md` |
+| `LR-LIC-006` | como se lê uma licença dividida: método em 5 passos e os 3 formatos medidos em 13 repositórios | `cross-project/licensing/SPLIT-LICENSE-SCAN.md` |
 
 ## 3-bis. Comparações
 

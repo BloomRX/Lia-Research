@@ -63,7 +63,7 @@ Lia-Research registra a conclusão durável e o ponteiro.
 | `lia-regression-investigation` | investigação de regressão | ❌ | |
 | `lia-release-gate` | gate de release | ❌ | candidato a ter manifesto de workflow |
 | `lia-safe-change` | mudança segura | ❌ | |
-| `lia-security-review` | revisão de segurança | ❌ | |
+| `lia-security-review` | revisão de segurança | ❌ | desenho mínimo de fila de triagem medido em `LR-SEC-009` (Chatwoot: 211 linhas de Python, `state=triage` → issue com prioridade por severidade) e inventário leve em `LR-FORGE-016` §5 (`opf/recense`: Syft + Grype sem servidor, MIT) |
 | `lia-test-discipline` | disciplina de teste | ❌ | |
 | `lia-ui-quality-review` | qualidade de UI | ❌ | poderia usar molde de `ai-design-skills` |
 | `lia-unocss-ui` | estilo | ❌ | |

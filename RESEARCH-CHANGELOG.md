@@ -9,6 +9,160 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 ---
 ---
 
+## 2026-11-24 (UTC) — leva de 8 links: os dois orgs contados por inteiro (27 + 123 repositórios) e três objetos com verificação executada
+
+Pedido do proprietário: pesquisar `AppFlowy-IO` ("veja todos os repos desse"), `opf` (org), `calcom/cal.diy`,
+`OpenWhispr/openwhispr`, `capsoftware/cap`, `chatwoot/chatwoot`, `every-app/open-seo` e
+`debpalash/voicestudio`. Nenhuma instalação em projeto Lia, nenhuma conta, nenhum gasto, nenhum peso baixado.
+Medição: `gh api` (censo de org, árvore recursiva, `contents/*` decodificados), quatro clones rasos e
+**execução dos verificadores internos de três fornecedores** — o resto ficou em leitura estática porque o
+sandbox não tem `cargo`, `go`, `ruby`, `flutter` nem `docker` (medido com `command -v`).
+
+### ADD — `LR-FORGE-015` · org `AppFlowy-IO` (27 repositórios) → **REFERENCE_ONLY**, com uma exceção
+- **Censo completo**: 27 repos · 1 arquivado · 14 AGPL-3.0 · **6 sem nenhum `LICENSE`** · `appflowy-editor`
+  **dual AGPL-3.0 + MPL-2.0** · `AppFlowy-SelfHost-Commercial` com `SELF_HOST_LICENSE_AGREEMENT.md` e
+  **sem licença aberta**.
+- **A assimetria documentada por eles mesmos**: `AppFlowy-Cloud` (AGPL, ★2.018) está arquivado com o aviso
+  de que "no longer used to build or distribute the latest AppFlowy self-hosted server" e que features novas
+  só existem em imagens Docker `appflowyinc/*`; o que continua no GitHub é o andaime de deploy sem licença.
+  Nada foi puxado nem rodado (nível 3, decisão do dono).
+- CI lida por nome: `AppFlowy` tem 12 arquivos incluindo `android_ci.yaml.bak` (desligado dentro da pasta
+  ativa); as checagens de Rust (audit, rustlint, stress, integration) estão no repositório **arquivado**.
+
+### ADD — `LR-FORGE-016` · org `opf` (123 repositórios) + o gate de envolvimento de IA → **ADAPT**
+- **Censo**: 123 repos · 77 não-fork · 46 forks · 39 arquivados; licenças dos não-fork: 45 nenhuma ·
+  19 GPL-3.0 · 8 MIT · 3 NOASSERTION · 2 Apache-2.0.
+- **`opf/openproject` é GPL-3.0 puro**: árvore de 34.051 entradas (`truncated: false`) com **0** caminhos
+  `ee/`, `enterprise/` ou `premium/` — a fronteira comercial do produto não existe como diretório no repo.
+- **O artefato da leva**: `ai-involvement-check.yml` + `script/ci/ai_involvement_check.sh` (129 linhas) e a
+  seção "AI involvement" do template com 4 níveis (`None/Assisted`, `Collaborative`, `Directed`,
+  `Autonomous`) todos dentro de comentários HTML; o script nunca sai com exit ≠ 0 e o `pull_request_target`
+  carrega justificativa escrita + `permissions: contents: read` + `persist-credentials: false` +
+  sparse-checkout de um único arquivo. Detalhe em `LR-AGENT-014`.
+- **O cluster de IA admite o que faz**: `openproject-agent-skills` (MIT) abre com WARNING de maturidade, de
+  que **causa escritas sem `--dry-run`**, de flag que muda de significado por versão e de ausência de
+  suporte, e mantém `validation/baseline.md` (RED) + `validation/loopholes.md` (L1–L8, com uma mudança de
+  contrato que aposentou 6 flags). Contraste direto com `LR-STUDIO-012`.
+
+### ADD — `LR-FORGE-017` · `every-app/open-seo` @ v0.1.32 (HEAD `6f68494`) → **ADAPT** · **TESTED**
+- **Único da leva com suíte completa executada aqui**: `pnpm install --ignore-scripts` (24 s) →
+  `pnpm run test:ci` = **299 arquivos de teste, 2.130 testes, 0 falha** em 132 s; `tsc --noEmit` limpo;
+  `oxlint --type-aware` com **0 avisos e 0 erros** em 1.514 arquivos / 184 regras.
+- **O padrão que faltava na casa**: 28 Skills em `.agents/skills`, **12 espelhadas** em
+  `plugins/openseo/skills` por `scripts/sync-plugin-skills.mjs`, com o `ci:check` terminando em
+  `test -z "$(git status --porcelain -- plugins/openseo/skills)"` — cópia real (por que instaladores pulam
+  symlink) + **teste de deriva**. Cópias conferidas: byte-idênticas.
+- Fronteiras medidas: 15 de 28 Skills com `metadata.internal: true`; `server.json` em **0.1.27** contra
+  `package.json` 0.1.32 (deriva de manifesto, a CI deles não cobre isso); `deploy:prod` dispara workflow em
+  `bensenescu/open-seo`, que responde **404**; e `retroactive-contributions.md` declara que fixes do repo
+  público entraram pelo staging privado **sem o nome do autor**.
+- Falso negativo meu, registrado: o primeiro `pnpm run lint` pareceu falhar por causa do pipe para `tail`;
+  reexecutado com saída em arquivo, exit 0.
+
+### ADD — `LR-VOICE-003` · `debpalash/VoiceStudio` @ v0.5.8 → **ADAPT** · **PARTIALLY_TESTED**
+- **Censo próprio de fornecedura**: 35 YAML em `.github/{workflows,actions}`, **278** referências `uses:`,
+  **262** remotas, **262 em SHA de 40 hex**, **0** flutuando em tag, 34 ações distintas.
+- **Testes do fornecedor executados**: `pytest tests/test_workflow_action_pins.py tests/test_actions_pinned.py
+  -q --noconftest` → **20 passed, 1 skipped** (o skip pede `VOICESTUDIO_VERIFY_ACTION_PINS=1`, que é a parte
+  de rede); com o `conftest.py` ativo, 21 erros `No module named 'services'` — causados **pelo meu
+  sparse-checkout**, não pelo projeto (registrado como limitação minha).
+- **931 arquivos de teste, 19 deles só de pinos**; `LICENSE-NOTICE.md` dizendo que AGPL-3.0-only
+  "**includes commercial and internal business use**" e que "Model weights, tokenizers, and other
+  third-party assets **retain their own terms**"; `.gitmodules` com `omnivoice-gallery` fora do alcance da
+  licença do repo.
+
+### ADD — `LR-FORGE-018` · `capsoftware/cap` @ cap-v0.6.3 → **ADAPT** (execução `BLOCKED` por ambiente)
+- Licença **dividida por família de crate**: MIT só para `cap-camera*`/`scap-*` (um único
+  `licenses/LICENSE-MIT` referenciado), AGPLv3 no resto; 35 workflows, `apps/` com 9 superfícies.
+- **`AGENTS.md` de 125 linhas como documento de referência da casa**: invariantes *antes* da geração
+  ("Every CI failure caused by one of these rules means the agent didn't read this section"), proibição de
+  editar arquivo gerado, "no fixed sleeps / no polling spies / no retries — a test that passes on rerun is a
+  flake to fix", e o **ratchet**: violações congeladas por arquivo em `scripts/test-lint/*.json` —
+  **33 arquivos / 324 exceções**, máx. 69 — com "Counts only go down… Never raise a count or add an entry."
+
+### ADD — `LR-FORGE-019` · `calcom/cal.diy` @ v6.2.0 → **ADAPT**
+- **MIT puro medido**: LICENSE de 21 linhas com **zero** ocorrências de AGPL/Affero, 0 caminhos `ee/`,
+  7 `LICENSE` aninhados também MIT. E a fronteira que o fork **não** removeu:
+  `LicenseKeyService.checkLicense()` e `validateLicenseKey()` seguem no código devolvendo `return true`, com
+  bypass por `NEXT_PUBLIC_IS_E2E`.
+- **`agents/` como fonte única**: `.claude/{rules,skills}` e `.cursor/{rules,skills}` são **symlinks** para os
+  mesmos blobs (`e01395`, `a769d4`) — a solução oposta à do open-seo, para o mesmo problema, no mesmo mês.
+- `PERMISSIONS.md` (189 linhas) mapeando checagem RBAC → string `recurso.ação` **com coluna `arquivo:linha`**;
+  50 workflows (7 e2e, `security-audit.yml`, `nextjs-bundle-analysis`, 9 `cron-*` de produto);
+  `.env.example` com 465 linhas e **165 variáveis**; Skill vendida (`vercel-react-best-practices`) com
+  `license: MIT` no frontmatter e "45 rules" batendo com os 45 arquivos de `rules/`.
+- Renomeio confirmado: `GET repos/calcom/cal.com` responde com o objeto `calcom/cal.diy`; não existe repo
+  `cal.com` no org (44 repos).
+
+### ADD — `LR-SEC-009` · `chatwoot/chatwoot` @ v4.20.1 → **ADAPT** (formato de fila, não ferramenta)
+- **A fila que a Lia não tem**: `ghsa-linear-sync.yml` (30 linhas, `permissions: contents: read`) +
+  `.github/scripts/ghsa_linear_sync.py` (**211 linhas**): `GET /repos/{repo}/security-advisories?state=triage`
+  com paginação por `Link`, idempotência consultando o Linear pelo título `[GHSA-id]`, `priority` derivada de
+  `SEVERITY_PRIORITY` com *default* medium, e Slack/Discord **só depois** da issue criada.
+- Licença: MIT **exceto** `enterprise/` (759 blobs), com a cláusula condicional "**if that directory
+  exists**" e `enterprise/LICENSE` proibindo produção sem assinatura; `publish_foss_docker.yml` ×
+  `publish_ee_docker.yml` como a fronteira visível na CI.
+- Contraste de higiene: 40 mil estrelas aceitando `actions/checkout@v4` (tag flutuante) no mesmo mês em que
+  o VoiceStudio trata 262 pins como corpus de teste.
+
+### ADD — `LR-VOICE-004` · `OpenWhispr/openwhispr` @ v1.12.0 → **ADAPT** (duas formas, zero código)
+- **Peer arquitetural do `lia-voice-input`**: 19 workflows, das quais **8 são builders de helper nativo por
+  plataforma** (key listener, mic listener, fast paste, system audio, text monitors, AEC de reunião) e
+  `build-and-notarize.yml` separa notarizar de empacotar.
+- `docs/network-allowlist.md` por host, admitindo a fraqueza do próprio desenho ("A configured HTTP proxy
+  uses an unencrypted CONNECT hop… No inbound ports") — formato de divulgação melhor que o de site, e
+  aplicável ao `lia-voice-input`.
+- 12.132★ com **519 issues abertas** e `SECURITY.md` suportando `1.10.x` enquanto a release é `v1.12.0`:
+  a tabela de versões não acompanhou o release.
+
+### ADD — `LR-AGENT-014`, `LR-MCP-004`, `LR-LIC-006` · três digests nascidos da mesma leva
+- `LR-AGENT-014` (`cross-project/agents/AI-INVOLVEMENT-DECLARATIONS.md`): as três camadas do padrão
+  (instrução → verificação → declaração cobrada) aplicadas aos oito objetos; **nenhum dos sete automatiza a
+  declaração de autoria**, todos automatizam a forma. Proposta de um campo `| Envolvimento de IA |` no
+  cabeçalho dos relatórios, com as objeções já escritas.
+- `LR-MCP-004` (`cross-project/mcp/APPFLOWY-AI-PLUGINS-GATES.md`): permissão por execução **dentro do JSON
+  Schema** — `confirm` como `{"type":"boolean","const":true}` em **31 das 45** ferramentas, obrigatório em
+  `required` nas 31, presente em **20/20** destrutivas e **0/14** de leitura; `tools_integrity` com
+  `tool_count` dentro do hash; verificador deles executado (`check.py` → `ok`, exit 0 com 2 notas) e tabela
+  de annotations determinística (duas execuções idênticas).
+- `LR-LIC-006` (`cross-project/licensing/SPLIT-LICENSE-SCAN.md`): método de 5 passos para ler licença
+  dividida e os **três formatos** medidos em 13 repositórios — diretório com licença própria (Chatwoot),
+  família de crates (Cap), licença única + `LICENSE-NOTICE.md` (VoiceStudio) — mais dual por componente
+  (appflowy-editor) e "sem licença, com acordo" (AppFlowy SelfHost Commercial).
+
+### CONSOLIDATE — estrutura da base
+- **+11 documentos** (8 relatórios novos em `repositories/*` + 3 digests): 185 → **196** arquivos `.md`;
+  §1 do índice 34 → **42 objetos**; §3 31 → **34**; `catalog/catalog.tsv` regenerado;
+  `data/inventory/license-matrix.tsv` 34 → **42 linhas** (uma por objeto novo, com a evidência apontando a
+  seção do relatório); `cross-project/licensing/READY-TO-USE-LICENSES.md` com 8 linhas na tabela-mestra.
+- **+3 linhas** em `data/testing/test-log.tsv` (30 → 33 registros): `LOCAL_TESTS_PASS` para o open-seo,
+  `LOCAL_SMOKE_PASS` para os plugins AppFlowy e `PARTIAL` para os testes de pin do VoiceStudio — a primeira
+  vez nesta base que um resultado `PARTIAL` documenta uma falha causada pelo **meu** método de coleta.
+- **Reparação de dados na matriz de licenças** (descoberta ao escrever estas linhas, não ao ler os
+  objetos): a linha `LR-FORGE-013` tinha **uma quebra de linha dentro de um campo**, o que fazia
+  `check_licence_counts` enxergar um registro com `id` vazio, e o arquivo terminava sem nova linha.
+  Corrigidos; o validador passou de 1 aviso para **0 avisos** nesta base (0 erros, 7 notas, todas
+  antigas e conhecidas).
+- **Duas referências cruzadas erradas que eu mesmo escrevi e retirei antes do commit**: comparava
+  `logging_percentage_check.yml` do Chatwoot com "95 % de overhead de stdout" atribuído a um objeto
+  `LR-FORGE-013` chamado jupyter-mcp-server, e mencionava o mesmo id como par do `.bak` do AppFlowy.
+  `LR-FORGE-013` é **anymachine** e não existe jupyter-mcp-server nesta base — a frase foi removida, não
+  reformulada, porque a comparação não tinha fonte. Vale como lembrete da regra que a casa já tem:
+  índice antes de adjetivo.
+- `projects/lia-project/INDEX.md`: a lacuna `lia-security-review` (ainda `❌`) passa a citar o desenho de
+  fila medido em `LR-SEC-009` e o inventário leve `opf/recense` (MIT) — continua aberta; a autoridade para
+  abri-la é do dono.
+
+### O que não se mede aqui (e fica declarado)
+- Compilação/execução de qualquer projeto em Rust, Go, Ruby, Flutter ou Electron nesta máquina:
+  `BLOCKED_BY_ENVIRONMENT` medido por `command -v` — por isso Cap, Chatwoot, OpenProject, AppFlowy e
+  OpenWhispr têm o campo de execução em `NOT_RUN`/`BLOCKED` e nenhuma afirmação de "compila/roda".
+- Termos dos pesos de modelo que VoiceStudio e OpenWhispr baixam: `BLOCKED` por política (nada foi
+  baixado); `nvidia/parakeet-tdt-0.6b-v3` citado como link do README deles, não como verificação.
+- Nota do dono, duas linhas: (1) a escolha symlink × cópia-gerada (cal.diy × open-seo) é decisão de
+  publicação do Lia Agent Hub; (2) o ratchet "contagem só desce" do Cap resolveria os avisos recorrentes
+  desta base, mas mexe no `tools/validate.py` — precisaria de DR, e a Research não aprova nada.
+
 ## 2026-11-24 (UTC) — `bisqit.app`: como um app fechado faz o que o Lia Project lista como lacuna
 
 Pedido do proprietário: pesquisar o link e "como foi feito o app", com possível utilidade para o Lia

@@ -5,7 +5,7 @@
 | ID | `LR-LIC-005` |
 | Categoria | licensing |
 | Projetos beneficiados | todos os cinco (camada comum de licença) |
-| Fontes | seção de evidências de cada um dos 34 relatórios em `repositories/*/REPORT.md` (licença lida no arquivo, no commit pinado); `data/inventory/license-matrix.tsv` |
+| Fontes | seção de evidências de cada um dos 42 relatórios em `repositories/*/REPORT.md` (licença lida no arquivo, no commit pinado); `data/inventory/license-matrix.tsv` |
 | Data | 2026-11-17 |
 | Status | CURRENT — **não é parecer jurídico**; é o que o arquivo diz, com obrigação traduzida em ação |
 | Confiança | Alta para o texto das licenças lidas; média para fronteiras de caso limite (marcadas) |
@@ -27,7 +27,7 @@ Se o repositório **não tem arquivo de licença**, a resposta a (1) e (2) é **
 `storytold/photocraft` (pasta `artcraft`) ela diz `Apache-2.0`, mas o repositório oferece
 `LICENSE-MIT` **e** `LICENSE-APACHE` — o consumidor escolhe. Quem lê o selo perde uma
 opção de uso. Conferido em 2026-11-20 (`audits/REAUDIT-2026-11-20.md`). Está tabulado em `data/inventory/license-matrix.tsv`
-(34 linhas, uma por objeto, com colunas `usar_como`, `fork`, `modificar`, `comercial`,
+(42 linhas, uma por objeto, com colunas `usar_como`, `fork`, `modificar`, `comercial`,
 `redistribuir`, `atribuicao`, `copyleft`, `patente`, `notice_obrigatorio`).
 
 ## 2. Tabela-mestra (o resumo que evita a pesquisa)
@@ -68,9 +68,17 @@ opção de uso. Conferido em 2026-11-20 (`audits/REAUDIT-2026-11-20.md`). Está 
 | `LR-SEC-007` | security-audit-skill | check-list de auditoria | sim | copyright + MIT |
 | `LR-MODEL-006` | freellmapi | software MIT; o *serviço* é instantâneo de 30 dias | sim (auto-hospedar) | copyright + MIT |
 | `LR-STUDIO-006` | gamedev agent skills | adaptar formato e pipeline de asset | sim | `NOTICE` + `LICENSE` + indicar alterações |
+| `LR-FORGE-015` | AppFlowy-IO (27 repos) | padrões de CI de self-host; o par de plugins MCP | sim | AGPL por componente; dual no editor; 6 sem licença; o Commercial é acordo, não licença aberta |
+| `LR-FORGE-016` | opf / OpenProject (123) | gate de envolvimento de IA, pack de Skills com validação, `THIRD_PARTY.md` | sim | GPL-3.0 no produto **sem** `ee/`; MIT no pack de Skills e no `recense` |
+| `LR-FORGE-017` | open-seo | Skills com teste de deriva; verificação em duas camadas | sim | MIT puro; autoria passa por staging privado (proveniência, não licença) |
+| `LR-FORGE-018` | Cap | AGENTS.md com ratchet anti-regressão | sim (com cuidado) | MIT **só** nas crates de câmera; AGPLv3 no resto; redistribuir = carregar os dois arquivos |
+| `LR-FORGE-019` | cal.diy | `agents/`+symlinks, `PERMISSIONS.md`, `specs/_templates` | sim | MIT puro; a máquina de license-key sobrevive stubada |
+| `LR-SEC-009` | Chatwoot | fila de triagem de advisory (211 linhas de Python) | sim, fora de `enterprise/` | MIT com cláusula condicional; `enterprise/` proíbe produção sem assinatura |
+| `LR-VOICE-003` | VoiceStudio | censo de pins + testes de pin; o `LICENSE-NOTICE.md` | sim | AGPL-3.0-only declarando uso comercial ok e pesos com termos próprios; submódulo à parte |
+| `LR-VOICE-004` | OpenWhispr | allowlist de rede; `Supported Versions` | sim | MIT; termos dos pesos linkados não foram lidos |
 
 Os quatro últimos entraram em 2026-11-20 (antes o digest cobria 19 objetos, a matriz já tinha
-22). Contagem conferida contra `data/inventory/license-matrix.tsv` — hoje 34.
+22). Contagem conferida contra `data/inventory/license-matrix.tsv` — hoje 42. Os oito seguintes entraram em 2026-11-24 (a leva `AppFlowy-IO`/`opf` + seis repositórios); o método de leitura de licença dividida está em `cross-project/licensing/SPLIT-LICENSE-SCAN.md`.
 
 Cuidado com Apache-2.0 em pacote de Skills: copiar **uma pasta** de Skill leva só `SKILL.md` e
 `scripts/`; o `NOTICE` e o `LICENSE` têm de ser copiados junto, ou o reuso fica sem atribuição.
