@@ -9,7 +9,7 @@
 | Responsável | Chatwoot Inc. ("Copyright (c) 2017-2026 Chatwoot Inc." no LICENSE) |
 | Estado da pesquisa | DOCUMENTED |
 | Resultado de execução | NOT_RUN |
-| Recomendação | **ADAPT** — levar o desenho do `ghsa-linear-sync` (advisory em triage → issue com prioridade por severidade → canal humano), adaptado ao formato desta casa |
+| Recomendação | **ADAPT** — sugestão ao dono: levar o desenho do `ghsa-linear-sync` (advisory em triage → issue com prioridade por severidade → canal humano), adaptado ao formato desta casa |
 | Decisão de adoção | — nenhuma registrada |
 | Categoria | segurança (triagem de aconselhamento) + fronteira de licença |
 | Projetos beneficiados | `lia-security-review` (a lacuna `❌` em `projects/lia-project/INDEX.md`), Lia Forge, Lia Research (fila de triagem), Lia Project |
@@ -147,9 +147,9 @@ Não é uma lição de "quem é melhor": é a observação de que **um projeto d
 flutuante em action de CI** enquanto um projeto de um ano trata pinos como corpus de teste. Para a Lia,
 a fila deles é o que falta; o pino deles é o que já temos planejado.
 
-## 6. Mapa para os projetos da Lia
+## 6. Onde isto poderia se aplicar (a viabilidade é do dono)
 
-| Destino | O que levar | Seção |
+| App-alvo | O que sugiro considerar | Seção |
 |---|---|---|
 | `lia-security-review` (lacuna `❌`) | o desenho de fila do §3, com o tracker substituído por um arquivo nesta base (`data/inventory/` ou `decisions/PENDING/`) | §3 |
 | Lia Research | o mecanismo de idempotência: "o estado mora no destino, consultado por chave estável" — versão nossa: `grep` do id no catálogo antes de abrir novo objeto | §3 |
@@ -184,13 +184,15 @@ decisão do dono** (`governance/RESEARCH-GOVERNANCE.md`). Registro a sugestão, 
 
 ## 9. Recomendação: **ADAPT** (formato, não ferramenta)
 
-1. **Adaptar**: a fila de triagem como arquivo versionado nesta base (§7), com severidade→prioridade e
+> **Escopo desta seção** — o que segue é recomendação técnica desta base, não instrução para nenhum app. Se vale, cabe e é possível implementar em cada projeto é decisão do dono (`MISSION.md` §3: o Research não aprova nada).
+
+1. **Propor: adaptar**: a fila de triagem como arquivo versionado nesta base (§7), com severidade→prioridade e
    idempotência por chave; e o comentário explícito de `permissions: contents: read` em qualquer
    workflow que a Lia venha a ter com token de leitura.
-2. **Adaptar**: a clausula condicional de licença ("if that directory exists") **não** — é uma forma que
+2. **Propor: adaptar**: a clausula condicional de licença ("if that directory exists") **não** — é uma forma que
    favorece quem distribui, não quem consome; registrar que ela existe, e que nenhuma licença da Lia
    deveria depender de um diretório poder ser removido.
-3. **Não adotar** o Chatwoot como dependência nem como modelo de produto; nada na pergunta do dono
+3. **Não recomendo adotar** o Chatwoot como dependência nem como modelo de produto; nada na pergunta do dono
    pedia isso, e Vue 2/Rails é uma arquitetura que a casa não avalia agora.
 4. **Fecho dos `NOT_RUN` que dependem de mim**: listar `.github/` inteiro do Chatwoot e abrir o
    `SECURITY.md` — é nível 1, dá para fazer, e fica pendido para a próxima passada junto com o par

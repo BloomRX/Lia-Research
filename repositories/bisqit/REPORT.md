@@ -9,7 +9,7 @@
 | Responsável | "Ask" / Dawnce — contato `ask@dawnce.app`; apps publicados sob conta norueguesa (`apps.apple.com/no/app/dawnce/id6760565547`); DPA citada na política: Datatilsynet (Noruega) |
 | Estado da pesquisa | DOCUMENTED |
 | Resultado de execução | NOT_RUN |
-| Recomendação | **ADAPT** — levar o desenho do loop, das permissões e do disclosure; nada a integrar, nada a instalar |
+| Recomendação | **ADAPT** — sugestão ao dono: o desenho do loop, das permissões e do disclosure; nada a integrar, nada a instalar |
 | Decisão de adoção | — nenhuma registrada |
 | Categoria | produto (leitura transversal em security, ui, forge) |
 | Projetos beneficiados | Lia Project (automação de navegador e permissões), Lia Forge (empacotamento, atualização, preço), Lia Agent Hub (classificação com custo por chamada), Lia Research (formato de divulgação do que é lido) |
@@ -224,9 +224,9 @@ Duas lições transversais: (a) quem não tem IA no loop usa **hooks/telemetria 
 precisa de permissão nenhuma (Desktop Dog); (b) todo mundo que gera o pet a partir de foto separa
 **confirmação barata** de **geração cara** — igual ao Bisqit. Não há, no nicho, uma terceira via.
 
-## 11. Mapa para o Lia Project (o que levar, por destinatário)
+## 11. Onde isto poderia se aplicar no Lia Project (a viabilidade é do dono)
 
-| Destinatário | Padrão a levar | Custo de adoção |
+| App-alvo | Padrão sugerido | O que custaria no app |
 |---|---|---|
 | **Lia Project** — `lia-browser-automation` (hoje ❌, nota "risco de egress") | o conjunto mínimo de sinais: app em primeiro plano + título + URL sem query; lista local para o que é conhecido; cache de decisão por chave (6 h aqui); **nunca** ler conteúdo da página nem teclas | um classificador com fallback local; a lista do usuário é o que torna o resto barato |
 | **Lia Project** — UX de permissão | dizer, antes de pedir, **para que** serve cada permissão, e uma vez por navegador no macOS; no Windows, explicar que UI Automation não pede nada | texto, não código |
@@ -262,15 +262,17 @@ pontos técnicos, o que é um bom sinal, não uma verificação.
 
 ## 13. Recomendação: **ADAPT**
 
+> **Escopo desta seção** — o que segue é recomendação técnica desta base, não instrução para nenhum app. Se vale, cabe e é possível implementar em cada projeto é decisão do dono (`MISSION.md` §3: o Research não aprova nada).
+
 Não `REFERENCE_ONLY`, porque três peças são transplantáveis hoje, sem código deles; não
 `DIRECT_INTEGRATION_CANDIDATE`, porque não há artefato a integrar — o objeto é fechado.
 
-1. **Adaptar o loop de classificação** (lista local → cache → modelo → correção do usuário persistida) como
+1. **Propor: adaptar o loop de classificação** (lista local → cache → modelo → correção do usuário persistida) como
    forma de qualquer função "sabe o que o usuário está fazendo" no Lia Project: §4.
-2. **Adaptar o disclosure** (o que fica / o que sai / retenção / quem processa / o que ainda não dá para
+2. **Propor: adaptar o disclosure** (o que fica / o que sai / retenção / quem processa / o que ainda não dá para
    desligar) como bloco de texto nos nossos docs de feature: §9.
-3. **Adaptar a política de ação** (grace de 70 s, "Not a drift", minimizar em vez de fechar): §11.
-4. **Não levar**: assinatura como único modelo (o Dumple mostra o pagamento único no mesmo nicho), o
+3. **Propor: adaptar a política de ação** (grace de 70 s, "Not a drift", minimizar em vez de fechar): §11.
+4. **Não recomendo**: assinatura como único modelo (o Dumple mostra o pagamento único no mesmo nicho), o
    A/B de preço por `install ID`, nem o julgamento ativo com o app pausado.
 
 Próximos passos que fecham o que está `NOT_RUN`/`BLOCKED` — cada um exige máquina ou conta, então são do

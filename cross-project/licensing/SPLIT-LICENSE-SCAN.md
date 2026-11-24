@@ -112,6 +112,8 @@ casa, do outro lado da mesa).
 | Licenças das **123 − 77** repositórios-fork do org `opf` e dos 27 − … do `AppFlowy-IO` | `NOT_RUN` | forks herdam a licença do upstream; os agregados estão em `LR-FORGE-016` §2 |
 
 ## 7. Recomendações (proposta ao dono; nada aplicado)
+> **Escopo desta seção** — o que segue é recomendação técnica desta base, não instrução para nenhum app. Se vale, cabe e é possível implementar em cada projeto é decisão do dono (`MISSION.md` §3: o Research não aprova nada).
+
 
 1. **Adotar o método de cinco passos como rotina de casa** — escrito em uma linha em
    `governance/SECURITY-AND-PRIVACY-POLICY.md`? Não: o lugar correto é a Skill/checklist de auditoria de
@@ -128,7 +130,7 @@ casa, do outro lado da mesa).
    checagem da matriz (item 2) entra no `tools/validate.py` como aviso ou como erro; (c) se abrimos
    pendência para ler os termos dos pesos que o Studio consome (linha `BLOCKED` §6).
 
-## 8. Checklist sugerido (para virar texto de Skill em `lia-dependency-audit`)
+## 8. Checklist sugerido (se o dono quiser transformá-lo em Skill de auditoria de dependência)
 
 ```
 para cada dependência nova:

@@ -46,6 +46,20 @@ fluxos, validações, integrações e mecanismos costumam valer mais que a descr
 
 Formato da conclusão: `o que é` → `como funciona` → `o que permite fazer` → `o que impede`.
 
+**A Etapa C termina na sugestão.** Onde um documento desta base aponta para um app
+(Lia-Project, Lia Forge, Lia Studio, Lia Agent Hub, Lia Model Lab — ou qualquer outro
+repositório do proprietário), o que se escreve é *o que a evidência sustenta* e *a pergunta de
+viabilidade*; **não** se escreve instrução de implementação. Diretrizes que o Research pode dar e
+aplicar são as desta base: `tools/`, `governance/`, `templates/`, `agents/`, índice, catálogo,
+matrizes em `data/`. Para os outros apps, "o que levar" virou "o que sugiro considerar", e
+"cabe ou não cabe, é possível ou não" é decisão do dono (`MISSION.md` §3). Mudança de
+vocabulário feita em 2026-11-24 por determinação do proprietário; não é licença para o Research
+reescrever o texto de um app — é o contrário: o texto de um app não é deste repo.
+
+Documento anterior a 2026-11-24 pode ainda usar "levar"/"transportar" no corpo, e expressões
+como "Custo de adoção" — são estimativa descritiva, não ordem. A regra acima vale para a leitura de
+qualquer relatório desta base; não houve reescrita em massa justamente para não reescrever história.
+
 ## Etapa D — Experimentação
 
 Aplicar `governance/TESTING-PROTOCOL.md`: tentar o Nível 2 quando for seguro e viável;
@@ -66,6 +80,7 @@ Nenhum relatório é "documental por padrão". Documental é o que sobra depois 
 | Repetir contagem de documento anterior | medir de novo com comando |
 | Citar badge de licença | ler `LICENSE` no commit |
 | Confundir recomendação com aprovação | três campos separados |
+| Escrever "transportar X para o app Y" como se houvesse autorização | verbo de sugestão + a pergunta de viabilidade; implementação fora desta base não é pauta do Research |
 | "Funciona" sem rótulo | vocabulário de evidência obrigatório |
 | Relatório de 200 linhas para objeto de 1 arquivo | template por tipo |
 | Comparar tamanho de artefato derivado sem conferir a unidade (`.zip` comprimido × conteúdo extraído, entrada de manifest × arquivo em disco) | medir a mesma grandeza; se o artefato tem gerador, **reproduzir o gerador no commit de origem** antes de declarar divergência (`LR-STUDIO-012` §7/§13) |

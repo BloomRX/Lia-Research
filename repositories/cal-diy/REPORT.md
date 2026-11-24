@@ -9,7 +9,7 @@
 | Responsável | Cal.com, Inc. detém o copyright (`Copyright (c) 2020-present Cal.com, Inc.` no LICENSE) e a comunidade mantém o fork; o README direciona quem quer comercial para o produto original |
 | Estado da pesquisa | DOCUMENTED |
 | Resultado de execução | NOT_RUN |
-| Recomendação | **ADAPT** — levar o `agents/` como fonte única com symlinks por ferramenta, o `PERMISSIONS.md` mapeando checagem→string, e o `specs/_templates/` |
+| Recomendação | **ADAPT** — sugestão ao dono: levar o `agents/` como fonte única com symlinks por ferramenta, o `PERMISSIONS.md` mapeando checagem→string, e o `specs/_templates/` |
 | Decisão de adoção | — nenhuma registrada |
 | Categoria | produto concorrente + fronteira de licença + layout de instruções a agentes |
 | Projetos beneficiados | Lia Project (estrutura `agents/`, spec-driven), Lia Agent Hub (symlink × cópia), Lia Forge (50 workflows, 8 ações compostas de cache), `lia-multiplatform` (o que um fork pode e não pode arrancar) |
@@ -182,9 +182,11 @@ significa que "sem dependência comercial" é fato do *licenciamento*, não do *
 | Autoria dos commits do fork vs upstream | `UNVALIDATED` | não medi histórico (clone não feito) |
 | Cobertura real de `security-audit.yml` (o que ele roda) | `NOT_RUN` | workflow não aberta nesta passada |
 
-## 9. Recomendação: **ADAPT** (três coisas, todas baratas)
+## 9. Recomendação: **ADAPT** (três sugestões, todas baratas — viabilidade por conta do dono)
 
-1. **Layout `agents/` + symlinks**: adotar *uma* fonte (`agents/{rules,skills}`) com vistas por
+> **Escopo desta seção** — o que segue é recomendação técnica desta base, não instrução para nenhum app. Se vale, cabe e é possível implementar em cada projeto é decisão do dono (`MISSION.md` §3: o Research não aprova nada).
+
+1. **Layout `agents/` + symlinks**: *sugiro* adotar *uma* fonte (`agents/{rules,skills}`) com vistas por
    ferramenta, **mas só se** o nosso caminho de distribuição aceitar symlinks; senão, o modelo
    cópia + deriva do `LR-FORGE-017` é o indicado. Registrar a escolha como decisão (é a linha 1 da §4).
 2. **`PERMISSIONS.md` no formato `recurso.ação` com coluna `arquivo:linha`** para qualquer matriz de

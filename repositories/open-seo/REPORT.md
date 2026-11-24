@@ -9,7 +9,7 @@
 | Responsável | Ben Senescu (`bensenescu`); empresa EveryApp; licença `Copyright (c) 2026 Ben Senescu` |
 | Estado da pesquisa | TESTED |
 | Resultado de execução | LOCAL_TESTS_PASS |
-| Recomendação | **ADAPT** — transportar o `sync-plugin-skills.mjs` com checagem de deriva na CI, o par "protocolo × consumidor" da Skill `verify-local-mcp`, e a política de publicação de Skills (12 públicas de 28) |
+| Recomendação | **ADAPT** — sugestão ao dono: transportar o `sync-plugin-skills.mjs` com checagem de deriva na CI, o par "protocolo × consumidor" da Skill `verify-local-mcp`, e a política de publicação de Skills (12 públicas de 28) |
 | Decisão de adoção | — nenhuma registrada |
 | Categoria | produto concorrente + engenharia de Skills/MCP |
 | Projetos beneficiados | Lia Project (Skills + MCP), Lia Forge (CI enxuta, release automatizada, `ci:check` de deriva), Lia Agent Hub (frontmatter e publicação seletiva de Skills), Lia Studio (espelho de pacotes que não é symlink) |
@@ -203,16 +203,18 @@ repositório que produz o binário, não o que aparece no Google.
 
 ## 11. Recomendação: **ADAPT**
 
-1. **Transportar** o mecanismo de deriva da §4 para o Lia Agent Hub: uma Skill pública = arquivo
+> **Escopo desta seção** — o que segue é recomendação técnica desta base, não instrução para nenhum app. Se vale, cabe e é possível implementar em cada projeto é decisão do dono (`MISSION.md` §3: o Research não aprova nada).
+
+1. **Propor: transportar** o mecanismo de deriva da §4 para o Lia Agent Hub: uma Skill pública = arquivo
    gerado + lista de exportação no código + `test -z "$(git status --porcelain -- <dir>)"` na CI. É
    39 linhas e resolve o modo de falha documentado em `LR-STUDIO-012` e `DR-0004`.
-2. **Transportar** a Skill `verify-local-mcp` como modelo de teste de usabilidade de ferramentas para
+2. **Propor: transportar** a Skill `verify-local-mcp` como modelo de teste de usabilidade de ferramentas para
    qualquer MCP nosso: camada de protocolo + camada de "agente que nunca viu o código", com limite de
    tamanho de saída como critério explícito.
-3. **Transportar** a separação de frontmatter: `name` + `description` no que é público, flag `internal`
+3. **Propor: transportar** a separação de frontmatter: `name` + `description` no que é público, flag `internal`
    no que não é, e **a lista de exportação como fonte de verdade** (o metadado sozinho não garante —
    item medido de §4).
-4. **Não levar**: a dependência estrutural de um provedor de dados pago (DataForSEO) — custo por
+4. **Não recomendo**: a dependência estrutural de um provedor de dados pago (DataForSEO) — custo por
    chamada é decisão do dono, não da Research, e nenhum objeto desta base autoriza gastar; nem
    Cloudflare D1 como alvo de banco para a Lia (o
    `lia-multiplatform` precisa funcionar offline; o padrão interessante deles é ter *dois* alvos com

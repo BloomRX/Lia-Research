@@ -201,9 +201,9 @@ escreve. Dossiê completo em `LR-MCP-004`; é o único item desta leva que eu re
    para ela".
 5. **Aviso de arquivamento escrito no README**, não escondido no banner do GitHub.
 
-## 9. Mapa para os projetos da Lia
+## 9. Onde isto poderia se aplicar (a viabilidade é do dono)
 
-| Destino | O que levar | Seção |
+| App-alvo | O que sugiro considerar | Seção |
 |---|---|---|
 | Lia Forge | `self-host-upgrade-check.yml` + `deployment-test.yml` + `backup-test.yml` como o conjunto de CI que uma distribuição self-host precisa; `.fvmrc`/toolchain pin | §3, §4, §8 |
 | Lia Project | nada de código: Flutter/Cargo fora do ambiente daqui; ler `AppFlowy-Collab` se CRDT entrar em pauta | §7 |
@@ -225,12 +225,14 @@ escreve. Dossiê completo em `LR-MCP-004`; é o único item desta leva que eu re
 
 ## 11. Recomendação: **REFERENCE_ONLY** (com uma exceção, em outro objeto)
 
-1. **Não adotar** nada deste org como dependência; o AGPL no núcleo é uma decisão que o dono toma, não
+> **Escopo desta seção** — o que segue é recomendação técnica desta base, não instrução para nenhum app. Se vale, cabe e é possível implementar em cada projeto é decisão do dono (`MISSION.md` §3: o Research não aprova nada).
+
+1. **Não recomendo adotar** nada deste org como dependência; o AGPL no núcleo é uma decisão que o dono toma, não
    eu.
 2. **Usar o §4 como material de decisão do Lia Forge**: quando o Forge decidir "abrir o código, fechar
    o binário/serviço", `AppFlowy-IO` é um exemplo medido do formato — inclusive do custo (seis
    repositórios sem licença, um servidor arquivado).
-3. **Transportar uma coisa só**: o par `appflowy-ai-plugins` → `LR-MCP-004`.
+3. **Propor: transportar uma coisa só**: o par `appflowy-ai-plugins` → `LR-MCP-004`.
 4. **Decisão do dono (nenhuma é minha)**: (a) autorizar ou não o teste de nível 3 com as imagens
    `appflowyinc/*`; (b) se o Lia Forge adota o modelo "acordo próprio em vez de licença aberta" para o
    self-host, o que isso implica com a matriz atual em `data/inventory/license-matrix.tsv`; (c) se

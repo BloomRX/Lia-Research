@@ -9,7 +9,7 @@
 | Responsável | OpenProject GmbH |
 | Estado da pesquisa | DOCUMENTED |
 | Resultado de execução | NOT_RUN |
-| Recomendação | **ADAPT** — levar três artefatos de política/verificação (declaração de envolvimento de IA, o bloco de WARNING das Skills, o `threat_model.md` versionado); nenhum código |
+| Recomendação | **ADAPT** — sugestão ao dono: levar três artefatos de política/verificação (declaração de envolvimento de IA, o bloco de WARNING das Skills, o `threat_model.md` versionado); nenhum código |
 | Decisão de adoção | — nenhuma registrada |
 | Categoria | inventário de org + política de agente |
 | Projetos beneficiados | Lia Project (permissão por execução, declaração de autoria), Lia Forge (CI de release + `THIRD_PARTY.md`), Lia Studio (pack de Skills com validação), Lia Agent Hub (formato de SKILL.md mínimo), Lia Model Lab (harness de evals com promptfoo) |
@@ -198,9 +198,9 @@ a "flag que muda de significado" do §5 é a superfície deste repositório. Nã
 6. **`THIRD_PARTY.md` + `charts/` + `install.sh` num projeto de 0 estrelas** (`recense`) — higiene de
    proveniência independentemente de popularidade.
 
-## 7. Mapa para os projetos da Lia
+## 7. Onde isto poderia se aplicar (a viabilidade é do dono)
 
-| Destino | O que levar | Seção |
+| App-alvo | O que sugiro considerar | Seção |
 |---|---|---|
 | Lia Project | o formato "leitura roda sozinha, escrita pede confirmação, e escrita é verificada com inspect de follow-up" — é literalmente o `PER-EXECUTION-PERMISSIONS.md` com implementação externa | §5 |
 | Lia Project / Research | o gate de declaração de envolvimento de IA | §4, `LR-AGENT-014` |
@@ -224,10 +224,12 @@ a "flag que muda de significado" do §5 é a superfície deste repositório. Nã
 
 ## 9. Recomendação: **ADAPT**
 
-1. **Adaptar (proposta, não decisão)**: o gate de §4 no fluxo da Research, como bloco opcional de
+> **Escopo desta seção** — o que segue é recomendação técnica desta base, não instrução para nenhum app. Se vale, cabe e é possível implementar em cada projeto é decisão do dono (`MISSION.md` §3: o Research não aprova nada).
+
+1. **Propor, sem decidir**: o gate de §4 no fluxo da Research, como bloco opcional de
    auto-declaração nos relatórios; e o WARNING de §5 como modelo para qualquer pack de Skills que a
    Lia publique. Detalhamento e as três objeções que já antecipo em `LR-AGENT-014` §5–§6.
-2. **Não adotar**: nenhum código deste org; GPL-3.0 no produto e o fato de o `openproject-cli` ser
+2. **Não recomendo adotar**: nenhum código deste org; GPL-3.0 no produto e o fato de o `openproject-cli` ser
    GPL-3.0 tornam "usar o CLI no Lia" uma decisão de licença do dono, não da Research.
 3. **Testes que fecham os `NOT_RUN` acima — e que a Research pode fazer sem autorização nova**: (a)
    executar o `ai_involvement_check.sh` com corpos de exemplo (bom/ruim/múltiplos níveis) no sandbox;

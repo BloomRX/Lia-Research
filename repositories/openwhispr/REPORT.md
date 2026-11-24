@@ -156,9 +156,11 @@ comunitário), `private-notes-release-checklist.md` (checklist de release de um 
 
 ## 7. Recomendação: **ADAPT** (duas formas, zero código)
 
-1. **Adaptar a allowlist de rede** como formato de divulgação do `lia-voice-input` — tabela de hosts de
+> **Escopo desta seção** — o que segue é recomendação técnica desta base, não instrução para nenhum app. Se vale, cabe e é possível implementar em cada projeto é decisão do dono (`MISSION.md` §3: o Research não aprova nada).
+
+1. **Propor: adaptar a allowlist de rede** como formato de divulgação do `lia-voice-input` — tabela de hosts de
    saída + "no inbound ports" + a fraqueza do proxy explicitada, dentro do repositório, não num site.
-2. **Adaptar o nome `Supported Versions` no `SECURITY.md`** e corrigir o nosso quando a release passar da
+2. **Propor: adaptar o nome `Supported Versions` no `SECURITY.md`** e corrigir o nosso quando a release passar da
    linha da tabela; é um caso concreto de "declaração que envelhece", que a nossa base ainda não checa.
 3. **Registrar, sem adotar**: o padrão "um helper nativo por workflow" para captura de áudio/teclado por SO
    — se o `lia-voice-input` crescer para Windows, é o desenho a copiar (e o oposto do app monolítico).

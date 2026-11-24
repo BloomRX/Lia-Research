@@ -142,9 +142,9 @@ Nenhum dos 34 objetos anteriores desta base tinha evidência disso; a `agents/PU
 não cobre troca de endpoint. É a única sugestão deste documento que é *política desta casa*, não do
 produto.
 
-## 7. Mapa para os cinco projetos
+## 7. Onde isto poderia se aplicar (a viabilidade é do dono)
 
-| Destino | O que levar | Seção |
+| App-alvo | O que sugiro considerar | Seção |
 |---|---|---|
 | `lia-security-review` (lacuna `❌`) e `cross-project/security/PER-EXECUTION-PERMISSIONS.md` | `confirm` como `const: true` no `inputSchema` + obrigatório em `required`; escopo read/write/admin no consentimento | §2, §3 |
 | Lia Agent Hub | `tools_integrity` (digest com contagem dentro) e annotations por tabela gerada determinística | §4 |
@@ -167,19 +167,21 @@ produto.
 
 ## 9. Recomendação: **ADAPT** (proposta; nada foi implementado)
 
-1. **Adaptar o `confirm` no schema** para qualquer MCP/skill que a Lia publique e que altere estado —
+> **Escopo desta seção** — o que segue é recomendação técnica desta base, não instrução para nenhum app. Se vale, cabe e é possível implementar em cada projeto é decisão do dono (`MISSION.md` §3: o Research não aprova nada).
+
+1. **Propor: adaptar o `confirm` no schema** para qualquer MCP/skill que a Lia publique e que altere estado —
    `const: true` em `required`, com a frase anti-pergunta-repetida na descrição. Custo: editar o catálogo
    de ferramentas; não há dependência nova.
-2. **Adaptar o `tools_integrity`** ao `catalog/catalog.tsv` desta casa: um bloco com `algorithm`,
+2. **Propor: adaptar o `tools_integrity`** ao `catalog/catalog.tsv` desta casa: um bloco com `algorithm`,
    `digest` e `tool_count`/`row_count`, checado no `tools/validate.py`. Isso resolve um risco que já
    existe aqui: catálogo e índice divergirem sem ninguém perceber (o `check_counts` cobre README/índice,
    não o conteúdo do TSV).
-3. **Adaptar a fraseologia do §3** ("name them in your confirmation question", "read back what matters")
+3. **Propor: adaptar a fraseologia do §3** ("name them in your confirmation question", "read back what matters")
    na política de execução da casa, em `cross-project/security/PER-EXECUTION-PERMISSIONS.md` — as seis
    linhas de evidência que já estão lá ganham um precedente com implementação.
 4. **Registrar em `agents/PUBLISHING-PROTOCOL.md`** a regra da §6 (endpoint novo = artefato novo) *como
    questão para o dono*, já que hoje o arquivo não trata de mudança de origem.
-5. **Não adotar**: o AppFlowy como plataforma, nem as 45 ferramentas; o objeto vale pelo desenho, e o
+5. **Não recomendo adotar**: o AppFlowy como plataforma, nem as 45 ferramentas; o objeto vale pelo desenho, e o
    próprio upstream diz que a parte cloud não está no ar.
 
 ## 10. Evidências

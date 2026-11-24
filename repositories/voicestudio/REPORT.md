@@ -9,7 +9,7 @@
 | Responsável | `debpalash` (indivíduo); tiers Pro e Cloud anunciados no README; `SPONSORS.md` na raiz |
 | Estado da pesquisa | PARTIALLY_TESTED |
 | Resultado de execução | PARTIAL |
-| Recomendação | **ADAPT** — levar o conjunto de higiene de fornecedura (testes que provam pinos, verificador semanal que resolve o SHA pela API, `LICENSE-NOTICE.md` explícito) |
+| Recomendação | **ADAPT** — sugestão ao dono: levar o conjunto de higiene de fornecedura (testes que provam pinos, verificador semanal que resolve o SHA pela API, `LICENSE-NOTICE.md` explícito) |
 | Decisão de adoção | — nenhuma registrada |
 | Categoria | produto concorrente de voz + política de supply chain |
 | Projetos beneficiados | Lia Voice Input (o concorrente direto mais próximo), Lia Studio (empacotamento e assets de modelo), Lia Forge (CI de release multi-plataforma + AUR + Play), Lia Model Lab (pin de revisão de pesos), Lia Research (o LICENSE-NOTICE como formato) |
@@ -184,13 +184,15 @@ projetos implementa só pela primeira.
 
 ## 10. Recomendação: **ADAPT**
 
-1. **Transportar o padrão de teste estático de pin** (parse de YAML, contagem, rótulo de versão) para o
+> **Escopo desta seção** — o que segue é recomendação técnica desta base, não instrução para nenhum app. Se vale, cabe e é possível implementar em cada projeto é decisão do dono (`MISSION.md` §3: o Research não aprova nada).
+
+1. **Propor: transportar o padrão de teste estático de pin** (parse de YAML, contagem, rótulo de versão) para o
    Lia Forge, onde hoje não existe nenhuma checagem. Custo: um arquivo de teste, sem rede.
-2. **Transportar a separação PR-gate × verificação semanal** para qualquer CI que a Lia venha a ter com
+2. **Propor: transportar a separação PR-gate × verificação semanal** para qualquer CI que a Lia venha a ter com
    ações de terceiros — é exatamente a objeção "não chame a rede no teste de PR" respondida com design.
-3. **Transportar o `LICENSE-NOTICE.md`** como formato para o Lia Studio/Lia Model Lab (fronteira código ×
+3. **Propor: transportar o `LICENSE-NOTICE.md`** como formato para o Lia Studio/Lia Model Lab (fronteira código ×
    pesos declarada em arquivo próprio, ao lado do LICENSE).
-4. **Não adotar** o produto, o Cloud, nem o submódulo `omnivoice-gallery`; AGPL no servidor é decisão do
+4. **Não recomendo adotar** o produto, o Cloud, nem o submódulo `omnivoice-gallery`; AGPL no servidor é decisão do
    dono, e o `omnivoice` em si é modelo com termos próprios que eu não li.
 5. **Teste que fecha o §9 linha 4 sem nada novo**: rodar `test_verify_action_pins.py` com
    `VOICESTUDIO_VERIFY_ACTION_PINS=1` numa máquina com a árvore inteira — é nível 2, precisa de ambiente

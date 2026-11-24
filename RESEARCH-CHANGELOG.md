@@ -9,6 +9,27 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 ---
 ---
 
+## 2026-11-24 (UTC) — determinação do dono: o Research mantém só as diretrizes desta base
+
+Determinação recebida: **"mantenha só suas diretrizes; os outros apps, vou decidir se é possível
+implementar neles."** Registrada como regra de escrita, não como mudança de conclusão de pesquisa.
+
+### FIX — vocabulário de escopo em 12 documentos + governança
+- `governance/INVESTIGATION-PROTOCOL.md`: a Etapa C termina na sugestão; diretrizes que o Research aplica
+  são as desta base (`tools/`, `governance/`, `templates/`, `agents/`, índice, catálogo, `data/`). Para os
+  outros apps: o que a evidência sustenta **+ a pergunta de viabilidade**. Nova linha de anti-padrão:
+  "escrever 'transportar X para o app Y' como se houvesse autorização".
+- Relatórios e digests da leva (mais o `LR-FORGE-014`): títulos "**Mapa para os projetos da Lia (o que
+  levar)**" viraram "**Onde isto poderia se aplicar (a viabilidade é do dono)**"; a coluna "O que levar"
+  virou "O que sugiro considerar"; os verbos imperativos das recomendações passaram a "**Propor:**", e o
+  campo `Recomendação` dos cabeçalhos ganhou "sugestão ao dono". Os rótulos do vocabulário
+  (`ADAPT`/`REFERENCE_ONLY`) não mudaram — mudar recomendação exige evidência nova, e não houve.
+- Cada seção de recomendação ganhou uma nota de escopo dizendo que aquilo não é instrução para nenhum app.
+- **Documentos anteriores a esta data mantêm o texto** (inclusive "Custo de adoção", que é estimativa
+  descritiva, não ordem); a regra de leitura está escrita no protocolo, em vez de reescrita em 180 arquivos.
+- Catálogo regenerado (`catalog/catalog.tsv`, 42 linhas) porque o campo `Recomendação` é lido do
+  cabeçalho. Validador: **0 erros / 0 avisos / 7 notas**; `tools/test_validate.py`: 78 testes OK.
+
 ## 2026-11-24 (UTC) — leva de 8 links: os dois orgs contados por inteiro (27 + 123 repositórios) e três objetos com verificação executada
 
 Pedido do proprietário: pesquisar `AppFlowy-IO` ("veja todos os repos desse"), `opf` (org), `calcom/cal.diy`,

@@ -142,9 +142,9 @@ Nada do Cap foi executado. Medido no sandbox: `cargo`, `rustc` ausentes (também
 cabeçalho é `BLOCKED` por ambiente — não `NOT_RUN` por preguiça: a pergunta que o dono fez (o que é,
 como está organizado, o que a licença permite) é inteiramente respondível por leitura, e foi.
 
-## 6. Mapa para os projetos da Lia
+## 6. Onde isto poderia se aplicar (a viabilidade é do dono)
 
-| Destino | O que levar | Seção |
+| App-alvo | O que sugiro considerar | Seção |
 |---|---|---|
 | Lia Forge | o ratchet "contagem só desce" para débitos técnicos de estilo/segurança; `baseline-diff.yml` como gate de regressão de tamanho/perf de binário | §4 |
 | Lia Project | o formato do `AGENTS.md`: invariantes *antes* da geração, checks pós-edição por tipo de arquivo, e exceções nomeadas | §4 |
@@ -167,15 +167,17 @@ como está organizado, o que a licença permite) é inteiramente respondível po
 
 ## 8. Recomendação: **ADAPT** (nada de código)
 
-1. **Adaptar o ratchet** (§4 item 4) para o `tools/validate.py`: um JSON de contagens por arquivo para
+> **Escopo desta seção** — o que segue é recomendação técnica desta base, não instrução para nenhum app. Se vale, cabe e é possível implementar em cada projeto é decisão do dono (`MISSION.md` §3: o Research não aprova nada).
+
+1. **Propor: adaptar o ratchet** (§4 item 4) para o `tools/validate.py`: um JSON de contagens por arquivo para
    os débitos que hoje geram `aviso`, com a regra de que só pode diminuir. É a única sugestão desta leva
    que eu implementaria na infraestrutura da própria casa, e não custa dependência nova.
-2. **Adaptar o `AGENTS.md`-como-pre-generação** para os arquivos em `agents/`: mover as regras que hoje
+2. **Propor: adaptar o `AGENTS.md`-como-pre-generação** para os arquivos em `agents/`: mover as regras que hoje
    estão redigidas como "ao revisar" para "antes de escrever", com os comandos pós-edição por tipo de
    arquivo.
-3. **Adaptar o modelo de fronteira de licença por família de crate** para a decisão do
+3. **Propor: adaptar o modelo de fronteira de licença por família de crate** para a decisão do
    `lia-multiplatform`, se e quando câmera/microfone entrarem — registrado em `LR-LIC-006` §comparação.
-4. **Não levar**: o Effect/Next.js deles como arquitetura (decisão do Lia Project, não desta leva), nem
+4. **Não recomendo**: o Effect/Next.js deles como arquitetura (decisão do Lia Project, não desta leva), nem
    o `bun` como runtime (não está no sandbox e não há motivo para mudar o `tools/`).
 5. **Decisão do dono**: (a) implementar o ratchet no validador agora ou abrir DR; (b) se a casa adota a
    política "zero mocks fora de UI" — ela conflita com o que fazemos em testes de `tools/`; (c) se vale

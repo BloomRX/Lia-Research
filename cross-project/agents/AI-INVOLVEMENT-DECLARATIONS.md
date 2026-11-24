@@ -124,6 +124,8 @@ que têm peso automatizam *a forma* (metadado, espelho, pin, lint, ameaça). Iss
 automaticamente é o artefato, e a autoria fica como declaração com formato.
 
 ## 5. O que isto significa para o processo desta casa (proposta, não decisão)
+> **Escopo desta seção** — o que segue é recomendação técnica desta base, não instrução para nenhum app. Se vale, cabe e é possível implementar em cada projeto é decisão do dono (`MISSION.md` §3: o Research não aprova nada).
+
 
 A casa já tem três das quatro peças que o gate deles pressupõe:
 
@@ -148,7 +150,7 @@ existe para *forçar o preenchimento* entre colaboradores anônimos. Aqui quem c
 `tools/validate.py` poderia, no futuro, exigir o campo (é a mesma forma do `REPORT_FIELDS` atual). Registro
 a opção e deixo a escolha.
 
-## 6. O que **não** copiar
+## 6. O que eu **não** recomendo copiar
 
 1. `pull_request_target` para um gate de texto (a justificativa deles é boa, mas há alternativa: rodar no
    `pull_request` com `script` vindo da base e corpo lido pela API — não medi se isso é viável para o
