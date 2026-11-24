@@ -66,3 +66,4 @@ inventá-la nem inferi-la de uma recomendação.
 | DR-0016 | ReScript não é adotado como stack | [`REJECTED/DR-0016-RESCRIPT.md`](REJECTED/DR-0016-RESCRIPT.md) | não — governança |
 | DR-0017 | OpenJarvis mantido como referência | [`REFERENCE-ONLY/DR-0017-OPENJARVIS.md`](REFERENCE-ONLY/DR-0017-OPENJARVIS.md) | não — governança |
 | DR-0018 | OpenIDEA, SculptForge, ManimGX e pixelfx como referência | [`REFERENCE-ONLY/DR-0018-FERRAMENTAS-CRIACAO.md`](REFERENCE-ONLY/DR-0018-FERRAMENTAS-CRIACAO.md) | não — governança |
+| DR-0019 | Protocolo contínuo de investigação de links (método e autonomia do Research) | [`ACCEPTED/DR-0019-PROTOCOLO-CONTINUO-DE-LINKS.md`](ACCEPTED/DR-0019-PROTOCOLO-CONTINUO-DE-LINKS.md) | não — governança |

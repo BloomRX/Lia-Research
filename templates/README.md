@@ -32,3 +32,8 @@ Obrigatório em qualquer modelo: os três campos separados — `Estado da pesqui
 decisão registrada (`catalog/CATALOG-SCHEMA.md` §1).
 
 Voltar: `README.md` · `MISSION.md`
+
+O **resumo de rodada** enviado ao dono ao fim de uma leva não é template daqui: é o formato de nove
+itens fixado em `governance/INVESTIGATION-PROTOCOL.md` (seção "Resumo de rodada"), por
+`DR-0019`. Templates desta pasta descrevem **documento de pesquisa**, não mensagem de fechamento —
+e um modelo novo só entra quando um tipo de objeto aparece sem cobertura.

@@ -9,6 +9,45 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 ---
 ---
 
+## 2026-11-24 (UTC) — `DR-0019`: protocolo contínuo de investigação de links entra como norma da base
+
+Determinação do proprietário (§1–§8 do "LIA RESEARCH — PROTOCOLO CONTÍNUO DE INVESTIGAÇÃO DE LINKS"),
+recebida logo depois da reescrita de escopo do mesmo dia. Não muda nenhuma conclusão de pesquisa:
+fixa método, rótulos e autonomia.
+
+### DECISION — `DR-0019` (aceita) · `decisions/ACCEPTED/`
+- **É decisão de governança desta base**, não aprovação de adoção em app algum (§5 do próprio DR:
+  "fora de escopo" lista o que ela não autoriza).
+- Aceita sem alteração de substância; a parte que colidia com a base foi reconciliada, não ignorada
+  (§4.3 do DR): o protocolo nomeia `UNVERIFIED`, que não existe no vocabulário do validador, e esta
+  base distingue `UNVALIDATED` (sem comprovação nossa) de `NOT_RUN` (podia ser feito aqui) e de
+  `BLOCKED` (limitação medida). Tradução fixada nos dois lados.
+
+### CONSOLIDATE — `governance/INVESTIGATION-PROTOCOL.md` 1.0 → 1.1
+- **Etapa 0 — entrada do link (sem briefing)**: relação entre vários links (relacionados ·
+  complementares · concorrentes · independentes) decide o formato da saída; procurar o registro
+  anterior antes de investigar; perguntar só o indispensável.
+- **Tabela de equivalência de rótulos** (protocolo × validador) e a regra `NOT_RUN` ≠ `BLOCKED`.
+- **Etapa B**: lista de profundidade proporcional + "o que não foi coberto aparece na lista de
+  não verificado; lista vazia ali é suspeita".
+- **Etapa D**: fronteira do experimento controlado (sandbox/`/tmp` sim; projeto Lia, peso grande,
+  serviço pago, conta, crédito, dado proprietário para fora — não) e o **critério de descoberta**:
+  rodada que só cadastra está incompleta, mesmo com tudo registrado.
+- **Etapa E**: parcimônia documental — linha de inventário, linha de digest, retificação, dossiê,
+  ou nada; "o dono mandou o link" não é critério de documento novo.
+- **"Resumo de rodada (9 itens)"** como formato fixo da resposta ao dono; **"Autonomia e limites de
+  execução"** (ajuste de baixo risco entra com registro no changelog, sem pedir licença caso a caso).
+- Anti-padrões +3: documento por link; `BLOCKED` usado para o que era só não feito; rodada que só cadastra.
+- `templates/README.md`: esclarece que o resumo de 9 itens não é template de relatório; nenhum
+  template novo foi criado.
+
+### Contabilidade
+- **+1 arquivo** (196 → **197** `.md`); decisões: 1 → **2 ACCEPTED** (índice §4: "12 abertas + 6 tomadas");
+  `decisions/README.md` com a linha DR-0019.
+- Relatórios: 42 · `catalog/catalog.tsv`: 42 linhas · `tools/validate.py`: **0 erros / 0 avisos /
+  7 notas** · `tools/test_validate.py`: **78 OK**.
+- Nada foi alterado fora desta base; nenhum app Lia recebeu mudança, instalação ou integração.
+
 ## 2026-11-24 (UTC) — determinação do dono: o Research mantém só as diretrizes desta base
 
 Determinação recebida: **"mantenha só suas diretrizes; os outros apps, vou decidir se é possível

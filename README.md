@@ -11,10 +11,10 @@
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
 | Status | Base reorganizada em 2026-11-20 (missão, catálogo, validador). Medição em hardware: `NOT RUN`; testes de software registrados: **33 linhas** em `data/testing/test-log.tsv` (2026-11-24) |
-| Arquivos Markdown | 196 (contagem de 2026-11-24, `find -name '*.md' -not -path './.git/*'`), validados por `tools/validate.py` |
+| Arquivos Markdown | 197 (contagem de 2026-11-24, `find -name '*.md' -not -path './.git/*'`), validados por `tools/validate.py` |
 | Relatórios externos | 42 objetos, 1 relatório cada (`repositories/*/REPORT.md`) |
 | Catálogo | `catalog/catalog.tsv` — 42 linhas, gerado de `tools/build_catalog.py` |
-| Decisões (governança) | 1 aceita · 12 pendentes · 3 rejeitadas · 2 referência · 2 pastas vazias por desenho |
+| Decisões (governança) | 2 aceita · 12 pendentes · 3 rejeitadas · 2 referência · 2 pastas vazias por desenho |
 
 > **Aviso de escopo.** Este repositório registra *pesquisa*, não *implementação*.
 > Nenhuma recomendação aqui autoriza alterar Lia-Project, Lia Forge, Lia Studio,

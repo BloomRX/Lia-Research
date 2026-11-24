@@ -175,11 +175,11 @@ Histórico das rodadas, em ordem cronológica (todas em 2026-11-20 UTC):
 Os três pipelines completos estão em `CHARACTER-2D-TO-3D-PIPELINES.md` §4 (IDs de pipeline
 não recebem LR próprio: são propostas, não objetos auditáveis).
 
-## 4. Decisões (12 abertas + 5 tomadas)
+## 4. Decisões (12 abertas + 6 tomadas)
 
 | Estado | IDs | Pasta |
 |---|---|---|
-| ACCEPTED (1) | DR-0006 (repositório público) | `decisions/ACCEPTED/` |
+| ACCEPTED (2) | DR-0006 (repositório público) · DR-0019 (protocolo contínuo de links) | `decisions/ACCEPTED/` |
 | PENDING (12) | DR-0001…DR-0004, DR-0007…DR-0014 | `decisions/PENDING/` |
 | REJECTED (3) | DR-0005, DR-0015, DR-0016 | `decisions/REJECTED/` |
 | REFERENCE-ONLY (2) | DR-0017, DR-0018 | `decisions/REFERENCE-ONLY/` |
