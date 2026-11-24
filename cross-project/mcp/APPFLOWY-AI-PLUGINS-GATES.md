@@ -36,7 +36,8 @@ Medido direto no `tools.json` do catálogo (repo deles) com um script próprio (
 | Ferramentas com `destructiveHint: true` | **20** |
 | Destrutivas **sem** `confirm` | **0** |
 | Ferramentas com `readOnlyHint: true` | **14** — e **nenhuma** delas tem `confirm` |
-| `idempotentHint: true` | 20 · `openWorldHint: true` | **0** (todas `false`) |
+| `idempotentHint: true` | **20** |
+| `openWorldHint: true` | **0** (as 45 são `false`) |
 
 A definição da propriedade, literal do arquivo:
 
