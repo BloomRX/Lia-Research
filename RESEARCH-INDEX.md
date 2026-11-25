@@ -26,7 +26,7 @@ Definições: `catalog/CATALOG-SCHEMA.md`. Máquina: `catalog/catalog.tsv`.
 
 ---
 
-## 1. Tecnologia externa — auditoria (42 objetos)
+## 1. Tecnologia externa — auditoria (44 objetos)
 
 Colunas separadas por exigência de `MISSION.md` §3: **estado** (quanto já se sabe),
 **recomendação** (opinião técnica) e **decisão de adoção** (não existe, e esta base não
@@ -80,6 +80,8 @@ tem autoridade para criar).
 | `LR-SEC-009` | `chatwoot/chatwoot` — a fila de triagem de GHSA (211 linhas) e `enterprise/` | MIT exceto `enterprise/` (759 blobs, cláusula condicional) | DOCUMENTED | **ADAPT** | — nenhuma | Alta no que foi lido | `repositories/chatwoot/REPORT.md` |
 | `LR-VOICE-003` | `debpalash/VoiceStudio` — 931 testes, 262/262 pins em SHA, NOTICE de assets | AGPL-3.0-only + `LICENSE-NOTICE.md` (comercial ok; pesos à parte) | PARTIALLY_TESTED | **ADAPT** | — nenhuma | Alta (20 testes do fornecedor executados) | `repositories/voicestudio/REPORT.md` |
 | `LR-VOICE-004` | `OpenWhispr/openwhispr` — transcrição local com allowlist de rede e 2 Skills | MIT | DOCUMENTED | **ADAPT** | — nenhuma | Alta nos arquivos; nenhuma em PT-BR | `repositories/openwhispr/REPORT.md` |
+| `LR-FORGE-020` | `nanocle/Charakuru` — o repo é só documentação; o kit está no ZIP, e a licença cobra por faturamento | **sem SPDX**: `Charakuru Source-Available License v1.2`, 287 linhas; Skills são material coberto | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta no que está no repo (tudo lido), baixa no comportamento do kit (ZIP inacessível) | `repositories/charakuru/REPORT.md` |
+| `LR-FORGE-021` | `hyz317/HairDeck` — código de artigo: 106 testes, 28 rodam sem GPU; peso chega com `sha256` e licença ao lado | **Apache-2.0** (código e checkpoints); termos de SAM 3 / DINOv3 não lidos | PARTIALLY_TESTED | **ADAPT** | — nenhuma | Alta no que executei aqui; média nos números de desempenho (deles, não reproduzidos) | `repositories/hairdeck/REPORT.md` |
 
 ## 2. Projetos do ecossistema — dossiês internos (5)
 

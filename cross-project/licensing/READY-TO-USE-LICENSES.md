@@ -76,9 +76,11 @@ opção de uso. Conferido em 2026-11-20 (`audits/REAUDIT-2026-11-20.md`). Está 
 | `LR-SEC-009` | Chatwoot | fila de triagem de advisory (211 linhas de Python) | sim, fora de `enterprise/` | MIT com cláusula condicional; `enterprise/` proíbe produção sem assinatura |
 | `LR-VOICE-003` | VoiceStudio | censo de pins + testes de pin; o `LICENSE-NOTICE.md` | sim | AGPL-3.0-only declarando uso comercial ok e pesos com termos próprios; submódulo à parte |
 | `LR-VOICE-004` | OpenWhispr | allowlist de rede; `Supported Versions` | sim | MIT; termos dos pesos linkados não foram lidos |
+| `LR-FORGE-020` | Charakuru | **nada a colar**: a licença proíbe redistribuir e extrair os ativos; vale como modelo de *texto* de licença com limiar financeiro | sim (fork no GitHub) | reter o `LICENSE` próprio + os 5 avisos de terceiros; nada de Skills nem assets fora do pacote |
+| `LR-FORGE-021` | HairDeck | o `download_weights.py`: peso + `LICENSE` do modelo + `sha256` esperado, com `local_get` e `HF_ENDPOINT` | sim | Apache-2.0; **nenhum `NOTICE` no repo** — os termos dos modelos gated chegam no workspace, não no Git |
 
 Os quatro últimos entraram em 2026-11-20 (antes o digest cobria 19 objetos, a matriz já tinha
-22). Contagem conferida contra `data/inventory/license-matrix.tsv` — hoje 42. Os oito seguintes entraram em 2026-11-24 (a leva `AppFlowy-IO`/`opf` + seis repositórios); o método de leitura de licença dividida está em `cross-project/licensing/SPLIT-LICENSE-SCAN.md`.
+22). Contagem conferida contra `data/inventory/license-matrix.tsv` — hoje 44 (+2 em 2026-11-25: `LR-FORGE-020` Charakuru e `LR-FORGE-021` HairDeck). Os oito seguintes entraram em 2026-11-24 (a leva `AppFlowy-IO`/`opf` + seis repositórios); o método de leitura de licença dividida está em `cross-project/licensing/SPLIT-LICENSE-SCAN.md`.
 
 Cuidado com Apache-2.0 em pacote de Skills: copiar **uma pasta** de Skill leva só `SKILL.md` e
 `scripts/`; o `NOTICE` e o `LICENSE` têm de ser copiados junto, ou o reuso fica sem atribuição.
