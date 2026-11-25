@@ -70,3 +70,38 @@ conferir se as **unidades** comparadas são a mesma grandeza (comprimido × extr
 manifest × arquivo em disco) e (b) **medir a origem** — clonar o commit de onde ele veio e reproduzir
 o gerador — em vez de olhar só a vitrine de releases. Custou seis clones descartáveis e uma hora de
 rede; a afirmação errada publicada teria encerrado um pendente com diagnóstico invertido.
+
+## Evidência de 2026-11-25 — a pergunta técnica está encerrada (por hash, não por reconstrução)
+
+A ação mínima que este registro deixava "na máquina do Studio" foi executada aqui, sem tocar no
+Studio e sem baixar asset de release: o campo **`digest`** da API de releases do GitHub traz o
+SHA-256 de cada asset, e o blob do próprio repositório do Studio responde pelo `git/blobs`.
+
+| Grandeza | Lado Studio | Lado upstream publicado |
+|---|---|---|
+| caminho | `docs/Mr-Mak-Skills-Free.zip` (em 4 ramos `arena/*`; **ausente de `main`**) | asset `Mr-Mak-Skills-0.4.14.zip` da release `v0.4.14` |
+| tamanho | 3.352.656 B | 3.352.656 B |
+| blob Git | `af7648c2ea09aec8e79cb9c493b87acee4358fa2` (o mesmo nos 4 ramos) | — |
+| SHA-256 | `9e4ad7fea76ffd982190a7a4eb7d4875e54138c4b7fc326d2259deab8bf08ee2` | `sha256:9e4ad7fea76ffd982190a7a4eb7d4875e54138c4b7fc326d2259deab8bf08ee2` |
+
+**Identidade confirmada byte a byte.** Consequências diretas para este registro:
+
+- a **"tag de origem proposta pela reconstrução (v0.4.14…v0.5.0) como inferência"** deixa de ser
+  inferência: é `v0.4.14`, a única daquela faixa com pacote de Skills publicado. As tags `v0.4.15` a
+  `v0.5.0` nunca publicaram esse asset;
+- o item 1 da ação pendente (`sha256sum` local) está **respondido pela pesquisa** — o hash é o acima.
+  O que resta de registro é colá-lo no `THIRD_PARTY_NOTICES.md` do Studio, com a tag;
+- o item 3 continua vivo e é a única decisão real: **quando reempacotar**. O único pacote mais novo
+  existente é `v0.6.0` (4.263.307 B, `sha256:45b3cbef…9e4e7`) — medido por tamanho e digest, conteúdo
+  não aberto aqui;
+- o nome do arquivo não é evidência: `-Free` não existe no upstream, foi acrescentado ao vendorizar;
+- o "**9,9 MB**" deste documento, que gerou a retratação de 2026-11-22 sobre unidades, é o tamanho
+  **extraído**: 9.940.122 B em 764 entradas, medidos agora no arquivo real. O `.zip` em si tem
+  3.352.656 B — menos de 3,4 MB de peso no repositório, o que enfraquece a opção B quando ela era
+  justificada por "peso no repo" e sobrepõe a ela a pergunta nova: **por que o arquivo existe em quatro
+  ramos `arena/*` e não está no `main`?**
+
+Recomendação reescrita, mantida a autoridade do dono: **registrar** (tag + digest no aviso de terceiros,
+sem remover nada), **decidir o ramo de verdade** do `docs/` deles, e **não reempacotar por impulso** —
+`v0.6.0` é a única atualização disponível e ela também precisa de registro. Nada foi aplicado fora
+desta base: isto é sugerido ao dono e ao responsável do Studio.

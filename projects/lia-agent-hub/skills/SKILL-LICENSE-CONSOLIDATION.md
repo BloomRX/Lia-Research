@@ -67,6 +67,26 @@ obrigação de atribuição não viaja com ela.
 licença) dentro da própria pasta. O formato `.lia-capability` já prevê arquivos de
 NOTICE — ou seja, o contêiner existe e está vazio.
 
+### 4.1 A instrução da Skill é material licenciado (medido em 2026-11-25)
+
+`nanocle/Charakuru` (`LR-FORGE-020`, dossiê em `repositories/charakuru/REPORT.md`) é o primeiro caso
+lido nesta base em que a licença **declara as Skills como parte do material coberto**: *"Covered
+Materials means the original application code, scripts, **Skills (including their instructions and
+reference text)**, and documentation"*. E o §10 do mesmo arquivo escreve a incerteza dentro do
+disclaimer: *"SKILLS AND AI-ASSISTED WORKFLOWS MAY BE EXPERIMENTAL AND MAY REQUIRE MANUAL
+CORRECTION."*
+
+Três consequências para o Hub, como pergunta, não como tarefa:
+
+| Fato medido lá | O que ele pergunta aqui |
+|---|---|
+| o texto da instrução tem dono e termos próprios, separados do código | as 48 records do conjunto operacional e as Skills `lia-*` têm algum registro de que o **texto** é da Lia, e sob que termos ele circula quando um agente o copia para outro projeto? |
+| redistribuir Skill fora do pacote exige autorização, mesmo com fork permitido | um Skill exportado por runtime para outro app é "cópia privada" ou "distribuição"? A §2 do modelo deles separa os dois com uma frase; a nossa `DR-0001` ainda não tem essa frase |
+| o disclaimer de garantia nomeia as Skills, não só o software | se o Hub declara "as instruções podem exigir correção manual" em algum lugar, isso é política de produto; aqui é uma linha de licença |
+
+Nada disto foi aplicado ao Hub pela Research. É precedente externo, com texto verificável, para a
+pergunta que a `DR-0001` já tem em aberto.
+
 ## 5. O que a Lia não pode presumir
 
 Declarar autoria (feito pelo proprietário) **não** concede licença de distribuição.
@@ -88,4 +108,4 @@ Até `DR-0001` ser decidido, toda Skill `lia-*` é "uso interno, sem redistribui
 2. Adotar `NOTICE` + `LICENSES/` por Skill (padrão REUSE).
 3. Corrigir as 12 Skills do Studio e as 5 do mr-mak (bloqueio legal).
 4. Auditar as 29 skills AIRI e separar o que é Lia do que é upstream.
-5. Registrar tag + `sha256` do ZIP de 9,9 MB no aviso do Studio e decidir quando reempacotar (`DR-0004`).
+5. Registrar tag + `sha256` do pacote do Studio no aviso de terceiros deles e decidir quando reempacotar (`DR-0004`). **A medição já foi feita pela Research em 2026-11-25, sem tocar no Studio**: o arquivo `docs/Mr-Mak-Skills-Free.zip` (3.352.656 B comprimidos; 9.940.122 B extraídos, 764 entradas) tem `sha256` idêntico ao asset `Mr-Mak-Skills-0.4.14.zip` publicado na release `v0.4.14` do upstream. Sobra o registro e a decisão de reempacotar — ver §14 de `repositories/mr-mak-workspace/REPORT.md`;

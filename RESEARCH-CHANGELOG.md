@@ -9,6 +9,66 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 ---
 ---
 
+## 2026-11-25 (UTC) — `LR-FORGE-020` Charakuru + `LR-FORGE-021` HairDeck; e o `DR-0004` fecha por hash
+
+Primeira rodada operando sob `DR-0019`: dois links do dono, sem briefing, com relação entre eles
+(concorrentes no resultado, opostos em distribuição e licença) decidindo o formato da saída.
+
+### Objetos novos (2 relatórios, nenhum template, nenhum DR novo)
+- **`LR-FORGE-020`** `nanocle/Charakuru` — `DOCUMENTED` + execução `BLOCKED` (12 linhas:
+  `repositories/charakuru/REPORT.md`). O repositório tem **0 arquivos de código** (106 entradas: 24 `.md`,
+  imagens, 5 arquivos de licença em `public/`); o kit — `AGENTS.md`, 9 Skills, `server.mjs` — existe só no
+  ZIP da release (12.024.159 B). Licença lida inteira: **`Charakuru Source-Available License v1.2`, 287
+  linhas, 11 seções** — Skills são "Covered Materials"; elegibilidade por faturamento **e** captação
+  (JPY 100.000.000, testados separadamente); §5 renuncia a "ideias, técnicas, workflows"; §10 escreve a
+  incerteza das Skills dentro do disclaimer. PRs não aceitos; 0 workflows.
+- **`LR-FORGE-021`** `hyz317/HairDeck` — `PARTIALLY_TESTED` + `PARTIAL` (12 linhas:
+  `repositories/hairdeck/REPORT.md`). Executado aqui: `python3 -m unittest discover -s tests` → **38
+  coletados, 28 passaram, 10 erros de importação, 0 falha de asserção** (com e sem `numpy` em venv);
+  `scripts/check_environment.py` → 3 linhas `[FAIL]` e **exit 1**, com o portão "Use Python 3.12 x64 for
+  the pinned release environment". Estrutura medida: 123 `.py` / 16.566 linhas / 106 `def test`;
+  **0 CI, 0 tag, 0 release, 0 `NOTICE`, sem LFS**; `data/lists` com 36.440 / 36.455 chaves `vroid-hair/…`
+  (proveniência por ID, sem cópia); `docs/measurements/` com 20 JSONs de primeira × morna por etapa.
+
+### A descoberta que mudou a própria base (e não é sobre os dois objetos)
+`gh api …/releases` devolve **`digest` por asset** — o SHA-256 que o GitHub calcula, sem baixar nada. O
+bloqueio de release-assets deste sandbox (`302` → `release-assets.githubusercontent.com`, 0 bytes) nunca
+bloqueou a **informação**, só a rota. Usado para fechar `DR-0004`: `docs/Mr-Mak-Skills-Free.zip` (4 ramos
+`arena/*` do `BloomRX/Lia-Studio`, ausente de `main`) tem `sha256` **idêntico** ao asset publicado
+`Mr-Mak-Skills-0.4.14.zip` (`9e4ad7fe…08ee2`; 3.352.656 B). Consequências: a faixa "v0.4.14…v0.5.0" vira
+**uma** tag; o `-Free` do nome não existe no upstream; o build reprodutível e as 764 entradas /
+**9.940.122 B** extraídos passam de inferência a medição no artefato real; 0 `NOTICE` reconfirmado contra o
+pacote verdadeiro. Registro em `repositories/mr-mak-workspace/REPORT.md` §14 (com o texto antigo riscado,
+não apagado) e em `decisions/PENDING/DR-0004-STUDIO-THIRD-PARTY-ZIP.md`.
+
+### Retificações e consertos desta rodada
+- **0,11 MB de erro meu, corrigido**: a reconstrução da §7 dava 9,83 MB extraídos; o arquivo real tem
+  9.940.122 B. A contagem de entradas batia; o total, não. Fica a regra: *reconstruir o gerador prova o
+  algoritmo, não o artefato*.
+- quase-escribi um erro: meu primeiro grep buscava `1 億` (com espaço) e `1亿` e ia afirmar que as traduções
+  JA/zh omitiam o limiar da licença do Charakuru. **Não omitem** (`1億円` sem espaço); a tabela por idioma está
+  no §8 do dossiê, com o falso negativo registrado.
+- `cross-project/licensing/SPLIT-LICENSE-SCAN.md`: +2 formatos (**G.** elegibilidade quantitativa do lado do
+  usuário; **H.** termos no artefato montado, não no repositório) e cabeçalhos de contagem corrigidos — "Os
+  três formatos medidos" (havia 6) → oito; "Tabela dos 13 repositórios" (havia 15) → 17.
+- `governance/LICENSE-AND-PROVENANCE-POLICY.md` §5: artefato publicado se ancora por **(tag, asset, tamanho,
+  `digest`)**, não por `fonte_commit`.
+- `projects/lia-agent-hub/skills/SKILL-LICENSE-CONSOLIDATION.md`: novo §4.1 (instrução de Skill como material
+  licenciado) e o item 5 das ações atualizado — a medição pedida ao dono foi feita pela Research.
+- `repositories/mr-mak-workspace/REPORT.md`: três defeitos estruturais **pré-existentes** consertados
+  (linha de tabela quebrada em duas, tabela "Área | Bytes | O que é" com linhas de 2 células, e a linha do
+  `DR-0004` sem a terceira célula + com a alegação agora superada riscada).
+
+### Contabilidade
+- `.md`: 197 → **199** · relatórios: 42 → **44** · `catalog/catalog.tsv`: **44 linhas** (em dia) ·
+  `data/inventory/license-matrix.tsv`: 42 → **44** linhas, 15 colunas, 0 avisos · `data/testing/test-log.tsv`:
+  33 → **35** linhas · `RESEARCH-INDEX.md` §1: 44 objetos.
+- `tools/validate.py`: **0 erros / 0 avisos / 7 notas** · `tools/test_validate.py`: **78 OK**.
+- Nenhuma mudança fora desta base: os apps Lia receberam **zero** linha; as sugestões dos dois dossiês são
+  para o dono julgar viabilidade (`DR-0019` §5, `MISSION.md` §3).
+- Incidente operacional: o sandbox reapareceu **reachatado em `Initial commit`** mais uma vez (só o `README`
+  versionado, 1 arquivo). Recuperado com `git fetch` + `git reset --soft fa60141` + `git reset` — nenhum
+  force-push, nenhuma reescrita de histórico, nenhuma perda.
 ## 2026-11-24 (UTC) — `DR-0019`: protocolo contínuo de investigação de links entra como norma da base
 
 Determinação do proprietário (§1–§8 do "LIA RESEARCH — PROTOCOLO CONTÍNUO DE INVESTIGAÇÃO DE LINKS"),

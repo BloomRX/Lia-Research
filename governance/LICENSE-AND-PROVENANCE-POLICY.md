@@ -87,6 +87,29 @@ autoria: Lia / terceiro / desconhecida
 
 `modo: copiado-integral` exige justificativa e preservação de avisos.
 
+Quando o objeto **não é um caminho do Git e sim um artefato publicado** (ZIP, AppImage, wheel,
+binário de release), os quatro campos abaixo entram no lugar de `fonte_commit` como âncora — e o
+hash **não** depende de baixar o arquivo:
+
+```yaml
+fonte_release: v0.4.14
+asset_publicado: Mr-Mak-Skills-0.4.14.zip
+tamanho_bytes: 3352656
+digest_asset: sha256:9e4ad7fe…08ee2   # gh api repos/<dono>/<repo>/releases → .assets[].digest
+```
+
+Motivo, medido em 2026-11-25: baixar asset de release pode cair fora da allowlist de rede de um
+sandbox de pesquisa (302 para `release-assets.githubusercontent.com`, 0 bytes), mas o GitHub já serve
+o SHA-256 de cada asset na API de releases. Reconstruir o empacotador no commit da tag prova o
+**algoritmo**, não o **artefato** — identidade de pacote se fecha por digest. Caso completo:
+`repositories/mr-mak-workspace/REPORT.md` §14, e a pendência de registro em
+`decisions/PENDING/DR-0004-STUDIO-THIRD-PARTY-ZIP.md`.
+
+Consequência prática para a matriz: um objeto distribuído **só** por release (caso medido:
+`nanocle/Charakuru`, `LR-FORGE-020` — o repositório contém 0 arquivos de código) não pode ter
+afirmação de comportamento marcada como `TESTED`; no máximo `DOCUMENTED` + `BLOCKED` no artefato.
+
+
 ## 6. Skills `lia-*`
 
 Situação medida em 2026-11-17:

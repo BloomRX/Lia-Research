@@ -50,7 +50,7 @@ No Chatwoot ele é condicional ("**if that directory exists**"), o que significa
 baixa depende de um diretório poder estar ausente. No Cap ele nomeia **famílias de crates**. Nos dois casos
 a licença "oficial" da API é inútil sem esse passo.
 
-## 3. Os três formatos medidos
+## 3. Os formatos medidos (oito)
 
 | Formato | Quem (medido) | Como a fronteira é escrita | O que muda para quem consome |
 |---|---|---|---|
@@ -60,8 +60,10 @@ a licença "oficial" da API é inútil sem esse passo.
 | D. dual-licença por componente | `AppFlowy-IO/appflowy-editor` | "All code contributed to the AppFlowy Editor project is **dual-licensed**" (AGPL-3.0 + MPL-2.0) | o *consumidor* escolhe; é o único caso medido em que usar sem copyleft é defensável sem pedir nada a ninguém |
 | E. sem licença, com acordo | `AppFlowy-IO/AppFlowy-SelfHost-Commercial` | **nenhum `LICENSE`**; `SELF_HOST_LICENSE_AGREEMENT.md` ("non-exclusive, non-transferable license to use the Software for your internal …") de AppFlowy Pte. Ltd. | clone ≠ direito de uso; e **não há fonte do que roda** — o servidor virou imagem Docker (`LR-FORGE-015` §4) |
 | F. MIT puro por remoção | `calcom/cal.diy` | raiz MIT em 21 linhas, **zero** ocorrências de AGPL/Affero; 0 `ee/`; 7 `LICENSE` aninhados também MIT | o que você consome é MIT de verdade — **mas** a máquina de validação de chave continua no código com o serviço devolvendo `return true` (`LR-FORGE-019` §3): a fronteira comercial saiu da licença, não das rotas |
+| **G. elegibilidade quantitativa do lado do usuário** | `nanocle/Charakuru` | licença própria de 287 linhas: "Covered Materials" **inclui as Skills e o texto de referência delas**; uso gratuito se pessoal **ou** se faturamento e captação estiverem ambos abaixo de **JPY 100.000.000**; acima disso exige acordo escrito; fork no GitHub sempre permitido (§4), publicar pacote ou app hospedado a partir dele nunca sem autorização | a pergunta deixa de ser "que licença é" e passa a ser "em que faixa eu estou, e quando isso é reavaliado"; e o §5 renuncia explicitamente a "ideias, técnicas, workflows" — **o padrão é reimplementável, a expressão não é copiável** |
+| **H. termos no artefato montado, não no repositório** | `hyz317/HairDeck` | uma frase no README ("code **and checkpoints** are licensed under Apache-2.0. Third-party models, code and datasets retain their respective licences"); **nenhum `NOTICE`** na árvore inteira (0 em 224 entradas); `scripts/setup/download_weights.py` baixa `LICENSE`/`LICENSE.md` dos modelos gated **para dentro do workspace**, com `sha256` esperado por arquivo | auditar o Git é insuficiente: a informação de termos não está no repositório, está no **diretório que o instalador monta**. O complemento é bom (proveniência viaja com o peso); a lacuna é real (o repo não enumera nada) |
 
-## 4. Tabela dos 13 repositórios (o que foi lido, não o que a API diz)
+## 4. Tabela dos 17 repositórios (o que foi lido, não o que a API diz)
 
 | Objeto | `spdx_id` da API | Licença real lida | Fronteira na árvore | Aviso/NOTICE |
 |---|---|---|---|---|
@@ -80,6 +82,8 @@ a licença "oficial" da API é inútil sem esse passo.
 | `every-app/open-seo` | MIT | MIT — "Copyright (c) 2026 Ben Senescu" | nenhuma | um único LICENSE na árvore |
 | `debpalash/VoiceStudio` | AGPL-3.0 | AGPL-3.0-only (formato C) | nenhuma | `LICENSE-NOTICE.md` + submódulo `omnivoice-gallery` **com licença própria não lida** |
 | `OpenWhispr/openwhispr` | MIT | MIT — "Copyright (c) 2024 OpenWhispr Team" | não censurada por diretório | nenhum LICENSE aninhado procurado (limitação) |
+| `nanocle/Charakuru` | **NOASSERTION** | **sem SPDX**: `Charakuru Source-Available License and Terms of Use`, v1.2, 2026-10-07 (287 linhas, 11 seções, inglês autoritativo) | nenhum `ee/` — a fronteira é **o usuário** (limiar de faturamento) e os ativos do pacote (não extraíveis, §8) | `THIRD_PARTY_NOTICES.md` com 5 linhas + os 5 arquivos de licença em `public/`; MIT ×4 (three.js, fflate, three-vrm ×2) e SIL OFL 1.1 (Orbitron) |
+| `hyz317/HairDeck` | Apache-2.0 | Apache-2.0 no código **e nos checkpoints** (declaração de uma linha no README) | nenhuma fronteira no repo; o empilhamento vem dos modelos gated que o instalador baixa | **nenhum** — 0 arquivos `NOTICE`; os termos dos upstream chegam como arquivo no workspace |
 
 Duas linhas que valem o destaque que lhes dei: o `recense` é o único do censo com copyright em
 "**contributors**" em vez de pessoa jurídica — escolha de titularidade visível no texto da licença; e o
@@ -92,7 +96,7 @@ casa, do outro lado da mesa).
 | Projeto | O que este censo esclarece |
 |---|---|
 | `lia-multiplatform` | dois precedentes de **AGPL com saída binária pública** (AppFlowy) e **AGPL com aviso de uso comercial permitido** (VoiceStudio). A diferença entre eles é só o NOTICE — o que barateia a decisão de escrever um |
-| `lia-studio` | o formato C é o único dos sete que **não exige cortar nada da árvore** para tratar pesos: declara. É o ajuste natural para o que o `DR-0004` revelou (pacote com conteúdo de terceiros sem NOTICE) |
+| `lia-studio` | o formato C é o único dos oito que **não exige cortar nada da árvore** para tratar pesos: declara. É o ajuste natural para o que o `DR-0004` revelou (pacote com conteúdo de terceiros sem NOTICE) |
 | `lia-forge` | formato B (por família de crate) é o caminho se câmera/microfone forem crates separadas; formato A exige que a CI construa duas variantes, como o Chatwoot faz com dois Dockerfiles |
 | `lia-agent-hub` | Skills: o `openproject-agent-skills` publica o pack em **MIT** enquanto o produto é GPL-3.0 — separar licença do conteúdo publicável para agentes é praticável; e o `cal.diy` publica a Skill de terceiros com `license:` no frontmatter |
 | `lia-model-lab` | nada neste censo resolve termos de pesos: o `LICENSE-NOTICE.md` do VoiceStudio **remete** para os termos dos pesos, e o `recense` não tem pesos. A lacuna continua e é maior do que os arquivos medidos alcançam |

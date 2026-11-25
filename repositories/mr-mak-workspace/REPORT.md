@@ -41,8 +41,7 @@ respostas **diferentes**, e a maioria das pessoas que descreve a ferramenta conf
 | Leitura | Existe? | Evidência |
 |---|---|---|
 | **multi-usuário** (várias pessoas no mesmo servidor/workspace, com contas e permissões) | **não** | `SECURITY.md`: roda na máquina do usuário, escuta só em loopback, "não exponha por proxy público, túnel ou interface de rede"; pareamento de celular é "cada dono conecta os **seus** dispositivos" |
-| **um humano orquestrando vários agentes em paralelo** | **sim, e é o produto** | `desktop/service/coordinator.mjs` (187 linhas) expõe **26 ferramentas** ao coordenador — `list_chats`, `open_chat`, `read_chat`, `send_to_chat`,
-`attach_files`, `interrupt_chat`, `search_history`, `list_projects`, `workspace_activity`, `list_skills`, `list_mcp`…; não há `wait_for_chat`
+| **um humano orquestrando vários agentes em paralelo** | **sim, e é o produto** | `desktop/service/coordinator.mjs` (187 linhas) expõe **26 ferramentas** ao coordenador — `list_chats`, `open_chat`, `read_chat`, `send_to_chat`, `attach_files`, `interrupt_chat`, `search_history`, `list_projects`, `workspace_activity`, `list_skills`, `list_mcp`…; não há `wait_for_chat` |
 (só o coordenador faz isso, e a issue #65 quer dar o resto a cada chat). Os prompts das ferramentas **ordenam** que ele não abra worker para tarefa boba ("Handle this yourself; do not open a worker chat for lookups") |
 | **vários humanos cada um com o seu conjunto de agentes** | **sim, mas fora do produto** — é uma modificação de fork feita para o game jam da Epic | devlog: "criamos uma nova instância do Mr. Mak numa pasta específica para o jam… um chat do sistema cuja única tarefa é, a cada 5–10 minutos, sincronizar a gente e atualizar o workspace"; o script de sincronização citado (**tools/sync.py**) **não existe** no template (`find` por `sync*.py` só acha `scripts/sync-skills.mjs`) |
 
@@ -116,8 +115,8 @@ Ambiente: sandbox Linux, Node **v22.22.3**, Python 3.11.2, clone do commit pinad
 
 ## 5. Estrutura: o que é do projeto e o que é vendored (medido, não presumido)
 
-| Área | Bytes | O que é |
-|---|---|---|
+| Área | Conteúdo medido (tamanho, quando havia) |
+|---|---|
 | `desktop/` (menos `node_modules` instalado por mim) | app + serviço local: **54** módulos `.mjs` = 6.935 linhas, **59** `.test.mjs` |
 | `src/` | 703 KB — React (frontend desktop + `src/mobile/MobileApp.tsx`) |
 | `src-tauri/` | 657 KB — Rust (janelas, credencial de janela, `login_path`) |
@@ -199,6 +198,11 @@ sandbox; então o `sha256` do `.zip` publicado e a lista real de arquivos daquel
 `BLOCKED`. O que fiz foi **reconstruir a contagem no commit de cada tag** pelo algoritmo do próprio
 autor, que é reprodutível e não depende da rede.
 
+> **Este parágrafo perdeu metade do bloqueio em 2026-11-25.** O `sha256` do `.zip` publicado **não**
+> depende de baixá-lo: o campo `digest` da API de releases do GitHub traz o hash de cada asset. Fui nele
+> e a identificação deixou de ser inferência — ver §14. A lista real de arquivos também saiu do ZIP
+> medido no blob do próprio Studio.
+
 **Consequência para o `DR-0004` (proposta, sem decisão aqui):** o problema deixou de ser "não sabemos o
 que é isto" e passou a ser **"o Studio está versionando um pacote de ~8 semanas atrás, e nenhum registro
 nos diz isso"**. A correção é de registro, não de remoção: anotar no aviso de terceiros do Studio a
@@ -266,7 +270,7 @@ modelo de sessão do Arena. O que se adapta, item por item:
 | **Lia Studio / Forge** — disciplina de entrega | o vocabulário de 5 estados (*baseline → proposta selecionada → implementado → verificado pelo agente → aceito pelo dono*) e as 3 negações deles: "A selected mockup is not a shipped feature", "A successful API request or attractive render is not an engine handoff", "a browser study cannot establish that an effect works in the game" | zero código; é texto de política de aceite |
 | **Lia Agent Hub** — empacotamento | `package_skills.py`: `manifest.json` com SHA-256 por arquivo, timestamp fixo, staging + verificação antes de substituir, `LICENSE`/notices **dentro** do pacote, `--check` para auditar um ZIP existente. E `sync-skills.mjs --check` (375 × 375 idênticos) para `.agents` × `.claude` | ~160 linhas de Python no catálogo |
 | **Lia Research** — evidência | o *anti-fixture* da §6: validar contra o arquivo no disco; e o par "ledger escrito logo após" + "falha com causa e correção linkada" que o anymachine (`LR-FORGE-013`) também demonstra | ajuste no `tools/validate.py` |
-| **`DR-0004`** (pendente do proprietário) | a evidência da §7 fecha a pergunta técnica: o pacote do Studio (764 arquivos / 9,83 MB extraídos) **é** o `Mr-Mak-Skills` de uma das tags v0.4.14 → v0.5.0, reconstruída pelo algoritmo do autor — não é blob desconhecido, é pacote **legítimo e desatualizado**. Falta só o `sha256sum` do arquivo local, que é um comando na máquina do Studio (`BLOCKED` aqui: o download dos assets escapa da allowlist). O que sobra para o proprietário é de **registro**: anotar tag + hash no aviso de terceiros deles e decidir quando reempacotar |
+| **`DR-0004`** (pendente do proprietário) | ~~a evidência da §7 fecha a pergunta técnica: o pacote do Studio (764 arquivos / 9,83 MB extraídos) **é** o `Mr-Mak-Skills` de uma das tags v0.4.14 → v0.5.0, reconstruída pelo algoritmo do autor — não é blob desconhecido, é pacote **legítimo e desatualizado**. Falta só o `sha256sum` do arquivo local, que é um comando na máquina do Studio (`BLOCKED` aqui: o download dos assets escapa da allowlist)~~ → **retificado e encerrado por medição em 2026-11-25 (§14)**: o arquivo do Studio é, byte a byte, o asset publicado `Mr-Mak-Skills-0.4.14.zip` (`sha256` `9e4ad7fe…08ee2`; 3.352.656 B comprimidos; 764 entradas e 9.940.122 B extraídos, e não 9,83 MB — o total de bytes da reconstrução era 0,11 MB baixo). A faixa de tags virou uma tag só, e o `-Free` do nome não vem do upstream | **zero para a pesquisa**: colar tag + hash no aviso de terceiros deles, e responder de que ramo o `docs/` do Studio é fonte (o pacote existe em 4 ramos `arena/*` e não está no `main`) |
 
 **Não levar** (e por quê): pareamento por Tailscale Serve (é para uma máquina só do dono — não resolve
 equipe real); o `node-pty`/Tauri; os skills de provedor (`fal-ai-generation`, `higgsfield-workflow`)
@@ -295,7 +299,7 @@ que presumem assinaturas pagas; e o **jeito** como vendorizaram o `img2threejs`:
 | upstream tem `version: 2.0.1` no topo do `SKILL.md`; o vendoring o moveu para `metadata:` e removeu o badge | `CONFIRMED` | `SKILL.md` dos dois lados + diff de árvores (371 × 353 blobs) |
 | packager tem whitelist, anti-symlink, `FORBIDDEN`, verificação de espelho e exclusão estrutural; `.cache` local não entrou no ZIP | `OBSERVED` | `collect()` lido + `zipfile.namelist()` do meu build |
 | tags v0.4.14→v0.5.0 = **764 entradas / 9,83 MB descompactados**; `main` = 769 / 10,78 MB | `OBSERVED` | `collect()` executado no clone de cada tag |
-| `sha256` e conteúdo real dos `.zip` publicados | `BLOCKED` | 302 → `release-assets.githubusercontent.com`, fora da allowlist |
+| ~~`sha256` e conteúdo real dos `.zip` publicados~~ | **`CONFIRMED` (2026-11-25, §14)** | ~~302 → `release-assets.githubusercontent.com`, fora da allowlist~~ — bloqueio caído por outra rota: o campo `digest` da API de releases dá o hash sem download, e o blob do próprio Studio dá o conteúdo. O download continua fora da allowlist; a **informação**, não |
 | vídeo tem link de afiliado e oferta promocional de um provedor citado como principal | `CONFIRMED` | descrição oficial do vídeo |
 | qualidade de PT-BR, uso em equipe real multiusuário, custo de operar isto no Lia | `UNVALIDATED` | nada medido; fora do escopo do objeto |
 
@@ -341,6 +345,62 @@ as unidades que estou comparando são a mesma coisa** (comprimido × extraído, 
 arquivo em disco). As duas correções acima custaram três chamadas de API e seis clones descartáveis; a
 afirmação errada, se publicada, teria aberto uma revisão jurídica inexistente e encerrado um
 pendente com o diagnóstico errado.
+
+
+## 14. 2026-11-25: o `DR-0004` fecha por hash, não por reconstrução
+
+A pendência técnica que a §7 e a §13 deixaram em aberto ("falta o `sha256sum` do arquivo local, e é um
+comando na máquina do Studio") **foi resolvida dentro deste sandbox, sem tocar no Studio e sem baixar
+asset nenhum**. Ela nasceu de um pressuposto errado meu: que conferir o hash de um artefato publicado
+exige baixá-lo.
+
+| Passo | O que foi medido |
+|---|---|
+| 1 | `gh api repos/witnesstodark/mr-mak-workspace/releases --jq '.[].assets[]'` traz, por asset, o campo **`digest`** = SHA-256 calculado pelo próprio GitHub. Só **duas** releases publicam pacote de Skills: `v0.4.14` → `Mr-Mak-Skills-0.4.14.zip` (3.352.656 B, `sha256:9e4ad7fe…08ee2`) e `v0.6.0` → `Mr-Mak-Skills-0.6.0.zip` (4.263.307 B, `sha256:45b3cbef…9e4e7`). As tags `v0.4.15`…`v0.5.2` **não** têm asset de Skills |
+| 2 | `docs/Mr-Mak-Skills-Free.zip` existe no `BloomRX/Lia-Studio` em 4 ramos (`arena/c00122c3-lia-studio`, `arena/cf17bb1d-lia-studio`, `arena/01a0f4ab-lia-gamedev`, `arena/3668aa2f-lia-studio`) — **não** está em `main`. Nos quatro, o mesmo blob Git `af7648c2ea09aec8e79cb9c493b87acee4358fa2`, `size` **3.352.656 B** |
+| 3 | Baixei o blob pelo endpoint `git/blobs` (3,35 MB, pela API que este sandbox alcança) e calculei: `9e4ad7fea76ffd982190a7a4eb7d4875e54138c4b7fc326d2259deab8bf08ee2` |
+| 4 | **Idêntico ao `digest` do asset `v0.4.14`.** O arquivo do Studio *é*, byte a byte, o pacote oficial publicado na release `v0.4.14` |
+
+Medidas feitas direto no artefato real (não por reconstrução): **764 entradas** e **9.940.122 B
+descompactados**; `date_time = (2026, 1, 1, 0, 0, 0)` em todas as entradas, o que confirma no pacote
+publicado a claim de **build reprodutível** que a §7 tinha inferido do código do empacotador; **40
+arquivos `SKILL.md`** (20 skills espelhadas em `.agents/skills/` e `.claude/skills/`); **0 arquivos
+`NOTICE`** na árvore do ZIP, o que reconfirma a retratação da §13 contra o ZIP verdadeiro, não só contra o
+meu build; `img2threejs/LICENSE` presente nos dois espelhos.
+
+Duas coisas que a reconstrução **não** dava e o hash deu:
+
+1. **a tag exata.** A §7 dizia "v0.4.14…v0.5.0" como faixa, porque as seis tags daquela janela davam a
+   mesma contagem. Não é faixa: é `v0.4.14` — a única delas com asset publicado, e o hash bate com ele.
+   As tags `v0.4.15`→`v0.5.0` nunca empacotaram Skills para release; o que eu tinha medido nelas era o
+   *código do empacotador*, não um artefato distribuído;
+2. **o nome do arquivo não é evidência.** O asset chama-se `Mr-Mak-Skills-0.4.14.zip`; o arquivo no
+   repositório do Studio chama-se `Mr-Mak-Skills-Free.zip`. Alguém renomeou ao vendorizar — "-Free" não
+   vem de lugar nenhum do upstream. O conteúdo é idêntico ao de `v0.4.14`, e foi o hash que disse isso.
+
+O número de bytes extraídos que a §7 obteve por reconstrução (9,83 MB) é 0,11 MB menor que o medido no
+arquivo real (9.940.122 B). A contagem de entradas bateu exatamente. Fica a lição, e ela vale mais que o
+caso: **reconstruir o gerador prova o algoritmo, não o artefato** — quando existir um hash publicado, ele
+é a comparação; quando não existir, dizer "inferido" é o máximo que se pode dizer.
+
+### O que sobra para o dono (e é só registro, não investigação)
+
+- o ZIP do Studio está **defasado**: só existem dois pacotes de Skills publicados, `v0.4.14` (este) e
+  `v0.6.0` — 4.263.307 B, `sha256:45b3cbef…9e4e7`. Do `v0.6.0` eu medi **tamanho e digest**; não abri o
+  conteúdo, então "quantas entradas tem o `v0.6.0`" continua não-medido aqui (o número de 768 arquivos no
+  `manifest.json` que a §7 cita é do meu build no `main`, não de um asset publicado);
+- 3,35 MB de pacote de terceiros versionado em **quatro ramos** do Studio, e **ausente de `main`**: antes
+  de remover ou mover alguém precisa dizer de que ramo o `docs/` deles é considerado fonte. É pergunta de
+  organização do repositório deles, não de licença;
+- **o registro de soma mudou de lado.** 9 das 19 releases do upstream trazem um asset `SHA256SUMS.txt` (de
+  `v0.1.0` a `v0.5.0`); as 10 seguintes, de `v0.5.1` a `v0.6.6`, não trazem nenhum — exatamente a faixa em
+  que o GitHub passou a servir `digest` por asset na própria API. Para esta base isso é regra, não nota:
+  registrei em `governance/LICENSE-AND-PROVENANCE-POLICY.md` §5 que âncora de artefato publicado é
+  (tag, nome, tamanho, `digest`) e que `fonte_commit` não substitui nada disso quando o que se consome é o
+  pacote.
+
+Nada do acima é autorização para alterar o Studio: é o resultado do que a medição podia resolver sozinha,
+entregue sem empurrar a pergunta de volta.
 
 ---
 
