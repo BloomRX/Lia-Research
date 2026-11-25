@@ -1,4 +1,4 @@
-# Como se lê uma licença dividida: o método aplicado a 10 repositórios, e os três formatos que encontrei
+# Como se lê uma licença dividida: o método aplicado a 20 repositórios, e os nove formatos que encontrei
 
 | Campo | Valor |
 |---|---|
@@ -10,7 +10,7 @@
 | Estado | DOCUMENTED — nenhum parecer jurídico; é o que os arquivos dizem |
 | Recomendação | **ADAPT** o método (cinco passos, §2) como rotina desta casa; **não** adotar nenhuma das licenças como decisão |
 | Decisão de adoção | — nenhuma registrada |
-| Data | 2026-11-24 |
+| Data | 2026-11-24 · ampliada em 2026-11-25 com mais 10 objetos medidos nesta base |
 | Status | CURRENT — **não é parecer jurídico** |
 | Confiança | Alta para os arquivos lidos; média para o que uma fronteira *significa* juridicamente (marcado em cada linha) |
 
@@ -50,7 +50,7 @@ No Chatwoot ele é condicional ("**if that directory exists**"), o que significa
 baixa depende de um diretório poder estar ausente. No Cap ele nomeia **famílias de crates**. Nos dois casos
 a licença "oficial" da API é inútil sem esse passo.
 
-## 3. Os formatos medidos (oito)
+## 3. Os formatos medidos (nove)
 
 | Formato | Quem (medido) | Como a fronteira é escrita | O que muda para quem consome |
 |---|---|---|---|
@@ -61,9 +61,10 @@ a licença "oficial" da API é inútil sem esse passo.
 | E. sem licença, com acordo | `AppFlowy-IO/AppFlowy-SelfHost-Commercial` | **nenhum `LICENSE`**; `SELF_HOST_LICENSE_AGREEMENT.md` ("non-exclusive, non-transferable license to use the Software for your internal …") de AppFlowy Pte. Ltd. | clone ≠ direito de uso; e **não há fonte do que roda** — o servidor virou imagem Docker (`LR-FORGE-015` §4) |
 | F. MIT puro por remoção | `calcom/cal.diy` | raiz MIT em 21 linhas, **zero** ocorrências de AGPL/Affero; 0 `ee/`; 7 `LICENSE` aninhados também MIT | o que você consome é MIT de verdade — **mas** a máquina de validação de chave continua no código com o serviço devolvendo `return true` (`LR-FORGE-019` §3): a fronteira comercial saiu da licença, não das rotas |
 | **G. elegibilidade quantitativa do lado do usuário** | `nanocle/Charakuru` | licença própria de 287 linhas: "Covered Materials" **inclui as Skills e o texto de referência delas**; uso gratuito se pessoal **ou** se faturamento e captação estiverem ambos abaixo de **JPY 100.000.000**; acima disso exige acordo escrito; fork no GitHub sempre permitido (§4), publicar pacote ou app hospedado a partir dele nunca sem autorização | a pergunta deixa de ser "que licença é" e passa a ser "em que faixa eu estou, e quando isso é reavaliado"; e o §5 renuncia explicitamente a "ideias, técnicas, workflows" — **o padrão é reimplementável, a expressão não é copiável** |
+| **I. exceção por diretório com licença futura** | `dyad-sh/dyad` | raiz `NOASSERTION` porque o `LICENSE` abre com 2 *bullets*: tudo sob `src/pro/` vai para `src/pro/LICENSE` (FSL-1.1-ALv2, 104 linhas), o resto é Apache-2.0; `Grant of Future License` converte a parte fechada em Apache no prazo |
 | **H. termos no artefato montado, não no repositório** | `hyz317/HairDeck` | uma frase no README ("code **and checkpoints** are licensed under Apache-2.0. Third-party models, code and datasets retain their respective licences"); **nenhum `NOTICE`** na árvore inteira (0 em 224 entradas); `scripts/setup/download_weights.py` baixa `LICENSE`/`LICENSE.md` dos modelos gated **para dentro do workspace**, com `sha256` esperado por arquivo | auditar o Git é insuficiente: a informação de termos não está no repositório, está no **diretório que o instalador monta**. O complemento é bom (proveniência viaja com o peso); a lacuna é real (o repo não enumera nada) |
 
-## 4. Tabela dos 17 repositórios (o que foi lido, não o que a API diz)
+## 4. Tabela dos 27 repositórios (o que foi lido, não o que a API diz)
 
 | Objeto | `spdx_id` da API | Licença real lida | Fronteira na árvore | Aviso/NOTICE |
 |---|---|---|---|---|
@@ -84,6 +85,16 @@ a licença "oficial" da API é inútil sem esse passo.
 | `OpenWhispr/openwhispr` | MIT | MIT — "Copyright (c) 2024 OpenWhispr Team" | não censurada por diretório | nenhum LICENSE aninhado procurado (limitação) |
 | `nanocle/Charakuru` | **NOASSERTION** | **sem SPDX**: `Charakuru Source-Available License and Terms of Use`, v1.2, 2026-10-07 (287 linhas, 11 seções, inglês autoritativo) | nenhum `ee/` — a fronteira é **o usuário** (limiar de faturamento) e os ativos do pacote (não extraíveis, §8) | `THIRD_PARTY_NOTICES.md` com 5 linhas + os 5 arquivos de licença em `public/`; MIT ×4 (three.js, fflate, three-vrm ×2) e SIL OFL 1.1 (Orbitron) |
 | `hyz317/HairDeck` | Apache-2.0 | Apache-2.0 no código **e nos checkpoints** (declaração de uma linha no README) | nenhuma fronteira no repo; o empilhamento vem dos modelos gated que o instalador baixa | **nenhum** — 0 arquivos `NOTICE`; os termos dos upstream chegam como arquivo no workspace |
+| `aaif-goose/goose` | Apache-2.0 | Apache-2.0 | nenhuma (1 `LICENSE` em 3.130 entradas) | nenhum `NOTICE` na árvore |
+| `bytedance/deer-flow` | MIT | MIT **no código**, com exclusão de produto/marca dentro do próprio arquivo | 7 caminhos `LICENSE`, 4 em `examples/deerflow-extension-*` | `README.md:556` avisa que Skills podem ter outra licença |
+| `anthropics/skills` | **nenhuma** (`null`) | nenhuma na raiz; **18 `LICENSE.txt` um-por-Skill** com `license: Complete terms in LICENSE.txt` no frontmatter | 0 `LICENSE` raiz; Skills em `skills/*/` | `THIRD_PARTY_NOTICES.md` (404 linhas) cobre os terceiros |
+| `obra/superpowers` | MIT | MIT (1.070 B) | nenhuma por Skill: **15 `SKILL.md`, 0 licenças ao lado** | nenhum |
+| `pipecat-ai/pipecat` | BSD-2-Clause | BSD-2-Clause | 3 caminhos: raiz + `LICENSE-shadcn.md` **dentro do template vendorizado** | aviso do componente viaja com o componente |
+| `D4Vinci/Scrapling` | BSD-3-Clause | BSD-3-Clause na lib **e** `LICENSE.txt` próprio na Skill | `agent-skill/Scrapling-Skill/` (Skill + ZIP versionados) | nenhum |
+| `johannesjo/parallel-code` | MIT | MIT | 1 `LICENSE` em 2.085 entradas | `package.json` não declara `license` |
+| `infiniflow/ragflow` | Apache-2.0 | Apache-2.0 (11.357 B) | 3 caminhos com "license", **2 são código do produto** (`internal/dao`, `internal/entity`) | nenhum |
+| `daytonaio/daytona` | **nenhuma** (`null`) | AGPL-3.0 **só nas tags** (`v0.190.0`, 34.522 B); a `main` não tem `LICENSE` (404) | 3 arquivos na árvore: `README.md` + 2 PNG | o `README` ancora o link da licença na tag (commit 2026-06-25) |
+| `dyad-sh/dyad` | **`NOASSERTION`** | split declarado na 1ª linha do `LICENSE`: Apache-2.0 + `src/pro/` sob FSL-1.1-ALv2 | 5 caminhos `LICENSE` (raiz, `src/pro/`, 2 pacotes internos, 1 template de benchmark) | `remove-unauthorized-release.yml` apaga release fora do CI |
 
 Duas linhas que valem o destaque que lhes dei: o `recense` é o único do censo com copyright em
 "**contributors**" em vez de pessoa jurídica — escolha de titularidade visível no texto da licença; e o
@@ -109,6 +120,8 @@ casa, do outro lado da mesa).
 | Leitura integral das licenças (AGPL/GPL inteiras) | `NOT_RUN` | li cabeçalho + bullets de exceção + cláusulas nomeadas; o corpo padrão da FSF não foi re-lido por objeto |
 | Licença de **cada** crate do Cap (só o `LICENSE` raiz e o `licenses/LICENSE-MIT`) | `NOT_RUN` | abrir os 40+ `Cargo.toml` é outra passada; anotei que a fronteira está declarada, não que foi verificada por crate |
 | Licença de arquivos individuais dentro de `enterprise/` do Chatwoot | `NOT_RUN` | li o `enterprise/LICENSE` do diretório |
+| `NOTICE` do ragflow, `helm-charts` e `daytona/sdk` | `NOT_RUN` | o censador desta rodada casou caminhos `LICENSE*`; um `NOTICE` não entra nessa contagem (é a limitação registrada em `LR-RAG-001` §5) |
+| se o conteúdo de `src/pro/` respeita o preâmbulo de exceção do dyad | `NOT_RUN` | o diff por diretório não foi auditado |
 | Termos dos modelos/pesos baixados por VoiceStudio e OpenWhispr | `BLOCKED` | nenhum peso foi baixado (regra da casa) e os termos no Hugging Face não foram abertos |
 | Se o `SELF_HOST_LICENSE_AGREEMENT.md` do AppFlowy proíbe o que ele parece organizar | `UNVALIDATED` | li o preâmbulo e a cláusula 1; o documento continua além do trecho transcrito |
 | Efeito jurídico de "if that directory exists" em redistribuição | `UNVALIDATED` | formulação lida; interpretação é para o dono + assessoria, não para a Research |

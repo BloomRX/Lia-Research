@@ -4,13 +4,14 @@
 veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID aparece em
 outro documento e não aqui, o outro documento está errado.
 
-- **Data de referência:** 2026-11-21 (dois objetos novos auditorados nesta data; reauditoria técnica dos 22 objetos concluída em 2026-11-20)
-- **Itens:** 34 objetos externos (38 linhas com sub-documentos) + 5 dossiês internos + 31 digests transversais + 3 comparações + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de evidências** (2026-11-20, revisado em 2026-11-24)
-- **Pouco foi executado.** Existem **30 linhas** em `data/testing/test-log.tsv` (2026-11-22):
-  15 execuções locais com resultado positivo (11 suítes completas + 4 smokes de script), 4 execuções parciais e
-  11 tentativas bloqueadas com motivo. Na
-  criação de personagens, **nada foi executado** — não há GPU AMD nesta sessão e nenhum peso
-  foi baixado.
+- **Data de referência:** 2026-11-25 (10 objetos auditados e 1 digest de comparação nesta data; reauditoria técnica dos 22 objetos anteriores segue em `data/inventory/upstream-reaudit-2026-11-20.tsv`)
+- **Itens:** 54 objetos externos (58 linhas com sub-documentos) + 5 dossiês internos + 34 digests transversais + **4 comparações** + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de execução** + 10 relatórios de 2026-11-17 (na seção própria)
+- **Pouco foi executado.** Existem **39 linhas** em `data/testing/test-log.tsv` (2026-11-25):
+  22 execuções locais com resultado positivo (12 suítes completas + 10 smokes de script), 6 execuções parciais
+  (`PARTIAL`) e 11 tentativas bloqueadas com motivo. Nas criações de personagem e em tudo que exige GPU AMD,
+  **nada foi executado** — não há GPU nesta sessão e nenhum peso foi baixado. Nesta última rodada entraram
+  4 linhas: os dois validadores de Skill abertos (**346 análises + 177 validações**) executados sobre corpus
+  próprio, em `LR-CMP-004`, `LR-AGENT-016`, `LR-AGENT-017` e `LR-AGENT-018`.
 
 ## Legenda
 
@@ -26,7 +27,7 @@ Definições: `catalog/CATALOG-SCHEMA.md`. Máquina: `catalog/catalog.tsv`.
 
 ---
 
-## 1. Tecnologia externa — auditoria (44 objetos)
+## 1. Tecnologia externa — auditoria (54 objetos)
 
 Colunas separadas por exigência de `MISSION.md` §3: **estado** (quanto já se sabe),
 **recomendação** (opinião técnica) e **decisão de adoção** (não existe, e esta base não
@@ -82,6 +83,16 @@ tem autoridade para criar).
 | `LR-VOICE-004` | `OpenWhispr/openwhispr` — transcrição local com allowlist de rede e 2 Skills | MIT | DOCUMENTED | **ADAPT** | — nenhuma | Alta nos arquivos; nenhuma em PT-BR | `repositories/openwhispr/REPORT.md` |
 | `LR-FORGE-020` | `nanocle/Charakuru` — o repo é só documentação; o kit está no ZIP, e a licença cobra por faturamento | **sem SPDX**: `Charakuru Source-Available License v1.2`, 287 linhas; Skills são material coberto | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta no que está no repo (tudo lido), baixa no comportamento do kit (ZIP inacessível) | `repositories/charakuru/REPORT.md` |
 | `LR-FORGE-021` | `hyz317/HairDeck` — código de artigo: 106 testes, 28 rodam sem GPU; peso chega com `sha256` e licença ao lado | **Apache-2.0** (código e checkpoints); termos de SAM 3 / DINOv3 não lidos | PARTIALLY_TESTED | **ADAPT** | — nenhuma | Alta no que executei aqui; média nos números de desempenho (deles, não reproduzidos) | `repositories/hairdeck/REPORT.md` |
+| `LR-AGENT-015` | `aaif-goose/goose` (o antigo `block/goose`) — framework de agente em Rust; governança por issue Ready e abandono do diretório próprio de MCP | Apache-2.0 (1 `LICENSE`, 0 `NOTICE`) | DOCUMENTED | **ADAPT** | — nenhuma | Alta no texto; execução `BLOCKED` (sem cargo) | `repositories/goose/REPORT.md` |
+| `LR-AGENT-016` | `bytedance/deer-flow` — SuperAgent harness; **auditoria de Skill como contrato** (4 schemas, waiver com `file_sha256` + `expires_on`, CI de review) | MIT no código; marca e Skills fora do LICENSE | DOCUMENTED | **ADAPT** | — nenhuma | Alta nos arquivos; analisador **executado** aqui (346 análises) | `repositories/deer-flow/REPORT.md` |
+| `LR-AGENT-017` | `anthropics/skills` + `anthropics/claude-plugins-official` + tópico `skill-creator` — onde mora a licença de uma Skill, e o que o validador deles rejeita | raiz **sem licença** + 18 `LICENSE.txt` por Skill; plugins Apache-2.0 | DOCUMENTED | **ADAPT** | — nenhuma | Alta no censo; validador **executado** aqui (177 arquivos) | `repositories/anthropics-skills/REPORT.md` |
+| `LR-AGENT-018` | `obra/superpowers` — 15 Skills de processo, 12 manifests de runtime sincronizados por `.version-bump.json`, política de PR contra agente | MIT (1.070 B na raiz; 0 por Skill) | DOCUMENTED | **ADAPT** | — nenhuma | Alta nos arquivos; gates executados | `repositories/superpowers/REPORT.md` |
+| `LR-VOICE-005` | `pipecat-ai/pipecat` — framework de voz que mantém 12 Skills de manutenção, `LICENSE-shadcn.md` por componente e `license-check.yaml` no CI | BSD-2-Clause | DOCUMENTED | **ADAPT** | — nenhuma | Alta no texto; nada executado | `repositories/pipecat/REPORT.md` |
+| `LR-DATA-001` | `D4Vinci/Scrapling` — a biblioteca que publica a própria Skill (`agent-skill/` com `LICENSE.txt`, ZIP na `main`, `requires.bins`) | BSD-3-Clause + licença por Skill | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta no pacote; execução `BLOCKED` | `repositories/scrapling/REPORT.md` |
+| `LR-FORGE-022` | `johannesjo/parallel-code` — agentes em worktrees (Electron/SolidJS); o **gate de IPC** que o Studio não tem (manifesto + allowlist + teste) | MIT (1 `LICENSE`; `package.json` sem campo) | DOCUMENTED | **ADAPT** | — nenhuma | Alta no `AGENTS.md`; `NOT_RUN` | `repositories/parallel-code/REPORT.md` |
+| `LR-FORGE-023` | `dyad-sh` (org, 8 repositórios) + `dyad` — split Apache-2.0 + `src/pro/` sob FSL-1.1-ALv2; workflow que apaga release não autorizada | **NOASSERTION** = split com futuro Apache-2.0 | DOCUMENTED | **ADAPT** | — nenhuma | Alta nos arquivos de licença | `repositories/dyad/REPORT.md` |
+| `LR-RAG-001` | `infiniflow/ragflow` — motor de RAG (3.549 `.go`); `AGENTS.md` que trata legado como passivo; 2 pointer-skills | Apache-2.0 (`license.go` é código, não licença) | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta no `AGENTS.md`; `NOT_RUN` | `repositories/ragflow/REPORT.md` |
+| `LR-PROV-002` | `daytonaio/daytona` — 71.271 ★ e uma árvore de 3 arquivos: código para um lugar privado, licença só na tag | AGPL-3.0 **apenas em `v0.190.0`**; `main` sem `LICENSE` | DOCUMENTED | **REJECT** | — nenhuma | Alta (3 arquivos, todos lidos) | `repositories/daytona/REPORT.md` |
 
 ## 2. Projetos do ecossistema — dossiês internos (5)
 
@@ -139,6 +150,7 @@ tem autoridade para criar).
 | `LR-CMP-001` | como expressar licença em projeto com terceiros e assets | `comparisons/LICENSE-MODEL-COMPARISON.md` |
 | `LR-CMP-002` | qual servidor MCP de casa usar, se algum | `comparisons/MCP-SERVER-COMPARISON.md` |
 | `LR-CMP-003` | como medir modelo/hardware sem virar fé | `comparisons/BENCHMARK-APPROACH-COMPARISON.md` |
+| `LR-CMP-004` | o que um gate de Skill verifica, e o que escapa dele (dois validadores executados sobre 173 pacotes) | `comparisons/SKILL-GATE-COMPARISON.md` |
 
 ## 3-ter. Criação de personagens — silhueta primeiro (2026-11-20, ampliada e conciliada em 2026-11-20 UTC)
 

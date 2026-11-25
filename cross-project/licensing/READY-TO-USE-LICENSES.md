@@ -5,7 +5,7 @@
 | ID | `LR-LIC-005` |
 | Categoria | licensing |
 | Projetos beneficiados | todos os cinco (camada comum de licença) |
-| Fontes | seção de evidências de cada um dos 42 relatórios em `repositories/*/REPORT.md` (licença lida no arquivo, no commit pinado); `data/inventory/license-matrix.tsv` |
+| Fontes | seção de evidências de cada um dos **54** relatórios em `repositories/*/REPORT.md` (licença lida no arquivo, na ref pinada); `data/inventory/license-matrix.tsv` |
 | Data | 2026-11-17 |
 | Status | CURRENT — **não é parecer jurídico**; é o que o arquivo diz, com obrigação traduzida em ação |
 | Confiança | Alta para o texto das licenças lidas; média para fronteiras de caso limite (marcadas) |
@@ -78,9 +78,19 @@ opção de uso. Conferido em 2026-11-20 (`audits/REAUDIT-2026-11-20.md`). Está 
 | `LR-VOICE-004` | OpenWhispr | allowlist de rede; `Supported Versions` | sim | MIT; termos dos pesos linkados não foram lidos |
 | `LR-FORGE-020` | Charakuru | **nada a colar**: a licença proíbe redistribuir e extrair os ativos; vale como modelo de *texto* de licença com limiar financeiro | sim (fork no GitHub) | reter o `LICENSE` próprio + os 5 avisos de terceiros; nada de Skills nem assets fora do pacote |
 | `LR-FORGE-021` | HairDeck | o `download_weights.py`: peso + `LICENSE` do modelo + `sha256` esperado, com `local_get` e `HF_ENDPOINT` | sim | Apache-2.0; **nenhum `NOTICE` no repo** — os termos dos modelos gated chegam no workspace, não no Git |
+| `LR-AGENT-015` | goose (ex-`block/goose`) | Apache-2.0: usar, modificar, comercializar | sim | copyright + texto; **não há `NOTICE`** (0 na árvore de 3.130 entradas) |
+| `LR-AGENT-016` | deer-flow | MIT **no código**; nome, logos e Skills fora do LICENSE | sim | copyright + texto; ler a seção "Product Trademarks" antes de usar marca |
+| `LR-AGENT-017` | `anthropics/skills` + diretório de plugins | por Skill: 18 `LICENSE.txt` (a raiz **não tem** licença) | sim, Skill a Skill | o `LICENSE.txt` do pacote + o `THIRD_PARTY_NOTICES.md` (404 linhas) se houver terceiro |
+| `LR-AGENT-018` | superpowers | MIT simples (1.070 B) | sim | copyright + texto; as 15 Skills não trazem licença própria |
+| `LR-VOICE-005` | pipecat | BSD-2-Clause | sim | copyright + texto + **o `LICENSE-shadcn.md`** se copiar o template vendorizado |
+| `LR-DATA-001` | Scrapling | BSD-3-Clause, lib e Skill com `LICENSE.txt` separado | sim | copyright + texto (3 cláusulas: manter aviso) |
+| `LR-FORGE-022` | parallel-code | MIT | sim | copyright + texto |
+| `LR-RAG-001` | ragflow | Apache-2.0 | sim | NOTICE é obrigatório por Apache; nenhum no repo (0) — criar se redistribuir |
+| `LR-PROV-002` | daytona (público) | AGPL-3.0 **só nas tags**; a `main` não tem `LICENSE` | sim (o que foi publicado) | a tag lida + AGPL inteira; **sem suporte e sem garantia** |
+| `LR-FORGE-023` | dyad | split: Apache-2.0 fora de `src/pro/`; FSL-1.1-ALv2 dentro (sem uso competitivo) | sim, exceto `src/pro/` | preâmbulo de exceção do `LICENSE` + os 4 arquivos por diretório |
 
 Os quatro últimos entraram em 2026-11-20 (antes o digest cobria 19 objetos, a matriz já tinha
-22). Contagem conferida contra `data/inventory/license-matrix.tsv` — hoje 44 (+2 em 2026-11-25: `LR-FORGE-020` Charakuru e `LR-FORGE-021` HairDeck). Os oito seguintes entraram em 2026-11-24 (a leva `AppFlowy-IO`/`opf` + seis repositórios); o método de leitura de licença dividida está em `cross-project/licensing/SPLIT-LICENSE-SCAN.md`.
+22). Contagem conferida contra `data/inventory/license-matrix.tsv` — hoje **54** (+10 em 2026-11-25: a leva dos 16 links — `LR-AGENT-015`…`018`, `LR-VOICE-005`, `LR-DATA-001`, `LR-FORGE-022`/`023`, `LR-RAG-001`, `LR-PROV-002`; antes, +2 no mesmo dia com `LR-FORGE-020` Charakuru e `LR-FORGE-021` HairDeck). Os oito seguintes entraram em 2026-11-24 (a leva `AppFlowy-IO`/`opf` + seis repositórios); o método de leitura de licença dividida está em `cross-project/licensing/SPLIT-LICENSE-SCAN.md`.
 
 Cuidado com Apache-2.0 em pacote de Skills: copiar **uma pasta** de Skill leva só `SKILL.md` e
 `scripts/`; o `NOTICE` e o `LICENSE` têm de ser copiados junto, ou o reuso fica sem atribuição.

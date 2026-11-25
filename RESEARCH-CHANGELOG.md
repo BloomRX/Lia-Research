@@ -9,6 +9,55 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 ---
 ---
 
+## 2026-11-25 (UTC) — a leva de 16 links: 10 objetos, 1 digest de gates, e o censo de 187 `SKILL.md`
+
+- **ADD** `LR-AGENT-015` `aaif-goose/goose` (o antigo `block/goose`, mesmo `id` 846698999 — renomeação de
+  dono, não bifurcação): governança por issue **Ready** e aposentadoria do diretório próprio de servidores
+  MCP. 366 MB de árvore; execução `BLOCKED` (sem `cargo`/`rustc` aqui).
+- **ADD** `LR-AGENT-016` `bytedance/deer-flow`: a auditoria de Skill como **contrato** — 4 schemas
+  (`package_snapshot` → `review_facts` → `review_report` → `waiver_manifest`), waiver com `file_sha256` +
+  `expires_on` + `preapproved_file_sha256s`, CI de review em PR, e a Skill `skill-reviewer` que **não pode
+  ler o alvo diretamente** e tem 6 casos de eval próprios. O analisador deles **rodou aqui** (346 análises).
+- **ADD** `LR-AGENT-017` `anthropics/skills` + `anthropics/claude-plugins-official` + tópico
+  `skill-creator`: o acervo de 200.497 ★ **sem `LICENSE` na raiz** (18 por Skill + `THIRD_PARTY_NOTICES.md`
+  de 404 linhas); o `skill-creator` é **byte-idêntico** ao do repositório de plugins
+  (`sha256 dcd4803e…`); e a versão antiga dele existe como **arquivo de referência** que ainda se declara
+  `name: skill-creator`.
+- **ADD** `LR-AGENT-018` `obra/superpowers`: MIT na raiz, **12 manifests** de runtime sincronizados por
+  `.version-bump.json` (11 pares `path`/`field`), zero CI e uma política de PR contra agente ("94 % de
+  rejeição", "não aceitamos PR de agente sobre issue alheia").
+- **ADD** `LR-VOICE-005` `pipecat-ai/pipecat` (12 Skills de manutenção, `disable-model-invocation: true`,
+  `LICENSE-shadcn.md` dentro do componente vendorizado, `license-check.yaml` no CI), `LR-DATA-001`
+  `D4Vinci/Scrapling` (a Skill da lib com `LICENSE.txt` próprio, ZIP na `main` por URL de ramo e
+  `metadata.openclaw.requires.bins`), `LR-FORGE-022` `johannesjo/parallel-code` (o gate de IPC:
+  `channel-manifest.json` + allowlist no `preload.cjs` + teste de divergência), `LR-FORGE-023` `dyad-sh`
+  (split Apache-2.0 + `src/pro/` sob FSL-1.1-ALv2; workflow que **apaga** release fora do CI), `LR-RAG-001`
+  `infiniflow/ragflow` (o `AGENTS.md` que trata legado como passivo; `internal/{dao,entity}/license.go` é
+  código, não licença) e `LR-PROV-002` `daytonaio/daytona` (**árvore de 3 arquivos**: o código foi para lugar
+  privado; a licença só existe nas tags, e o `README` teve um commit para fixar o link na `v0.190.0`).
+- **ADD** `LR-CMP-004` `comparisons/SKILL-GATE-COMPARISON.md` — **o resultado da rodada**: os 6 links de
+  autoria de Skills viram um censo de **187 `SKILL.md`** (173 pacotes materializados com recursos), passado
+  por **dois validadores abertos executados aqui** (o `quick_validate.py` da Anthropic e o analisador do
+  DeerFlow, 177 + 346 execuções). Resultado central: eles **discordam em 43 dos 177 pacotes** — 39 estão
+  prontos para publicar no gate de segurança e são rejeitados pelo da Anthropic (53 só por chave
+  desconhecida), e 5 do próprio acervo oficial estão `blocked` por `python-env-dump-exfil` no código
+  distribuído junto. Licença por Skill: **19 de 178** declaram, **23 de 187** têm arquivo — 18 dos 23 no
+  repositório da Anthropic, e os 4 restantes são exatamente as Skills **copiadas** de lá.
+- **CONSOLIDATE** `cross-project/licensing/SPLIT-LICENSE-SCAN.md`: **formato `I`** (exceção por diretório com
+  licença futura) e mais 10 linhas de censo; censo vai de 17 para 27 repositórios; §6 ganha 2 lacunas
+  declaradas (`NOTICE` não entra na contagem de `LICENSE*`; diff por diretório do dyad não auditado).
+- **FIX** contabilidade: índice passa a **54 objetos** (58 linhas com sub-documentos), `license-matrix.tsv`
+  a **54**, `test-log.tsv` a **36** (1 linha nova: a execução dos dois gates), catálogo regenerado (54),
+  `README.md` 210 `.md`; a linha de abertura do índice, que ainda dizia "34 objetos / 30 linhas", foi
+  alinhada com o corpo.
+- **NOTA** `decisions/ACCEPTED/DR-0019…md` continua dizendo "os 42 objetos": é afirmação datada de um
+  registro aceito, não contagem corrente — não reescrevemos histórico aprovado (append-only).
+- **FORA** do que a medição resolve: nenhum registro de Skill do Hub foi tocado; as perguntas de adoção
+  (contrato de gate, waiver datado, `requires.bins`, gate de IPC no Studio, licença por Skill obrigatória)
+  estão nos §"Onde isto poderia se aplicar" de cada dossiê, com `— nenhuma registrada` na decisão.
+
+---
+
 ## 2026-11-25 (UTC) — `LR-FORGE-020` Charakuru + `LR-FORGE-021` HairDeck; e o `DR-0004` fecha por hash
 
 Primeira rodada operando sob `DR-0019`: dois links do dono, sem briefing, com relação entre eles
