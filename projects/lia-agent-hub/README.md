@@ -93,3 +93,7 @@ O inventário histórico identificou nove lacunas (E-1 a E-9) no modelo de catá
 Elas **não foram reescritas aqui** — o documento de origem é a fonte. A consolidação
 de Skills e licença está em `skills/SKILL-LICENSE-CONSOLIDATION.md`; a lista de lacunas
 com status está em `INDEX.md` §5.
+
+---
+
+**Pesquisa desta base que toca este projeto agora** · 2026-11-26 — o terceiro modelo de licença de Skill (inventário por arquivo com gate, `LR-UI-006` §9) e o censo dos 21 `SKILL.md` sem `LICENSE.txt` lateral; matriz em [`comparisons/ANIMAMA-RECOMMENDATION-MATRIX.md`](../../comparisons/ANIMAMA-RECOMMENDATION-MATRIX.md) §4.4.

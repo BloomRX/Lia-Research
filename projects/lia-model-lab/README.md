@@ -84,3 +84,7 @@ próprio inventário) — relevante para `DR-0001`.
 - LFM3 (combinado com a avaliação do Lia-Project): `cross-project/ai-models/LFM3-EVALUATION.md`
 - Catálogo de modelos (44 registros, 0 validados): `cross-project/ai-models/CAPABILITY-CATALOG-DIGEST.md`
 - OpenJarvis (métricas de energia/FLOPs): `repositories/openjarvis/REPORT.md`
+
+---
+
+**Pesquisa desta base que toca este projeto agora** · 2026-11-26 — banco de modelos com teto de custo e juiz calibrado (`LR-UI-006` §7), os pesos que podem ser copiados com suas licenças (§10) e a matriz em [`comparisons/ANIMAMA-RECOMMENDATION-MATRIX.md`](../../comparisons/ANIMAMA-RECOMMENDATION-MATRIX.md) §4.5.

@@ -70,3 +70,7 @@ que **não resolve** a obrigação, porque o aviso MIT não viaja no payload.
 | `planejamento/*` com 2 versões de 3 documentos | `CONFLICTING` de tamanho |
 | `docs/INDICE-DOCUMENTOS.md` em 2 versões | índices divergentes |
 | `STUDIO-FORGE-INTEGRATION-AUDIT.md` (179 KB) vs Forge `STUDIO-FORGE-CONSISTENCY-ARCHITECTURE.md` (29 KB) | dois documentos sobre a mesma fronteira, em dois repositórios |
+
+---
+
+**Pesquisa desta base que toca este projeto agora** · 2026-11-26 — o gate de promoção por item do Animama é vizinho do problema dos 43 pacotes em versões divergentes do censo: a matriz em [`comparisons/ANIMAMA-RECOMMENDATION-MATRIX.md`](../../comparisons/ANIMAMA-RECOMMENDATION-MATRIX.md) §4.3.

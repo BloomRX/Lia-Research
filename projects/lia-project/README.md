@@ -76,3 +76,7 @@ Ver `INDEX.md` nesta pasta. Resumo: 80% do valor está em `docs/research/`,
 O Lia-Research **não** move nem integra nada. A ação recomendada ao dono do projeto
 (registrada em `RESEARCH-ROADMAP.md`) é promover para `main` os documentos de
 `docs/research/` — hoje inacessíveis a quem lê a branch padrão.
+
+---
+
+**Pesquisa desta base que toca este projeto agora** · 2026-11-26 — layout de cache de prompt por fornecedor (`LR-UI-006` §7), parser de JSON parcial (`LR-UI-006` §5), Vault no Windows (`LR-UI-006` §10) e a matriz completa em [`comparisons/ANIMAMA-RECOMMENDATION-MATRIX.md`](../../comparisons/ANIMAMA-RECOMMENDATION-MATRIX.md) §4.1.

@@ -71,3 +71,7 @@ Ver `INDEX.md`. Destaque: as quatro pesquisas de ferramentas (3D, animação, pi
 Blender-MCP) são as mais reutilizáveis; a proposta consolidada de 143 KB é a mais
 densa e a mais arriscada de citar sem leitura (documento grande, fácil de
 sobre-interpretar).
+
+---
+
+**Pesquisa desta base que toca este projeto agora** · 2026-11-26 — clip `animaPoseClip/2.0`, a gate de promoção por item e o matcher de nomes de morph no avatar VRM (`LR-UI-006` §3/§4), o invólucro do conversor (`LR-FORGE-024` §4/§6) e a matriz em [`comparisons/ANIMAMA-RECOMMENDATION-MATRIX.md`](../../comparisons/ANIMAMA-RECOMMENDATION-MATRIX.md) §4.2.
