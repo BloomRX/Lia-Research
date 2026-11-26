@@ -87,3 +87,24 @@ contra a árvore do Lia-Project em 2026-11-17.
 | Nenhum modelo do catálogo validado | 44 catalogados, 0 medidos |
 | Duas pesquisas de provider concorrentes | consolidação exige decisão de produto |
 | `main` sem a pesquisa de novembro | 511 documentos fora de `main` |
+
+---
+
+## 5. Conferência de ponteiros — 2026-11-26
+
+Medição desta sessão (`gh api` na `main`; ver `audits/RECONCILIACAO-OPERACIONAL-2026-11-26.md` §2.1).
+Os dossiês e tabelas acima ficam como registro datado de 2026-11-17; só o que segue vale hoje.
+
+| Afirmação anterior | Estado hoje |
+|---|---|
+| "Branches `arena/*` permanecem como registro histórico; o conteúdo citado nelas **não foi integrado à `main`**" | **superada** — restou **1** branch (`main`); `005a324` foi consolidada. `main` @ `72c44425` com **833 commits** |
+| `docs/research/LIA-WINDOWS-AMD-MODEL-COMPATIBILITY.md`, `LIA-LFM3-EVALUATION.md`, `2026-11-14-runtime-resource-research.md`, `LIA-ORNITH-WEIGHTS-RESEARCH.md` permanecem na origem | **ENTREGA CONCLUÍDA** — os quatro estão na `main`, e o próprio `docs/reports/LIA-RESEARCH-TRANSFER-RECONCILIATION.md` (10.452 B, lido) os classifica `Research reference`, cópia byte a byte, "nenhum documento classificado como Canonical nesta rodada" |
+| "`LIA-NATIVE-PROVIDER-COVERAGE.md`, `LIA-STAGE-DEPENDENCY-MAP-2026-10-28.md`, `LIA-NEXT-DECOUPLING-PLAN.md`, `LIA-DESKTOP-ARCHITECTURE-AUDIT-2026-11-16.md`, `LIA-UI-UX-AUDIT-2026-11-14.md`, `LIA-BETA-READINESS-PLAN-2026-11-14.md`, `LIA-GLOBAL-BRANCH-RECONCILIATION-2026-11-16.md`, `DECISION-RECORD-2026-11-16.md`, `LIA-STT-SECURITY-AUDIT-2026-11-14.md` permanecem apenas na origem" | **ENTREGA CONCLUÍDA** para os nove — todos na `main`, alguns maiores do que registramos (70,5 KB / 101,9 KB). O §4 deles como "leitura pendente" permanece válido: ainda não os lemos |
+| gap "511 documentos fora de `main`" | **resolvido com uma exceção**: das linhas de §2 que a base citava, só `docs/reports/LIA-VALIDATION-MATRIX-5EC464E-2026-11-14.md` **não** está na `main` (busca na árvore: ausente) |
+| gap "Nenhuma Skill com licença no payload" | **refinado**: 21 `SKILL.md` na `main`, **1** com `LICENSE` (`alethe/LICENSE`, 1.069 B). restam 20 sem. O bloqueio de distribuição continua, com base menor |
+| `lia/core/src/memory/{contracts,store,context}.ts` + `lia/core/test/memory-store.test.ts` | presentes na `main` (1.355 / 8.791 / 2.132 / 6.811 B) e **lidos como código nesta sessão**; nenhum teste foi executado por nós → a comparação com fornecedores está em `LR-CMP-006` §2, §7 |
+
+Novo pointer que faltava: `MODEL-CATALOG-DIGEST`/`PROVIDER-ARCHITECTURE-DIGEST`/`PROVIDER-RECOMMENDATIONS-DIGEST`
+têm hoje equivalentes na `main` (`docs/research/LIA-MODEL-PROVIDER-{CATALOG,ARCHITECTURE,RECOMMENDATIONS}.md`)
+classificados pelo Project como **`Pending transfer`** — ou seja, o catálogo canônico continua
+`lia-capability-catalog/` e a nossa pesquisa entra como insumo a reconciliar, não como substituta.

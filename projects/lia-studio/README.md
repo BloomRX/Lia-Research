@@ -3,11 +3,13 @@
 | Campo | Valor |
 |---|---|
 | Repositório de origem | `BloomRX/Lia-Studio` |
-| Branch padrão | `main` @ `ba70d22` (2026-10-30, **4 commits**) |
-| Branch mais avançada | `arena/01a0f4ab-lia-gamedev` @ `b099c4a` (2026-11-16, 90 commits) |
-| Branches remotas | 9 |
+| Branch padrão | `main` @ `0e7b9949` (2026-11-26T09:20:01Z, **115 commits**) — antes `ba70d22` (2026-10-30, 4) |
+| Branch mais avançada | **a `main`**: `arena/01a0f4ab-lia-gamedev` @ `b099c4a` (2026-11-16, 90 commits) foi integrada pelo PR #1 (`12dccf06`) e removida |
+| Branches remotas | **1** (`main`) — eram 9 em 2026-11-17; oito removidas após o merge |
+| Arquivos na `main` | 226 entradas (210 blobs, 83 `.md`, 88 em `docs/**`) |
 | Arquivos | 1.019 · **109 documentos, todos de autoria Lia** |
-| Skills | **16** (`.agents/skills/`) |
+| Skills | **0** com payload próprio na `main` (só `.agents/skills/README.md`); o inventário de 2026-11-17 contava 16 — a autoria migrou para o Agent Hub |
+| Licença | **MIT** em `LICENSE` (1.539 B, "Copyright (c) 2026 BloomRX e colaboradores da Lia Studio") — não constava do inventário anterior |
 | Data do inventário | 2026-11-17 |
 
 ---

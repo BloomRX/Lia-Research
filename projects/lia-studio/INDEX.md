@@ -67,3 +67,21 @@ Todas sem licença no payload. 12 com seção `## Origem` (bom), mas aviso MIT f
 | Triagem OpenDots/OpenBot nunca concluída | `PENDENTE` desde 2026-10-17 |
 | 16 skills sem licença | bloqueia distribuição |
 | Fronteira Studio↔Forge com dois documentos concorrentes | `CONFLICTING` |
+
+---
+
+## 6. Conferência de ponteiros — 2026-11-26
+
+Medição desta sessão (`gh api` na `main`; `audits/RECONCILIACAO-OPERACIONAL-2026-11-26.md` §2.3).
+O texto acima é o registro de 2026-11-17/2026-11-20.
+
+| Afirmação anterior | Estado hoje |
+|---|---|
+| §2 "12 documentos mantidos na origem" | **ENTREGA CONCLUÍDA**: os 12 estão na `main`; sete deles **recuperados** exatamente para os caminhos originais sem alterar os bytes dos blobs (`docs/BRANCH-CLEANUP-2026-11-26.md`) |
+| "`docs/INDICE-DOCUMENTOS.md` … 2 versões divergentes"; "`planejamento/*` `CONFLICTING` de tamanho" | **fechados**: um `docs/INDICE-DOCUMENTOS.md` (3.730 B) e cinco arquivos em `docs/planejamento/`, cada um uma vez |
+| "Sem `LICENSE` no payload do Studio" | **superada**: `LICENSE` na raiz = **MIT**, "Copyright (c) 2026 BloomRX e colaboradores da Lia Studio", 1.539 B |
+| "16 skills no payload" | **0** `SKILL.md` na `main` (só `.agents/skills/README.md`); a autoria migrou para o Agent Hub — `docs/windows-evidence/HUB-SKILLS-FOLLOWUP.md`: "O Studio não restaura a autoria dessas Skills: o Agent Hub as gerencia" |
+| "`docs/MULTI-AGENT`, fronteira com o Forge" | o registro de limpeza **deixa de afirmar** que o contrato Forge não foi publicado; a limitação atual é "a integração ainda não validada do editor com esse contrato e com o runtime Lia" → contrato: **entregue**; integração: **VALIDAÇÃO NÃO EXECUTADA** |
+| ZIP de terceiros | tamanho versionado real: `docs/Mr-Mak-Skills-Free.zip` **3.352.656 B** (`docs/pacote-agentes.zip` 15.652 B); o "9,9 MB" dos nossos textos é o **extraído**, unidade que `DR-0004` já explicita junto de tag + `sha256` |
+| validação da integração | **executada pelo Studio, não por nós**: Linux 2026-11-26 com `verify_alpha.py --part 1..10` verdes (314 testes + 8 pulados), `test_project_cli.py -q` 21, `test_creation.py -q` 23, servidor em `127.0.0.1` com 4 HTTP 200. Os 8 pulados são 7 de Windows Job Objects + 1 de Godot real no Windows |
+| evidência Windows | **VALIDAÇÃO ABERTA**: `docs/windows-evidence/windows-check-20261126T004322Z-a4f81556.json` com partes 1-6 e 8 PASS e **7, 9 e 10 FAIL** (`godot/unreal/unity_on_path: false`; 7 chaves `not_tested`; sem logs brutos; sem dados de projeto). O run anterior (`09ce703d`) tinha FAIL em 3, 6, 7, 9, 10. Causa de FAIL **não** é atribuível pelo código de saída, e "nenhum resultado Linux substitui reteste Windows" |

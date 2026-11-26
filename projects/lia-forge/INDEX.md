@@ -91,3 +91,21 @@ tecnologia. Nada disso foi implementado ou aprovado.
 | Duas versões do mesmo documento de revisão integrada | `CONFLICTING` |
 | 24 capacidades "planned" nunca implementadas | estado registrado em código, não validado |
 | Nenhum benchmark de render no hardware do usuário | `BLOCKED` |
+
+---
+
+## Conferência de ponteiros — 2026-11-26: **não verificável**
+
+Estado deste índice: **NÃO VERIFICADO**. Em 2026-11-26 pedimos o estado real da `main` e o token desta
+sessão recebeu **HTTP 403 (Resource not accessible by integration)** de `gh api repos/BloomRX/Lia-Forge`
+— o repositório existe e está privado para nós. Portanto nenhuma linha acima foi conferida contra a
+`main` atual: o inventário é de 2026-11-17, quando o Forge era legível, e os ponteiros "na branch
+`arena/*`" deixaram de ter valor preditivo porque os outros três produtos consolidaram e removeram as
+suas em 2026-11-26. Nada foi apagado nem atualizado aqui; a data de última conferência continua
+2026-11-17 e as pendências continuam válidas como *perguntas*.
+
+Risco que esta lacuna cria, e que o dono precisa decidir: se o Forge seguiu o fluxo dos irmãos
+(`docs/BRANCH-AND-RELEASE-FLOW.md`: branch temporária, remoção após snapshot), os documentos que os
+nossos índices citam como "na origem" podem ter sido integrados, movidos ou removidos sem que a base
+saiba. A correção não é reescrever o índice — é ler o Forge quando o acesso voltar, com `git ls-tree`
+na `main` e comparação por SHA.

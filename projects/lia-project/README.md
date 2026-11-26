@@ -3,9 +3,10 @@
 | Campo | Valor |
 |---|---|
 | Repositório de origem | `BloomRX/Lia-Project` |
-| Branch padrão | `main` @ `9c7ac18` (2026-10-30, 349 commits) |
-| Branch mais avançada | `arena/7fa837f0-lia-project` @ `005a324` (2026-11-17, **577 commits**) |
-| Branches remotas | 12 |
+| Branch padrão | `main` @ `72c44425` (2026-11-26T07:20:39Z, **833 commits**) — antes `9c7ac18` (2026-10-30, 349) |
+| Branch mais avançada | **a `main`**: `arena/7fa837f0-lia-project` @ `005a324` (2026-11-17, 577 commits) foi consolidada e removida |
+| Branches remotas | **1** (`main`) — medido em 2026-11-26; eram 12 em 2026-11-17 |
+| Arquivos na `main` | 798 entradas (674 blobs, 214 `.md`, 192 em `docs/**`) |
 | Arquivos (todas as branches) | 55.177 |
 | Documentos distintos | 1.236 |
 | De autoria Lia | 261 |
@@ -39,7 +40,7 @@ esses arquivos como "pesquisa Lia" infla qualquer métrica em ~4×.
 | Arquitetura (`docs/architecture/`) | 30 | arquitetura Lia, Stage, providers, AIRI (análise, comparação, desacoplamento), decisões |
 | Decisões | 10 | `docs/architecture/decisions/` (ADR-0001 runtime desktop, benchmark C0–C8, specs) |
 | Produto | ~20 | M1 voz (fases 1–5), planos de finalização, auditorias de instalação |
-| Skills (`.agents/skills/`) | 35 arquivos / **22 skills** | `lia-*` e `alethe` (vendorizada) |
+| Skills (`.agents/skills/`) | na `main` de 2026-11-26: **21** `SKILL.md`, **1** com `LICENSE` (`alethe/`) — o inventário de 2026-11-17 contava 22 skills e nenhuma licença | `lia-*` e `alethe` (vendorizada) |
 | Licenças | 4 | `docs/licenses/` |
 | Outros | ~112 | guias, glossário, planos, benchmarks |
 

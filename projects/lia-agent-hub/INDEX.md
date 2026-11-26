@@ -71,3 +71,20 @@ documentos (regra de dedup de `governance/RESEARCH-GOVERNANCE.md` §6).
 
 Os nove gaps permanecem. Nenhum foi fechado por esta fundação — e não deveriam ser:
 fechá-los é implementação no Hub, fora do escopo da ordem de serviço.
+
+---
+
+## 6. Conferência de ponteiros — 2026-11-26
+
+Medição desta sessão (`gh api` na `main`; `audits/RECONCILIACAO-OPERACIONAL-2026-11-26.md` §2.2).
+O texto acima é o registro de 2026-11-17.
+
+| Afirmação anterior | Estado hoje |
+|---|---|
+| "Branches `arena/*` permanecem como registro histórico" | **superada**: `main` @ `8c14ec85` com **202 commits**, **1** branch remota. `docs/BRANCH-AND-RELEASE-FLOW.md` agora exige integração na `main` e **substitui** a regra inicial de "`main` apenas documental"; as quatro `arena/*` foram removidas após `BRANCH-CLEANUP`/snapshot (`docs/operations/BRANCH-CONSOLIDATION-2026-11-26.md`, ZIP 13.462.694 B + bundle, `fsck` e restauração verificados) |
+| §2 "13 documentos que permanecem na origem" (`LIA-SKILLS-INVENTORY.md`, `SKILL-LICENSE-AND-PROVENANCE-AUDIT.md`, `THIRD-PARTY-SKILLS-CATALOG.md`, `LIA-SKILLS-ROADMAP.md`, `catalog/*.records.json` (5), `Lia-AgentHub:catalog/sources.json` e `Lia-AgentHub:tools/build-catalog-records.py` (caminhos do Hub, não desta base)) | **INTEGRAÇÃO PENDENTE, com ponteiro a corrigir**: nenhum deles está na `main`; o próprio registro de limpeza os lista como "13 arquivos de pesquisa ausentes da base", preservados no bundle e alcançáveis por SHA (`b4e63eae`). Quem precisar do payload usa o link por commit, não a branch |
+| "`DECISION-REGISTER.md` … versão dupla divergente" | **ENTREGA CONCLUÍDA**: `docs/DECISION-REGISTER.md` (38.258 B) existe uma única vez na `main` |
+| "o payload de skills não está no Hub" | confirmado por contagem: **0** `SKILL.md`, **0** `LICENSE` na `main` |
+| (novo) contratos publicados | a `main` traz `docs/architecture/CAPABILITY-INVENTORY-CONTRACT.md` (`inventoryVersion: 1`; `revision` = "mesmo valor e digest diferente é conflito"; `complete` = "omissões nunca apagam registros"), `SUPERVISED-EXECUTION-V1.md` + `docs/schemas/supervised-execution-v1.schema.json`, `docs/examples/**` (incl. `intake/demo-conflict-same-revision.json`), `INVENTORY-INTAKE.md`, `CENTRAL-CAPABILITY-GOVERNANCE.md`. **Leitura pendente da base**: nada aqui foi comparado com `LR-MCP-004`/`LR-AGENT-019` ainda |
+| `docs/DECISION-REGISTER.md` e o registro de integração | a seção *Referências* do registro cita `docs/research/INTEGRATION-CANDIDATES.md` nomeando **MCPVault e ai-memory** como evidência externa do Hub — e registra "Nenhuma decisão foi promovida nesta rodada". É o gancho do `LR-CMP-006` §5.1, não uma recomendação desta base |
+| piloto do Project no Hub | **VALIDAÇÃO EXECUTADA POR ELES, NÃO POR NÓS**: 28 Skills materializadas, verificador recusando Skill sem `SKILL.md`, 28 pins / 7 testes / 88 subtestes verdes em checkout Windows `J:/Lia/migration/agent-hub/project-pilot-3153c8b` @ `807c0b1`; corte remoto pendente; 23 de 51 Skills fora do corte por origem/licença/escopo (`docs/operations/LIA-PROJECT-PILOT-HANDOFF.md`) |

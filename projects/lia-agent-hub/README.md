@@ -3,9 +3,10 @@
 | Campo | Valor |
 |---|---|
 | Repositório de origem | `BloomRX/Lia-AgentHub` ⚠️ **não** `Lia-Agent-Hub` |
-| Branch padrão | `main` @ `34a27f4` (2026-11-14, 8 commits) |
-| Branch mais avançada | `arena/1a7ed773-lia-agenthub` @ `bd4bfbb` (2026-11-16) |
-| Branches remotas | 5 |
+| Branch padrão | `main` @ `8c14ec85` (2026-11-26T08:57:25Z, **202 commits**) — antes `34a27f4` (2026-11-14, 8) |
+| Branch mais avançada | **a `main`**: as quatro `arena/*` (incl. `arena/1a7ed773-lia-agenthub` @ `bd4bfbb`) foram consolidadas e removidas em 2026-11-26 |
+| Branches remotas | **1** (`main`) — eram 5 em 2026-11-17 |
+| Arquivos na `main` | 199 entradas (165 blobs, 50 `.md`, 78 em `docs/**`) · **0** `SKILL.md` e **0** `LICENSE` no payload |
 | Arquivos | 250 · **57 documentos, todos de autoria Lia** |
 | Data do inventário | 2026-11-17 |
 

@@ -74,3 +74,17 @@ Nenhuma consolidação foi feita nesta base — é decisão e trabalho do projet
 | Sem pesquisa dedicada de visão/multimodal | inexistente (diretório não criado — ver README §8 do Lia-Research) |
 | Versões divergentes de medição | 5 documentos, até 7 versões |
 | Benchmark de energia/FLOPs | inexistente; OpenJarvis é referência |
+
+---
+
+## Conferência de ponteiros — 2026-11-26: **não verificável**
+
+Estado deste índice: **NÃO VERIFICADO**. Em 2026-11-26 `gh api repos/BloomRX/Lia-Model-Lab` devolveu
+**HTTP 404**, e `search/code?q=Model-Lab+user:BloomRX` devolveu `total_count: 0` — o repositório não
+está acessível a este token (privado, renomeado ou arquivado; não sabemos distinguir). As linhas acima
+são o registro de 2026-11-17 e continuam descrevendo o que existia então.
+
+O projeto está **pausado por decisão do dono** (2026-11-20: "Manter o Model Lab pausado até a máquina
+Windows ser entregue"), e a validação hardware que ele exige não pode ser executada neste ambiente de
+qualquer forma. Então a pendência aqui é de acesso, não de revisão vencida: ao reabrir o Lab, a primeira
+medição é `git ls-tree -r --name-only origin/main`, e não um novo inventário de candidatas.
