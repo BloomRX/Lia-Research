@@ -132,6 +132,12 @@ este repositório, e corrijo aqui, não em segredo:
    que o `SPLIT-LICENSE-SCAN.md` chama de simples e que o Hub não pode assumir para conteúdo de terceiros;
 2. ~~"`systematic-debugging/SKILL.md` tem 42.969 B"~~ → tem **9.530 B** (42.969 B é o `doc-coauthoring` do
    `anthropics/skills`, medido por mim no censo dos 178). O erro vinha de anotação de censo não reconfirmada.
+   **Retificação da retificação (2026-11-26):** a atribuição entre parênteses também estava errada. Medido
+   hoje, `skills/doc-coauthoring/SKILL.md` tem **15.815 B**, e **nenhum blob** de `anthropics/skills` na `HEAD`
+   atual tem 42.969 B — `gh api "repos/anthropics/skills/git/trees/HEAD?recursive=1"` filtrando `.size==42969`
+   devolve **0 linhas** (o maior `.md` do repositório é `skills/claude-api/shared/model-migration.md`, 346.255 B).
+   Ou seja: o número 42.969 não pertencia a nenhum arquivo que saibamos reidentificar, e a explicação "era o
+   `doc-coauthoring`" é retirada. O que sobrevive é só a primeira correção: 9.530 B.
 
 As duas correções mudam a recomendação: o `superpowers` não é "licença ausente" (é MIT claro), e as Skills
 deles não são longas (são 4× menores que a média do corpus: 9.530 B contra 7.843 B de mediana do total de
