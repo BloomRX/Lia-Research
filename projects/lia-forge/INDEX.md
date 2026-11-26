@@ -25,6 +25,7 @@
 | `LR-LIC-005` | Licenças prontas: NOTICE por componente, GPL como processo separado, CC-BY-SA fora do código | `cross-project/licensing/READY-TO-USE-LICENSES.md` | derivado de 18 relatórios |
 | `LR-STUDIO-004` | Composição/geração 2D·3D e crates de formato (leitura hostil, `craft-docpath`) | `repositories/artcraft/REPORT.md` | pesquisa externa (novo) |
 | `LR-AGENT-010` | Edição determinística como alternativa a geração (custo, fidelidade, privacidade) | `cross-project/agents/ARTCRAFT-SKILL-PACK.md` | derivado de `LR-STUDIO-004` |
+| `LR-VEC-001` | Vetorização raster→SVG como serviço externo (API beta + MCP): contrato, limites, preço e o que os termos proíbem | `repositories/perfectvector/REPORT.md` | triagem dirigida pedida pelo dono (2026-11-26) |
 
 ## 2. Pesquisa existente mantida na origem
 
@@ -109,3 +110,21 @@ Risco que esta lacuna cria, e que o dono precisa decidir: se o Forge seguiu o fl
 nossos índices citam como "na origem" podem ter sido integrados, movidos ou removidos sem que a base
 saiba. A correção não é reescrever o índice — é ler o Forge quando o acesso voltar, com `git ls-tree`
 na `main` e comparação por SHA.
+
+## 6. Handoff — vetorização de ativos raster→SVG (2026-11-26)
+
+Pesquisa: `LR-VEC-001` (`repositories/perfectvector/REPORT.md`) — serviço PerfectVector (Rastrix Inc.),
+API em beta + MCP oficial. Recomendação da base: **não integrar** nada disto no Forge.
+
+| Condição | O que a pesquisa estabeleceu |
+|---|---|
+| Portas existentes | só duas: a **API** (`POST /v1/vectorizations`, 1 crédito no sucesso) e o **MCP** (OAuth Google, cobra do saldo do site). O Studio do navegador não tem automação |
+| Por que o MCP está fora | o princípio do Forge é *bring-your-own-key*; o MCP não tem chave, amarra o uso à **conta Google de um usuário** e proíbe reusar/partilhar as credenciais emitidas ao assistente (MCP Terms §6) — e veda expressamente usá-lo "as a bulk conversion service" |
+| Por que a API não entra hoje | exige back-end nosso: **sem CORS** e chave jamais entregue ao usuário (API Terms §9); a Lia não tem servidor de retransmissão, e o resultado **expira em 24 h** (`410 result_expired`) — o pipeline teria de guardar cópia própria desde o primeiro dia |
+| Se um dia houver back-end | as nove condições estão em `LR-VEC-001` §10 (chave da Lia, `Idempotency-Key` derivada do hash da origem, `connect-timeout 10 s` / `total 150 s`, persistência imediata do SVG, fila de 1 conversão por conta, `201 status:failed` como falha de negócio, rejeição local de <100 px / >5 MiB / animado / não-PNG-JPEG-WebP, termos próprios ≥ protetores, nada de material oficial no fluxo) |
+| O que **não** é bloqueio técnico, é contrato | o §10 do Terms proíbe usar entradas, saídas, previews ou metadados em **avaliação, benchmark** ou validação de sistema concorrente — ou seja: a Lia não pode "provar que o próprio vetorizador é melhor" com material do serviço sem consentimento escrito |
+| Custo de referência | **USD 0,08–0,40 por conversão** (packs one-time de 12 meses; preço da API pode mudar **sem aviso** — o §4.2 dos API Terms suspende a regra de 30 dias) |
+
+O trabalho que a pesquisa **autoriza** no Forge é local: a medição da alternativa aberta (VTracer, MIT)
+está em `LR-VEC-001` §8, com as quatro imagens sintéticas, os 5 parâmetros que o binding aceita e o
+desvio de cor medido. Isso roda sem rede, sem crédito e sem contrato de terceiro.

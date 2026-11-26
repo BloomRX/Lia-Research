@@ -11,9 +11,9 @@
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
 | Status | Base reorganizada em 2026-11-20 (missão, catálogo, validador). Medição em hardware: `NOT RUN`; testes de software registrados: **43 linhas** em `data/testing/test-log.tsv` (2026-11-26) |
-| Arquivos Markdown | 217 (contagem de 2026-11-26, `find -name '*.md' -not -path './.git/*'`), validados por `tools/validate.py` |
-| Relatórios externos | 58 objetos, 1 relatório cada (`repositories/*/REPORT.md`) |
-| Catálogo | `catalog/catalog.tsv` — 58 linhas, gerado de `tools/build_catalog.py` |
+| Arquivos Markdown | 220 (contagem de 2026-11-26, `find -name '*.md' -not -path './.git/*'`), validados por `tools/validate.py` |
+| Relatórios externos | 59 objetos, 1 relatório cada (`repositories/*/REPORT.md`) — desde 2026-11-26 um deles é um **serviço**, não um repositório (`LR-VEC-001`) |
+| Catálogo | `catalog/catalog.tsv` — 59 linhas, gerado de `tools/build_catalog.py` |
 | Decisões (governança) | 2 aceita · 12 pendentes · 3 rejeitadas · 2 referência · 2 pastas vazias por desenho |
 
 > **Aviso de escopo.** Este repositório registra *pesquisa*, não *implementação*.
@@ -98,7 +98,7 @@ Lia-Research/
 ├── agents/                    orquestrador, papéis de especialista, revisão, publicação
 ├── templates/                 um modelo por tipo de objeto (14 modelos)
 ├── decisions/                 registros de governança (nunca aprovação de adoção)
-├── repositories/              um diretório por objeto externo (54 relatórios)
+├── repositories/              um diretório por objeto externo (59 relatórios)
 ├── cross-project/             15 áreas tecnológicas transversais (inclui `character-creation/`)
 ├── projects/                  consolidação por projeto Lia
 ├── comparisons/               comparações entre alternativas

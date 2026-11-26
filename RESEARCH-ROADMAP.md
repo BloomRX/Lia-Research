@@ -136,6 +136,21 @@ Regra: item só sai daqui quando existe documento com evidência, não quando "j
 | U-4 | Piloto de **barramento único de comandos** (UI/CLI/IPC/MCP) no Studio | `LR-STUDIO-004` A1 | `NOT RUN` |
 | U-5 | Roots de leitura/escrita por sessão de agente + consentimento global | `LR-STUDIO-004` A2/A3 | `NOT RUN` |
 
+## Trilha D — Ativos de design e vetorização (aberta em 2026-11-26)
+
+| # | Item | Pré-requisito | Status |
+|---|---|---|---|
+| D-1 | Ler a **Privacy Policy do site** e a **MCP Privacy Notice** do PerfectVector: a retenção do editor on-line (≈3 meses) e a do site (≈30 dias) estão `REPORTED`, não `CONFIRMED` | nenhum | `NOT RUN` — abre na próxima conferência; revisão marcada 2027-01-15 |
+| D-2 | Medir a alternativa aberta **em escala local** (VTracer 0.6.15 + Inkscape 1.4.4/Potrace 1.16) sobre a mesma bateria de 4 casos sintéticos, com verificação automática de `fill` contra a paleta e varredura de 16/24/32/64/512 px | sandbox com os binários instalados | `PARTIAL` — VTracer medido em 4 casos (`LR-VEC-001` §8); `inkscape`/`potrace`/`autotrace` ausentes ⇒ `BLOCKED: FALTA_DEPENDENCIA` |
+| D-3 | Decidir **no produto** se a Lia quer um modo raster→SVG local no Studio (VTracer embutido, MIT) — a pesquisa entrega a régua, não a decisão | D-2 | `SKIP` — fora da autoridade desta base |
+| D-4 | Re-conferir os termos do fornecedor antes de **qualquer** uso: o site avisa mudanças materiais com 30 dias (§14), a **API pode mudar de preço sem aviso** (§4.2 dos API Terms), e o contrato inteiro está em `early access` (§2) | D-1 | `PENDENTE` |
+
+Aberta por `LR-VEC-001` (`repositories/perfectvector/REPORT.md`), o primeiro objeto do catálogo cujo
+`Tipo` é **serviço**: sem `LICENSE` para ler, com contrato para ler. Handoff por produto em
+`projects/lia-forge/INDEX.md` §6, `projects/lia-studio/INDEX.md` §7 e `projects/lia-design-foundation/INDEX.md`.
+
+---
+
 ## Trilha R — Avaliação das lacunas declaradas (2026-11-17)
 
 Avaliadas nesta data. Regra aplicada: só abre pesquisa quem tem **fonte identificada** e

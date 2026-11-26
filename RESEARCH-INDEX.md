@@ -4,8 +4,8 @@
 veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID aparece em
 outro documento e não aqui, o outro documento está errado.
 
-- **Data de referência:** 2026-11-26 (2 objetos auditados — o produto Animama e o conversor de avatares — e 1 matriz de recomendação nesta data; a rodada anterior, de 2026-11-25, trouxe 10 objetos e 1 digest de comparação; reauditoria técnica dos 22 objetos anteriores segue em `data/inventory/upstream-reaudit-2026-11-20.tsv`)
-- **Itens:** 58 objetos externos (62 linhas com sub-documentos) + 5 dossiês internos + 34 digests transversais + **6 comparações** + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de execução** + 10 relatórios de 2026-11-17 (na seção própria)
+- **Data de referência:** 2026-11-26 (3 objetos auditados nesta data — o produto Animama, o conversor de avatares e o serviço PerfectVector, o primeiro `Tipo: serviço` do catálogo — e 1 matriz de recomendação; a rodada anterior, de 2026-11-25, trouxe 10 objetos e 1 digest de comparação; reauditoria técnica dos 22 objetos anteriores segue em `data/inventory/upstream-reaudit-2026-11-20.tsv`)
+- **Itens:** 59 objetos externos (63 linhas com sub-documentos) + 5 dossiês internos + 34 digests transversais + **6 comparações** + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de execução** + 10 relatórios de 2026-11-17 (na seção própria)
 - **Pouco foi executado.** Existem **43 linhas** em `data/testing/test-log.tsv` (2026-11-26):
   24 execuções locais com resultado positivo (14 suítes completas + 10 smokes de script), 6 execuções parciais
   (`PARTIAL`) e 11 tentativas bloqueadas com motivo. Nas criações de personagem e em tudo que exige GPU AMD,
@@ -29,7 +29,7 @@ Definições: `catalog/CATALOG-SCHEMA.md`. Máquina: `catalog/catalog.tsv`.
 
 ---
 
-## 1. Tecnologia externa — auditoria (58 objetos)
+## 1. Tecnologia externa — auditoria (59 objetos)
 
 Colunas separadas por exigência de `MISSION.md` §3: **estado** (quanto já se sabe),
 **recomendação** (opinião técnica) e **decisão de adoção** (não existe, e esta base não
@@ -100,6 +100,7 @@ tem autoridade para criar).
 | `LR-MCP-005` | `bitbonsai/mcpvault` — MCP local de vault Markdown: 18 ferramentas medidas (11 em `--read-only`), denylist, `patch_note` com contagem prévia, **446/446 testes**, zero chamada de rede no build | MIT | TESTED | **ADAPT** | — nenhuma | Alta | `repositories/mcpvault/REPORT.md` |
 | `LR-AGENT-019` | `MemPalace/mempalace` (3.12.0) — memória textual com busca vetorial: arquitetura de palace global + extração por agente, **PT-BR real no produto** (47/47 chaves); mineração e busca não executáveis offline neste ambiente | MIT | PARTIALLY_TESTED | **REFERENCE_ONLY** | — nenhuma | Média | `repositories/mempalace/REPORT.md` |
 | `LR-FORGE-024` | `raymond-van/animama-avatar-converter` — invólucro de qualidade em volta do conversor Mochiya (VRChat→VRM 1.0): validador de pré-requisitos, reparo de esqueleto, CLI que dirige o Unity sem `-nographics`, e uma checagem estática que prova que não há código de rede | **MIT** (1.068 B); UniVRM `v0.131.2` e Mochiya em commit fixo, ambos MIT; pacote npm com **zero** dependências | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta na estrutura e nos dois verificadores (executados aqui: 46 testes + `check.mjs`); nenhuma em conversão real (`BLOCKED` — exige Unity) | `repositories/animama-avatar-converter/REPORT.md` |
+| `LR-VEC-001` | `perfectvector.com` (Rastrix Inc.) — **serviço** de vetorização PNG/JPEG/WebP→SVG com API em beta (`https://api.perfectvector.com/v1`, **sem CORS**, 1 conversão live simultânea, resultado expira em 24 h) e MCP por OAuth Google cobrando o saldo do site; packs USD 0,08–0,40/conversão; **o §10 do Terms proíbe usar entrada, saída ou preview em avaliação, benchmark ou validação de concorrente** | sem licença de código: só contrato (Terms 2026-11-25 · API Terms v1.1 · MCP Terms v1.3 · API Privacy Notice v1.1) | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta em contrato, limites e preços (12 páginas oficiais lidas na fonte); **nula** em fidelidade relativa — não medido, e medir está proibido pelo fornecedor | `repositories/perfectvector/REPORT.md` |
 ## 2. Projetos do ecossistema — dossiês internos (5)
 
 | ID | Projeto | Documentos | Skills | Documento |
@@ -115,6 +116,11 @@ Lia-Project **214** `.md` / 674 blobs / **21** `SKILL.md` (1 com `LICENSE`); Lia
 165 blobs / **0** skills; Lia-Studio **83** `.md` / 210 blobs / **0** skills e **`LICENSE` MIT (1.539 B)**
 novo na raiz. `BloomRX/Lia-Forge` e `BloomRX/Lia-Model-Lab` **não verificáveis** hoje (403 e 404 no token
 da sessão). Tabela completa e classificação por linha em `audits/RECONCILIACAO-OPERACIONAL-2026-11-26.md`.
+
+**Sexto diretário em `projects/`, criado em 2026-11-26:** `projects/lia-design-foundation/`
+(`README.md` + `INDEX.md`). **Não é dossiê de produto** — é índice de handoff, porque nenhum repositório
+do projeto é legível por esta sessão (HTTP 404 em três grafias prováveis). As três linhas acima continuam
+valendo como os cinco projetos inventariados.
 
 ## 3. Digests transversais (34)
 
@@ -245,3 +251,7 @@ Organizações (sem SHA de conteúdo): `routerhubSI` (11 repos), `rescript-lang`
 | Repositório público (deveria ser privado) | BLOCKED (403) | `DR-0006`; a decisão de manter a base pública foi reafirmada na conferência de 2026-11-26 (`audits/RECONCILIACAO-OPERACIONAL-2026-11-26.md` §6) |
 | `BloomRX/Lia-Forge` ilegível (HTTP 403) e `BloomRX/Lia-Model-Lab` ausente (HTTP 404) para o token da sessão: **28** linhas de ponteiro não conferíveis (17 na tabela §2 do índice do Forge, 11 nas §2/§3 do do Model Lab) | NOT VERIFIABLE (2026-11-26) | `audits/RECONCILIACAO-OPERACIONAL-2026-11-26.md` §5, `projects/lia-forge/INDEX.md`, `projects/lia-model-lab/INDEX.md` |
 | Busca vetorial local para a Lia: o `sqlite_exact` do MemPalace não elimina o download do embedder (~300 MB) | BLOCKED (ambiente sem rede) | `LR-AGENT-019` §5 |
+| Fidelidade relativa entre vetorização paga e os vetores abertos: **não mensurável por contrato** — o §10 do Terms do PerfectVector proíbe usar entrada, saída, preview ou metadado em “evaluation, benchmarking” ou em validação de sistema concorrente; só consentimento escrito abre essa porta | BLOCKED (cláusula do fornecedor) | `LR-VEC-001` §5.4, §9 (R10), §11 (E16) |
+| Retenção do editor on-line (≈3 meses) e do site (≈30 dias) do PerfectVector, e a **MCP Privacy Notice**: nenhuma das duas foi lida no documento-mestre | NOT RUN (fica para D-1) | `LR-VEC-001` §4 (P13), §11 (E17), `RESEARCH-ROADMAP.md` trilha D |
+| `Lia Design Foundation` não é projeto legível para esta sessão: HTTP 404 em `BloomRX/Lia-Design-Foundation`, `lia-design-foundation` e `Lia-Design` (2026-11-26), e **0** arquivos desta base o mencionavam antes desta rodada — o índice criado é **handoff**, não dossiê | NOT VERIFIABLE | `projects/lia-design-foundation/README.md`, `LR-VEC-001` §10 |
+| Comparção local da alternativa aberta está só no VTracer: `inkscape`, `potrace`, `autotrace` e `vtracer` (CLI) não existem neste sandbox (só ImageMagick 6.9.11-60) | BLOCKED: FALTA_DEPENDENCIA | `LR-VEC-001` §8, `RESEARCH-ROADMAP.md` D-2 |

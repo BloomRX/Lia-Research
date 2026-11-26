@@ -78,6 +78,7 @@ existe relatório e não existe ID — dizer "avaliado" aqui seria mentira.
 | 3 | `promptfoo` como resposta ao V6 (medir Skill de verdade) | fecha a lacuna mais antiga da base |
 | 4 | `canirunai` como pré-filtro do catálogo de 44 modelos | dá utilidade imediata sem prometer medição |
 | 5 | `langfuse` × `sentry` para a lacuna `R-2` | observabilidade nunca pesquisada |
+| 6 | Vectorização: **Inkscape 1.4.4 + Potrace 1.16 no mesmo harness** dos 4 casos sintéticos do VTracer | é o único passo que dá à Lia um número próprio sem depender do contrato de um terceiro — `LR-VEC-001` §8 e a trilha D-2 do roadmap |
 
 ## 6. Limites desta triagem
 
@@ -86,7 +87,10 @@ auditoria de fornecedores já estudados (`ai-memory` entrou como evidência exis
 intacto); não alteramos produto algum (a Research recomenda); **não esperamos** pelo PC com Radeon RX 580
 para concluir o que as evidências disponíveis sustentam — as três validações ligadas a ele continuam
 `NOT RUN`, com os 90 s de conferência quando o equipamento chegar; o **Model Lab permanece pausado**;
-e **Obsidian é ferramenta do usuário, não dependência da Lia** — a ligação é à pasta e ao formato.
+e **Obsidian é ferramenta do usuário, não dependência da Lia** — a ligação é à pasta e ao formato. **PerfectVector (2026-11-26) entrou como triagem dirigida do dono, não como fila desta**:
+  nenhum pedido autenticado foi feito ao serviço (sem conta, sem chave, sem crédito), e a comparação de
+  fidelidade não é «deixamos de medir» — está **bloqueada pelo §10 do Terms do fornecedor**, que proíbe usar
+  entrada, saída, preview ou metadado em avaliação, benchmark ou construção de dataset.
 - Os 6 candidatos da §3 têm **licença informada pela API**, não lida no arquivo (`langfuse`
   e `litellm` aparecem como `NOASSERTION` justamente por isso).
 - Nada desta fila foi executado; `Resultado de execução` de todos os itens é `NOT_RUN`.

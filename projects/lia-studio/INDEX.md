@@ -28,6 +28,7 @@
 | `LR-UI-003` | Molde de skill de design | `repositories/ai-design-skills/REPORT.md` | pesquisa externa (novo) |
 | `LR-LIC-001` | Licença e proveniência de Skills | `projects/lia-agent-hub/skills/SKILL-LICENSE-CONSOLIDATION.md` | `SKILL-LICENSE-AND-PROVENANCE-AUDIT.md` + `docs/licenses/` |
 | `LR-SEC-002` | Segurança de runtime de agente | `cross-project/agents/AGENT-RUNTIME-SECURITY.md` | `ARENA-RUNTIME-SECURITY-AUDIT.md` |
+| `LR-VEC-001` | PerfectVector (serviço): por que vetorização paga não entra no editor — sem CORS, chave não vai ao usuário, SVG só, resultado expira em 24 h | `repositories/perfectvector/REPORT.md` | triagem dirigida (2026-11-26) |
 
 ## 2. Pesquisa existente mantida na origem
 
@@ -85,3 +86,25 @@ O texto acima é o registro de 2026-11-17/2026-11-20.
 | ZIP de terceiros | tamanho versionado real: `docs/Mr-Mak-Skills-Free.zip` **3.352.656 B** (`docs/pacote-agentes.zip` 15.652 B); o "9,9 MB" dos nossos textos é o **extraído**, unidade que `DR-0004` já explicita junto de tag + `sha256` |
 | validação da integração | **executada pelo Studio, não por nós**: Linux 2026-11-26 com `verify_alpha.py --part 1..10` verdes (314 testes + 8 pulados), `test_project_cli.py -q` 21, `test_creation.py -q` 23, servidor em `127.0.0.1` com 4 HTTP 200. Os 8 pulados são 7 de Windows Job Objects + 1 de Godot real no Windows |
 | evidência Windows | **VALIDAÇÃO ABERTA**: `docs/windows-evidence/windows-check-20261126T004322Z-a4f81556.json` com partes 1-6 e 8 PASS e **7, 9 e 10 FAIL** (`godot/unreal/unity_on_path: false`; 7 chaves `not_tested`; sem logs brutos; sem dados de projeto). O run anterior (`09ce703d`) tinha FAIL em 3, 6, 7, 9, 10. Causa de FAIL **não** é atribuível pelo código de saída, e "nenhum resultado Linux substitui reteste Windows" |
+
+## 7. Handoff — vetorização de ativos (2026-11-26)
+
+Pesquisa: `LR-VEC-001` (`repositories/perfectvector/REPORT.md`). Para o Studio o serviço é
+**referência de processo**, não integração — com um fato técnico que encerra a hipótese de "chamar de
+qualquer jeito": a API não envia cabeçalhos CORS, então uma página web **não pode** chamá-la, e chave
+em página pública seria exposta — o próprio fornecedor escreve "an API key in a web page would be public".
+
+Cinco padrões do PerfectVector que valem copiar para o Studio, sem contratar nada:
+
+| Padrão | Onde eles o implementam | O que significa no Studio |
+|---|---|---|
+| preview barato, cobrança por **resultado entregue** | "1 credit per delivered SVG"; falha e timeout custam 0 | nenhuma ação de editor deve "custar" antes de produzir um artefato |
+| preço avisado **antes** de executar | `X-Credits-Would-Charge` no `POST` | mostrar o custo (tempo, rede, créditos de terceiros) na UI antes da operação |
+| consentimento memorizado como escolha do **usuário** | "Yes, always" salvo na conta, não no app | preferências de automação pertencem ao perfil, e não ao cliente MCP/assistente |
+| limites auto-descritos | `GET /v1/account` devolve saldo, preços e os 7 limites num corpo só | o app deveria poder perguntar "o que este serviço aceita?" em vez de codar o limite |
+| **não** fazer: link temporário como entrega | download por URL válida 24 h, que é segredo de portador e sobrevive à desconexão | o Studio serve o arquivo **do projeto do usuário**, nunca um segredo com validade |
+
+A cadeia de vetorização do Studio continua local; a medição da alternativa aberta (VTracer 0.6.15, MIT)
+está em `LR-VEC-001` §8 e mostra o que verificar depois de qualquer vetorização automática: cor exata
+dos `fill` (o branco `#FFFFFF` medido virou `#FEFDFD` em 512 px e `#FCECE7` em 64 px), traço fino, e a
+ausência de `viewBox`/grupos/nomes no SVG resultante.

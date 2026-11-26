@@ -9,6 +9,66 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 ---
 ---
 
+## 2026-11-26 (UTC) — Triagem dirigida: PerfectVector, o primeiro **serviço** no catálogo, e a descoberta de que o contrato dele proíbe a prova
+
+Pedido do dono: investigar `perfectvector.com` como serviço **opcional** de vetorização para o Forge, o
+Studio e a produção de ativos do Lia Design Foundation, e escolher entre catalogar como integração opcional,
+referência de processo ou não recomendado. **Nenhum produto foi alterado e nada foi instalado como
+dependência.** Verificação em fonte oficial: **16 páginas do próprio fornecedor** lidas na íntegra (14 nas versões
+`.md`/`.json` que ele publica para agentes, mais `/terms` em HTML, 3 chunks) + 1 listagem de terceiro;
+**7 páginas anunciadas no catálogo oficial falharam ao buscar** e não foram inferidas.
+
+- **ADD** `LR-VEC-001` — PerfectVector / Rastrix Inc. (`repositories/perfectvector/REPORT.md`) —
+  `Tipo: serviço`, `Estado da pesquisa: DOCUMENTED`, `Resultado de execução: NOT_RUN`
+  («nenhuma conta, nenhuma chave, nenhum crédito»), `Recomendação: REFERENCE_ONLY`. Fatos conferidos na
+  origem: API em beta aberto desde **2026-11-03**; base `https://api.perfectvector.com/v1`;
+  **6 endpoints e nenhum de listagem** («Keep the `id` of each conversion you create»); entrada
+  **PNG/JPEG/WebP** apenas, 5 MiB = 5.242.880 B, lado **100–4.096 px**, 1 moldura; saída **só SVG**;
+  `options` sem efeito em v1 e `max_variants: 1`; **sem CORS**; **1 conversão live simultânea por conta**;
+  20 criações/min e ~120 leituras/min com `X-RateLimit-*` e `Retry-After`; `Idempotency-Key` por 24 h;
+  resultado **expira em 24 h** (`410`) e o apagamento do storage é em até **48 h**; falha não é erro HTTP
+  (`201` com `"status": "failed"` e `credits_charged: 0`). Preços lidos hoje: packs **USD 4 / 16 / 80**
+  (10 / 100 / 1.000 créditos) = **USD 0,40 · 0,16 · 0,08 por conversão**, 12 meses, e o §4.2 dos API Terms
+  dispensa o aviso prévio de mudança de preço para a API. MCP: OAuth **Google** por usuário, cobra do
+  **saldo do site** (outro bolso, «the two never convert into each other»), sem parâmetros, link de 24 h que
+  sobrevive à desconexão, proíbido usar «como serviço de conversão em lote». Contrato: §8.1 «We claim no
+  ownership of your inputs or of the SVG outputs» (uso comercial liberado), §8.3 exige consentimento
+  escrito para acesso automatizado de terceiros — e o §9 dos API Terms **dá** esse consentimento para
+  “your own users”, desde que com termos próprios e **sem repassar a chave**; §10 do Terms **proíbe** usar
+  entrada, saída, preview, thumbnail ou metadado em “evaluation, benchmarking, red-teaming, or dataset
+  construction” e em “develop, improve, or validate any system that competes with or replicates the Service”.
+- **ADD** — **ensaio local da alternativa aberta, medido hoje** (`LR-VEC-001` §8): sem `inkscape`,
+  `potrace`, `autotrace` ou `vtracer` no sandbox, instalamos o binding **VTracer 0.6.15** do PyPI num venv
+  e vetorizamos **4 imagens sintéticas** geradas com ImageMagick. Superfície real: **3** funções expostas e
+  **5 de 31** nomes de opção aceitos (`mode`, `filter_speckle`, `color_precision`, `corner_threshold`,
+  `path_precision`). Resultados: marca 512×512 em **0,023 s** (18.859 B → 2.463 B, 3 paths) com as três
+  cores deslocadas (`#1F6FEB`→`#1F6EEA` dist. 1,4; `#E4572E`→`#E3572E` 1,0; branco→`#FEFDFD` 3,0); a mesma
+  marca a 64 px (1,25 KB, 3 paths, 0,001 s) desloca até **30,8**; o gradiente de 2 cores vira **1** path de
+  **1** cor média (`#81628C`); a polilinha de **1 px** preta vira `#646464` (dist. **143,8**); **nenhum**
+  SVG saiu com `viewBox`, grupo, `<title>` ou `fill-rule`. Licenças conferidas na fonte:
+  `visioncortex/vtracer` **MIT** (★7.614, push 2026-11-23), mas o **pacote PyPI não declara licença**
+  (`license: None` e **zero** classifiers de licença); **Potrace 1.16** (2019-09-17) **GPL-2.0-or-later** com marca
+  registrada e licenciamento duplo, entrada PBM/PGM/PPM/BMP (PNG não entra direto) e 9 saídas; **não existe
+  pacote `potrace` no PyPI** (404). Inkscape: 1.4.4 anunciado em 2026-05-06, binário ausente → `NOT_RUN`.
+- **ADD** handoffs por produto, todos com o mesmo veredito e condições diferentes:
+  `projects/lia-forge/INDEX.md` §6 (é a porta do servidor, não a do usuário: as 9 condições que um uso futuro
+  teria de cumprir, e o porquê de o MCP matar o princípio BYO-key), `projects/lia-studio/INDEX.md` §7
+  (cinco padrões de processo para copiar sem contratar nada — cobrança por entrega, preço anunciado antes,
+  consentimento memorizado na conta, limites auto-descritos, e o link de 24 h como exemplo do que **não**
+  fazer num app local), e o índice novo `projects/lia-design-foundation/` (`README.md` + `INDEX.md`) com
+  sete regras e os gates que nenhum serviço lido passou.
+- **FIX** contagens e índices: `RESEARCH-INDEX.md` para **59 objetos / 63 linhas**, duas linhas novas em
+  §6 (fidelidade relativa **não mensurável por contrato**; e `Lia Design Foundation` sem projeto legível —
+  medido: HTTP 404 em três grafias prováveis na API em 2026-11-26); `README.md` (218 `.md`, 59 objetos,
+  catálogo com 59 linhas); `data/inventory/license-matrix.tsv` com a primeira linha de **serviço**
+  («sem licença de código: o que rege é contrato») e a linha correspondente no digest
+  `cross-project/licensing/READY-TO-USE-LICENSES.md`; trilha **D** aberta no roadmap (D-1…D-4); item 6 na
+  §5 da fila do backlog. `catalog/catalog.tsv` regenerado (59 linhas).
+- **BLOCKED** — declarado, não contornado: qualidade relativa de vetorização **não foi medida e não pode
+  ser medida** com as saídas do serviço (§10 do Terms) sem consentimento escrito do fornecedor; a
+  Privacy Policy do site e a MCP Privacy Notice ficaram por ler na fonte; e `inkscape`/`potrace` não
+  existem neste ambiente, então a comparação local está só no VTracer.
+
 ## 2026-11-26 (UTC) — Notas Markdown do usuário: 3 objetos, a resposta em um só documento, e os índices dos produtos conferidos contra as `main` de hoje
 
 **Duas entregas delimitadas, na ordem pedida.** Nada nos produtos foi alterado; a Research recomenda.
