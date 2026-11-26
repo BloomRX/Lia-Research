@@ -9,6 +9,46 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 ---
 ---
 
+## 2026-11-26 (UTC) — Animama sob leitura de fonte: 2 objetos, 1 matriz por projeto, e o gate de licença que **roda**
+
+- **ADD** `LR-UI-006` `raymond-van/animama` — companion de mesa (Electron + FastAPI, `main` @ `4ba6db1c`,
+  5.953 blobs / 70 MB / 2.943 arquivos de código / 412 `.md` / 41 ADRs / 21 `SKILL.md`). Lido em fonte real
+  por clone raso com sparse-checkout, não por README: formato `animaPoseClip/2.0` (ADR 0014/0016/0019/0020,
+  2 MiB, decimais fixos, beats + trilhas anatômicas em graus), as 24 emoções em `0..30` com escala dupla
+  estado↔representação e promover/rebaixar em par oposto, a memória Markdown versionada com projeção diária
+  gerada de tabela no banco, o parser incremental de JSON que deixa o avatar falar antes de o objeto fechar,
+  e o pipeline de lip-sync com avaliação própria. **Executado aqui:** `scripts/public-release/check_source.py`
+  limpo + **12 testes OK** (é o `LOCAL_TESTS_PASS` de `LR-UI-006`); `pnpm`, navegador, GPU, Windows e Unity
+  não existem nesta sessão, então **nada do produto rodou** e o §8 de desempenho é estimativa rotulada.
+- **ADD** `LR-FORGE-024` `raymond-van/animama-avatar-converter` — MIT, 98 blobs, 26 `.cs` (3.152 linhas,
+  55 `[Test]`) e um pacote npm com **zero dependências**. **Executado aqui: `npm test` = 46 testes, 46
+  passando**, e `npm run check` → `OK: version 0.1.1, 82 package files and folders, 36 sources checked.`
+  A checagem deles prova estaticamente a frase "uploads nothing" (`scripts/check.mjs:155-172`), e o CLI
+  documenta a armadilha do `-nographics` no Unity. Nenhuma conversão executada (`BLOCKED` — exige Unity).
+- **ADD** `LR-CMP-005` `comparisons/ANIMAMA-RECOMMENDATION-MATRIX.md` — os 15 achados classificados no
+  vocabulário desta base, o dicionário explícito dos seis rótulos do dono (`ADOPT`→`DIRECT_INTEGRATION_CANDIDATE`,
+  `NEEDS_VALIDATION`→`INSUFFICIENT_EVIDENCE`, etc.), e a matriz por projeto (Project / Forge / Studio /
+  Agent Hub / Model Lab) ordenada por impacto, esforço e risco. §5 lista o que **não** está recomendado,
+  inclusive usar o Animama como dependência ou copiar qualquer linha de código (AGPL-3.0-only +
+  5.953/5.953 arquivos com `review = prepared-not-release-approved`).
+- **FIX** `repositories/superpowers/REPORT.md` §7 — retificação da retificação: `skills/doc-coauthoring/SKILL.md`
+  mede **15.815 B** hoje, e **nenhum** blob de `anthropics/skills` na `HEAD` atual tem 42.969 B
+  (consulta `.size==42969` → 0 linhas). A atribuição "42.969 B é o `doc-coauthoring`" sai; sobrevive só a
+  correção anterior (9.530 B).
+- **FIX** `data/testing/test-log.tsv` — linha de 2026-11-20 que pertencia ao `manimgx` estava chaveada sob um
+  `LR-UI-006` nunca registrado; movida para `LR-FORGE-003` (o `object_id` real daquele teste `BLOCKED`).
+- **FIX** `data/inventory/license-matrix.tsv` — linha de `LR-FORGE-013` (`anymachine`) tinha os campos
+  deslocados a partir de `copyleft` (15 colunas, conteúdo trocado); reconstruída contra o §4 do relatório.
+- **ADD** dados: `license-matrix.tsv` **54 → 56** linhas (CRLF, 15 colunas), `test-log.tsv` **39 → 41**
+  (LF, 10 colunas: 14 `LOCAL_TESTS_PASS` + 10 `LOCAL_SMOKE_PASS` + 6 `PARTIAL` + 11 `BLOCKED`),
+  `catalog/catalog.tsv` regenerado (56), `READY-TO-USE-LICENSES.md` +2 linhas na tabela-mestra,
+  `SPLIT-LICENSE-SCAN.md` §4 com +2 repositórios (27 → 29) e o Animama registrado como o **contraexemplo**
+  da divisão por diretório: um repo AGPL com licença por arquivo, inventário e gate.
+- **NOTA** portões: `tools/validate.py` → **0 erros · 0 avisos · 7 notas** (as 7 notas são o baseline de IDs
+  internos sem cabeçalho próprio), `tools/build_catalog.py --check` em dia, `python3 -m unittest
+  tools.test_validate` → **78 testes OK**. Contagens conferidas: 213 `.md`, 56 relatórios, 56 linhas de
+  catálogo, 56 de matriz, 41 de test-log.
+
 ## 2026-11-25 (UTC) — a leva de 16 links: 10 objetos, 1 digest de gates, e o censo de 187 `SKILL.md`
 
 - **ADD** `LR-AGENT-015` `aaif-goose/goose` (o antigo `block/goose`, mesmo `id` 846698999 — renomeação de

@@ -5,7 +5,7 @@
 | ID | `LR-LIC-005` |
 | Categoria | licensing |
 | Projetos beneficiados | todos os cinco (camada comum de licença) |
-| Fontes | seção de evidências de cada um dos **54** relatórios em `repositories/*/REPORT.md` (licença lida no arquivo, na ref pinada); `data/inventory/license-matrix.tsv` |
+| Fontes | seção de evidências de cada um dos **56** relatórios em `repositories/*/REPORT.md` (licença lida no arquivo, na ref pinada); `data/inventory/license-matrix.tsv` |
 | Data | 2026-11-17 |
 | Status | CURRENT — **não é parecer jurídico**; é o que o arquivo diz, com obrigação traduzida em ação |
 | Confiança | Alta para o texto das licenças lidas; média para fronteiras de caso limite (marcadas) |
@@ -88,9 +88,11 @@ opção de uso. Conferido em 2026-11-20 (`audits/REAUDIT-2026-11-20.md`). Está 
 | `LR-RAG-001` | ragflow | Apache-2.0 | sim | NOTICE é obrigatório por Apache; nenhum no repo (0) — criar se redistribuir |
 | `LR-PROV-002` | daytona (público) | AGPL-3.0 **só nas tags**; a `main` não tem `LICENSE` | sim (o que foi publicado) | a tag lida + AGPL inteira; **sem suporte e sem garantia** |
 | `LR-FORGE-023` | dyad | split: Apache-2.0 fora de `src/pro/`; FSL-1.1-ALv2 dentro (sem uso competitivo) | sim, exceto `src/pro/` | preâmbulo de exceção do `LICENSE` + os 4 arquivos por diretório |
+| `LR-UI-006` | raymond-van/animama | **AGPL-3.0-only** no trabalho original; **os ativos não são AGPL** — 10 valores no inventário por arquivo (`LicenseRef-pixiv-VRoidPreset` 128, CC0 32, MIT+AGPL 25, Apache-2.0+AGPL 17, FunASR Model License 1.1 5, marca não licenciada 11) | **não** como dependência nem como código copiado | `LICENSE` (34.020 B) + `licenses/source-review.json` (5.953 entradas, uma por arquivo rastreado) + `licenses/third-party/*` por camada; `review = prepared-not-release-approved` em todas |
+| `LR-FORGE-024` | raymond-van/animama-avatar-converter | MIT (1.068 B); UniVRM `v0.131.2` e Mochiya `0826f6e3` por URL Git pinada, ambos MIT; pacote npm com zero dependências | sim (o padrão de invólucro), sem usar a ferramenta | reter o aviso MIT se copiar; **o `.vrm` de saída carrega a licença do prefab de entrada**, e o `README` avisa disso antes do primeiro clique |
 
 Os quatro últimos entraram em 2026-11-20 (antes o digest cobria 19 objetos, a matriz já tinha
-22). Contagem conferida contra `data/inventory/license-matrix.tsv` — hoje **54** (+10 em 2026-11-25: a leva dos 16 links — `LR-AGENT-015`…`018`, `LR-VOICE-005`, `LR-DATA-001`, `LR-FORGE-022`/`023`, `LR-RAG-001`, `LR-PROV-002`; antes, +2 no mesmo dia com `LR-FORGE-020` Charakuru e `LR-FORGE-021` HairDeck). Os oito seguintes entraram em 2026-11-24 (a leva `AppFlowy-IO`/`opf` + seis repositórios); o método de leitura de licença dividida está em `cross-project/licensing/SPLIT-LICENSE-SCAN.md`.
+22). Contagem conferida contra `data/inventory/license-matrix.tsv` — hoje **56** (+2 em 2026-11-26: `LR-UI-006` e `LR-FORGE-024`, a rodada Animama; +10 em 2026-11-25: a leva dos 16 links — `LR-AGENT-015`…`018`, `LR-VOICE-005`, `LR-DATA-001`, `LR-FORGE-022`/`023`, `LR-RAG-001`, `LR-PROV-002`; antes, +2 no mesmo dia com `LR-FORGE-020` Charakuru e `LR-FORGE-021` HairDeck). Os oito seguintes entraram em 2026-11-24 (a leva `AppFlowy-IO`/`opf` + seis repositórios); o método de leitura de licença dividida está em `cross-project/licensing/SPLIT-LICENSE-SCAN.md`.
 
 Cuidado com Apache-2.0 em pacote de Skills: copiar **uma pasta** de Skill leva só `SKILL.md` e
 `scripts/`; o `NOTICE` e o `LICENSE` têm de ser copiados junto, ou o reuso fica sem atribuição.

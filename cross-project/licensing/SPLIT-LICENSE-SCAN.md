@@ -10,7 +10,7 @@
 | Estado | DOCUMENTED — nenhum parecer jurídico; é o que os arquivos dizem |
 | Recomendação | **ADAPT** o método (cinco passos, §2) como rotina desta casa; **não** adotar nenhuma das licenças como decisão |
 | Decisão de adoção | — nenhuma registrada |
-| Data | 2026-11-24 · ampliada em 2026-11-25 com mais 10 objetos medidos nesta base |
+| Data | 2026-11-24 · ampliada em 2026-11-25 com mais 10 objetos medidos nesta base · **2026-11-26** com mais 2 (`raymond-van/animama`, `raymond-van/animama-avatar-converter`) |
 | Status | CURRENT — **não é parecer jurídico** |
 | Confiança | Alta para os arquivos lidos; média para o que uma fronteira *significa* juridicamente (marcado em cada linha) |
 
@@ -64,7 +64,7 @@ a licença "oficial" da API é inútil sem esse passo.
 | **I. exceção por diretório com licença futura** | `dyad-sh/dyad` | raiz `NOASSERTION` porque o `LICENSE` abre com 2 *bullets*: tudo sob `src/pro/` vai para `src/pro/LICENSE` (FSL-1.1-ALv2, 104 linhas), o resto é Apache-2.0; `Grant of Future License` converte a parte fechada em Apache no prazo |
 | **H. termos no artefato montado, não no repositório** | `hyz317/HairDeck` | uma frase no README ("code **and checkpoints** are licensed under Apache-2.0. Third-party models, code and datasets retain their respective licences"); **nenhum `NOTICE`** na árvore inteira (0 em 224 entradas); `scripts/setup/download_weights.py` baixa `LICENSE`/`LICENSE.md` dos modelos gated **para dentro do workspace**, com `sha256` esperado por arquivo | auditar o Git é insuficiente: a informação de termos não está no repositório, está no **diretório que o instalador monta**. O complemento é bom (proveniência viaja com o peso); a lacuna é real (o repo não enumera nada) |
 
-## 4. Tabela dos 27 repositórios (o que foi lido, não o que a API diz)
+## 4. Tabela dos 29 repositórios (o que foi lido, não o que a API diz)
 
 | Objeto | `spdx_id` da API | Licença real lida | Fronteira na árvore | Aviso/NOTICE |
 |---|---|---|---|---|
@@ -95,6 +95,8 @@ a licença "oficial" da API é inútil sem esse passo.
 | `infiniflow/ragflow` | Apache-2.0 | Apache-2.0 (11.357 B) | 3 caminhos com "license", **2 são código do produto** (`internal/dao`, `internal/entity`) | nenhum |
 | `daytonaio/daytona` | **nenhuma** (`null`) | AGPL-3.0 **só nas tags** (`v0.190.0`, 34.522 B); a `main` não tem `LICENSE` (404) | 3 arquivos na árvore: `README.md` + 2 PNG | o `README` ancora o link da licença na tag (commit 2026-06-25) |
 | `dyad-sh/dyad` | **`NOASSERTION`** | split declarado na 1ª linha do `LICENSE`: Apache-2.0 + `src/pro/` sob FSL-1.1-ALv2 | 5 caminhos `LICENSE` (raiz, `src/pro/`, 2 pacotes internos, 1 template de benchmark) | `remove-unauthorized-release.yml` apaga release fora do CI |
+| `raymond-van/animama` | AGPL-3.0 | **nenhuma divisão de diretório** — e é o contraexemplo desta tabela: a resposta por arquivo está num inventário (`licenses/source-review.json`, 5.953 entradas, 10 valores), com `LicenseRef-pixiv-VRoidPreset`, FunASR Model License 1.1, CC BY 4.0, CC0 e "marca não licenciada" declarados **dentro** de um repo AGPL, e a frase "These assets are not AGPL" escrita no documento de notices | nenhuma fronteira de pasta: a fronteira é por arquivo e por *distribuição* (conteúdo `non-portable`, ADR 0018) | `check_source.py` no CI falha se um arquivo rastreado ficar sem entrada |
+| `raymond-van/animama-avatar-converter` | MIT | MIT sem exceção — mas a **saída** não é licenciada por ele: o `.vrm` herda o termo do prefab de entrada, e o `README` diz "convert only an Avatar whose licence allows it" antes do primeiro clique | não há diretório de produto; as dependências entram por URL Git pinada (UniVRM `v0.131.2`, Mochiya `0826f6e3`), não por cópia | `check.mjs` verifica a coerência versão/tag/CHANGELOG e a ausência de código de rede |
 
 Duas linhas que valem o destaque que lhes dei: o `recense` é o único do censo com copyright em
 "**contributors**" em vez de pessoa jurídica — escolha de titularidade visível no texto da licença; e o

@@ -4,14 +4,16 @@
 veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID aparece em
 outro documento e não aqui, o outro documento está errado.
 
-- **Data de referência:** 2026-11-25 (10 objetos auditados e 1 digest de comparação nesta data; reauditoria técnica dos 22 objetos anteriores segue em `data/inventory/upstream-reaudit-2026-11-20.tsv`)
-- **Itens:** 54 objetos externos (58 linhas com sub-documentos) + 5 dossiês internos + 34 digests transversais + **4 comparações** + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de execução** + 10 relatórios de 2026-11-17 (na seção própria)
-- **Pouco foi executado.** Existem **39 linhas** em `data/testing/test-log.tsv` (2026-11-25):
-  22 execuções locais com resultado positivo (12 suítes completas + 10 smokes de script), 6 execuções parciais
+- **Data de referência:** 2026-11-26 (2 objetos auditados — o produto Animama e o conversor de avatares — e 1 matriz de recomendação nesta data; a rodada anterior, de 2026-11-25, trouxe 10 objetos e 1 digest de comparação; reauditoria técnica dos 22 objetos anteriores segue em `data/inventory/upstream-reaudit-2026-11-20.tsv`)
+- **Itens:** 56 objetos externos (60 linhas com sub-documentos) + 5 dossiês internos + 34 digests transversais + **5 comparações** + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de execução** + 10 relatórios de 2026-11-17 (na seção própria)
+- **Pouco foi executado.** Existem **41 linhas** em `data/testing/test-log.tsv` (2026-11-26):
+  24 execuções locais com resultado positivo (14 suítes completas + 10 smokes de script), 6 execuções parciais
   (`PARTIAL`) e 11 tentativas bloqueadas com motivo. Nas criações de personagem e em tudo que exige GPU AMD,
-  **nada foi executado** — não há GPU nesta sessão e nenhum peso foi baixado. Nesta última rodada entraram
-  4 linhas: os dois validadores de Skill abertos (**346 análises + 177 validações**) executados sobre corpus
-  próprio, em `LR-CMP-004`, `LR-AGENT-016`, `LR-AGENT-017` e `LR-AGENT-018`.
+  **nada foi executado** — não há GPU nesta sessão e nenhum peso foi baixado. Nas duas últimas rodadas entraram
+  6 linhas: os dois validadores de Skill abertos (**346 análises + 177 validações**) executados sobre corpus
+  próprio, em `LR-CMP-004`, `LR-AGENT-016`, `LR-AGENT-017` e `LR-AGENT-018`; e os dois gates de licença/
+  empacotamento do Animama e do conversor (**12 testes + `check_source.py`** e **46 testes + `check.mjs`**),
+  em `LR-UI-006` e `LR-FORGE-024`. Nenhum dos dois executou o produto.
 
 ## Legenda
 
@@ -27,7 +29,7 @@ Definições: `catalog/CATALOG-SCHEMA.md`. Máquina: `catalog/catalog.tsv`.
 
 ---
 
-## 1. Tecnologia externa — auditoria (54 objetos)
+## 1. Tecnologia externa — auditoria (56 objetos)
 
 Colunas separadas por exigência de `MISSION.md` §3: **estado** (quanto já se sabe),
 **recomendação** (opinião técnica) e **decisão de adoção** (não existe, e esta base não
@@ -94,6 +96,8 @@ tem autoridade para criar).
 | `LR-RAG-001` | `infiniflow/ragflow` — motor de RAG (3.549 `.go`); `AGENTS.md` que trata legado como passivo; 2 pointer-skills | Apache-2.0 (`license.go` é código, não licença) | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta no `AGENTS.md`; `NOT_RUN` | `repositories/ragflow/REPORT.md` |
 | `LR-PROV-002` | `daytonaio/daytona` — 71.271 ★ e uma árvore de 3 arquivos: código para um lugar privado, licença só na tag | AGPL-3.0 **apenas em `v0.190.0`**; `main` sem `LICENSE` | DOCUMENTED | **REJECT** | — nenhuma | Alta (3 arquivos, todos lidos) | `repositories/daytona/REPORT.md` |
 
+| `LR-UI-006` | `raymond-van/animama` — companion de mesa (Electron + FastAPI) com avatar VRM/Three.js, 24 emoções persistentes, memória Markdown versionada, formato de animação próprio (`animaPoseClip/2.0`) e inventário de licença por arquivo com gate no CI | **AGPL-3.0-only** no original; 5.953 arquivos com licença própria (ativos **não** são AGPL) | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta no que foi lido em código/doc/issue; **nula** em desempenho (nada do produto executado) | `repositories/animama/REPORT.md` |
+| `LR-FORGE-024` | `raymond-van/animama-avatar-converter` — invólucro de qualidade em volta do conversor Mochiya (VRChat→VRM 1.0): validador de pré-requisitos, reparo de esqueleto, CLI que dirige o Unity sem `-nographics`, e uma checagem estática que prova que não há código de rede | **MIT** (1.068 B); UniVRM `v0.131.2` e Mochiya em commit fixo, ambos MIT; pacote npm com **zero** dependências | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta na estrutura e nos dois verificadores (executados aqui: 46 testes + `check.mjs`); nenhuma em conversão real (`BLOCKED` — exige Unity) | `repositories/animama-avatar-converter/REPORT.md` |
 ## 2. Projetos do ecossistema — dossiês internos (5)
 
 | ID | Projeto | Documentos | Skills | Documento |
@@ -151,6 +155,7 @@ tem autoridade para criar).
 | `LR-CMP-002` | qual servidor MCP de casa usar, se algum | `comparisons/MCP-SERVER-COMPARISON.md` |
 | `LR-CMP-003` | como medir modelo/hardware sem virar fé | `comparisons/BENCHMARK-APPROACH-COMPARISON.md` |
 | `LR-CMP-004` | o que um gate de Skill verifica, e o que escapa dele (dois validadores executados sobre 173 pacotes) | `comparisons/SKILL-GATE-COMPARISON.md` |
+| `LR-CMP-005` | o que a Lia leva do Animama: 15 achados classificados e uma matriz por projeto, com o que **não** está recomendado | `comparisons/ANIMAMA-RECOMMENDATION-MATRIX.md` |
 
 ## 3-ter. Criação de personagens — silhueta primeiro (2026-11-20, ampliada e conciliada em 2026-11-20 UTC)
 
