@@ -57,7 +57,7 @@ Medidos nesta rodada, no commit `4ba6db1c` — todos por comando, nenhum por mem
 | arquivos `.md` | 412 (9,62 MB) — **28 % dos bytes de texto do repositório são documentação** |
 | ADRs | **41** (numerados, com status, data, "decision basis" e evidência) |
 | `SKILL.md` em `.agents/skills/` | **21** (11 de produto: animação, VRM, quatro sabores de VFX, UI, stacks locais, release desktop, benchmark de modelo, assets de efeito · 10 de processo: `to-spec`, `to-execplan`, `implement`, `tdd`, `code-review`, `docs-sync`, `git-workflow`, `merge-n-clean`, `workspace-setup`, `intent-discovery`, `setup-ray-skills`) |
-| testes | **795** arquivos `*.test.*` no total · 344 `.py` em `tests/` · 686 `.test.ts(x)` só em `src/frontend/web` · 186 arquivos em `src/frontend/web/scripts/`, com um `.test.mjs` (e às vezes um `.browser.test.mjs`) ao lado de cada script |
+| testes | **795** arquivos `*.test.*` no total · 344 `.py` em `tests/` · 686 `.test.ts(x)` só em `src/frontend/web` · em `src/frontend/web/scripts/`, **46 scripts `.mjs`** e **41 arquivos de teste** (15 deles `.browser.test.mjs`) — só **29 dos 46** têm `.test.mjs` de mesmo nome ao lado; os 17 sem são, em sua maioria, de obra (`generate-routes.mjs`, `landing-*.mjs`, `local-page-server.mjs`, `optimize.mjs`, `verify.mjs`, `lipsync.mjs`, `animation.mjs`, `effect-save/promote.mjs`) |
 | conteúdo incluído | **152 gestos + 168 reações + 26 poses**; VFX em três classes com 273 / 220 / 139 blobs (`particle` / `avatar` / `scene`) |
 | tamanho de um clip de gesto | `wave-hello.json` = 6.852 B; **mediana 1.692 B**, máximo 55.855 B; uma reação = 988 B |
 | contrato de versão | `contracts/versions.json`: `runtime-owner` 1.0.0 e `local-http` **25.0.0** (OpenAPI gerado offline) |

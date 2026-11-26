@@ -31,6 +31,7 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
   Agent Hub / Model Lab) ordenada por impacto, esforço e risco. §5 lista o que **não** está recomendado,
   inclusive usar o Animama como dependência ou copiar qualquer linha de código (AGPL-3.0-only +
   5.953/5.953 arquivos com `review = prepared-not-release-approved`).
+- **FIX** duas contagens minhas, conferidas no clone após o primeiro commit: a linha de testes do `LR-UI-006` dizia "um `.test.mjs` ao lado de cada script" — em `src/frontend/web/scripts/` são 46 scripts e 41 testes, e **29** têm homônimo (os 17 restantes são, em sua maioria, obra de build: `generate-routes`, `landing-*`, `local-page-server`, `optimize`, `verify`, `lipsync`); e a do `LR-FORGE-024` dizia 39 % (1.240 linhas) de C# de teste — medido com `find`/`wc -l`, são **1.108 linhas nos 5 `*Tests.cs` = 35 %** dos 3.152 (1.281 com o `HumanoidTestRig.cs`). Nenhum número de portão depende disso; é a diferença entre uma frase e uma medição.
 - **FIX** `repositories/superpowers/REPORT.md` §7 — retificação da retificação: `skills/doc-coauthoring/SKILL.md`
   mede **15.815 B** hoje, e **nenhum** blob de `anthropics/skills` na `HEAD` atual tem 42.969 B
   (consulta `.size==42969` → 0 linhas). A atribuição "42.969 B é o `doc-coauthoring`" sai; sobrevive só a

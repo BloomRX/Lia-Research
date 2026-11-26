@@ -41,7 +41,7 @@ Isso importa para a classificação: adotar *este* repositório seria adotar o i
 | distribuição por extensão | 41 `.meta` · **26 `.cs`** · **16 `.mjs`** · 4 `.md` · 4 `.asmdef` · 2 `.yml` · 2 `.json` · 3 sem extensão |
 | bytes por área | `Packages` 159.333 · `cli` 62.684 · `scripts` 15.774 · `README.md` 10.311 · `.github` 4.858 · `LICENSE` 1.068 |
 | linhas de C# | **3.152** em 26 arquivos |
-| testes C# (EditMode/NUnit) | 5 arquivos, **55 métodos `[Test]`** (AvatarExporter 17 · ExportWindowLogic 14 · HumanoidBoneRepair 13 · Requirements 11) — **39 % das linhas de C# são teste** (1.240 de 3.152) |
+| testes C# (EditMode/NUnit) | 5 arquivos, **55 métodos `[Test]`** (AvatarExporter 17 · ExportWindowLogic 14 · HumanoidBoneRepair 13 · Requirements 11) — **35 % das linhas de C# são teste**: 1.108 linhas nos 5 arquivos `*Tests.cs` dos 3.152 de `.cs` (1.281 se contar o `HumanoidTestRig.cs`, auxiliar de 173 linhas que monta o esqueleto humanoide nos testes) — medido com `find . -path "*Tests*" -name '*.cs' -exec cat {} + | wc -l` no clone de `/tmp` |
 | testes JS | 6 arquivos `*.test.mjs` cobrindo args/main/prefabs/project/unity + listing; **46 testes, todos passando** (executado aqui) |
 | dependências do pacote npm | **zero** |
 | assets publicados | 1 zip por release (60.924 B no `v0.1.1`), 9 downloads |
