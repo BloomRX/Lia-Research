@@ -6,7 +6,7 @@
 | Origem | lista do proprietário (11 repositórios + 9 sites/serviços) + 6 candidatos adicionais |
 | Natureza | **triagem, não relatório**. Nada aqui foi executado; cada linha diz o que falta |
 | Regra usada | repo → relatório com pin de SHA; site/serviço → análise de função e de como usar/reimplementar |
-| Estado desta fila | 20 recebidos: **3 publicados** (`LR-AGENT-011`, `LR-SEC-007`, `LR-MODEL-006`), **17 triados** |
+| Estado desta fila | 20 recebidos: **5 publicados** (`LR-AGENT-011`, `LR-SEC-007`, `LR-MODEL-006`, `LR-MCP-005`, `LR-AGENT-019`), **15 triados** — os dois últimos saíram em 2026-11-26, com a comparação pedida no item 2 de §5 |
 | Natureza do registro | linha de triagem **não** é pesquisa: nenhum item aqui é `DOCUMENTED` só por estar na tabela |
 
 > **Como ler.** `INTAKE-nn` é o número da triagem, **não** é ID de pesquisa. ID (`LR-...`)
@@ -21,8 +21,8 @@
 | 01 | `akitaonrails/ai-memory` | memória de longo prazo multi-harness para agentes de código, com *handoff* tipado entre Claude Code/Codex/etc. (Rust) | MIT | 16.172 | **A** | **PUBLICADO** — `LR-AGENT-011` |
 | 02 | `cloudflare/security-audit-skill` | Skill de auditoria de segurança em fases, com achados verificáveis; tem arquivo específico de **desktop/Electron/IPC** e **AI/LLM** | MIT | 75.939 | **A** | **PUBLICADO** — `LR-SEC-007` |
 | 03 | `tashfeenahmed/freellmapi` | agrega 87 free tiers num `/v1` compatível com OpenAI; roteamento, failover, chaves cifradas, orçamento por chave | MIT | 55.337 | **A** | **PUBLICADO** — `LR-MODEL-006` |
-| 04 | `bitbonsai/mcpvault` | servidor MCP para acesso seguro a um vault Obsidian (TypeScript) | MIT | 1.726 | B | triado — relatório pendente |
-| 05 | `mempalace/mempalace` | sistema de memória para IA com ChromaDB, MCP, "best-benchmarked" (Python) | MIT | 60.634 | B | triado — concorre com `ai-memory`; comparar antes |
+| 04 | `bitbonsai/mcpvault` | servidor MCP para acesso seguro a um vault Obsidian (TypeScript) | MIT | 1.733 (re-medido 2026-11-26; 1.726 na triagem de 2026-11-17) | B | **relatório publicado**: `LR-MCP-005` (`repositories/mcpvault/REPORT.md`) — TESTED, `LOCAL_TESTS_PASS`; recomendação ADAPT só como código de referência; uso da Lia resolvido em `LR-CMP-006` |
+| 05 | `mempalace/mempalace` | sistema de memória para IA com ChromaDB, MCP, "best-benchmarked" (Python) | MIT | 60.718 (re-medido 2026-11-26; 60.634 na triagem) | B | **relatório publicado**: `LR-AGENT-019` (`repositories/mempalace/REPORT.md`) — PARTIALLY_TESTED, `PARTIAL`; a comparação com `ai-memory` e mcpvault está em `LR-CMP-006` §3 |
 | 06 | `getsentry/skills` | Skills que o time do Sentry usa no desenvolvimento (Python, 1,3 MB) | Apache-2.0 | 1.187 | B | triado — padrão de autoria de Skill |
 | 07 | `briiirussell/cybersecurity-skills` | Skills de segurança para agentes de código (JS, 2 MB) | MIT | 526 | B | triado — sobrepõe `LR-SEC-007`; comparar |
 | 08 | `chenxiachan/textfold` | "dobra" papers/páginas/arquivos em 5 níveis de detalhe, com zoom semântico (Python) | Apache-2.0 | 1.286 | B | triado — ideia útil para leitura longa |
@@ -74,13 +74,19 @@ existe relatório e não existe ID — dizer "avaliado" aqui seria mentira.
 | Ordem | O que | Por quê agora |
 |---|---|---|
 | 1 | `LR-SEC-007` §desktop/IPC aplicado ao Lia-Project | é o único material já lido que fala de **Electron/IPC local** |
-| 2 | Comparar `ai-memory` × `mempalace` × `mcpvault` num único digest | evitar três relatórios que dizem o mesmo |
+| 2 | Comparar `ai-memory` × `mempalace` × `mcpvault` num único digest | **feito em 2026-11-26**: `LR-CMP-006` (`comparisons/MD-NOTES-INTEGRATION.md`) — um arquivo, três fornecedores + a memória do Project, com recomendação mínima, alternativa e handoff. O item veio da pendência aberta em 2026-11-20 (`LR-AGENT-011` §10: "mempalace (60 mil ★) não foi comparado") |
 | 3 | `promptfoo` como resposta ao V6 (medir Skill de verdade) | fecha a lacuna mais antiga da base |
 | 4 | `canirunai` como pré-filtro do catálogo de 44 modelos | dá utilidade imediata sem prometer medição |
 | 5 | `langfuse` × `sentry` para a lacuna `R-2` | observabilidade nunca pesquisada |
 
 ## 6. Limites desta triagem
 
+**Cercas da rodada de 2026-11-26**, para esta fila não virar promessa de outra coisa: não reabrimos a
+auditoria de fornecedores já estudados (`ai-memory` entrou como evidência existente, com o dossiê
+intacto); não alteramos produto algum (a Research recomenda); **não esperamos** pelo PC com Radeon RX 580
+para concluir o que as evidências disponíveis sustentam — as três validações ligadas a ele continuam
+`NOT RUN`, com os 90 s de conferência quando o equipamento chegar; o **Model Lab permanece pausado**;
+e **Obsidian é ferramenta do usuário, não dependência da Lia** — a ligação é à pasta e ao formato.
 - Os 6 candidatos da §3 têm **licença informada pela API**, não lida no arquivo (`langfuse`
   e `litellm` aparecem como `NOASSERTION` justamente por isso).
 - Nada desta fila foi executado; `Resultado de execução` de todos os itens é `NOT_RUN`.
@@ -89,8 +95,11 @@ existe relatório e não existe ID — dizer "avaliado" aqui seria mentira.
 
 - **Não executei** nenhum dos 11 repositórios; estrelas e tamanho vêm da API.
 - **Não li** README completo de 8 dos 11 repositórios — só metadados e descrição.
-- **Não verifiquei** a licença do motor open source do Graphify nem os termos comerciais
-  do Obsidian; ambos estão marcados como pendência.
+- **Não verifiquei** a licença do motor open source do Graphify — continua pendência.
+- **Verifiquei em 2026-11-26** a licença do Obsidian, que estava pendente: `obsidian.md/license`
+  (página de 2025-02-20) diz que o app é "free for all purposes, including personal, commercial,
+  and non-profit use", sem conta, com dados locais e conteúdo do autor do usuário; o binário segue
+  proprietário. Registrado em `LR-CMP-006` §6.
 - `lousa-ia.vercel.app` não foi inspecionado a fundo.
 - A lista `github.com/topics/ai-qa` é uma **fonte**, e o que dela saiu está no §3 por
   metadados, não por leitura.
@@ -104,11 +113,11 @@ Prioridade aqui é ordem de execução, não valor intrínseco.
 
 | # | Item | Decisão | Motivo | Ordem |
 |---:|---|---|---|---|
-| 01 | `bitbonsai/mcpvault` (MCP de vault Obsidian) | **investigar** | fecha duas lacunas de uma vez: memória/notes de agente e servidor MCP com dado pessoal. Superfície de leitura de arquivo sensível é o que `LR-MCP-002` não cobre | 3 |
+| 01 | `bitbonsai/mcpvault` (MCP de vault Obsidian) | **investigado em 2026-11-26** (`LR-MCP-005`, ensaio executado; decisão de uso em `LR-CMP-006`) | fecha duas lacunas de uma vez: memória/notes de agente e servidor MCP com dado pessoal. Superfície de leitura de arquivo sensível é o que `LR-MCP-002` não cobre | 3 |
 | 02 | `docs.astral.sh/uv` | **investigar (curto)** | tooling de Python de todos os scripts desta base e dos 5 projetos; já aparece como duplicata em 3 lugares, então a investigação é de consolidação | 4 |
 | 03 | `pypi`/`mcp` servers restantes | **aguardar evidência** | lista de servidores sem caso de uso concreto pedido por projeto; sem demanda, seria catálogo por catálogo | — |
 | 04 | `sentry.io` | **comparar** com `langfuse` | mesma pergunta (observabilidade de erro × observabilidade de LLM); comparar antes de investigar separado | 5 |
-| 05 | `obsidian.md` | **permanecer como referência** | objeto de produtividade do proprietário, não de engenharia Lia; serve ao item 01 como contexto | — |
+| 05 | `obsidian.md` | **permanece como referência do usuário**, não como dependência da Lia | objeto de produtividade do proprietário; licença conferida na fonte em 2026-11-26 (ver §limites) — a Lia se liga à pasta e ao formato, nunca ao binário | — |
 | 06 | `lousa-ia.vercel.app` | **rejeitar** | app de terceiro sem código público, sem licença verificável, sem função que a Lia não tenha | — |
 | 07 | `graphify.com` | **investigar (segurança primeiro)** | SaaS com MCP que recebe código do repositório; a pergunta não é utilidade, é o que sai da máquina. Trilha: §8 | 6 |
 | 08 | `canirunai.kc1t.com` | **rejeitar como fonte de validação** | estima, não mede. Útil como pré-filtro; usado como prova viraria exatamente o erro que `LR-MODEL-004` denuncia | — |

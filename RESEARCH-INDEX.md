@@ -5,8 +5,8 @@ veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID apa
 outro documento e não aqui, o outro documento está errado.
 
 - **Data de referência:** 2026-11-26 (2 objetos auditados — o produto Animama e o conversor de avatares — e 1 matriz de recomendação nesta data; a rodada anterior, de 2026-11-25, trouxe 10 objetos e 1 digest de comparação; reauditoria técnica dos 22 objetos anteriores segue em `data/inventory/upstream-reaudit-2026-11-20.tsv`)
-- **Itens:** 56 objetos externos (60 linhas com sub-documentos) + 5 dossiês internos + 34 digests transversais + **5 comparações** + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de execução** + 10 relatórios de 2026-11-17 (na seção própria)
-- **Pouco foi executado.** Existem **41 linhas** em `data/testing/test-log.tsv` (2026-11-26):
+- **Itens:** 58 objetos externos (62 linhas com sub-documentos) + 5 dossiês internos + 34 digests transversais + **6 comparações** + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de execução** + 10 relatórios de 2026-11-17 (na seção própria)
+- **Pouco foi executado.** Existem **43 linhas** em `data/testing/test-log.tsv` (2026-11-26):
   24 execuções locais com resultado positivo (14 suítes completas + 10 smokes de script), 6 execuções parciais
   (`PARTIAL`) e 11 tentativas bloqueadas com motivo. Nas criações de personagem e em tudo que exige GPU AMD,
   **nada foi executado** — não há GPU nesta sessão e nenhum peso foi baixado. Nas duas últimas rodadas entraram
@@ -29,7 +29,7 @@ Definições: `catalog/CATALOG-SCHEMA.md`. Máquina: `catalog/catalog.tsv`.
 
 ---
 
-## 1. Tecnologia externa — auditoria (56 objetos)
+## 1. Tecnologia externa — auditoria (58 objetos)
 
 Colunas separadas por exigência de `MISSION.md` §3: **estado** (quanto já se sabe),
 **recomendação** (opinião técnica) e **decisão de adoção** (não existe, e esta base não
@@ -97,6 +97,8 @@ tem autoridade para criar).
 | `LR-PROV-002` | `daytonaio/daytona` — 71.271 ★ e uma árvore de 3 arquivos: código para um lugar privado, licença só na tag | AGPL-3.0 **apenas em `v0.190.0`**; `main` sem `LICENSE` | DOCUMENTED | **REJECT** | — nenhuma | Alta (3 arquivos, todos lidos) | `repositories/daytona/REPORT.md` |
 
 | `LR-UI-006` | `raymond-van/animama` — companion de mesa (Electron + FastAPI) com avatar VRM/Three.js, 24 emoções persistentes, memória Markdown versionada, formato de animação próprio (`animaPoseClip/2.0`) e inventário de licença por arquivo com gate no CI | **AGPL-3.0-only** no original; 5.953 arquivos com licença própria (ativos **não** são AGPL) | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta no que foi lido em código/doc/issue; **nula** em desempenho (nada do produto executado) | `repositories/animama/REPORT.md` |
+| `LR-MCP-005` | `bitbonsai/mcpvault` — MCP local de vault Markdown: 18 ferramentas medidas (11 em `--read-only`), denylist, `patch_note` com contagem prévia, **446/446 testes**, zero chamada de rede no build | MIT | TESTED | **ADAPT** | — nenhuma | Alta | `repositories/mcpvault/REPORT.md` |
+| `LR-AGENT-019` | `MemPalace/mempalace` (3.12.0) — memória textual com busca vetorial: arquitetura de palace global + extração por agente, **PT-BR real no produto** (47/47 chaves); mineração e busca não executáveis offline neste ambiente | MIT | PARTIALLY_TESTED | **REFERENCE_ONLY** | — nenhuma | Média | `repositories/mempalace/REPORT.md` |
 | `LR-FORGE-024` | `raymond-van/animama-avatar-converter` — invólucro de qualidade em volta do conversor Mochiya (VRChat→VRM 1.0): validador de pré-requisitos, reparo de esqueleto, CLI que dirige o Unity sem `-nographics`, e uma checagem estática que prova que não há código de rede | **MIT** (1.068 B); UniVRM `v0.131.2` e Mochiya em commit fixo, ambos MIT; pacote npm com **zero** dependências | DOCUMENTED | **REFERENCE_ONLY** | — nenhuma | Alta na estrutura e nos dois verificadores (executados aqui: 46 testes + `check.mjs`); nenhuma em conversão real (`BLOCKED` — exige Unity) | `repositories/animama-avatar-converter/REPORT.md` |
 ## 2. Projetos do ecossistema — dossiês internos (5)
 
@@ -107,6 +109,12 @@ tem autoridade para criar).
 | `LR-PROJ-003` | Lia-Studio | 109 | 16 | `projects/lia-studio/INDEX.md` |
 | `LR-PROJ-004` | Lia-AgentHub | 57 | biblioteca (48 no ecossistema) | `projects/lia-agent-hub/INDEX.md` |
 | `LR-PROJ-005` | Lia-Model-Lab | 90 | 9 (únicos em `main`) | `projects/lia-model-lab/INDEX.md` |
+
+Contagens da coluna **Documentos** são o inventário de 2026-11-17. Re-medidas em 2026-11-26 na `main`:
+Lia-Project **214** `.md` / 674 blobs / **21** `SKILL.md` (1 com `LICENSE`); Lia-AgentHub **50** `.md` /
+165 blobs / **0** skills; Lia-Studio **83** `.md` / 210 blobs / **0** skills e **`LICENSE` MIT (1.539 B)**
+novo na raiz. `BloomRX/Lia-Forge` e `BloomRX/Lia-Model-Lab` **não verificáveis** hoje (403 e 404 no token
+da sessão). Tabela completa e classificação por linha em `audits/RECONCILIACAO-OPERACIONAL-2026-11-26.md`.
 
 ## 3. Digests transversais (34)
 
@@ -156,6 +164,7 @@ tem autoridade para criar).
 | `LR-CMP-003` | como medir modelo/hardware sem virar fé | `comparisons/BENCHMARK-APPROACH-COMPARISON.md` |
 | `LR-CMP-004` | o que um gate de Skill verifica, e o que escapa dele (dois validadores executados sobre 173 pacotes) | `comparisons/SKILL-GATE-COMPARISON.md` |
 | `LR-CMP-005` | o que a Lia leva do Animama: 15 achados classificados e uma matriz por projeto, com o que **não** está recomendado | `comparisons/ANIMAMA-RECOMMENDATION-MATRIX.md` |
+| `LR-CMP-006` | qual é a integração mínima para a Lia ler notas Markdown de um vault do usuário, com seleção explícita, proveniência, escopo, correção e exclusão — e o que o Project ainda não tem | `comparisons/MD-NOTES-INTEGRATION.md` |
 
 ## 3-ter. Criação de personagens — silhueta primeiro (2026-11-20, ampliada e conciliada em 2026-11-20 UTC)
 
@@ -233,4 +242,6 @@ Organizações (sem SHA de conteúdo): `routerhubSI` (11 repos), `rescript-lang`
 | WER/latência de voz PT-BR | BLOCKED | `LR-VOICE-001` §4 |
 | Termos/retention do RouterHub | BLOCKED | `LR-PROV-001` |
 | Visão/multimodal como tema próprio | NOT RUN | `RESEARCH-ROADMAP.md` R-4 |
-| Repositório público (deveria ser privado) | BLOCKED (403) | `DR-0006` |
+| Repositório público (deveria ser privado) | BLOCKED (403) | `DR-0006`; a decisão de manter a base pública foi reafirmada na conferência de 2026-11-26 (`audits/RECONCILIACAO-OPERACIONAL-2026-11-26.md` §6) |
+| `BloomRX/Lia-Forge` ilegível (HTTP 403) e `BloomRX/Lia-Model-Lab` ausente (HTTP 404) para o token da sessão: **28** linhas de ponteiro não conferíveis (17 na tabela §2 do índice do Forge, 11 nas §2/§3 do do Model Lab) | NOT VERIFIABLE (2026-11-26) | `audits/RECONCILIACAO-OPERACIONAL-2026-11-26.md` §5, `projects/lia-forge/INDEX.md`, `projects/lia-model-lab/INDEX.md` |
+| Busca vetorial local para a Lia: o `sqlite_exact` do MemPalace não elimina o download do embedder (~300 MB) | BLOCKED (ambiente sem rede) | `LR-AGENT-019` §5 |

@@ -8,6 +8,21 @@
 | Regra | item só sai daqui quando existe documento com evidência |
 | Fonte de verdade da missão | `MISSION.md` |
 
+
+> **Nota de 2026-11-26.** Este roadmap continua descrevendo o plano de 2026-11-17; o que mudou foi o
+> estado de três linhas, e ele está medido, não previsto.
+>
+> | Linha | O que aconteceu |
+> |---|---|
+> | **A-1** (modelos/rotas) | o catálogo de providers tem três documentos correspondentes na `main` do Lia-Project (`docs/research/LIA-MODEL-PROVIDER-{CATALOG,ARCHITECTURE,RECOMMENDATIONS}.md`), classificados **por eles** como `Pending transfer` — os nossos `LR-MODEL-001`/`LR-MODEL-002` valem como consulta, e o canônico continua `lia-capability-catalog/`. Nenhum modelo foi medido: **V-1 continua 44 catalogados / 0 medidos** |
+> | **A-4** (memória e contexto por usuário) | o bloco que faltava saiu: `LR-CMP-006` (recomendação mínima, alternativa e handoff ao Project, com sete gates) + `LR-MCP-005` (mcpvault, ensaio executado, 446/446 testes) + `LR-AGENT-019` (MemPalace, não executável offline). **A-14 permanece**: o ensaio de memória nunca rodou sobre notas reais — o nosso ensaio é com notas sintéticas e a limitação está declarada nos três documentos |
+> | **A-20** (índices dos 5 produtos) | **executada para Project, Hub e Studio** em 2026-11-26, com correção de ponteiros e classificação por linha em `audits/RECONCILIACAO-OPERACIONAL-2026-11-26.md`. Ficam não verificáveis as **28** linhas de `Lia-Forge` (HTTP 403) e `Lia-Model-Lab` (HTTP 404) — e o Model Lab continua **pausado por decisão do dono**, então a pendência é de acesso |
+>
+> A pergunta que abriu a rodada — "qual é a integração mínima para a Lia aproveitar notas Markdown,
+> inclusive de um vault do usuário?" — está respondida em `LR-CMP-006`; ela não dependia do PC com
+> Radeon RX 580, e **não esperou** por ele. O hardware continua bloqueando V-1, V-7, A-9 e A-19, com
+> rótulo `NOT RUN`.
+
 ## Parte A — o que falta pesquisar
 
 O que falta pesquisar, na ordem em que faz diferença. Cada item tem dono sugerido,

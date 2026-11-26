@@ -9,6 +9,97 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 ---
 ---
 
+## 2026-11-26 (UTC) — Notas Markdown do usuário: 3 objetos, a resposta em um só documento, e os índices dos produtos conferidos contra as `main` de hoje
+
+**Duas entregas delimitadas, na ordem pedida.** Nada nos produtos foi alterado; a Research recomenda.
+
+- **ADD** `LR-MCP-005` `bitbonsai/mcpvault` (`repositories/mcpvault/REPORT.md`) — servidor MCP de vault
+  Markdown, `main` @ `5d4e6855` (tip de 2026-11-14, o merge do PR #285 `release/0.18.4`), npm **0.18.4** com `engines.node >=22.12.0` e **zero** dependências
+  declaradas no pacote publicado (as 60 do `dist/node_modules` vêm do lockfile). **Executado aqui:**
+  `npm install` (135 pacotes), **`npm test` = 446 testes passando em 14 arquivos** (7,26 s),
+  `npm run build`, e um harness MCP próprio em stdio com **105 chamadas** em cinco cenários de notas
+  sintéticas: `--read-only` expõe 11 das 18 ferramentas e recusa escrita; a denylist segura em qualquer
+  profundidade (`node_modules/`, `.trash/`, qualquer segmento com ponto — inclusive
+  `.obsidian-desktop/README.md`, recusado porque o nome do config alternativo do Obsidian tem que começar
+  com ponto), mas `--exclude` **só some do discovery** e não bloqueia leitura direta; `patch_note` recusa
+  ambiguidade com `matchCount: 90` e resolve com `replaceAll`; `delete_note` exige `confirmPath` e move
+  para `.trash/` (os 94 bytes continuam lá, ilegíveis pelo MCP); `write_note` é **last-writer-wins sem
+  verificação prévia**; **nenhum teto de tamanho** (1.950.034 B lidos, 3 MB escritos sem erro); busca em
+  3.001 notas em **406 ms** com walk por chamada (sem índice). Grep em `src/` **e** `dist/` montado:
+  **zero** chamadas de rede. Rótulos: **TESTED / LOCAL_TESTS_PASS / ADAPT**.
+- **ADD** `LR-AGENT-019` `MemPalace/mempalace` (`repositories/mempalace/REPORT.md`) — `main` @ `87ae5024`,
+  PyPI **3.12.0**. ID em `LR-AGENT-` e não `LR-MEM-`: a eixo de comparação é o mesmo de `LR-AGENT-011`.
+  **Executado aqui:** `pip install` num venv sem rede, `mempalace init <dir> --no-llm --yes` **funciona
+  offline** (grava só `mempalace.yaml`, com `wing` e salas detectadas da árvore — com dois artefatos do
+  gerador visíveis: sala `"di\xE1rio"` escapada e `keywords` duplicados), `mine --dry-run` percorre o
+  vault, o registro de backends lista cinco com recusa de fallback silencioso e `BackendMismatchError`
+  explícito. E **a escrita e a busca não rodam offline**: `_embed_texts` → `hf_hub_download` (~300 MB) →
+  `httpx.ConnectError`, inclusive forçando `sqlite_exact` num palace novo — o wrapper de embeddings vem
+  antes do backend. Conferido o i18n: `pt-br.json` tem **47 de 47** chaves de `en.json`, zero faltando, e
+  `docs/PRIVATE_PALACE.md:29-30` exige que o avaliador leia PT **e** EN — português é requisito de produto
+  lá, e as extras `multilingual`/`dml` estão declaradas mas não instalam nada (`multilingual: []`).
+  Rótulos: **PARTIALLY_TESTED / PARTIAL / REFERENCE_ONLY**.
+- **ADD** `LR-CMP-006` `comparisons/MD-NOTES-INTEGRATION.md` — a resposta **única** pedida (um arquivo,
+  não três). **§1** a resposta curta em cinco peças: seleção explícita por pasta guardada como allowlist do
+  usuário; índice local derivado que pode ser apagado e reconstruído; proveniência em toda resposta
+  (`arquivo`, `linhas`, `hash`, `lido_em`) com o texto marcado como não-confiável; escrita opt-in e
+  cirúrgica (`append` num inbox ou `patch` de string única com pré-condição de hash); exclusão por
+  reconciliação com `--dry-run` primeiro. **§4** é o teste que decide a régua — "ler e buscar 3.001 notas
+  sem rede, sem baixar nada, sem escrever no vault" — que só o mcpvault passou. **§2** a linha de base medida em código: `lia/core/src/memory/{contracts,store,context}.ts` na
+  `main` `72c44425` — JSON único com tetos 100/500/4000/2000/4, `provenance` só aceita a string `'user'`,
+  busca lexical em NFD com 33 stopwords, atômico com `0o600`, `lstat` recusando symlink e &gt;400.000 B.
+  **§3** a matriz com os três candidatos + a Lia na régua das cinco palavras da pergunta. **§5** a alternativa (MCP `--read-only` + ponte
+  declarada) e o que ela custa por projeto. **§5** Agent Hub (só pointer no registro de candidatos; fluxo
+  *integração ≠ release*), Forge (sem nada a mudar) e Model Lab (**permanece pausado**; só o fato novo de
+  que MemPalace declara onnxruntime-directml como extra de Windows). **§7** o handoff: o contrato de tipo
+  proposto, sete gates de aceite e a lista do que **não** fazer.
+- **FIX** `audits/RECONCILIACAO-OPERACIONAL-2026-11-26.md` (novo) + `projects/*/INDEX.md` + `projects/*/README.md`
+  — os índices operacionais conferidos contra as `main` medidas hoje: **Lia-Project** `72c44425`
+  (833 commits, 798 entradas, 214 `.md`, 192 em `docs/**`, **1 branch** — não 12), **Lia-AgentHub**
+  `8c14ec85` (202, **1** — não 5), **Lia-Studio** `0e7b9949` (115, **1** — não 9). Classificação por linha
+  em **entrega concluída / integração pendente / validação não executada**: os 9 "permanecem apenas na
+  origem" do Project **estão na `main`**; os 12 do Studio idem (7 recuperados byte a byte); no Hub os
+  arquivos canônicos de skills **não estão** na `main` (ponteiro quebrado, preservado por bundle e SHA);
+  `LIA-VALIDATION-MATRIX-5EC464E-2026-11-14.md` é a única exceção que sobra. Fatos novos registrados: o
+  Studio agora tem **`LICENSE` MIT** (1.539 B), o Hub publicou os contratos `CAPABILITY-INVENTORY-CONTRACT`
+  (`inventoryVersion: 1`, `revision` = "mesmo valor e digest diferente é conflito", `complete` = "omissões
+  nunca apagam registros") e `SUPERVISED-EXECUTION-V1`, skills: Project **21** com **1** `LICENSE`, Hub **0**,
+  Studio **0** (eram 22/57/109/16 no inventário de 2026-11-17), e o ZIP do Mr-Mak versiona **3.352.656 B**
+  (os "9,9 MB" são o extraído). Validação declarada com honestidade: Studio executou Linux (314 testes +
+  8 pulados) e **falhou** nas partes 7/9/10 do checklist Windows; o Hub rodou o piloto do Project num
+  checkout Windows (28 pins / 7 testes / 88 subtestes) com corte remoto pendente — **REPORTED, não
+  reproduzido por nós**.
+- **FIX** `cross-project/memory/MEMORY-LANDSCAPE.md` — apêndice datado preservando o texto original:
+  "Memória local existe (`REPORTED`)" vira confirmada em código, e "Política de retenção — não documentada"
+  vira **documentada por entrada** (tetos + `expiresAt`) e **ausente por fonte** (`provenance` é a string
+  literal `'user'`). A decisão de independência (sem memória compartilhada entre produtos) continua de pé.
+- **FIX** `RESEARCH-BACKLOG.md` — a pendência de licença do Obsidian verificada na fonte
+  (`obsidian.md/license`, página de 2025-02-20): *"free for all purposes, including personal, commercial,
+  and non-profit use"*, sem conta, dados locais, conteúdo do autor do usuário; o binário segue
+  proprietário e por isso a Lia se liga à **pasta e ao formato**. Contagens da fila (3 → **5** publicados,
+  15 triados), itens 04/05 de §1 marcados com relatório publicado, e o item 2 de §5 ("comparar os três num
+  único digest — evitar três relatórios que dizem o mesmo") fechado com `LR-CMP-006`.
+- **CONSOLIDATE** `RESEARCH-INDEX.md` (58 objetos, 62 linhas, 6 comparações, três lacunas novas em §6),
+  `README.md` (217 `.md`, 58 objetos, 58 linhas de catálogo, 43 de teste), `catalog/catalog.tsv` +
+  `data/inventory/license-matrix.tsv` (56 → **58**) + `data/testing/test-log.tsv` (41 → **43**, uma linha por
+  objeto com resultado executado), `RESEARCH-ROADMAP.md` (nota datada nas linhas A-1/A-4/A-20, com V-1
+  ainda em **44 catalogados / 0 medidos**).
+- **BLOCKED** — `BloomRX/Lia-Forge` **HTTP 403** e `BloomRX/Lia-Model-Lab` **HTTP 404** para o token da
+  sessão: as 28 linhas de ponteiro desses índices (17 na §2 do Forge, 11 nas §2/§3 do Model Lab) estão marcadas **NÃO VERIFICÁVEL (2026-11-26)** com o
+  motivo, sem reescrever número antigo. MemPalace: escrita/busca não executáveis offline. E continuam
+  abertos, com o rótulo que já tinham: `NOT RUN` em hardware (RX 580/GPU/Windows) e a trilha de Skill
+  "em uso" (30 dias de notas reais + 20 tarefas), que é o que transforma esta recomendação em política.
+
+**Não mudou:** nenhuma recomendação técnica de objeto externo foi reaberta — `repositories/ai-memory/REPORT.md`
+(`LR-AGENT-011`) está byte a byte como foi publicado; o Model Lab permanece pausado; Obsidian não virou
+dependência da Lia; e a decisão de manter a Research pública (`DR-0006`) saiu reforçada da conferência, com
+os dois buracos de acesso dos produtos reportados em vez de escondidos.
+
+**Portão:** `python3 -B tools/validate.py` → **0 erros · 0 avisos · 7 notas**; `python3 -B -m unittest
+tools.test_validate` → **78 testes OK**; `python3 -B tools/build_catalog.py --check` → catálogo igual ao
+gerado. Contas lidas do disco: 217 `.md`, 58 relatórios, 58 linhas de catálogo e de matriz, 43 de teste.
+
+---
 ## 2026-11-26 (UTC) — Animama sob leitura de fonte: 2 objetos, 1 matriz por projeto, e o gate de licença que **roda**
 
 - **ADD** `LR-UI-006` `raymond-van/animama` — companion de mesa (Electron + FastAPI, `main` @ `4ba6db1c`,

@@ -10,10 +10,10 @@
 | Branch padrão | `main` |
 | Data de fundação | 2026-11-17 |
 | Responsável | Research Orchestrator (agente) / proprietário BloomRX (decisões) |
-| Status | Base reorganizada em 2026-11-20 (missão, catálogo, validador). Medição em hardware: `NOT RUN`; testes de software registrados: **41 linhas** em `data/testing/test-log.tsv` (2026-11-25) |
-| Arquivos Markdown | 213 (contagem de 2026-11-26, `find -name '*.md' -not -path './.git/*'`), validados por `tools/validate.py` |
-| Relatórios externos | 56 objetos, 1 relatório cada (`repositories/*/REPORT.md`) |
-| Catálogo | `catalog/catalog.tsv` — 56 linhas, gerado de `tools/build_catalog.py` |
+| Status | Base reorganizada em 2026-11-20 (missão, catálogo, validador). Medição em hardware: `NOT RUN`; testes de software registrados: **43 linhas** em `data/testing/test-log.tsv` (2026-11-26) |
+| Arquivos Markdown | 217 (contagem de 2026-11-26, `find -name '*.md' -not -path './.git/*'`), validados por `tools/validate.py` |
+| Relatórios externos | 58 objetos, 1 relatório cada (`repositories/*/REPORT.md`) |
+| Catálogo | `catalog/catalog.tsv` — 58 linhas, gerado de `tools/build_catalog.py` |
 | Decisões (governança) | 2 aceita · 12 pendentes · 3 rejeitadas · 2 referência · 2 pastas vazias por desenho |
 
 > **Aviso de escopo.** Este repositório registra *pesquisa*, não *implementação*.
