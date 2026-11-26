@@ -9,6 +9,52 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
 ---
 ---
 
+## 2026-11-26 (UTC) — Auto-auditoria da rodada anterior: uma tentativa sem log, três contagens mortas e quatro claims que eu não podia fazer
+
+Passagem de verificação sobre o que a própria rodada do PerfectVector escreveu. Cinco achados, todos
+com gate verde antes e depois (`erros: 0 · avisos: 0 · notas: 7`; 78 testes do validador; catálogo em dia).
+
+- **FIX (regra de protocolo, não de estilo)** — a Etapa D do `governance/INVESTIGATION-PROTOCOL.md` exige
+  registro de **toda** tentativa, e o §2 do `governance/TESTING-PROTOCOL.md` diz que, sem as dez colunas,
+  a tentativa **não pode ser citada** no relatório. O dossiê citava o ensaio local do VTracer sem linha:
+  entrou a linha `LR-VEC-001` (nível 2, `PARTIAL`, LF, 10 colunas — o arquivo é LF; a CRLF é da matriz de
+  licenças, e foi o que o `check` do validador mostrou na primeira tentativa), e o campo
+  `Resultado de execução` do dossiê passou de `NOT_RUN` para **`PARTIAL`** — o serviço segue sem uma
+  chamada, e o `not_tested` da linha diz exatamente isso (§10 do Terms; Nível 3).
+- **FIX contagens mortas**, medidas no arquivo em vez de lembradas: `data/testing/README.md` dizia
+  **«0 linhas — nenhum objeto foi executado»** havia 43 linhas e 6 dias; `README.md` repetia **30 linhas**
+  (contagem de 2026-11-22) no rodapé enquanto o topo dizia 43; o parágrafo de execução do
+  `RESEARCH-INDEX.md` somava 41 para 43 linhas (14 suítes / 6 parciais quando o arquivo tinha 15 / 7).
+  Agora: **44 linhas · 34 objetos · 15 · 10 · 8 · 11 · níveis 1 × 34, 2 × 9, 3 × 1**, com o comando de
+  reprodução publicado. Também corrigido `(18 objetos, obrigação em ação)` de `LR-LIC-005` — a
+  tabela-mestra do digest tem **59** linhas — e `«18 registros de governança / 6 tomadas»` para
+  **19 / 7** (contados em `decisions/`: 12 PENDING + 2 ACCEPTED + 3 REJECTED + 2 REFERENCE-ONLY + 0 ADAPTED,
+  com as 19 linhas em `decisions/README.md`).
+- **FIX claims que a base não sustenta**, retirados ou reancorados no que foi medido: a **regra de `0,5 px`**
+  e os **«14 vetores oficiais»** não existem em nenhum arquivo desta base (grep: 0 ocorrências) — saíram do
+  dossiê e a crítica de legibilidade passou a citar o que está medido: `CODEX_HANDOFF.md` do workspace de
+  identidade, «legibilidade em 32 × 32 px»; o **`tools/check-potrace.js`** e o item «`potrace-js`» da fila
+  também não existem (remetidos ao item 6 real da §5 do backlog); o **princípio BYO-key do Forge** não é
+  documentado nesta base — o handoff agora argumenta só pelo contrato do MCP e marca a confirmação como
+  pendente do produto; e `«os 7 limites»` do `GET /v1/account` virou **5**, a tabela real do §2.2.
+- **FIX precisão lida na fonte, conferida de novo hoje:** `requires_python: ">=3.7"` no wheel 0.6.15; o
+  pacote **não** tem classifier de licença (os 3 são de implementação — CPython, PyPy, Rust), e a
+  formulação `«classifiers: []»` estava errada; o pay-as-you-go do site perdeu o pack «USD 5 por 10» que eu
+  não li; a contagem de páginas virou **16 do fornecedor + 1 de terceiro**, com as **7** que falharam ao
+  buscar declaradas como não lidas (e a ressalva de que a tabela de packs veio truncada na primeira
+  leitura de `/docs/api/agents.md` — os preços saíram de `/pricing/api.md`); `updated` reescrito como
+  **2026-11-03 … 2026-11-26** entre os documentos lidos; e R5/R4 ganharam a árvore real do workspace de
+  identidade, medida por API: **23 `.svg`** (17 `Source/`, 6 `Exports/`), **42 `.png`**, **7 `.md`**, com
+  `A1-Master.svg`/`A1-Micro.svg` como mestre e **12 pranchas** `A1-Micro-{Cor,Mono}-{16,24,32,64,128,512}.png`
+  (613 a 60.520 B).
+- **NOTA sobre as 7 `NOTA` do validador** — nenhuma é desta rodada: `LR-BENCH-001` e `LR-PROJ-001…005` +
+  `LR-SEC-003` são linhas de índice cujo documento-âncora não é um `REPORT.md` com bloco de cabeçalho;
+  conferido um a um, os 7 caminhos citados **existem**. Não havia, na base, nenhuma afirmação
+  «283 linhas / 360 objetos»: grep não acha o par em lugar algum (só `360p` de vídeo, não-ambíguo).
+- **NOTA de processo:** o `README.md` da pasta de testes foi reescrito para **não** criar o precedente
+  errado. A regra não é «objeto sem ID não ganha linha» — é «citada a tentativa, a linha existe», chaveada
+  no ID do dossiê que a usou como evidência.
+
 ## 2026-11-26 (UTC) — Triagem dirigida: PerfectVector, o primeiro **serviço** no catálogo, e a descoberta de que o contrato dele proíbe a prova
 
 Pedido do dono: investigar `perfectvector.com` como serviço **opcional** de vetorização para o Forge, o
@@ -55,7 +101,7 @@ dependência.** Verificação em fonte oficial: **16 páginas do próprio fornec
   pacote `potrace` no PyPI** (404). Inkscape: 1.4.4 anunciado em 2026-05-06, binário ausente → `NOT_RUN`.
 - **ADD** handoffs por produto, todos com o mesmo veredito e condições diferentes:
   `projects/lia-forge/INDEX.md` §6 (é a porta do servidor, não a do usuário: as 9 condições que um uso futuro
-  teria de cumprir, e o porquê de o MCP matar o princípio BYO-key), `projects/lia-studio/INDEX.md` §7
+  teria de cumprir, e por que o MCP não pode ser “mais um provedor”: ele não expõe chave, amarra o uso à conta Google e veda repassar as credenciais que entrega), `projects/lia-studio/INDEX.md` §7
   (cinco padrões de processo para copiar sem contratar nada — cobrança por entrega, preço anunciado antes,
   consentimento memorizado na conta, limites auto-descritos, e o link de 24 h como exemplo do que **não**
   fazer num app local), e o índice novo `projects/lia-design-foundation/` (`README.md` + `INDEX.md`) com

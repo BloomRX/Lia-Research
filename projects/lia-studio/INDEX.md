@@ -101,7 +101,7 @@ Cinco padrões do PerfectVector que valem copiar para o Studio, sem contratar na
 | preview barato, cobrança por **resultado entregue** | "1 credit per delivered SVG"; falha e timeout custam 0 | nenhuma ação de editor deve "custar" antes de produzir um artefato |
 | preço avisado **antes** de executar | `X-Credits-Would-Charge` no `POST` | mostrar o custo (tempo, rede, créditos de terceiros) na UI antes da operação |
 | consentimento memorizado como escolha do **usuário** | "Yes, always" salvo na conta, não no app | preferências de automação pertencem ao perfil, e não ao cliente MCP/assistente |
-| limites auto-descritos | `GET /v1/account` devolve saldo, preços e os 7 limites num corpo só | o app deveria poder perguntar "o que este serviço aceita?" em vez de codar o limite |
+| limites auto-descritos | `GET /v1/account` devolve saldo, preços e os 5 limites da tabela `LR-VEC-001` §2.2 num corpo só | o app deveria poder perguntar "o que este serviço aceita?" em vez de codar o limite |
 | **não** fazer: link temporário como entrega | download por URL válida 24 h, que é segredo de portador e sobrevive à desconexão | o Studio serve o arquivo **do projeto do usuário**, nunca um segredo com validade |
 
 A cadeia de vetorização do Studio continua local; a medição da alternativa aberta (VTracer 0.6.15, MIT)

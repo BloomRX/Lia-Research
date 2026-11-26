@@ -5,7 +5,7 @@
 | Data deste índice | 2026-11-26 |
 | Origem | ordem de serviço do proprietário (triagem dirigida do PerfectVector) |
 | Estado do projeto nesta base | **sem dossiê** — `projects/lia-design-foundation/` foi criado nesta rodada como pasta de handoff; não existe inventário, ROADMAP próprio nem relatório de estado |
-| Repositório | nenhum `BloomRX/Lia-Design-Foundation` localizado (HTTP 404 na API em 2026-11-26); o único material de identidade visível do ecossistema está em `BloomRX/BloomStudios-Branding-Review-TEMP`, `main` @ `350891e0b8e2d7611ccd3bd0e556c8be2996254b` (2026-11-18T22:02:06Z), **95** entradas, **23** `.svg`, **7** `.md`, **sem `LICENSE`** (`gh api …/license` → 404) |
+| Repositório | nenhum `BloomRX/Lia-Design-Foundation` localizado (HTTP 404 na API em 2026-11-26); o único material de identidade visível do ecossistema está em `BloomRX/BloomStudios-Branding-Review-TEMP`, `main` @ `350891e0b8e2d7611ccd3bd0e556c8be2996254b` (2026-11-18T22:02:06Z), **95** entradas, **23** `.svg`, **42** `.png`, **7** `.md`, **sem `LICENSE`** (`gh api …/license` → 404) |
 
 ---
 
@@ -30,7 +30,7 @@ nem o PerfectVector, nem nenhum dos serviços com que ele concorre. Três razõe
    Service (including image-vectorization)". "Testar se é melhor para a Lia" é exatamente o ato proibido.
 3. **O que a API entrega não é o que a marca precisa.** A API entrega **só SVG**, com 1 imagem por
    pedido, 1 conversão simultânea por conta, sem nenhum parâmetro, e recusa lado menor que **100 px**.
-   O repositório de identidade em uso exporta `A1-Micro-Cor-16.png`, `-24`, `-32`, `-64` — ou seja,
+   O repositório de identidade localizado exporta 12 pranchas por essa escada — `Source/Symbol/Exploration-05/PNG/A1-Micro-Cor-16.png` (798 B) até `-512.png` (60.520 B), mais o conjunto `Mono` — ou seja,
    **os tamanhos onde um ícone é julgado são justamente os que a API não aceita**.
 
 ## O que este índice **não** guarda

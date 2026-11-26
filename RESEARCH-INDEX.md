@@ -5,7 +5,7 @@ veredito e caminho. **Este arquivo é a fonte de verdade dos IDs**: se um ID apa
 outro documento e não aqui, o outro documento está errado.
 
 - **Data de referência:** 2026-11-26 (3 objetos auditados nesta data — o produto Animama, o conversor de avatares e o serviço PerfectVector, o primeiro `Tipo: serviço` do catálogo — e 1 matriz de recomendação; a rodada anterior, de 2026-11-25, trouxe 10 objetos e 1 digest de comparação; reauditoria técnica dos 22 objetos anteriores segue em `data/inventory/upstream-reaudit-2026-11-20.tsv`)
-- **Itens:** 59 objetos externos (63 linhas com sub-documentos) + 5 dossiês internos + 34 digests transversais + **6 comparações** + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de execução** + 10 relatórios de 2026-11-17 (na seção própria)
+- **Itens:** 59 objetos externos (63 linhas com sub-documentos) + 5 dossiês internos + 34 digests transversais + **6 comparações** + 19 registros de governança (contados em `decisions/`: 12 `PENDING` + 2 `ACCEPTED` + 3 `REJECTED` + 2 `REFERENCE-ONLY` + 0 `ADAPTED`; o índice de `decisions/README.md` tem as 19 linhas) + **8 documentos de criação de personagens e 1 matriz de execução** + 10 relatórios de 2026-11-17 (na seção própria)
 - **Pouco foi executado.** Existem **44 linhas** em `data/testing/test-log.tsv` (contagem de 2026-11-26,
   34 objetos): **25** execuções locais com resultado positivo (15 suítes completas + 10 smokes de script),
   **8** execuções parciais (`PARTIAL`) e **11** tentativas bloqueadas com motivo — a soma fecha em 44.
@@ -161,7 +161,7 @@ valendo como os cinco projetos inventariados.
 | `LR-BENCH-001` | disciplina de benchmark reproduzível | `repositories/sculptforge/REPORT.md`, `repositories/manimgx/REPORT.md` |
 | `LR-SEC-003` | auditoria de segurança de STT | `cross-project/voice/VOICE-STACK-DIGEST.md` §2 |
 | `LR-LIC-003` | **auditoria das 28 skills AIRI + `alethe`** (parecer por Skill) | `projects/lia-agent-hub/skills/AIRI-AND-ALETHE-PROVENANCE.md` |
-| `LR-LIC-005` | **licenças prontas para uso** (18 objetos, obrigação em ação) | `cross-project/licensing/READY-TO-USE-LICENSES.md` |
+| `LR-LIC-005` | **licenças prontas para uso** (59 objetos na tabela-mestra, obrigação em ação) | `cross-project/licensing/READY-TO-USE-LICENSES.md` |
 | `LR-AGENT-014` | declaração de envolvimento de IA: o gate do OpenProject (script de 129 linhas) comparado com os outros sete | `cross-project/agents/AI-INVOLVEMENT-DECLARATIONS.md` |
 | `LR-MCP-004` | `confirm: true` como JSON Schema e `tools_integrity` — o par de plugins MCP do AppFlowy (verificador executado) | `cross-project/mcp/APPFLOWY-AI-PLUGINS-GATES.md` |
 | `LR-LIC-006` | como se lê uma licença dividida: método em 5 passos e os 3 formatos medidos em 13 repositórios | `cross-project/licensing/SPLIT-LICENSE-SCAN.md` |
@@ -214,7 +214,7 @@ Histórico das rodadas, em ordem cronológica (todas em 2026-11-20 UTC):
 Os três pipelines completos estão em `CHARACTER-2D-TO-3D-PIPELINES.md` §4 (IDs de pipeline
 não recebem LR próprio: são propostas, não objetos auditáveis).
 
-## 4. Decisões (12 abertas + 6 tomadas)
+## 4. Decisões (12 abertas + 7 tomadas)
 
 | Estado | IDs | Pasta |
 |---|---|---|

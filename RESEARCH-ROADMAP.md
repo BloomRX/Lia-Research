@@ -142,7 +142,7 @@ Regra: item só sai daqui quando existe documento com evidência, não quando "j
 |---|---|---|---|
 | D-1 | Ler a **Privacy Policy do site** e a **MCP Privacy Notice** do PerfectVector: a retenção do editor on-line (≈3 meses) e a do site (≈30 dias) estão `REPORTED`, não `CONFIRMED` | nenhum | `NOT RUN` — abre na próxima conferência; revisão marcada 2027-01-15 |
 | D-2 | Medir a alternativa aberta **em escala local** (VTracer 0.6.15 + Inkscape 1.4.4/Potrace 1.16) sobre a mesma bateria de 4 casos sintéticos, com verificação automática de `fill` contra a paleta e varredura de 16/24/32/64/512 px | sandbox com os binários instalados | `PARTIAL` — VTracer medido em 4 casos (`LR-VEC-001` §8); `inkscape`/`potrace`/`autotrace` ausentes ⇒ `BLOCKED: FALTA_DEPENDENCIA` |
-| D-3 | Decidir **no produto** se a Lia quer um modo raster→SVG local no Studio (VTracer embutido, MIT) — a pesquisa entrega a régua, não a decisão | D-2 | `SKIP` — fora da autoridade desta base |
+| D-3 | Decidir **no produto** se a Lia quer um modo raster→SVG local no Studio (VTracer — repo MIT, mas o pacote PyPI não declara licença: §8 de `LR-VEC-001`) — a pesquisa entrega a régua, não a decisão | D-2 | `SKIP` — fora da autoridade desta base |
 | D-4 | Re-conferir os termos do fornecedor antes de **qualquer** uso: o site avisa mudanças materiais com 30 dias (§14), a **API pode mudar de preço sem aviso** (§4.2 dos API Terms), e o contrato inteiro está em `early access` (§2) | D-1 | `PENDENTE` |
 
 Aberta por `LR-VEC-001` (`repositories/perfectvector/REPORT.md`), o primeiro objeto do catálogo cujo
