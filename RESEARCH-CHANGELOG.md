@@ -90,6 +90,25 @@ Tipos: `ADD` (pesquisa nova) · `FIX` (correção) · `CONSOLIDATE` (digest) · 
   abertos, com o rótulo que já tinham: `NOT RUN` em hardware (RX 580/GPU/Windows) e a trilha de Skill
   "em uso" (30 dias de notas reais + 20 tarefas), que é o que transforma esta recomendação em política.
 
+- **FIX** dois ponteiros do índice do Hub que a própria conferência desmentiu: as notas desta base
+  circulavam com o commit `b4e63eae` como endereço do inventário de skills, e `gh api
+  repos/BloomRX/Lia-AgentHub/commits/b4e63eae…` devolve **422 (no commit found)** — o endereço válido é
+  `bd4bfbb9ed8065be1e571940926d293689985682`, onde os quatro documentos de `docs/research/` existem
+  (37.825 / 37.125 / 34.294 / 21.216 B medidos por `git/trees?recursive=1`). E `catalog/` (os
+  `.records.json` e o `sources.json`) mais `Lia-AgentHub:tools/build-catalog-records.py` não estão na
+  `main` **nem** nesse commit (26 blobs, nenhum `catalog/`): esse ponteiro já estava quebrado antes da
+  limpeza de 2026-11-26, e a única via declarada é o ZIP/bundle do `BRANCH-CONSOLIDATION`. Corrigido em
+  `audits/RECONCILIACAO-OPERACIONAL-2026-11-26.md` §2.2/§3 e em `projects/lia-agent-hub/INDEX.md` §6.
+- **FIX/CONFERÊNCIA** da superfície do MemPalace antes de fechar `LR-AGENT-019`: a lista de verbos do
+  `--help` em 3.12.0 tem **31** subcomandos (a tabela do dossiê descreve os 29 que interessam à pergunta),
+  `hook` só expõe `run` com `--hook {session-start,stop,session-end,precompact}` ×
+  `--harness {claude-code,codex,dsh}`, e `--source`/`--dry-run` são flags de `mine` — não existe
+  `hooks --list` nesta versão. `mempalace init <dir> --no-llm --yes` escreve **um** arquivo no projeto
+  (`mempalace.yaml`) e o palácio fica em `~/.config/mempalace/palace` (XDG), ambos medidos nesta sessão.
+  E `docs/methods/memory-laws.md`, que uma formulação anterior da nossa nota citava como canônico, **não
+  existe no clone** (`git ls-files | grep memory-laws` → zero): as "Leis da Memória" não são arquivo do
+  instalável de hoje, e nenhuma recomendação da Lia deve depender dessa referência.
+
 **Não mudou:** nenhuma recomendação técnica de objeto externo foi reaberta — `repositories/ai-memory/REPORT.md`
 (`LR-AGENT-011`) está byte a byte como foi publicado; o Model Lab permanece pausado; Obsidian não virou
 dependência da Lia; e a decisão de manter a Research pública (`DR-0006`) saiu reforçada da conferência, com
