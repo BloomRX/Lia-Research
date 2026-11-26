@@ -6,14 +6,19 @@ outro documento e não aqui, o outro documento está errado.
 
 - **Data de referência:** 2026-11-26 (3 objetos auditados nesta data — o produto Animama, o conversor de avatares e o serviço PerfectVector, o primeiro `Tipo: serviço` do catálogo — e 1 matriz de recomendação; a rodada anterior, de 2026-11-25, trouxe 10 objetos e 1 digest de comparação; reauditoria técnica dos 22 objetos anteriores segue em `data/inventory/upstream-reaudit-2026-11-20.tsv`)
 - **Itens:** 59 objetos externos (63 linhas com sub-documentos) + 5 dossiês internos + 34 digests transversais + **6 comparações** + 18 registros de governança + **8 documentos de criação de personagens e 1 matriz de execução** + 10 relatórios de 2026-11-17 (na seção própria)
-- **Pouco foi executado.** Existem **43 linhas** em `data/testing/test-log.tsv` (2026-11-26):
-  24 execuções locais com resultado positivo (14 suítes completas + 10 smokes de script), 6 execuções parciais
-  (`PARTIAL`) e 11 tentativas bloqueadas com motivo. Nas criações de personagem e em tudo que exige GPU AMD,
+- **Pouco foi executado.** Existem **44 linhas** em `data/testing/test-log.tsv` (contagem de 2026-11-26,
+  34 objetos): **25** execuções locais com resultado positivo (15 suítes completas + 10 smokes de script),
+  **8** execuções parciais (`PARTIAL`) e **11** tentativas bloqueadas com motivo — a soma fecha em 44.
+  As linhas anteriores (43, com 14 suítes e 6 parciais) já não batiam com o arquivo desde 2026-11-26: a
+  linha do `mcpvault` entrou sem que a frase do índice fosse revista. Corrigido por contagem direta. Nas criações de personagem e em tudo que exige GPU AMD,
   **nada foi executado** — não há GPU nesta sessão e nenhum peso foi baixado. Nas duas últimas rodadas entraram
   6 linhas: os dois validadores de Skill abertos (**346 análises + 177 validações**) executados sobre corpus
   próprio, em `LR-CMP-004`, `LR-AGENT-016`, `LR-AGENT-017` e `LR-AGENT-018`; e os dois gates de licença/
   empacotamento do Animama e do conversor (**12 testes + `check_source.py`** e **46 testes + `check.mjs`**),
   em `LR-UI-006` e `LR-FORGE-024`. Nenhum dos dois executou o produto.
+  Na rodada do PerfectVector entrou a linha do **ensaio local** (`LR-VEC-001`, nível 2, `PARTIAL`):
+  o serviço em si continua sem execução — o que foi registrado é a medição da alternativa aberta, que
+  o dossiê cita em §8 e por isso precisava das dez colunas do `governance/TESTING-PROTOCOL.md` §2.
 
 ## Legenda
 

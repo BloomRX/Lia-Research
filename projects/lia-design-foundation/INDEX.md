@@ -4,7 +4,8 @@
 
 > **Estado deste índice (2026-11-26).** É o primeiro documento da pasta, criado pela triagem dirigida do
 > PerfectVector. Este índice **aponta**: o achado mora em `repositories/perfectvector/REPORT.md`
-> (`LR-VEC-001`). Nada aqui é decisão de produto, e nada aqui foi executado contra serviço algum.
+> (`LR-VEC-001`). Nada aqui é decisão de produto, e nada aqui vem de execução contra o serviço — a única
+> medição desta rodada é local (VTracer 0.6.15, `data/testing/test-log.tsv` de 2026-11-26).
 
 ## 1. Pesquisa consolidada no Lia-Research
 

@@ -19,8 +19,11 @@ dependência.** Verificação em fonte oficial: **16 páginas do próprio fornec
 **7 páginas anunciadas no catálogo oficial falharam ao buscar** e não foram inferidas.
 
 - **ADD** `LR-VEC-001` — PerfectVector / Rastrix Inc. (`repositories/perfectvector/REPORT.md`) —
-  `Tipo: serviço`, `Estado da pesquisa: DOCUMENTED`, `Resultado de execução: NOT_RUN`
-  («nenhuma conta, nenhuma chave, nenhum crédito»), `Recomendação: REFERENCE_ONLY`. Fatos conferidos na
+  `Tipo: serviço`, `Estado da pesquisa: DOCUMENTED`, `Recomendação: REFERENCE_ONLY`.
+  `Resultado de execução: PARTIAL` — não `NOT_RUN`, porque a Etapa D do `governance/INVESTIGATION-PROTOCOL.md`
+  e o §2 do `governance/TESTING-PROTOCOL.md` obrigam registrar **toda** tentativa com as dez colunas, e
+  o dossiê cita a tentativa local do §8; o serviço em si segue sem uma chamada («nenhuma conta, nenhuma
+  chave, nenhum crédito» — Nível 3). Fatos conferidos na
   origem: API em beta aberto desde **2026-11-03**; base `https://api.perfectvector.com/v1`;
   **6 endpoints e nenhum de listagem** («Keep the `id` of each conversion you create»); entrada
   **PNG/JPEG/WebP** apenas, 5 MiB = 5.242.880 B, lado **100–4.096 px**, 1 moldura; saída **só SVG**;
@@ -59,8 +62,11 @@ dependência.** Verificação em fonte oficial: **16 páginas do próprio fornec
   sete regras e os gates que nenhum serviço lido passou.
 - **FIX** contagens e índices: `RESEARCH-INDEX.md` para **59 objetos / 63 linhas**, duas linhas novas em
   §6 (fidelidade relativa **não mensurável por contrato**; e `Lia Design Foundation` sem projeto legível —
-  medido: HTTP 404 em três grafias prováveis na API em 2026-11-26); `README.md` (218 `.md`, 59 objetos,
-  catálogo com 59 linhas); `data/inventory/license-matrix.tsv` com a primeira linha de **serviço**
+  medido: HTTP 404 em três grafias prováveis na API em 2026-11-26); `README.md` (220 `.md`, 59 objetos,
+  catálogo com 59 linhas, e a tabela de testes corrigida de 30 para **44 linhas / 34 objetos**);
+  `data/testing/test-log.tsv` **43 → 44** linhas (LF, 10 colunas — a linha da tentativa local, nível 2,
+  `PARTIAL`), com `data/testing/README.md` atualizado: ele dizia **«0 linhas — nenhum objeto foi executado»**
+  havia 6 dias e 43 linhas, e o parágrafo de contagem do `RESEARCH-INDEX.md` também estava 2 linhas atrasado `data/inventory/license-matrix.tsv` com a primeira linha de **serviço**
   («sem licença de código: o que rege é contrato») e a linha correspondente no digest
   `cross-project/licensing/READY-TO-USE-LICENSES.md`; trilha **D** aberta no roadmap (D-1…D-4); item 6 na
   §5 da fila do backlog. `catalog/catalog.tsv` regenerado (59 linhas).
